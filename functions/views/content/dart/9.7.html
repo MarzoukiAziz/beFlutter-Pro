@@ -1,0 +1,394 @@
+<div class="contenu">
+    <h1>
+        Super Keyword
+    </h1>
+    <ol>
+        <li class="step">
+            Definition
+        </li>
+        <p>
+            The concept of super keyword comes with the idea of inheritance in Dart. Suppose you have a member variable or method of the same name in the derived class as you do in the base class. <br><br>
+            When referring to that variable/method, how would the program know which one are you referring to: the base class or the derived class? <br><br>
+            This is where super comes into play. The super keyword in Dart acts like a <sapn class="word">reference variable to the parent class</sapn>. <br><br>
+            It’s mainly used when we want to access a variable, method, or constructor in the base class, from the derived class.
+        </p>
+        <br>
+        <li class="step">
+            Accessing base class variables
+        </li>
+        <p>
+            When we have the data members of the same name in both the base and derived class, we can use the <span class="word">super</span> keyword to access the base class member in the derived class.
+        </p>
+        <h3 class="note">Example:</h3>
+        <br>
+        <div class=code>
+
+            <p ><span
+            style='color:#569CD6'>class</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#4EC9B0'>Base</span><span
+            style='color:#D4D4D4'>&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;nb&nbsp;=&nbsp;</span><span
+            style='color:#B5CEA8'>25</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p ><span
+            style='color:#569CD6'>class</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#4EC9B0'>Derived</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#569CD6'>extends</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#4EC9B0'>Base</span><span
+            style='color:#D4D4D4'>&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;nb&nbsp;=&nbsp;</span><span
+            style='color:#B5CEA8'>50</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>printNb</span><span
+            style='color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#DCDCAA'>print</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#CE9178'>&quot;Base&nbsp;nb&nbsp;:&nbsp;${</span><span
+            style='color:#9CDCFE'>super.nb</span><span
+            style='color:#CE9178'>}&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#DCDCAA'>print</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#CE9178'>&quot;Derived&nbsp;nb&nbsp;:&nbsp;$</span><span
+            style='color:#9CDCFE'>nb</span><span
+            style='color:#CE9178'>&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>setSuperNb</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>super</span><span
+            style='color:#D4D4D4'>.nb&nbsp;=&nbsp;x;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p ><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>main</span><span
+            style='color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>var</span><span
+            style='color:#D4D4D4'>&nbsp;object&nbsp;=&nbsp;</span><span
+            style='color:#4EC9B0'>Derived</span><span
+            style='color:#D4D4D4'>();</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;object.</span><span
+            style='color:#DCDCAA'>printNb</span><span
+            style='color:#D4D4D4'>();</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;object.nb&nbsp;=&nbsp;</span><span
+            style='color:#B5CEA8'>60</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;object.</span><span
+            style='color:#DCDCAA'>printNb</span><span
+            style='color:#D4D4D4'>();</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;object.</span><span
+            style='color:#DCDCAA'>setSuperNb</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#B5CEA8'>11</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;object.</span><span
+            style='color:#DCDCAA'>printNb</span><span
+            style='color:#D4D4D4'>();</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>}</span></p>
+            
+            <br>
+            </div>
+            <br>
+            <div class="res">
+                Base nb : 25 <br>
+                Derived nb : 50 <br><br>
+                Base nb : 25 <br>
+                Derived nb : 60 <br><br>
+                Base nb : 11 <br>
+                Derived nb : 60 <br>
+
+            </div>
+            <br>
+            <li class="step">
+                Invoking base class method
+            </li>
+            <p>
+                When the name of a function is the same in both the base and derived class, the super keyword can be used to invoke the base class function in the derived class.
+            </p>
+            <h3 class="note">
+                Example:
+            </h3>
+            
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>speak</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Hi!&nbsp;I&nbsp;am&nbsp;from&nbsp;the&nbsp;base&nbsp;Class&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>speak</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Hello!&nbsp;I&nbsp;am&nbsp;from&nbsp;the&nbsp;derived&nbsp;Class&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>listen</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>speak</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>speak</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;object&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;object.</span><span
+    style='color:#DCDCAA'>listen</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Hi! I am from the base Class <br>
+        Hello! I am from the derived Class
+    </div>
+    <br>
+    <li class="step">
+        Invoking base class constructor
+    </li>
+    <p>
+        The super keyword can also be used to invoke the parent class constructor, both parameterized and empty, in the derived class.
+    </p>
+    <h3 class="note">
+        Example:
+    </h3>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Base&nbsp;Constructor&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>()&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Derived&nbsp;Constructor&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;object&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Base Constructor <br>
+        Derived Constructor <br>
+    </div>
+    
+    </ol>
+</div>

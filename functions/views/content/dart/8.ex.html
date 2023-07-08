@@ -1,0 +1,353 @@
+<div class="contenu">
+    <h1>
+        Exercise
+    </h1>
+
+    <p>
+        Create the following directory tree : 
+    </p>
+    <br>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/Exercise%20imports.png?alt=media&token=c45b9abb-f231-4fb2-aca5-a6e2fced5124" alt="" class="img">
+    <br>
+    <p>
+        <ol>
+            <li class=step>
+                msg.dart
+            </li>
+            <p>
+                Create two fuctions the first print "Program starts" and the second print "Program ends".
+            </p>
+            <li class="step">
+                trigo.dart
+            </li>
+            <p>
+                Create three functions that print the sin , cos and tan of a given number using math library.
+            </p>
+            <li class="step">
+                cal.dart
+            </li>
+            <p>
+                Create two functions that print the square and the logarithm of a given number using math library.
+            </p>
+            <li class="step">
+                main.dart
+            </li>
+            <p>
+                - Import msg.dart and cal.dart. <br>
+                - Import trigo.dart with a perfix "trigo". <br>
+                - Use all functions inside all these 3 files. <br>
+            </p>
+            
+        </ol>
+        <br>
+
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/sol%20imports.jpg?alt=media&token=4d2ec7d8-5bd2-4dac-93b4-095efc52fa59" alt="Solution" style="    height: 190px;width: auto;">
+        <br>
+        <br>
+        <ol>
+            <li class=step>
+                msg.dart
+            </li>
+            <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>printStart</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Program&nbsp;start&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>printEnd</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Program&nbsp;end&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <li class="step">
+        trigo.dart
+    </li>
+    <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSin</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;sin($</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>)&nbsp;=&nbsp;${</span><span
+    style='color:#9CDCFE'>sin(x)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printCos</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;cos($</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>)&nbsp;=&nbsp;${</span><span
+    style='color:#9CDCFE'>cos(x)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printTan</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Tan($</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>)&nbsp;=&nbsp;${</span><span
+    style='color:#9CDCFE'>tan(x)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <li class="step">
+        cal.dart
+    </li>
+    <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSqrt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;sqrt&nbsp;of&nbsp;$</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>sqrt(x)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>printLog</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;log&nbsp;of&nbsp;$</span><span style='
+    color:#9CDCFE'>x</span><span style='
+    color:#CE9178'>&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>log(x)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+
+<br>
+    <li class="step">
+        main.dart
+    </li>
+<br>
+    <div class=code>
+
+        <p><span style='
+        color:#569CD6'>import</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span
+        style='color:#CE9178'>'./messages/msg.dart'</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p><span style='
+        color:#569CD6'>import</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#CE9178'>'./math/cal.dart'</span><span style='
+        color:#D4D4D4'>;</span></p>
+        
+        <p><span style='
+        color:#569CD6'>import</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#CE9178'>'./math/trigo.dart'</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#569CD6'>as</span><span style='
+        color:#D4D4D4'>&nbsp;trigo;</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>printStart</span><span style='
+        color:#D4D4D4'>();</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;trigo.</span><span style='
+        color:#DCDCAA'>printSin</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>0.5</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;trigo.</span><span style='
+        color:#DCDCAA'>printCos</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>0.75</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;trigo.</span><span style='
+        color:#DCDCAA'>printTan</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>0.25</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>printSqrt</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>9</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>printLog</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>1</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>printEnd</span><span style='
+        color:#D4D4D4'>();</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+       <br>
+        </div>
+        <br>
+        <br>
+        <div class="res">
+            Program start <br>
+            sin(0.5) = 0.479425538604203 <br>
+            cos(0.75) = 0.7316888688738209 <br>
+            Tan(0.25) = 0.25534192122103627 <br>
+            the sqrt of 9.0 is 3.0 <br>
+            the log of 1.0 is 0.0 <br>
+            Program end <br>
+        </div>
+        </ol>
+    </p>
+</div>

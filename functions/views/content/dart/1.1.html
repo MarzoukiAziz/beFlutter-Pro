@@ -1,0 +1,36 @@
+<div class="contenu">
+			<h1>What Is Dart?</h1>
+			<p>&nbsp;</p>
+			<p>
+				<strong>Dart</strong> is a client-optimized programming language for apps on multiple platforms. It is developed by Google and is used to build mobile, desktop, server, and web applications. 
+	</p>
+	<p style="padding:20px; margin:10px;border:3px gray solid;color:gray;">
+		Dart is a class-based, single-inheritance, pure object-oriented programming language. Dart is optionally typed … and supports reified generics and interfaces.
+Dart programs may be statically checked. The static checker will report
+some violations of the type rules, but such violations do not abort compilation
+or preclude execution.	
+	</p>
+	<p>
+		As a beginner, you may not understand what came previously, so I will explain each feature separately, knowing that understanding it is not necessary to start learning, but it may be useful for people who have some experience with other technologies.
+	<br>
+		<br><br>
+<strong>Class-based:</strong> Dart expects you to use classes.<br><br>
+<strong>Object-oriented programming language:</strong> This statement is a bit redundant, given the "class-based" bit from before. But it is significant: Dart is OOP through and through.<br><br>
+<strong>Optionally typed:</strong> Most languages are either typed or not. JavaScript, for example, is not. When you define a variable, it will be untyped. You can set it to a <span class="word">String</span>, then to a <span class="word">Number</span>, and nobody will complain (well, I will). Moreover, you can call <span class="word">Array</span> methods on that variable, and you won't have any problems until you actually run that line of code. In contrast, Java is typed. Every variable must be declared with a type, such as <span class="word">String</span> or <span class="word">int</span>. And when a variable is typed, you can't put a different type of value into it. And if you tried calling a method that doesn't exist on that type, the compiler will raise an error, letting you know your mistake before you run your code. C and its variants are other typed languages, while Ruby and Python are other untyped languages.<br><br>
+Optionally typed means, as you may now guess, that you have the option declaring a type for variables. It's as simple as this: you can leave the type off, and the compiler won't do any extra checking. If you supply a type, then the compiler will help you out with errors. ActionScript is an example of another optionally typed language.
+This is rather clever move, one that is probably intended to help speed adoption. <br><br>
+<strong>Reified generics:</strong> Generics are a language feature that allow you to type the elements of a collection. However, generics allow you to specify that every item in an <span class="word">Array</span> - or any other collection type - must be of a certain type, perhaps a <span class="word">String</span>. Thus, if you try to insert a <span class="word">Number</span> into the <span class="word">Array</span>, you can get warnings. Reified generics go an extra step and allow this type safety past the compiler. Type integrity at runtime is preserved.<br><br>
+<strong>Interfaces:</strong> An interface is a handy Object-Oriented technique. It defines a type without defining functionality. Its uses are hard to sum up in a sentence or ten, suffice it to say that they are integral to advanced (and clean) Object-Oriented Programming techniques (namely design patterns). Once you grok interfaces, you'll lament the lack of them in other languages.<br><br>
+<strong>Statically checked:</strong> This goes back to the typing thing. When typing is in use, a variable with a type is considered "statically typed," and as such the type can't be changed once it's been declared. This allows the compiler (or "static checker") to make assumptions about your intentions with your code; that is, if you declare a variable as a <span class="word">String</span>, then you shouldn't try calling <span class="word">changeTimeZone</span> on it. If you did (maybe you typed in what you thought was that variable holding the <span class="word">Date</span> object), then the compiler can alert you to the error without having to run the code.<br><br>
+
+	</p>
+	<br>
+	<br>
+
+	<h3 style="border-bottom:1px black solid;">
+		  References
+	</h3>
+	<a href="https://code.tutsplus.com/articles/what-is-dart-and-why-should-you-care--active-11233">1.	What Is Dart, and Why Should You Care?</a>
+	<br>
+	<a href="https://en.wikipedia.org/wiki/Dart_(programming_language)">2.	Dart (programming language) – Wikipedia</a>
+		</div>

@@ -1,0 +1,389 @@
+<div class="contenu">
+    <h1>
+        Class Constructor
+    </h1>
+    <p>
+        A constructor is a special function of the class that is responsible for initializing the variables of the class.  <br>
+        When we create the object of class, then constructor is automatically called.  <br>
+        You can create an object using a constructor. Constructor names can be either <span class="word">ClassName</span> or <span class="word">ClassName.identifier</span> .  <br>
+        A constructor is a function and hence <span class="word">can be parameterized</span> . <br>
+        However, unlike a function, constructors <span class="word">cannot have a return type</span> . <br>
+    </p>
+
+    <ol>
+        <li class="step">
+            Default constructors
+        </li>
+        <p>
+            If you don’t declare a constructor, a default constructor is provided for you. The default constructor has no arguments and invokes the no-argument constructor in the superclass (You will more understand it in super constructor lesson) .
+        </p>
+        <br>
+        <li class="step">
+            Parameter Constructor
+        </li>
+        <p>
+            A constructor has the same name as its class name and it doesn't return any value. <br>
+            Suppose if we have class Person then the constructor name should be also Person.
+        </p>
+        <br>
+        
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(name1,&nbsp;id1)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;name1;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;id1;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;The&nbsp;name&nbsp;and&nbsp;the&nbsp;id&nbsp;have been&nbsp;initialized&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    </div>
+<br>
+    <h3 class="note">
+        Note :
+    </h3>
+    <p>
+        We can also create a constructor without arguments.
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;New&nbsp;Object&nbsp;from&nbsp;person&nbsp;has been&nbsp;created&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+
+    <br>
+        <br>
+        <li class="step">
+            Named Constructors
+        </li>
+        <br>
+        <p>
+            Use a named constructor to implement multiple constructors for a class or to provide extra clarity:
+        </p>
+        <br>
+        
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(name1,&nbsp;id1)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;name1;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;id1;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>onlyname</span><span style='
+    color:#D4D4D4'>(name1)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;name1;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>unknown</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;NaN&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;tom&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>464385190</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.name);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.id);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;--------&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p2&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>onlyname</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;John&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p2.name);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p2.id);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;--------&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p3&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>unknown</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p3.name);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p3.id);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        tom <br>
+        464385190 <br>
+        -------- <br>
+        John <br>
+        0 <br>
+        -------- <br>
+        NaN <br>
+        0 <br>
+    </div>
+    <br>
+     <li class="step">
+        Initializer list
+     </li>   
+     <p>
+        You can also initialize instance variables before the constructor body runs. Separate initializers with commas.
+     </p>
+     <br>
+     
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(n,&nbsp;i)&nbsp;:&nbsp;name&nbsp;=&nbsp;n,&nbsp;id&nbsp;=&nbsp;i&nbsp;{</span></p>
+    
+  
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;New&nbsp;person&nbsp;called&nbsp;$</span><span
+    style='color:#9CDCFE'>name</span><span
+    style='color:#CE9178'>&nbsp;has&nbsp;been&nbsp;created&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;tom&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>464385190</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>   
+    <br>
+    <div class="res">
+        New person called tom has been created <br>
+    </div>
+    <br>
+   
+
+    </ol>
+</div>

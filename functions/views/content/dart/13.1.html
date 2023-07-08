@@ -1,0 +1,245 @@
+<div class="contenu">
+
+    <h1>
+        Handling Futures
+    </h1>
+    <ol>
+        <li class="step">
+            Why asynchronous code matters
+        </li>
+    
+        <p>
+            Asynchronous operations let your program complete work while waiting for another operation to finish. Here are some common asynchronous operations:
+    
+        </p>
+    <ul>
+        <li><p>Fetching data over a network.
+        </p></li>
+        <li><p>Writing to a database.
+        </p></li>
+        <li><p>Reading data from a file.
+        </p></li>
+    </ul>
+    <p>
+        To perform asynchronous operations in Dart, you can use the <span class="word">Future class</span> and the <span class="word">async</span> and <span class="word">await</span> keywords.
+    </p>
+        <p>
+            We call a function <span class="word">asynchronous</span> when it return after setting up a possibly time-consuming operation (such as Input/Output), without waiting for that operation to complete.
+        </p>
+        <p>
+            <br>
+
+        <li class="step">
+            Future<T> class
+        </li>
+        <p>
+            A <span class="word">Future</span> is used to represent a potential value, or error, that will be available at some time in the future. Receivers of a Future can register callbacks that handle the value using <span class="word">.then()</span> or handle the error once it is available using <span class="word">.catchError()</span>. <br>
+        </p>
+        <h4 class="note">
+            Example :
+        </h4>
+        
+<div class=code>
+
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;result=</span><span
+    style='color:#DCDCAA'>getResultFromServer</span><span
+    style='color:#D4D4D4'>()</span></p>
+    <p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;result.</span><span
+style='color:#DCDCAA'>then</span><span
+style='color:#D4D4D4'>((value)&nbsp;=&gt;&nbsp;</span><span
+style='color:#DCDCAA'>handleValue</span><span
+style='color:#D4D4D4'>(value)).</span><span
+style='color:#DCDCAA'>catchError</span><span
+style='color:#D4D4D4'>((error)&nbsp;=&gt;&nbsp;</span><span
+style='color:#DCDCAA'>handleError</span><span
+style='color:#D4D4D4'>(error));</span></p>
+    
+    </div>
+    <p>
+        A Future can be completed in two ways: with a <span class="word">value</span> ("the future succeeds") or with an <span class="word">error</span> ("the future fails"). We can install callbacks for each case.
+    </p>
+    <br>
+
+
+    <li class="step">
+        Handling Futures with Async and Await
+    </li>
+
+        
+        <p>
+            Code that uses <span class="word">async</span> and <span class="word">await</span> is asynchronous, but it looks a lot like synchronous code. For example, here’s some code that uses await to wait for the result of an asynchronous function:
+        </p>
+        <div class=code>
+
+<p><span
+style='color:#C586C0'>await</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#DCDCAA'>lookUpVersion</span><span
+style='color:#D4D4D4'>();</span></p>
+
+
+</div>
+
+
+<p>
+    To use <span class="word">await</span>, code must be in an <span class="word">async</span> function ( a function marked as async) :
+</p>
+
+<div class=code>
+
+    <p><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>checkVersion</span><span
+    style='color:#D4D4D4'>()&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;version&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>lookUpVersion</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;Do&nbsp;something&nbsp;with&nbsp;version</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+
+<h3 class="note">
+    Note:
+</h3>
+<p>
+    Although an <span class="word">async</span> function might perform time-consuming operations, it doesn’t wait for those operations. Instead, the <span class="word">async</span> function executes only until it encounters its first <span class="word">await</span> expression (<a target="_blank" href="https://github.com/dart-lang/sdk/blob/master/docs/newsletter/20170915.md#synchronous-async-start">details</a>). Then it returns a Future object, resuming execution only after the <span class="word">await</span> expression completes.
+</p>
+<br>
+<p>
+    It's a good practice  to use <span class="word">try</span>, <span class="word">catch</span> and <span class="word">finally</span> handle errors and cleanup in code that uses <span class="word">await</span>:
+
+</p>
+
+
+<div class=code>
+
+<p><span
+style='color:#C586C0'>try</span><span
+style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;version&nbsp;=&nbsp;</span><span
+style='color:#C586C0'>await</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#DCDCAA'>lookUpVersion</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span
+style='color:#D4D4D4'>}&nbsp;</span><span
+style='color:#C586C0'>catch</span><span
+style='color:#D4D4D4'>&nbsp;(e)&nbsp;{</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//&nbsp;React&nbsp;to&nbsp;inability&nbsp;to&nbsp;look&nbsp;up&nbsp;the&nbsp;version</span></p>
+
+<p><span
+style='color:#D4D4D4'>}</span></p>
+
+</div>
+
+<br>
+<p>
+    You can use <span class="word">await</span> multiple times in an <span class="word">async</span> function. For example, the following code waits three times for the results of functions:
+</p>
+
+<div class=code>
+
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;entrypoint&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>findEntrypoint</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;exitCode&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>runExecutable</span><span
+    style='color:#D4D4D4'>(entrypoint,&nbsp;args);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>flushThenExit</span><span
+    style='color:#D4D4D4'>(exitCode);</span></p>
+    
+    </div>
+
+    <br>
+    <p>
+        In <span class="word">await expression</span>, the value of <span class="word">expression</span> is usually a Future; if it isn’t, then the value is automatically wrapped in a Future. This Future object indicates a promise to return an object. The value of <span class="word">await expression</span> is that returned object. The await expression makes execution pause until that object is available.
+    </p>
+    <br>
+    <p>
+        If you get a compile-time error when using <span class="word">await</span>, make sure await is in an <span class="word">async</span> function. For example, to use <span class="word">await</span> in your app’s <span class="word">main()</span> function, the body of main() must be marked as <span class="word">async</span>:
+    </p>
+
+    <div class=code>
+
+        <p><span
+        style='color:#4EC9B0'>Future</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>main</span><span
+        style='color:#D4D4D4'>()&nbsp;</span><span
+        style='color:#C586C0'>async</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>checkVersion</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'In&nbsp;main:&nbsp;version&nbsp;is&nbsp;${</span><span
+        style='color:#9CDCFE'>await&nbsp;lookUpVersion()</span><span
+        style='color:#CE9178'>}'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        </div>
+        <br>
+        <br>
+        <br>
+        <p style="background-color: #4EC9B0; padding: 20px;width: 70%;border-radius: 30px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;If you went to go deeper into this subject : <a target="_blank" href="https://dart.dev/codelabs/async-await">async-await</a>
+        </p>
+
+
+
+
+    </ol>
+    
+</div>

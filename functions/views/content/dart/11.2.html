@@ -1,0 +1,590 @@
+<div class="contenu">
+    <h1>
+        Level 2 : Project 7
+    </h1>
+    <br>
+    <p>
+    We want to write a program that manages the cost of teachers at a university. <br> <br>
+    Each teacher has a name, a first name and a certain number of hours of lessons during the year. There are several categories of teachers. <br><br>
+    <span class="word">Teacher-researchers</span> are paid with a fixed salary ($ 2,000) plus income from additional hours ($ 40 per hour). Additional hours are hours worked after 192 hours. Thus, a teacher-researcher who gives 200 hours of lessons in the year will receive 2000 * 12 + 8 * 40 = 24320 $ over the year. <br><br>
+    <span class="word">Temporary contractors</span> are teachers from an organization outside the university. This organism is described by a string of characters. Temporary workers are paid 40 $ per hour for all their hours. <br><br>
+    <span class="word">3rd cycle students</span> (doctoral students) can teach lessons and are paid 30 $ per hour, but cannot exceed 96 hours of lessons. A doctoral student who does more than 96 hours will only receive the salary corresponding to 96 hours of lessons. <br><br> 
+    Finally, on all salaries paid, charges equal to a certain percentage of the salary are applied, this percentage is the same for all teachers (for example 10%, which means that the amount of charges is equal to 10% of the amount of salaries). We want, for each teacher, to be able to know his annual salary before and after taxes. <br><br>
+    Submit Dart code that represents this information and most closely conforms to the principles of object-oriented programming.
+    </p>
+    <br>
+    <h3 class="note">
+        Example Of Main Program : 
+    </h3>
+    <br>
+    <div class=code>
+
+<p><span
+style='color:#569CD6'>void</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#DCDCAA'>main</span><span
+style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Teacher</span><span
+style='color:#D4D4D4'>.charges&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0.15</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#569CD6'>var</span><span
+style='color:#D4D4D4'>&nbsp;t1&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>Researcher</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Vahagn&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>&quot;Sona&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>214</span><span
+style='color:#D4D4D4'>),</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>TemporaryContractors</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Harut&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>&quot;Kohar&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>71</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>&quot;Cornell&nbsp;University&quot;</span><span
+style='color:#D4D4D4'>),</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>DoctoralStudents</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Toros&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>&quot;&nbsp;Azat&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>52</span><span
+style='color:#D4D4D4'>),</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>DoctoralStudents</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Yeva&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>&quot;Ani&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>122</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;t1.</span><span
+style='color:#DCDCAA'>salary</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;t2.</span><span
+style='color:#DCDCAA'>salary</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;t3.</span><span
+style='color:#DCDCAA'>salary</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span
+style='color:#D4D4D4'>&nbsp;&nbsp;t4.</span><span
+style='color:#DCDCAA'>salary</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span
+style='color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+<br>
+    <div class="res">
+        Sona Vahagn : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 23120.0  <br>
+         ++ After Taxes : 19652.0  <br>
+             <br>
+        Kohar Harut : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 2840.0  <br>
+         ++ After Taxes : 2414.0  <br>
+             <br>
+         Azat Toros : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 1560.0  <br>
+         ++ After Taxes : 1326.0  <br>
+             <br>
+        Ani Yeva : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 2880.0  <br>
+         ++ After Taxes : 2448.0  <br>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>abstract</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_firstName,&nbsp;_lastName;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_hoursOfLessons;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;charges&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0.0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;fn,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;ln,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;h)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_firstName&nbsp;=&nbsp;fn;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_lastName&nbsp;=&nbsp;ln;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_hoursOfLessons&nbsp;=&nbsp;h;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Researcher</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Researcher</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;fn,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;ln,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;h)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(fn,&nbsp;ln,&nbsp;h)&nbsp;{}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;s&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>2000.0</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>12</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(_hoursOfLessons&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>192</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;+=&nbsp;(</span><span
+    style='color:#B5CEA8'>192</span><span
+    style='color:#D4D4D4'>&nbsp;-&nbsp;_hoursOfLessons)&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>40</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>_lastName</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>_firstName</span><span
+    style='color:#CE9178'>&nbsp;:&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#CE9178'>&quot;Annual&nbsp;Salary&nbsp;:&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;Before&nbsp;Taxes&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>s</span><span
+    style='color:#CE9178'>&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;After&nbsp;Taxes&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>s&nbsp;*&nbsp;(1&nbsp;-&nbsp;Teacher.charges)</span><span
+    style='color:#CE9178'>}&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>TemporaryContractors</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_organism;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>TemporaryContractors</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;fn,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;ln,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;h,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;o)</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(fn,&nbsp;ln,&nbsp;h)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_organism&nbsp;=&nbsp;o;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;s&nbsp;=&nbsp;_hoursOfLessons&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>40.0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>_lastName</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>_firstName</span><span
+    style='color:#CE9178'>&nbsp;:&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#CE9178'>&quot;Annual&nbsp;Salary&nbsp;:&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;Before&nbsp;Taxes&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>s</span><span
+    style='color:#CE9178'>&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;After&nbsp;Taxes&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>s&nbsp;*&nbsp;(1&nbsp;-&nbsp;Teacher.charges)</span><span
+    style='color:#CE9178'>}&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>DoctoralStudents</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>DoctoralStudents</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;fn,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;ln,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;h)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(fn,&nbsp;ln,&nbsp;h)&nbsp;{}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;s&nbsp;=&nbsp;_hoursOfLessons&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>96</span><span
+    style='color:#D4D4D4'>&nbsp;?&nbsp;</span><span
+    style='color:#B5CEA8'>96</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>30.0</span><span
+    style='color:#D4D4D4'>&nbsp;:&nbsp;_hoursOfLessons&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>30.0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>_lastName</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>_firstName</span><span
+    style='color:#CE9178'>&nbsp;:&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#CE9178'>&quot;Annual&nbsp;Salary&nbsp;:&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;Before&nbsp;Taxes&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>s</span><span
+    style='color:#CE9178'>&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&nbsp;++&nbsp;After&nbsp;Taxes&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>s&nbsp;*&nbsp;(1&nbsp;-&nbsp;Teacher.charges)</span><span
+    style='color:#CE9178'>}&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Teacher</span><span
+    style='color:#D4D4D4'>.charges&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0.15</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;t1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Researcher</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Vahagn&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;Sona&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>214</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>TemporaryContractors</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Harut&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;Kohar&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>71</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;Cornell&nbsp;University&quot;</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>DoctoralStudents</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Toros&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;&nbsp;Azat&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>52</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t4&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>DoctoralStudents</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Yeva&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;Ani&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>122</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;t1.</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;t2.</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;t3.</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;t4.</span><span
+    style='color:#DCDCAA'>salary</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Sona Vahagn : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 23120.0  <br>
+         ++ After Taxes : 19652.0  <br>
+             <br>
+        Kohar Harut : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 2840.0  <br>
+         ++ After Taxes : 2414.0  <br>
+             <br>
+         Azat Toros : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 1560.0  <br>
+         ++ After Taxes : 1326.0  <br>
+             <br>
+        Ani Yeva : <br>
+        Annual Salary :  <br>
+         ++ Before Taxes : 2880.0  <br>
+         ++ After Taxes : 2448.0  <br>
+
+    </div>
+</div>

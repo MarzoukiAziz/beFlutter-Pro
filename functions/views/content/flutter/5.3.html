@@ -1,0 +1,71 @@
+<div class="contenu">
+    <h1>
+        Using Packages
+    </h1>
+    <p>
+        Flutter supports using shared packages contributed by other developers to the Flutter and Dart ecosystems. This
+        allows quickly building an app without having to develop everything from scratch.
+    </p>
+    <p>
+        <strong>Packages : </strong> At a minimum, a Dart package is a directory containing a pubspec file.
+        Additionally, a package can contain dependencies (listed in the pubspec), Dart libraries, apps, resources,
+        tests, images, and examples. The <a href="pub.dev">pub.dev</a> site lists many packages—developed by Google
+        engineers and generous
+        members of the Flutter and Dart community— that you can use in your app.
+    </p>
+    <ol>
+        <li class="step">
+            Searching for packages
+        </li>
+        <p>
+            Packages are published to <span class="word">pub.dev</span>. <br>
+            The Flutter landing page on pub.dev displays top packages that are compatible with Flutter (those that
+            declare dependencies generally compatible with Flutter), and supports searching among all published
+            packages.
+        </p>
+        <li class="step">
+            Adding a package dependency to an app
+        </li>
+        <p>
+            for example this package, <a href="https://pub.dev/packages/shared_preferences">shared_preferences</a>
+        </p>
+        <p>
+            You can follow the steps in the <span class="word"><a
+                    href="https://pub.dev/packages/shared_preferences/install">Installing</a></span> part.
+        </p>
+        <ol>
+            <li class="note">
+                Depend on it
+            </li>
+            <p>
+                Open the <span class="word">pubspec.yaml</span> file located inside the app folder, and add <span
+                    class="word">shared_preferences</span>: under dependencies.
+            </p>
+            <li class="note">Install it </li>
+            <p>
+                From the terminal: <span class="word">Run flutter pub get</span>.
+            </p>
+            <strong>OR</strong>
+            <p>
+                From VS Code: Click <span class="word">Get Packages</span> located in right side of the action ribbon at
+                the top of pubspec.yaml.
+            </p>
+            <li class="note">
+                Import it
+            </li>
+            <p>
+                Add a corresponding <span class="word">import</span> statement in the Dart code.
+            </p>
+            <li class="note">
+                Stop and restart the app, if necessary
+            </li>
+
+        </ol>
+
+    </ol>
+    <br><br>
+    <p style="color: green;">
+        For More Details : <a href="https://flutter.dev/docs/development/packages-and-plugins/using-packages">Flutter
+            Docs</a>
+    </p>
+</div>

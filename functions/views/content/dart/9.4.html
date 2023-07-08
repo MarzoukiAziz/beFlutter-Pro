@@ -1,0 +1,496 @@
+<div class="contenu">
+    <h1>
+        This Keyword
+    </h1>
+    <p>
+        The <span class="word">this</span> keyword is used to refer <span class="word">the current class object</span>. It indicates the current instance of the class, methods, or constructor. It can be also used to call the current class methods or constructors. <br> <br>
+        The most common use of the this keyword is to <span class="word">eliminate the confusion between class attributes and parameters</span> with the same name (because a class attribute is shadowed by a method or constructor parameter). <br><br>
+        It can be passed as an argument in the class method or constructors.
+    </p>
+    <br>
+    <ol>
+
+
+    <li class="step">
+        Example Of Using this:
+    </li>
+    <p>
+        The Dart compiler might get confused if there are a number of the same name parameters. The result is the compiler will create ambiguity.
+    </p>
+    <h4 class="note">
+        Without This : 
+    </h4>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(name,&nbsp;id)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;name;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;id;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;tom&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>464385190</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.name);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.id);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+  <br>
+  <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        null <br>
+        null <br>
+    </div>
+
+    <br>
+    <h4 class="note">
+        With This :
+    </h4>
+
+    <div class=code>
+
+        <p ><span style='
+        color:#569CD6'>class</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#4EC9B0'>String</span><span style='
+        color:#D4D4D4'>&nbsp;name;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#4EC9B0'>int</span><span style='
+        color:#D4D4D4'>&nbsp;id;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>(name,&nbsp;id)&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>this</span><span style='
+        color:#D4D4D4'>.name&nbsp;=&nbsp;name;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>this</span><span style='
+        color:#D4D4D4'>.id&nbsp;=&nbsp;id;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>var</span><span style='
+        color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#CE9178'>&quot;tom&quot;</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>464385190</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(p1.name);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(p1.id);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <br>
+        
+        </div>
+
+    <br>
+    <div class="res">
+        tom <br>
+        464385190         <br>
+    </div>
+<br>
+    <p>
+        That's why we use the this keyword to refer the current class object.
+    </p>
+    <br>
+    <li class="step">
+        Syntactic Sugar
+    </li>
+
+    <p>
+        The pattern of assigning a constructor argument to an instance variable is so common, Dart has syntactic sugar to make it easy:
+    </p>
+    <h3 class="note">Example:</h3>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>this</span><span style='
+    color:#D4D4D4'>.name,&nbsp;</span><span style='
+    color:#569CD6'>this</span><span style='
+    color:#D4D4D4'>.id);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;tom&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>464385190</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.name);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(p1.id);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        tom <br>
+        464385190 <br>
+    </div>
+    <br>
+    <li class="step">
+        Redirecting constructors
+    </li>
+    <p>
+        Sometimes a constructor’s only purpose is to redirect to another constructor in the same class. A redirecting constructor’s body is empty, with the constructor call appearing after a colon (:).
+    </p>
+    <h3 class="note">Example:</h3>    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3d</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;x,&nbsp;y,&nbsp;z;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printCoordinates</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;x&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;y&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>y</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;z&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>z</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Vector3d</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>this</span><span style='
+    color:#D4D4D4'>.x,&nbsp;</span><span style='
+    color:#569CD6'>this</span><span style='
+    color:#D4D4D4'>.y,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.z);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>Vector3d</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>same</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;s)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>(s,&nbsp;s,&nbsp;s);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;v1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Vector3d</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;v1.</span><span style='
+    color:#DCDCAA'>printCoordinates</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;v2&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Vector3d</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>same</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;v2.</span><span style='
+    color:#DCDCAA'>printCoordinates</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        x = 1  y = 2  z = 3 <br>
+        x = 5  y = 5  z = 5 <br>
+    </div>
+    <br>
+
+
+    <li class="step">
+        Constant constructors
+    </li>
+    <br>
+    <p>
+        If your class produces objects that never change, you can make these objects compile-time constants. <br>
+        To do this, define a <span class="word">const</span> constructor and make sure that all instance variables are <span class="word">final</span> . <br>
+        Const constructors can't have a body.    
+    </p>
+    <br>
+    
+    <div class=code>
+    
+        <p ><span style='
+        color:#569CD6'>class</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>final</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>String</span><span style='
+        color:#D4D4D4'>&nbsp;name;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>final</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>int</span><span style='
+        color:#D4D4D4'>&nbsp;id;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>const</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#569CD6'>this</span><span style='
+        color:#D4D4D4'>.name,&nbsp;</span><span style='
+        color:#569CD6'>this</span><span style='
+        color:#D4D4D4'>.id);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>var</span><span style='
+        color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+        color:#4EC9B0'>Person</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#CE9178'>&quot;tom&quot;</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>464385190</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(p1.name);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(p1.id);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+    <br>
+        
+        </div>
+        <br>
+        <br>
+        <div class="res">
+            tom <br>
+            464385190 <br>
+        </div>
+    </ol>
+</div>
+
+
+

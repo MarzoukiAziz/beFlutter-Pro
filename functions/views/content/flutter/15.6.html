@@ -1,0 +1,1671 @@
+<div class="contenu">
+    <h1>
+        Introduction to Provider
+    </h1>
+    <ol>
+        <Li class="step">
+            Getting started
+        </Li>
+
+        <p>
+            <strong>Provider : </strong> Wraps around inherited widgets. This package allows you to provide
+            data and state information to descendant widgets.
+        </p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c15l5p1.jpg?alt=media&token=4760e6e7-80e3-4449-9f07-5a490794ac14"
+            alt="flutter provider">
+        <p>
+            This approach is better. It allows descendant widgets in the subtree to access state
+            information. <br><br>
+            Instead of callbacks, you just wrap <span class="word">Consumers</span> around your widgets. Every time a
+            state changes, those Consumers rebuild the subtree below it.
+        </p>
+        <li class="step">Provider Overview</li>
+        <p>
+            Provider is a convenient way to pass state down the widget tree and rebuild your UI
+            when changes occur. You’ll add it to your project next. <br><br>
+            Before you do that, however, you need to understand four concepts:
+        </p>
+        <ol>
+            <li>
+                <p> <span class="word">ChangeNotifier</span> is extended by a class to provide change notifications to
+                    its
+                    listeners</p>
+            </li>
+            <li>
+                <p><span class="word">ChangeNotifierProvider</span> listens for changes to a ChangeNotifier. Widgets
+                    below it can access the state object and listen to state changes.</p>
+            </li>
+            <li>
+                <p><span class="word">Consumer</span> wraps around part of a widget tree. It rebuilds part of a subtree
+                    when
+                    the state it listens to changes.</p>
+            </li>
+            <li>
+                <p><span class="word">Provider.of</span> allows descendant widgets to access the state object. If you
+                    only
+                    need access to the state object and don’t need to listen for changes, use this!</p>
+            </li>
+        </ol>
+
+        <p>
+            Adding Provider : <a href="https://pub.dev/packages/provider/install">Provider Installing</a>
+        </p>
+
+        <li class="step">Example : My Notes App</li>
+        <br><br>
+        <ol>
+            <li class="note">
+                Creating Note Model
+            </li>
+            <p>
+                In the models directory, create a new file called note.dart and add the
+                following code:
+            </p>
+
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>String</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>title</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>String</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>description</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>this</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>title</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>this</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>description</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+                <br>
+            </div>
+            <br><br>
+            <li class="note">
+                Crearting NoteManager
+            </li>
+            <p>
+                In the providers directory, create a new file called notes_manager.dart and add the following code:
+            </p>
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span lang=FR style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span lang=FR
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span lang=FR
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'../models/note.dart'</span><span
+                        lang=FR style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:flutter/foundation.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>extends</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>ChangeNotifier</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//This
+                        manager holds a private array of _noteItems.</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//
+                        Only the manager can change and update note items.</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>List</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = [];</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//Provides
+                        a public getter method for _noteItems, which is unmodifiable.</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//External
+                        entities can only read the list of note items</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>List</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>get</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> =&gt; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>List</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>unmodifiable</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//Get
+                        the note at index in the list</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>geNoteByIndex</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>int</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>index</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>[</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>index</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>];</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//addNote()
+                        adds a new note item at the end of the list.</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>void</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>addNote</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>add</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>notifyListeners</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#6A9955'>//deleteNoe()
+                        deletes a note at a particular index.</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>void</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>deleteNote</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>int</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>index</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>removeAt</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>index</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>notifyListeners</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+
+                <br>
+            </div>
+            <br>
+            <p>
+                It’s time to provide this to other widgets.
+            </p>
+            <br><br>
+            <li class="note">
+                Providing NoteManager
+            </li>
+            <p>
+                Open main.dart and add the following imports. <br><br>
+                Then, assign MultiProvider to the runApp. This accepts a list of providers
+                for the entire app. <br><br>
+                ChangeNotifierProvider creates an instance of NoteManager, which listens to
+                _noteItems and notifies its listeners.
+
+            </p>
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:flutter/material.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/screens/new_note_screen.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/screens/note_screen.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/screens/notes_screen.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:provider/provider.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'providers/notes_manager.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>void</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>main</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>() {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>runApp</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>MultiProvider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>providers</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: [</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>ChangeNotifierProvider</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>create</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>_</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>) =&gt; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>NotesManager</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>()),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ],</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>child</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>MyApp</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        ));</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>MyApp</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>extends</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>StatelessWidget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>MyApp</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>({</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>? </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}) : </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>super</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>@override</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Widget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>build</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>BuildContext</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>MaterialApp</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CE9178'>'My Notes'</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>theme</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>ThemeData</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#9CDCFE'>primarySwatch</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Colors</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>blue</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>routes</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#CE9178'>&quot;/notes&quot;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>context</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>) =&gt; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>NotesScreen</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#CE9178'>&quot;/note&quot;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>context</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>) =&gt; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>NoteScreen</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#CE9178'>&quot;/new-note&quot;</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) =&gt; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NewNoteScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>()</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>home</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>NotesScreen</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>());</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+                <br>
+            </div>
+            <br><br>
+            <li class="note">
+                Notes Screen
+            </li>
+            <br>
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:flutter/material.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/providers/notes_manager.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:provider/provider.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>extends</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>StatelessWidget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>({</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>? </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}) : </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>super</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>@override</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Widget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>build</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>BuildContext</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>notesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Provider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt;(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>notes</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>notesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>noteItems</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Scaffold</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>appBar</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>AppBar</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Text</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CE9178'>&quot;Notes (</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>${</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#9CDCFE'>notes</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>length</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>}</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CE9178'>)&quot;</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>floatingActionButton</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>FloatingActionButton</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>child</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>:</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#569CD6'>const</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'> &nbsp;</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Icon</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Icons</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>add</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>onPressed</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: () {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#4EC9B0'>Navigator</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>of</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>context</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>).</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>pushNamed</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#CE9178'>&quot;/new-note&quot;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>body</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>ListView</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#DCDCAA'>builder</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>itemCount</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>notes</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>length</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>itemBuilder</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>: (</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#9CDCFE'>ctx</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>, </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#9CDCFE'>index</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#C586C0'>return</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'> </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>ListTile</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>leading</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Text</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>((</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>index</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'> + </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#B5CEA8'>1</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>).</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>toString</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>()),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>title</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Text</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>notes</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>[</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>index</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>].</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>title</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>trailing</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>:</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#569CD6'>const</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'> &nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Icon</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Icons</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>remove_red_eye_outlined</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>onTap</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: () {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Navigator</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>of</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>context</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>).</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>pushNamed</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#CE9178'>&quot;/note&quot;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>arguments</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>index</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; );</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; );</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+                <br>
+            </div>
+            <br><br>
+            <li class="note">
+                New Note Screen
+            </li>
+            <br>
+            <div class="code">
+
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:flutter/material.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/models/note.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'../providers/notes_manager.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:provider/provider.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NewNoteScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>extends</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>StatelessWidget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NewNoteScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>({</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>? </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}) : </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>super</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_formKey</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>GlobalKey</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>FormState</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt;();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextEditingController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_titleController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextEditingController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextEditingController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_descriptionController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextEditingController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>@override</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Widget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>build</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>BuildContext</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Scaffold</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#9CDCFE'>appBar</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#4EC9B0'>AppBar</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#569CD6'>const</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'> </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#4EC9B0'>Text</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#CE9178'>&quot;New Note&quot;</span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#9CDCFE'>body</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#4EC9B0'>Padding</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#9CDCFE'>padding</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#569CD6'>const</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'> </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#4EC9B0'>EdgeInsets</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#DCDCAA'>all</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#B5CEA8'>10</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#9CDCFE'>child</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#4EC9B0'>Form</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>key</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>_formKey</span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>child</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#4EC9B0'>Column</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#9CDCFE'>children</span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#D4D4D4'>: [</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#4EC9B0'>TextFormField</span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>decoration</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>InputDecoration</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>hintText</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Title&quot;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>validator</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>if</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> == </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>null</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> || </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>isEmpty</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Please enter
+                        a title&quot;</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>null</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>controller</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_titleController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#4EC9B0'>TextFormField</span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>decoration</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>InputDecoration</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>hintText</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Description&quot;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>validator</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>if</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> == </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>null</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> || </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>isEmpty</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Please enter
+                        a description&quot;</span><span style='font-size:10.5pt;font-family:Consolas;
+                color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>null</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+                10.5pt;font-family:Consolas;color:#9CDCFE'>controller</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_descriptionController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;
+                font-family:Consolas;color:#4EC9B0'>ElevatedButton</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>onPressed</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: () {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>if</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_formKey</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>currentState</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>!.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>validate</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>()) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>newNote</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_titleController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>text</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>_descriptionController</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>text</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>notesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> =</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Provider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt;(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>listen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>false</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>notesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>addNote</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>newNote</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Navigator</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>).</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>pop</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>child</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Text</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Add&quot;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>))</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; );</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+                <br>
+            </div>
+            <br><br>
+            <li class="note">
+                Note Screen
+            </li>
+            <br>
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:flutter/material.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:my_notes/providers/notes_manager.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>import</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'package:provider/provider.dart'</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>class</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NoteScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>extends</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>StatelessWidget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NoteScreen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>({</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>? </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}) : </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>super</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>key</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>@override</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                    </span><span style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Widget</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>build</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>BuildContext</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>noteIndex</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>ModalRoute</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>)!.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>settings</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>arguments</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>as</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>int</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>noteProvider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Provider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&lt;</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>NotesManager</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&gt;(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>listen</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>false</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>final</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>note</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> = </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>noteProvider</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>geNoteByIndex</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>noteIndex</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Scaffold</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>appBar</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>AppBar</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#569CD6'>const</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'> </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Text</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#CE9178'>&quot;Note&quot;</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>body</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>ListTile</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Text</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>note</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>title</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>subtitle</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Text</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>note</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>description</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>floatingActionButton</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>FloatingActionButton</span><span
+                        style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>child</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#569CD6'>const</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'> </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Icon</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>(</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#4EC9B0'>Icons</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>delete</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>backgroundColor</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#4EC9B0'>Colors</span><span style='font-size:10.5pt;font-family:
+Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>red</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:Consolas;
+color:#9CDCFE'>onPressed</span><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>: () {</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#9CDCFE'>noteProvider</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>deleteNote</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>noteIndex</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:10.5pt;font-family:
+Consolas;color:#4EC9B0'>Navigator</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>.</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>of</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#9CDCFE'>context</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>).</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>pop</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; },</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; ),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        &nbsp; );</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;
+                        }</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>}</span></p>
+                <br>
+            </div>
+        </ol>
+
+        <h2>
+            Preview :
+        </h2>
+        <video class="ss" autoplay muted loop
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/Provider%20intro%20preview%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=257cef87-dc4c-4aa6-9bb0-e1fd14284b47">
+
+        </video>
+    </ol>
+
+    <br>
+    <br>
+    <h2 class="step">Code Source :</h2>
+    <a class="githubLink" href="https://github.com/moazmar/My-Notes-Flutter-Provider-Example" target="_blank">
+        <img class="github"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/f3mn2sw6is59zrxhzj51.jpg?alt=media&token=9dc18b84-5c6c-47a4-a553-fdc879d50b9f"
+            alt="github">
+    </a>
+
+
+</div>

@@ -1,0 +1,1815 @@
+<div class="contenu">
+    <h1>
+        The Weather Model Class
+    </h1>
+    <ol>
+
+        <li class="step">
+            Getting the API key
+        </li>
+        <ol>
+            <li>
+                <p>Create an account in <a href="https://openweathermap.org/">OpenWeather</a> and go to the API page.
+                </p>
+            </li>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c17l1p1.jpg?alt=media&token=4e7820e4-e824-4444-9426-6755062a52c0"
+                alt="openweather">
+            <li>
+                <p>Click <strong>subscribe</strong> for the Daily Forecast 16 days and get the API key. </p>
+            </li>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c17l7p2.png?alt=media&token=19856478-7c70-4df0-b250-1f1e3b35b7d0"
+                alt="api key openweather">
+            <li>
+                <p>Save the api key as a static const in a separated file. </p>
+            </li>
+            <div class="code">
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>ApiKey</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#9CDCFE'>OPEN_WEATHER_API</span><span style='color:#D4D4D4'> = </span><span
+                        style='color:#CE9178'>&quot;&nbsp;&lt;&nbsp;Your-API-Key&nbsp;&gt;&nbsp;&quot;</span><span
+                        style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p><br>
+            </div>
+            <br>
+        </ol>
+        <br>
+        <li class="step">
+            Creating The Weather Model Class
+        </li>
+        <ol>
+            <li>
+                <p>
+                    Visit this link <a href="https://openweathermap.org/forecast5#name5">5 day weather forecast </a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Remplace this field with your api key and test this link in your browser
+                </p>
+            </li>
+            <div class="code">
+                <p style="color: white;">
+                    api.openweathermap.org/data/2.5/forecast?q=london,DE&appid={API key}
+                </p>
+                <br>
+            </div>
+            <br>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c17l7p3.jpg?alt=media&token=fc05fb1b-d228-4a2c-8f17-2c8c943a37a9"
+                alt="api response">
+            <li>
+                <p>
+                    We will use a very practical tool that transform the json model to a dart model. <br>
+                    visit <a href="https://itsallwidgets.com/json-to-dart-converter-support-null-safety">JSON to
+                        Dart</a>. <br>
+                    Paste the response and type OpenWeather in class name field. <br>
+                </p>
+            </li>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c17l7p5.jpg?alt=media&token=1cd21e7b-5cf7-400e-a651-5cd956337b36"
+                alt="">
+
+            <br>
+            <li>
+                <p>
+                    Copy the result in a new file.
+                </p>
+            </li>
+            <li>
+                <p>
+                    You will see some errors caused by a class name called <strong>List</strong> which is a keword in
+                    Dart, so we need to change it to <strong>Liste</strong> . <br>
+                    Also change the <strong>double</strong> type to <strong>num</strong>. <br>
+                    You can copy the result from here :
+                </p>
+            </li>
+            <br>
+            <div class="code">
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>OpenWeather</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>cod</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>message</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>cnt</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>Liste</span><span style='color:#D4D4D4'>&gt;? </span><span
+                        style='color:#9CDCFE'>list</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>City</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>city</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>OpenWeather</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>cod</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>message</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>cnt</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>list</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>city</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>OpenWeather</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>cod</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'cod'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>message</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'message'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>cnt</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'cnt'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>list</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'list'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>?)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ?.</span><span style='color:#DCDCAA'>map</span><span
+                        style='color:#D4D4D4'>((</span><span style='color:#4EC9B0'>dynamic</span><span
+                        style='color:#D4D4D4'> </span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>)
+                        =&gt; </span><span style='color:#4EC9B0'>Liste</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;))</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .</span><span style='color:#DCDCAA'>toList</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>city</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'city'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>City</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'city'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'cod'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>cod</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'message'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>message</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'cnt'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>cnt</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'list'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>list</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>map</span><span
+                        style='color:#D4D4D4'>((</span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>)
+                        =&gt; </span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>()).</span><span
+                        style='color:#DCDCAA'>toList</span><span style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'city'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>city</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>()</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; };</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Liste</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>dt</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Main</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>Weather</span><span style='color:#D4D4D4'>&gt;? </span><span
+                        style='color:#9CDCFE'>weather</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Clouds</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>clouds</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Wind</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>wind</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>visibility</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>pop</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Rain</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>rain</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Sys</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>sys</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>dtTxt</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Liste</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>dt</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>weather</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>clouds</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>wind</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>visibility</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>pop</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>rain</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>sys</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>dtTxt</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Liste</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>dt</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'dt'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'main'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Main</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'main'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>weather</span><span
+                        style='color:#D4D4D4'> = (</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'weather'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>?)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ?.</span><span style='color:#DCDCAA'>map</span><span
+                        style='color:#D4D4D4'>((</span><span style='color:#4EC9B0'>dynamic</span><span
+                        style='color:#D4D4D4'> </span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>)
+                        =&gt; </span><span style='color:#4EC9B0'>Weather</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;))</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .</span><span style='color:#DCDCAA'>toList</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>clouds</span><span
+                        style='color:#D4D4D4'> = (</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'clouds'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Clouds</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'clouds'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>wind</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'wind'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Wind</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'wind'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>visibility</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'visibility'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>int</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>pop</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'pop'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>rain</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'rain'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Rain</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'rain'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>sys</span><span style='color:#D4D4D4'> =
+                        (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'sys'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Sys</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'sys'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>dtTxt</span><span style='color:#D4D4D4'>
+                        = </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'dt_txt'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'dt'</span><span style='color:#D4D4D4'>:
+                    </span><span style='color:#9CDCFE'>dt</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'main'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>main</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'weather'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>weather</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>map</span><span
+                        style='color:#D4D4D4'>((</span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>)
+                        =&gt; </span><span style='color:#9CDCFE'>e</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>()).</span><span
+                        style='color:#DCDCAA'>toList</span><span style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'clouds'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>clouds</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'wind'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>wind</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'visibility'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>visibility</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'pop'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>pop</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'rain'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>rain</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'sys'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>sys</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'dt_txt'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>dtTxt</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; };</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Main</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>temp</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>feelsLike</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>tempMin</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>tempMax</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>pressure</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>seaLevel</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>grndLevel</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>humidity</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>tempKf</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Main</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>temp</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>feelsLike</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>tempMin</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>tempMax</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>pressure</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>seaLevel</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>grndLevel</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>humidity</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>tempKf</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Main</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>temp</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'temp'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>feelsLike</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'feels_like'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>double</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>tempMin</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'temp_min'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>tempMax</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'temp_max'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>pressure</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'pressure'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>seaLevel</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'sea_level'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>int</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>grndLevel</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'grnd_level'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>int</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>humidity</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'humidity'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>tempKf</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'temp_kf'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'temp'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>temp</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'feels_like'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>feelsLike</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'temp_min'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>tempMin</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'temp_max'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>tempMax</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'pressure'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>pressure</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'sea_level'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>seaLevel</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'grnd_level'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>grndLevel</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'humidity'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>humidity</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'temp_kf'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>tempKf</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; };</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Weather</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>description</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Weather</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>description</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Weather</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>
+                        = </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'main'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>description</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> = </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>json</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>[</span><span style='color:#CE9178'>'description'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>String</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>
+                        = </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'icon'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; {</span><span style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>:
+                    </span><span style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'main'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>main</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'description'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>description</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'icon'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Clouds</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>all</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Clouds</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>all</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Clouds</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) : </span><span
+                        style='color:#9CDCFE'>all</span><span style='color:#D4D4D4'> = </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'all'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span><span
+                        style='color:#CE9178'>'all'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>all</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Wind</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>speed</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>deg</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>gust</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Wind</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>speed</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>deg</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>gust</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Wind</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>speed</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'speed'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>deg</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'deg'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>gust</span><span style='color:#D4D4D4'>
+                        = </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'gust'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span><span
+                        style='color:#CE9178'>'speed'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>speed</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'deg'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>deg</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'gust'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>gust</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Rain</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>h</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Rain</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>h</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Rain</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) : </span><span
+                        style='color:#9CDCFE'>h</span><span style='color:#D4D4D4'> = </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'3h'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span><span
+                        style='color:#CE9178'>'3h'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>h</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Sys</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>pod</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Sys</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>pod</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Sys</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) : </span><span
+                        style='color:#9CDCFE'>pod</span><span style='color:#D4D4D4'> = </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'pod'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span><span
+                        style='color:#CE9178'>'pod'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>pod</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>City</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>name</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Coord</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>coord</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>country</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>population</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>timezone</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>sunrise</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>sunset</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>City</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>name</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>coord</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>country</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>population</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>timezone</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>sunrise</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>sunset</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>City</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>name</span><span style='color:#D4D4D4'>
+                        = </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'name'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>coord</span><span style='color:#D4D4D4'>
+                        = (</span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'coord'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;?) != </span><span
+                        style='color:#569CD6'>null</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? </span><span style='color:#4EC9B0'>Coord</span><span
+                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'coord'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : </span><span style='color:#569CD6'>null</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>country</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'country'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>population</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'population'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>] </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#569CD6'>as</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'> </span><span style='color:#4EC9B0'>int</span><span
+                        style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>timezone</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'timezone'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>sunrise</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'sunrise'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>sunset</span><span
+                        style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>json</span><span
+                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'sunset'</span><span
+                        style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                    </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>:
+                    </span><span style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'name'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>name</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'coord'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>coord</span><span
+                        style='color:#D4D4D4'>?.</span><span style='color:#DCDCAA'>toJson</span><span
+                        style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'country'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>country</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'population'</span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#D4D4D4'>: </span><span style='font-size:10.5pt;font-family:
+                Consolas;color:#9CDCFE'>population</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'timezone'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>timezone</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'sunrise'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>sunrise</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'sunset'</span><span
+                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>sunset</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; };</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>Coord</span><span style='color:#D4D4D4'> {</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>lat</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>? </span><span
+                        style='color:#9CDCFE'>lon</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Coord</span><span style='color:#D4D4D4'>({</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>lat</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; </span><span style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>lon</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        });</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Coord</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; : </span><span style='color:#9CDCFE'>lat</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'lat'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>lon</span><span style='color:#D4D4D4'> =
+                    </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                        style='color:#CE9178'>'lon'</span><span style='color:#D4D4D4'>] </span><span
+                        style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                        style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>?;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;
+                    </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                        style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() =&gt; {</span><span
+                        style='color:#CE9178'>'lat'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>lat</span><span style='color:#D4D4D4'>, </span><span
+                        style='color:#CE9178'>'lon'</span><span style='color:#D4D4D4'>: </span><span
+                        style='color:#9CDCFE'>lon</span><span style='color:#D4D4D4'>};</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <br>
+            </div>
+        </ol>
+        <h3 class="note">
+            Fields in API response
+
+
+        </h3>
+        <div>
+
+            <p style='margin-top:4.0pt;margin-right:4.0pt;margin-bottom:
+4.0pt;margin-left:40.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>·<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+                    dir=LTR></span><span style='font-size:11.5pt;
+color:#48484A;border:solid #D0D0D6 1.0pt;padding:2.0pt;'>cod</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Internal
+                    parameter</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:4.0pt;margin-bottom:
+4.0pt;margin-left:40.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>·<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+                    dir=LTR></span><span style='font-size:11.5pt;
+color:#48484A;border:solid #D0D0D6 1.0pt;padding:2.0pt;'>message</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Internal
+                    parameter</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:4.0pt;margin-bottom:
+4.0pt;margin-left:40.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>·<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+                    dir=LTR></span><span style='font-size:11.5pt;
+color:#48484A;border:solid #D0D0D6 1.0pt;padding:2.0pt;'>cnt</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>A number
+                    of timestamps returned in the API response</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:4.0pt;margin-bottom:
+4.0pt;margin-left:40.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>·<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+                    dir=LTR></span><span style='font-size:11.5pt;
+color:#48484A;border:solid #D0D0D6 1.0pt;padding:2.0pt;'>list</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.dt&nbsp;</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>Time of data forecasted,
+                    unix, UTC</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.temp</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Temperature. Unit
+                    Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.feels_like</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;This
+                    temperature parameter accounts for the human perception of weather. Unit
+                    Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.temp_min</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Minimum
+                    temperature at the moment of calculation. This is minimal forecasted
+                    temperature (within large megalopolises and urban areas), use this parameter
+                    optionally. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.temp_max</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Maximum
+                    temperature at the moment of calculation. This is maximal forecasted
+                    temperature (within large megalopolises and urban areas), use this parameter
+                    optionally. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.pressure</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Atmospheric
+                    pressure on the sea level by default, hPa</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.sea_level</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Atmospheric
+                    pressure on the sea level, hPa</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.grnd_level</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Atmospheric
+                    pressure on the ground level, hPa</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.humidity</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Humidity,
+                    %</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.main.temp_kf</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Internal parameter</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.weather</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.weather.id</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Weather condition id</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.weather.main</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Group of weather
+                    parameters (Rain, Snow, Extreme etc.)</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.weather.description</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Weather
+                    condition within the group. You can get the output in your language.&nbsp;<a
+                        href="https://openweathermap.org/forecast5#multi"><span style='color:#E96E50'>Learn
+                            more</span></a>.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.weather.icon</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Weather icon id</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.clouds</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.clouds.all</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Cloudiness, %</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.wind</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.wind.speed</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Wind speed. Unit
+                    Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.wind.deg</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Wind direction,
+                    degrees (meteorological)</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.wind.gust</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Wind gust. Unit
+                    Default: meter/sec, Metric: meter/sec, Imperial: miles/hour</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.visibility</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Average visibility,
+                    metres</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.pop</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Probability of
+                    precipitation</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.rain</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.rain.3h</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Rain volume for last 3
+                    hours, mm</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.snow</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.snow.3h</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Snow volume for last 3
+                    hours</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.sys</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:116.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.sys.pod</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Part of the day (n - night,
+                    d - day)</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>list.dt_txt</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Time of data forecasted,
+                    ISO, UTC</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:4.0pt;margin-bottom:
+4.0pt;margin-left:40.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>·<span
+                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+                    dir=LTR></span><span style='font-size:11.5pt;
+color:#48484A;border:solid #D0D0D6 1.0pt;padding:2.0pt;'>city</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.id</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;City ID</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.name</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;City name</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.coord</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.coord.lat&nbsp;</span><span
+                    style='font-size:11.5pt;font-family:"Arial",sans-serif;color:#48484A'>City geo
+                    location, latitude</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:12.0pt;margin-bottom:
+4.0pt;margin-left:120.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>§<span
+                        style='font:7.0pt "Times New Roman"'>
+                    </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.coord.lon</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;City geo location,
+                    longitude</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.country</span><span style='font-size:11.5pt;
+font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Country code (GB, JP etc.)</span></p>
+
+            <p style='margin-top:4.0pt;margin-right:8.0pt;margin-bottom:
+4.0pt;margin-left:80.0pt;text-indent:-.25in;line-height:normal;'><span style='font-size:10.0pt;color:#48484A'>o<span
+                        style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span><span style='font-size:11.5pt;color:#48484A;border:solid #D0D0D6 1.0pt;
+padding:2.0pt;'>city.timezone</span><span style='font-size:
+11.5pt;font-family:"Arial",sans-serif;color:#48484A'>&nbsp;Shift in seconds
+                    from UTC</span></p>
+
+        </div>
+    </ol>
+</div>

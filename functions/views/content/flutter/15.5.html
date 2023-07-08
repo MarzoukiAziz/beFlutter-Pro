@@ -1,0 +1,210 @@
+<div class="contenu">
+    <h1>
+        Differentiate between ephemeral state and app state
+    </h1>
+    <ol>
+        <li class="step">
+            Ephemeral state
+        </li>
+        <p>
+            Ephemeral state (sometimes called UI state or local state) is the state you can neatly contain in a single
+            widget. <br><br>
+
+            This is, intentionally, a vague definition, so here are a few examples.
+        </p>
+        <ul>
+            <li>
+                <p>
+                    current page in a PageView
+                </p>
+            </li>
+            <li>
+                <p>
+                    current progress of a complex animation
+                </p>
+            </li>
+            <li>
+                <p>
+                    current selected tab in a BottomNavigationBar
+
+                </p>
+            </li>
+        </ul>
+        <p>
+            Other parts of the widget tree seldom need to access this kind of state. There is no need to serialize it,
+            and it doesn’t change in complex ways. <br><br>
+            In other words, there is no need to use state management techniques (ScopedModel, Redux, etc.) on this kind
+            of state. All you need is a <span class="word">StatefulWidget</span>. <br><br>
+            Below, you see how the currently selected item in a bottom navigation bar is held in the _index field of the
+            _MyHomepageState class. In this example, _index is ephemeral state. <br><br>
+        </p>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyHomepage</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyHomepage</span><span style='color:#D4D4D4'>({</span><span
+                    style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                    style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>_MyHomepageState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>() =&gt; </span><span
+                    style='color:#4EC9B0'>_MyHomepageState</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>_MyHomepageState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>MyHomepage</span><span style='color:#D4D4D4'>&gt; {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>_index</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>BottomNavigationBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>currentIndex</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#9CDCFE'>_index</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>onTap</span><span style='color:#D4D4D4'>:
+                    (</span><span style='color:#9CDCFE'>newIndex</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#DCDCAA'>setState</span><span
+                    style='color:#D4D4D4'>(() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>_index</span><span
+                    style='color:#D4D4D4'> = </span><span style='color:#9CDCFE'>newIndex</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; });</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#6A9955'>// ... items ...</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <p>
+            Here, using <span class="word">setState()</span> and a field inside the StatefulWidget’s State class is
+            completely natural. No other
+            part of your app needs to access _index. The variable only changes inside the MyHomepage widget. And, if the
+            user closes and restarts the app, you don’t mind that _index resets to zero.
+
+
+        </p>
+        <br>
+
+        <li class="step">App State</li>
+        <p>
+            State that is not ephemeral, that you want to share across many parts of your app, and that you want to keep
+            between user sessions, is what we call application state (sometimes also called shared state). <br><br>
+            Examples of application state:
+        </p>
+        <ul>
+            <li>
+                <p>User preferences
+                </p>
+            </li>
+            <li>
+                <p>Login info</p>
+            </li>
+            <li>
+                <p>The shopping cart in an e-commerce app</p>
+            </li>
+            <li>
+                <p>Read/unread state of articles in a news app</p>
+            </li>
+        </ul>
+        <p>For managing app state, you’ll want to research your options. Your choice depends on the complexity and
+            nature of your app, your team’s previous experience, and many other aspects. Read on.
+
+        </p>
+        <br>
+        <li class="step">
+            There is no clear-cut rule
+        </li>
+        <p>
+            To be clear, you can use State and setState() to manage all of the state in your app. In fact, the Flutter
+            team does this in many simple app samples (including the starter app that you get with every flutter
+            create). <br><br>
+
+            It goes the other way, too. For example, you might decide that—in the context of your particular app—the
+            selected tab in a bottom navigation bar is not ephemeral state. You might need to change it from outside the
+            class, keep it between sessions, and so on. In that case, the _index variable is app state. <br><br>
+
+            There is no clear-cut, universal rule to distinguish whether a particular variable is ephemeral or app
+            state. Sometimes, you’ll have to refactor one into another. For example, you’ll start with some clearly
+            ephemeral state, but as your application grows in features, it might need to be moved to app state. <br><br>
+
+            For that reason, take the following diagram with a large grain of salt <br><br>
+        </p>
+        <img src="https://flutter.dev/assets/images/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app-state.png"
+            alt="flutter ephemeral state and app state
+        ">
+        <h2 class="note">
+            Summary :
+        </h2>
+        <p>
+
+            There are two conceptual types of state in any Flutter app. Ephemeral state can be implemented
+            using State and setState(), and is often local to a single widget. The rest is your app state. Both types
+            have their place in any Flutter app, and the split between the two depends on your own preference and the
+            complexity of the app.
+
+
+        </p>
+        <br><br><br><br><br><br><br><br><br>
+        <h4 class="note">
+            Source :
+        </h4>
+        <a href="https://flutter.dev/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app">Differentiate
+            between ephemeral state and app state
+        </a>
+    </ol>
+</div>

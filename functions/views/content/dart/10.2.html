@@ -1,0 +1,234 @@
+<div class="contenu">
+    <h1>
+        Operator Overloading 
+    </h1>
+    <p>
+        Operators are instance methods with special names.
+        Dart allows you to define operators with the following names: <br>        
+    </p>
+    <br>
+    <center>
+    <table class="tableau" style="width: 30%;">
+        <tbody>
+          <tr>
+            <td><code class="note">&lt;</code></td>
+            <td><code class="note">+</code></td>
+            <td><code class="note">|</code></td>
+            <td><code class="note">[]</code></td>
+          </tr>
+          <tr>
+            <td><code class="note">&gt;</code></td>
+            <td><code class="note">/</code></td>
+            <td><code class="note">^</code></td>
+            <td><code class="note">[]=</code></td>
+          </tr>
+          <tr>
+            <td><code class="note">&lt;=</code></td>
+            <td><code class="note">~/</code></td>
+            <td><code class="note">&amp;</code></td>
+            <td><code class="note">~</code></td>
+          </tr>
+          <tr>
+            <td><code class="note">&gt;=</code></td>
+            <td><code class="note">*</code></td>
+            <td><code class="note">&lt;&lt;</code></td>
+            <td><code class="note">==</code></td>
+          </tr>
+          <tr>
+            <td><code class="note">–</code></td>
+            <td><code class="note">%</code></td>
+            <td><code class="note">&gt;&gt;</code></td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+      <br>
+    <p>
+        To overload operators, we use: the keyword <span class="word">operator</span> followed by the <span class="word">symbol</span> for the operator being defined. Like any other function, an overloaded operator has a <span class="word">return type </span> and a <span class="word">parameter list</span>.
+    </p>
+    <h2 class="step">
+        Example :
+    </h2>
+    <p>
+        The following example defines Point multiplication (*), addition (+) and subtraction (-)
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>final</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x,&nbsp;y,&nbsp;z;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.y,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;+(</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(x&nbsp;+&nbsp;v.x,&nbsp;y&nbsp;+&nbsp;v.y,&nbsp;z&nbsp;+&nbsp;v.z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;-(</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(x&nbsp;-&nbsp;v.x,&nbsp;y&nbsp;-&nbsp;v.y,&nbsp;z&nbsp;-&nbsp;v.z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;*(</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(x&nbsp;*&nbsp;v.x,&nbsp;y&nbsp;*&nbsp;v.y,&nbsp;z&nbsp;*&nbsp;v.z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;x&nbsp;:&nbsp;$</span><span
+     style='color:#9CDCFE'>x</span><span
+     style='color:#CE9178'>&nbsp;---&nbsp;y&nbsp;:&nbsp;$</span><span
+     style='color:#9CDCFE'>y</span><span
+     style='color:#CE9178'>&nbsp;---&nbsp;z&nbsp;:&nbsp;$</span><span
+     style='color:#9CDCFE'>z</span><span
+     style='color:#CE9178'>&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>final</span><span
+    style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>final</span><span
+    style='color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;a&nbsp;+&nbsp;b;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;d&nbsp;=&nbsp;b&nbsp;-&nbsp;a;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;e&nbsp;=&nbsp;b&nbsp;*&nbsp;a;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;d.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;e.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        x : 5 --- y : 10 --- z : 7 <br>
+        x : 3 --- y : 4 --- z : 3 <br>
+        x : 4 --- y : 21 --- z : 10 <br>
+    </div>
+    <br>
+    <h2 class="note">
+        Note:
+    </h2>
+    <p>
+        You may have noticed that some operators, like !=, are not in the list of names. That’s because they’re just syntactic sugar. For example, the expression e1 != e2 is syntactic sugar for !(e1 == e2).
+    </p>
+</div>

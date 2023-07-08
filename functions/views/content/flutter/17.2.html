@@ -1,0 +1,337 @@
+<div class="contenu">
+    <h1>
+        App10 : Local Weather - Learning New Widgets
+    </h1>
+    <li id="w1" class="step">CircularProgressIndicator </li>
+    <p>
+        A material design circular progress indicator, which spins to indicate that the application is busy.
+    </p>
+    <ul>
+        <li>
+            <p>
+                <span class="word">Determinate</span> : Determinate progress indicators have a specific value at each
+                point in time, and the value
+                should increase monotonically from 0.0 to 1.0, at which time the indicator is complete. To create a
+                determinate progress indicator, use a non-null value between 0.0 and 1.0.
+            </p>
+            <p>
+                <span class="word">Indeterminate</span> :
+                Indeterminate progress indicators do not have a specific value at each point in time and instead
+                indicate that progress is being made without indicating how much progress remains. To create an
+                indeterminate progress indicator, use a null value.
+            </p>
+        </li>
+    </ul>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/O-rhXZLtpv0" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <h3 class="note">
+        Determinate Example :
+    </h3>
+    <br>
+    <div class="code">
+
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'> </span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>({</span><span
+                style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&gt; </span><span
+                style='color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>() =&gt; </span><span
+                style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'> </span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&gt; </span><span
+                style='color:#569CD6'>with</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>TickerProviderStateMixin</span><span style='color:#D4D4D4'> {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#569CD6'>late</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>AnimationController</span><span style='color:#D4D4D4'> </span><span
+                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>() {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'> = </span><span
+                style='color:#4EC9B0'>AnimationController</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>vsync</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#569CD6'>this</span><span style='
+color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>duration</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#569CD6'>const</span><span style='
+color:#D4D4D4'> </span><span style='
+color:#4EC9B0'>Duration</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#9CDCFE'>seconds</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#B5CEA8'>5</span><span style='
+color:#D4D4D4'>),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; )..</span><span style='color:#DCDCAA'>addListener</span><span style='color:#D4D4D4'>(() {</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; </span><span style='
+color:#DCDCAA'>setState</span><span style='
+color:#D4D4D4'>(() {});</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; });</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>repeat</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>reverse</span><span style='color:#D4D4D4'>: </span><span
+                style='color:#569CD6'>true</span><span style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                }</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>() {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                }</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>body</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#4EC9B0'>Padding</span><span style='
+color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>padding</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#569CD6'>const</span><span style='
+color:#D4D4D4'> </span><span style='
+color:#4EC9B0'>EdgeInsets</span><span style='
+color:#D4D4D4'>.</span><span style='
+color:#DCDCAA'>all</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#B5CEA8'>20.0</span><span style='
+color:#D4D4D4'>),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>child</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#4EC9B0'>Column</span><span style='
+color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>mainAxisAlignment</span><span
+                style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>MainAxisAlignment</span><span
+                style='color:#D4D4D4'>.</span><span style='color:#4FC1FF'>spaceEvenly</span><span
+                style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>children</span><span
+                style='color:#D4D4D4'>: &lt;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&gt;[</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#4EC9B0'>Text</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'Circular progress
+                indicator with a fixed
+                color'</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>style</span><span
+                style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>Theme</span><span
+                style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                style='color:#D4D4D4'>).</span><span style='color:#9CDCFE'>textTheme</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span style='color:#9CDCFE'>headline6</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                style='color:#4EC9B0'>CircularProgressIndicator</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>value</span><span
+                style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>controller</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span style='color:#9CDCFE'>value</span><span
+                style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>semanticsLabel</span><span
+                style='color:#D4D4D4'>: </span><span style='color:#CE9178'>'Circular progress
+                indicator'</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; ],</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; &nbsp; ),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; ),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; );</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                }</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+        <br>
+
+    </div>
+    <br><br>
+    <video muted autoplay loop
+        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/Determinate%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=7779ce0d-daf0-4d60-875f-728f04e5e5a5"
+        class="ss">
+
+    </video>
+    <br><br>
+    <h3 class="note">
+        Indeterminate Example :
+    </h3>
+    <div class="code">
+
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'> </span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>({</span><span
+                style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+            </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+        color:#9CDCFE'>body</span><span style='
+        color:#D4D4D4'>: </span><span style='
+        color:#4EC9B0'>Center</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#9CDCFE'>child</span><span style='
+        color:#D4D4D4'>: </span><span style='
+        color:#4EC9B0'>CircularProgressIndicator</span><span style='font-size:10.5pt;
+        font-family:Consolas;color:#D4D4D4'>()),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                &nbsp; );</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;
+                }</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <br>
+    </div>
+    <br><br>
+    <video muted autoplay loop
+        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/inDeterminate%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=41b72fea-ee3d-4a31-8d59-0a0c5a670628"
+        class="ss"></video>
+</div>

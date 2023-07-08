@@ -1,0 +1,681 @@
+<div class="contenu">
+    <h1>
+        Respecting the Softkeyboard Insets
+    </h1>
+    <p>
+        There are a problem faced by many flutter developers while working with soft keyboard inputs in the lower
+        portion of the screen. The problem is whenever a user attempts to fill an input form (whose parent widget is a
+        Card, Container, or something similar) in the lower part of the screen, the soft-keyboard tends to cover that
+        form. The same problem will be replicated below and will show a simple solution to this problem.
+    </p>
+    <h2 class="note">
+        Problem :
+    </h2>
+    <p>
+        When the user tries to fill the input form the soft keyboard covers the form and the user can’t move to another
+        line without going back from the keyboard.
+    </p>
+    <br>
+    <video
+        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l5v1%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=25190ee5-7429-4f4d-8fdc-c51c46cb290d"
+        class="ss" autoplay muted loop></video>
+    <br><br>
+    <div class="code">
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#569CD6'>class</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>StatefulWidget</span><span style='
+        color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span style='
+        color:#D4D4D4'>({</span><span style='
+        color:#4EC9B0'>Key</span><span style='
+        color:#D4D4D4'>?&nbsp;</span><span style='
+        color:#9CDCFE'>key</span><span style='
+        color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span style='
+        color:#D4D4D4'>&gt;&nbsp;</span><span style='font-size:
+        8.5pt;color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#569CD6'>class</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>_MyHomePageState</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#569CD6'>extends</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>State</span><span style='
+        color:#D4D4D4'>&lt;</span><span style='
+        color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>late</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>TextEditingController</span><span style='font-size:
+        8.5pt;color:#D4D4D4'>&nbsp;</span><span style='font-size:
+        8.5pt;color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>late</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>TextEditingController</span><span style='font-size:
+        8.5pt;color:#D4D4D4'>&nbsp;</span><span style='font-size:
+        8.5pt;color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>name</span><span
+                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='
+        color:#CE9178'>&quot;&quot;</span><span style='font-size:
+        8.5pt;color:#D4D4D4'>,&nbsp;</span><span style='font-size:
+        8.5pt;color:#9CDCFE'>address</span><span style='font-size:
+        8.5pt;color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;&quot;</span><span
+                style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>initState</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#4EC9B0'>TextEditingController</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#4EC9B0'>TextEditingController</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>super</span><span style='
+        color:#D4D4D4'>.</span><span style='
+        color:#DCDCAA'>initState</span><span style='font-size:
+        8.5pt;color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>dispose</span><span
+                style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#569CD6'>super</span><span style='
+        color:#D4D4D4'>.</span><span style='
+        color:#DCDCAA'>dispose</span><span style='
+        color:#D4D4D4'>();</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                style='color:#D4D4D4'>(</span><span style='
+        color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#C586C0'>return</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>Scaffold</span><span style='
+        color:#D4D4D4'>(</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#9CDCFE'>appBar</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>AppBar</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>title</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>'Respecting&nbsp;the&nbsp;Softkeyboard&nbsp;Insets'</span><span
+                style='color:#D4D4D4'>)),</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#9CDCFE'>body</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Center</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>$</span><span
+                style='color:#9CDCFE'>name</span><span style='color:#CE9178'>,&nbsp;</span><span
+                style='color:#D4D4D4'>$</span><span style='color:#9CDCFE'>address</span><span
+                style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>floatingActionButton</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FloatingActionButton</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>edit</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>showModalBottomSheet</span><span style='color:#D4D4D4'>&lt;</span><span
+                style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;(</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Wrap</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>horizontal</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>labelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#CE9178'>&quot;Name&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>labelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#CE9178'>&quot;Address&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>name</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>text</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>address</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>text</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                style='color:#DCDCAA'>pop</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>&quot;Update&quot;</span><span style='color:#D4D4D4'>))</span></p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+        <br>
+    </div>
+
+    <br><br>
+    <h2 class="answer">
+        Solution :
+    </h2>
+    <p>
+        The solution that we want to achieve is whenever a user taps on the TextFiled and the keyboard comes out the
+        input form should also move up with a height equivalent to the keyboard’s and the form should be scrollable for
+        easy access. This can be achieved in the following steps:
+    </p>
+    <ul>
+        <li>
+            <p>
+                Using <span class="word">EdgeInsets.only</span> in the padding of the Container widget. This will give
+                us
+                control over the individual padding.
+            </p>
+        </li>
+        <li>
+            <p>
+                In the bottom argument of the padding, we will use <span
+                    class="word">MediaQuery.of(context).viewInsets.bottom</span> to know the height of the keyboard and
+                add it to the bottom padding. This way we whenever the keyboard will appear the form will move up with
+                the height equivalent to that of the keyboard.
+            </p>
+        </li>
+        <li>
+            <p>
+                At last, we will wrap the entire input form with <span class="word">SingleChildScrollView</span>, to
+                make it scrollable. It will make switching to the next input field easier.
+
+            </p>
+        </li>
+    </ul>
+    <br><br>
+    <div class="code">
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>showModalBottomSheet</span><span style='color:#D4D4D4'>&lt;</span><span
+                style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Wrap</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>SingleChildScrollView</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>only</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>bottom</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                style='color:#9CDCFE'>viewInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bottom</span><span style='color:#D4D4D4'>&nbsp;+&nbsp;</span><span
+                style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>horizontal</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>labelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#CE9178'>&quot;Name&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>labelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#CE9178'>&quot;Address&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>name</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#9CDCFE'>_nameEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>text</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>address</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                style='color:#9CDCFE'>_addressEditingController</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>text</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                style='color:#DCDCAA'>pop</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>&quot;Update&quot;</span><span style='color:#D4D4D4'>))</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+        </p>
+        <br>
+    </div>
+    <br><br>
+    <p>
+        This is how the input form will behave after the correction. The input form moves up in accordance with the
+        height of the soft-keyboard, which makes all the fields visible. And in addition to that, the form is also
+        scrollable now.
+
+
+    </p>
+    <br>
+    <video
+        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l5v2%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=7bf3873b-8889-4946-b48d-16fba76eeca3"
+        class="ss" autoplay muted loop></video>
+    <br><br><br><br><br>
+    <p>
+        Source : <a href="https://www.geeksforgeeks.org/flutter-respecting-the-softkeyboard-insets/">geeksforgeeks</a>
+    </p>
+</div>

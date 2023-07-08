@@ -1,0 +1,344 @@
+<div class="contenu">
+    <h1>
+        App4 : Flags Quiz - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">ClipRRect</a></li>
+            <li><a href="#w2">GestureDetector</a></li>
+            <li><a href="#w3">Divider</a></li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">ClipRRect</li>
+        <p>
+            A widget that clips its child using a rounded rectangle.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/eI43jkQkrvs" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Some properties of ClipRRect Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>borderRadius : </strong> BorderRadius
+            </li>
+            <p>
+                The border radius of the rounded corners.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>ClipRRect</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>borderRadius</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>250</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>9</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;lorem&nbsp;ipsum&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>30</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c6l2p1.png?alt=media&token=c2423c95-c70e-431e-9fa3-8c76421bb60d"
+            alt="ClipRRect example" class="ss">
+        <br>
+        <br>
+        <li id="w2" class="step">GestureDetector</li>
+        <p>
+            A widget that detects gestures. Attempts to recognize gestures that correspond to its non-null callbacks.
+        </p>
+
+
+        <br>
+        <h3 class="note">
+            Some properties of GestureDetector Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>onTap : </strong> GestureTapCallback
+            </li>
+            <p>
+                A tap with a primary button has occurred.
+            </p>
+            <li>
+                <strong>onLongPress : </strong>GestureLongPressCallback
+            </li>
+            <p>
+                Called when a long press gesture with a primary button has been recognized.
+            </p>
+            <li>
+                <strong>onDoubleTap : </strong>GestureLongPressCallback
+            </li>
+            <p>
+                The user has tapped the screen with a primary button at the same location twice in quick succession
+            </p>
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>GestureDetector</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>smart_display</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>100</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onTap</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Tap&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onDoubleTap</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Dobule&nbsp;Tap&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onLongPress</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Long&nbsp;Press&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c6l2p2.png?alt=media&token=c5993517-a4aa-4063-b355-496e5102b5f7"
+            alt="GestureDetector Flutter Example" class="ss">
+        <br><br>
+        <li id="w3" class="step">Divider </li>
+        <p>
+            A thin horizontal line, with padding on either side.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_liUC641Nmk" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <br>
+        <h3 class="note">
+            Some properties of Divider Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>color : </strong> Color
+            </li>
+            <p>
+                The color to use when painting the line.
+            </p>
+            <li>
+                <strong>height : </strong>double
+            </li>
+            <p>
+                The divider's height extent.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet,&nbsp;consectetur&nbsp;adipiscing&nbsp;elit&quot;</span><span
+                    style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>7</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Sed&nbsp;ut&nbsp;perspiciatis&nbsp;unde&nbsp;omnis&nbsp;iste&nbsp;natus&nbsp;error&nbsp;sit&nbsp;voluptatem&nbsp;accusantium&nbsp;doloremque&nbsp;laudantium&quot;</span><span
+                    style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR style='color:#9CDCFE'>color</span><span lang=FR style='color:#D4D4D4'>:&nbsp;</span><span
+                    lang=FR style='color:#4EC9B0'>Colors</span><span lang=FR style='color:#D4D4D4'>.</span><span lang=FR
+                    style='color:#9CDCFE'>green</span><span lang=FR style='color:#D4D4D4'>,</span></p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR style='color:#4EC9B0'>Text</span><span lang=FR style='color:#D4D4D4'>(</span></p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR
+                    style='color:#CE9178'>&quot;At&nbsp;vero&nbsp;eos&nbsp;et&nbsp;accusamus&nbsp;et&nbsp;iusto&nbsp;odio&nbsp;dignissimos&nbsp;ducimus&nbsp;qui&nbsp;blanditiis&nbsp;praesentium&nbsp;voluptatum&nbsp;deleniti&nbsp;atque&quot;</span><span
+                    lang=FR style='color:#D4D4D4'>)</span></p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#D4D4D4'>],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c6l2p3.png?alt=media&token=d863a54f-81bf-4c3a-ae80-23489496d7b7"
+            alt="Divider Flutter Example" class="ss">
+
+    </ol>
+</div>

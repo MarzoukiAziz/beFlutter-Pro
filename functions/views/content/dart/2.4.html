@@ -1,0 +1,726 @@
+<div class="contenu">
+     <h1>
+          Boolean
+     </h1>
+     <p>A Boolean type is declared with the bool keyword and can only take the values true or false. We use Booleans in programming to make comparisons and to control the flow of the program. </p>
+<p>Example:</p>
+          <p class="res">
+               bool isReady = false;
+          </p>
+          <p>Before giving examples with operators, we must learn the String Interpolation that gives us the ability to embed expressions within normal strings, you would use the following syntax:
+     </p>
+     
+
+     <div class=code>
+
+          <p><span style='
+          color:#569CD6'>void</span><span style='
+          color:#D4D4D4'>&nbsp;</span><span style='
+          color:#DCDCAA'>main</span><span style='
+          color:#D4D4D4'>(){</span></p>
+          
+          <p ><span style='
+          color:#569CD6'>&nbsp;&nbsp;&nbsp;var</span><span style='
+          color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;Aziz&quot;</span><span
+          style='color:#D4D4D4'>;</span></p>
+          
+          <p ><span style='
+          color:#569CD6'>&nbsp;&nbsp;&nbsp;var</span><span style='
+          color:#D4D4D4'>&nbsp;age&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>;</span></p>
+          
+          <p ><span style='
+          color:#DCDCAA'>&nbsp;&nbsp;&nbsp;print</span><span style='
+          color:#D4D4D4'>(</span><span style='
+          color:#CE9178'>&quot;I&nbsp;am&nbsp;${</span><span style='color:#9CDCFE'>name</span><span style='color:#CE9178'>}&nbsp;I&nbsp;am&nbsp;${</span><span
+          style='color:#9CDCFE'>age</span><span
+          style='color:#CE9178'>}&nbsp;years&nbsp;old&quot;</span><span
+          style='color:#D4D4D4'>);</span></p>
+          
+          <p ><span style='
+          color:#D4D4D4'>}</span></p>
+          
+          <br>
+          
+          </div>
+          <br>
+          <br>
+     <p class="res">
+          I am Aziz I am 20 years old
+     </p>
+<br>
+     <br>
+     <h2 class="step">
+          Comparison Operators:
+     </h2>
+     <br>
+     <div class=code >
+          <p><span style='
+          color:#569CD6'>void </span><span 
+          style='color:#DCDCAA'>main</span></span><span
+          ><span  style='
+          color:#D4D4D4'>()&nbsp;{</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#569CD6'>var</span></span><span ><span 
+          style='color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span></span><span
+          ><span  style='
+          color:#B5CEA8'>10</span></span><span ><span 
+          style='color:#D4D4D4'>;</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#569CD6'>var</span></span><span ><span 
+          style='color:#D4D4D4'>&nbsp;y&nbsp;=&nbsp;</span></span><span
+          ><span  style='
+          color:#B5CEA8'>15</span></span><span ><span 
+          style='color:#D4D4D4'>;</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;==&nbsp;y:&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;==&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;!=&nbsp;y:&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;!=&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;&lt;&nbsp;y:&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;&lt;&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;&gt;&nbsp;y:&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;&gt;&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;&lt;=&nbsp;y&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;&lt;=&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}:&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span ><span 
+          style='color:#D4D4D4'>&nbsp;&nbsp;</span></span><span
+          ><span  style='
+          color:#DCDCAA'>print</span></span><span ><span 
+          style='color:#D4D4D4'>(</span></span><span
+          ><span  style='
+          color:#CE9178'>&quot;x&nbsp;&gt;=&nbsp;y&nbsp;${</span></span><span
+          ><span  style='
+          color:#9CDCFE'>x&nbsp;&gt;=&nbsp;y</span></span><span ><span
+           style='color:#CE9178'>}:&quot;</span></span><span
+          ><span  style='
+          color:#D4D4D4'>);</span></span></p>
+          
+          <p ><span style='
+          color:#D4D4D4'>}</span></p>
+          
+          
+          
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="res" >
+               <p>
+                    x == y : false <br>
+                    x != y : true <br>
+                    x &lt; y : true <br>
+                    x > y : false <br>
+                    x &lt;= y : true <br>
+                    x >= y : false <br>
+               </p>
+          </div>
+          <h2 class="step">
+               Logical Operators:
+          </h2>
+          <br>
+          <div class=code>
+
+               <p ><span style='
+                    color:#569CD6'>void </span><span >main</span></span><span
+               ><span style='
+               color:#D4D4D4'>()&nbsp;{</span></span></p>
+               
+               <p ><span ><span >&nbsp;&nbsp;</span></span><span
+               ><span style='
+               color:#DCDCAA'>print</span></span><span ><span
+               style='color:#D4D4D4'>((</span></span><span
+               ><span style='
+               color:#B5CEA8'>9</span></span><span ><span
+               style='color:#D4D4D4'>&nbsp;&gt;&nbsp;</span></span><span
+               ><span style='
+               color:#B5CEA8'>7</span></span><span ><span
+               style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(</span></span><span
+               ><span style='
+               color:#B5CEA8'>2</span></span><span ><span
+               style='color:#D4D4D4'>&nbsp;&lt;&nbsp;</span></span><span
+               ><span style='
+               color:#B5CEA8'>4</span></span><span ><span
+               style='color:#D4D4D4'>));</span></span></p>
+               
+               <p ><span ><span >&nbsp;&nbsp;</span></span><span
+               ><span style='
+               color:#DCDCAA'>print</span></span><span ><span
+               style='color:#D4D4D4'>((</span></span><span
+               ><span style='
+               color:#B5CEA8'>8</span></span><span ><span
+               style='color:#D4D4D4'>&nbsp;==&nbsp;</span></span><span
+               ><span style='
+               color:#B5CEA8'>8</span></span><span ><span
+               style='color:#D4D4D4'>)&nbsp;||&nbsp;(</span></span><span
+               ><span style='
+               color:#B5CEA8'>6</span></span><span ><span
+               style='color:#D4D4D4'>&nbsp;!=&nbsp;</span></span><span
+               ><span style='
+               color:#B5CEA8'>6</span></span><span ><span
+               style='color:#D4D4D4'>));</span></span></p>
+               
+               <p ><span ><span >&nbsp;&nbsp;</span></span><span
+               ><span style='
+               color:#DCDCAA'>print</span></span><span ><span
+               style='color:#D4D4D4'>(!(</span></span><span
+               ><span style='
+               color:#B5CEA8'>3</span></span><span ><span
+               style='color:#D4D4D4'>&nbsp;&lt;=&nbsp;</span></span><span
+               ><span style='
+               color:#B5CEA8'>1</span></span><span ><span
+               style='color:#D4D4D4'>));</span></span></p>
+               
+               <p ><span style='
+               color:#D4D4D4'>}</span></p>
+                              
+               </div>
+               <br>
+               <br>
+               <br>
+               <br>
+               <p class="res" >
+                    true <br>
+                    true <br>
+                    true <br>
+               </p>
+				<br>
+				<br>
+	<center>
+
+<span style='font-size:15.0pt;line-height:107%;font-family:"Segoe UI",sans-serif;
+color:#323232;letter-spacing:-.4pt'><br clear=all style='page-break-before:
+auto'>
+</span>
+
+<div class=WordSection2>
+
+<h3 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;'><span style='font-size:15.0pt;line-height:107%;
+font-family:"Segoe UI",sans-serif;color:#323232;letter-spacing:-.4pt'>== Truth
+Table</span></h3>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=285
+ style='width:213.7pt;background:white;border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='height:12.3pt'>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:solid #E5E5E5 1.0pt;
+   border-bottom:none;border-right:none;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:12.3pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>x</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:12.3pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>==</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:12.3pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>y</span></b></p>
+   </td>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:none;border-bottom:
+   none;border-right:solid #E5E5E5 1.0pt;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:12.3pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>Returns</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='height:3.75pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:3.75pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:3.75pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>==</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:3.75pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:3.75pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+ <tr style='height:12.7pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>==</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+ <tr style='height:12.3pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.3pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.3pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>==</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.3pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.3pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+ <tr style='height:12.7pt'>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>==</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:solid #E5E5E5 1.0pt;border-top:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+</table>
+
+<h3 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;'><span style='font-size:15.0pt;line-height:107%;
+font-family:"Segoe UI",sans-serif;color:#323232;letter-spacing:-.4pt'>AND Truth
+Table</span></h3>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=281
+ style='width:210.9pt;background:white;border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='height:29.8pt'>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:solid #E5E5E5 1.0pt;
+   border-bottom:none;border-right:none;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:29.8pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>x</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:29.8pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>&amp;&amp;</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:29.8pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>y</span></b></p>
+   </td>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:none;border-bottom:
+   none;border-right:solid #E5E5E5 1.0pt;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:29.8pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>Returns</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='height:30.7pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>&amp;&amp;</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+ <tr style='height:30.7pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>&amp;&amp;</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+ <tr style='height:29.8pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:29.8pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:29.8pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>&amp;&amp;</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:29.8pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:29.8pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+ <tr style='height:30.7pt'>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>&amp;&amp;</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:solid #E5E5E5 1.0pt;border-top:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:30.7pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+</table>
+
+<h3 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;'><span style='font-size:15.0pt;line-height:107%;
+font-family:"Segoe UI",sans-serif;color:#323232;letter-spacing:-.4pt'>OR Truth
+Table</span></h3>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=315
+ style='width:236.1pt;background:white;border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='height:34.35pt'>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:solid #E5E5E5 1.0pt;
+   border-bottom:none;border-right:none;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:34.35pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>x</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:34.35pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>||</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:34.35pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>y</span></b></p>
+   </td>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:none;border-bottom:
+   none;border-right:solid #E5E5E5 1.0pt;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:34.35pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>Returns</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='height:35.35pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>||</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+ <tr style='height:35.35pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>||</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+ <tr style='height:34.35pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:34.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:34.35pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>||</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:34.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:34.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+ <tr style='height:35.35pt'>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>||</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:solid #E5E5E5 1.0pt;border-top:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:35.35pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+</table>
+
+<h3 style='margin-top:15.0pt;margin-right:0in;margin-bottom:7.5pt;margin-left:
+0in;'><span style='font-size:15.0pt;line-height:107%;
+font-family:"Segoe UI",sans-serif;color:#323232;letter-spacing:-.4pt'>NOT Truth
+Table</span></h3>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=320
+ style='width:239.85pt;background:white;border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='height:46.5pt'>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:solid #E5E5E5 1.0pt;
+   border-bottom:none;border-right:none;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:46.5pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>!</span></b></p>
+   </td>
+   <td style='border:none;border-top:solid #E5E5E5 1.0pt;background:#EDEDED;
+   padding:.75pt 15.0pt .75pt 15.0pt;height:46.5pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>x</span></b></p>
+   </td>
+   <td style='border-top:solid #E5E5E5 1.0pt;border-left:none;border-bottom:
+   none;border-right:solid #E5E5E5 1.0pt;background:#EDEDED;padding:.75pt 15.0pt .75pt 15.0pt;
+   height:46.5pt'>
+   <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><b><span
+   style='font-family:"Segoe UI",sans-serif;color:#333333'>Returns</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='height:47.9pt'>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:47.9pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>!</span></p>
+  </td>
+  <td style='border:none;border-left:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:47.9pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  none;border-right:solid #E5E5E5 1.0pt;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:47.9pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+ </tr>
+ <tr style='height:46.5pt'>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:46.5pt'>
+  <p class=MsoNormal align=center style='margin-bottom:.25in;text-align:center'><span
+  style='font-family:"Segoe UI",sans-serif;color:#333333'>!</span></p>
+  </td>
+  <td style='border-top:none;border-left:solid #E5E5E5 1.0pt;border-bottom:
+  solid #E5E5E5 1.0pt;border-right:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:46.5pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>false</span></p>
+  </td>
+  <td style='border:solid #E5E5E5 1.0pt;border-top:none;padding:6.0pt 9.75pt 6.0pt 9.75pt;
+  height:46.5pt'>
+  <p class=MsoNormal style='margin-bottom:.25in'><span style='font-family:"Segoe UI",sans-serif;
+  color:#333333'>true</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<span style='font-size:16.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+<div class=WordSection3>
+
+<p class=MsoNormal><span style='font-size:16.0pt;line-height:107%'>&nbsp;</span></p>
+
+</div>
+</center>	
+	
+</div>

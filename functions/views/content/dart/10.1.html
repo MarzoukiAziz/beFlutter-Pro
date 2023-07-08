@@ -1,0 +1,387 @@
+<div class="contenu">
+    <h1>
+        Method Overriding
+    </h1>
+    <ol>
+        <li class=step>
+            What is Polymorphism?
+        </li>
+        <p>
+            <span class="word">Polymorphism</span> means "many forms", and it occurs when we have many classes that are related to each other by inheritance. <br><br>  
+Like we specified in the previous chapter: Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways. <br><br>
+<span class="note">Real life example of polymorphism</span>: A person at the same time can have different characteristic. Like a man at the same time is a father, a husband, an employee. So, the same person possesses  different behavior in different situations. This is called polymorphism. <br><br>
+The method overriding is a technique to achieve polymorphism. 
+        </p>
+        <br>
+        <li class="step">
+            Method Overriding
+        </li>
+        <p>
+            <span class="word">Method overriding</span> is a feature that allows us to have a same function in child class which is already present in the parent class. A child class inherits the data members and member functions of parent class, but when you want to override a functionality in the child class then you can use function overriding. It is like creating a new version of an old function, in the child class.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;I&nbsp;am&nbsp;an&nbsp;animal&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Bird</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;I&nbsp;am&nbsp;a&nbsp;Bird&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Fish</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;I&nbsp;am&nbsp;a&nbsp;Fish&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;a1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>(),&nbsp;a2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Bird</span><span
+    style='color:#D4D4D4'>(),&nbsp;a3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Fish</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;a1.</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;a2.</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;a3.</span><span
+    style='color:#DCDCAA'>talk</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        I am an animal <br>
+        I am a Bird <br>
+        I am a Fish <br>
+    </div>
+    <br>
+<li class="step">
+    How to call overridden function from the child class
+</li>
+
+    <p>
+        We can use the <span class="word">super</span> keyword in the subclass to invoke the overridden method without creating an object from the parent class. 
+    </p>
+    <h3 class="note">
+        Example : 
+    </h3>
+
+    <div class=code>
+
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Animal</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;I&nbsp;am&nbsp;an&nbsp;animal&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Bird</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>extends</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Animal</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>super</span><span
+        style='color:#D4D4D4'>.</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;I&nbsp;am&nbsp;a&nbsp;Bird&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Fish</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>extends</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Animal</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>super</span><span
+        style='color:#D4D4D4'>.</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;I&nbsp;am&nbsp;a&nbsp;Fish&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>main</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;a1&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>Animal</span><span
+        style='color:#D4D4D4'>(),&nbsp;a2&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>Bird</span><span
+        style='color:#D4D4D4'>(),&nbsp;a3&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>Fish</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;a1.</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;-----&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;a2.</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;-----&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;a3.</span><span
+        style='color:#DCDCAA'>talk</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        <br>
+        
+        </div>    
+        <br>
+        <div class="res">
+            I am an animal <br>
+            ----- <br>
+            I am an animal <br>
+            I am a Bird <br>
+            ----- <br>
+            I am an animal <br>
+            I am a Fish <br>
+        </div>
+        <br>
+        <li class="step">
+            Rules of Method overriding 
+        </li>
+        <ol>
+            <li><p>
+                The overriding method can only be written in Subclass, not in same class.
+            </p></li>
+            <li><p>
+                If a method cannot be inherited then it cannot be overridden.
+            </p></li>
+            <li>
+                <p>
+                    The argument list and the return type should be exactly the same as that of the overridden method.
+                </p>
+            </li>
+            <li><p>
+                Constructors cannot be overridden (cannot be inherited in a subclass).
+            </p></li>
+            <li>
+                <p>
+                    A method declared final or static cannot be overridden.
+                </p>
+            </li>
+        </ol>
+        <br>
+        <li class="step">
+            Conclusion
+        </li>
+        <p>
+           Method Overriding is the ability of a subclass to override a method inherited from a superclass whose behavior is "close enough" and then modify behavior as needed.  <br><br>
+
+        Also, it able the child class to give its own implementation to a method which is already provided by the parent class. In this case the method in parent class is called <span class="word">overridden method</span> and the method in child class is called <span class="word">overriding method</span>. 
+        </p>
+    </ol>
+</div>

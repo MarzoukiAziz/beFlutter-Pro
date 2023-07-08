@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/fontawesome-all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/completeProfile.css">
+    <link rel="icon" href="images/flutter_icon.png">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.min.css">
+    <title>Edit Your Data</title>
+    <!-- Latest compiled and minified JavaScript -->
+</head>
+
+<body>
+    <div>
+        <a href="/"><img class="logo-image" src="images/flutter_brand.png" alt="alternative"></a>
+    </div>
+    <div class="container" id="container">
+        <form action="/editData" method="POST" id="profileForm">
+            <h1>Edit Your Data</h1>
+            <input type="text" placeholder=" Username" name="username"
+                value="<%=userData!=null? userData.username : '' %>" />
+            <br>
+            <input type="text" placeholder="First Name" name="fname"
+                value="<%=userData!=null? userData.firstName: '' %>" />
+            <input type="text" placeholder="Last Name" name="lname"
+                value="<%=userData!=null?userData.lastName: '' %>" />
+            <br><br>
+            <div>
+                <div style="display: flex;
+                flex-direction: row;">
+                    <input checked type="radio" name="avatar" value="a1">
+                    <img src="/images/avatars/a1.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a2">
+                    <img src="/images/avatars/a2.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a3">
+                    <img src="/images/avatars/a3.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a4">
+                    <img src="/images/avatars/a4.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a5">
+                    <img src="/images/avatars/a5.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a6">
+                    <img src="/images/avatars/a6.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a7">
+                    <img src="/images/avatars/a7.png" alt="avatar" style="height:50px">
+                </div>
+                <br><br>
+                <div style="display: flex;
+                flex-direction: row;">
+
+                    <input type="radio" name="avatar" value="a8">
+                    <img src="/images/avatars/a8.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a9">
+                    <img src="/images/avatars/a9.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a10">
+                    <img src="/images/avatars/a10.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a11">
+                    <img src="/images/avatars/a11.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a12">
+                    <img src="/images/avatars/a12.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a13">
+                    <img src="/images/avatars/a13.png" alt="avatar" style="height:50px">
+                    <input type="radio" name="avatar" value="a14">
+                    <img src="/images/avatars/a14.png" alt="avatar" style="height:50px">
+                </div>
+            </div>
+            <br><br>
+            <input type="hidden" name="set" value="<%= set%>">
+            <button>Finish</button>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>

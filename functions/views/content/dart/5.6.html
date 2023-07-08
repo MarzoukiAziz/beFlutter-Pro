@@ -1,0 +1,131 @@
+<div class="contenu">
+    <h1>
+        Lexical Closures
+    </h1>
+    <p>
+        A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope.
+<br><br>
+Functions can close over variables defined in surrounding scopes. 
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#6A9955'>//returns&nbsp;a&nbsp;function&nbsp;that&nbsp;adds&nbsp;x&nbsp;to&nbsp;the&nbsp;function's&nbsp;argument</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>Function</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>createAdder</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;+&nbsp;y;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;};</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#6A9955'>//returns&nbsp;a&nbsp;function&nbsp;that&nbsp;multiply&nbsp;x&nbsp;to&nbsp;the&nbsp;function's&nbsp;argument</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>Function</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>createMultiplier</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y)&nbsp;=&gt;&nbsp;x&nbsp;*&nbsp;y;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;add10&nbsp;=&nbsp;</span><span style='color:#DCDCAA'>createAdder</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;add5&nbsp;=&nbsp;</span><span style='color:#DCDCAA'>createAdder</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);</span></p>
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>add10</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>7</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>add5</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>9</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;multiplyBy2&nbsp;=&nbsp;</span><span
+    style='color:#DCDCAA'>createMultiplier</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;muuliplyBy5&nbsp;=&nbsp;</span><span
+    style='color:#DCDCAA'>createMultiplier</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>multiplyBy2</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>muuliplyBy5</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        17 <br>
+        14 <br>
+        8 <br>
+        15 <br>
+        
+    </div>
+</div>

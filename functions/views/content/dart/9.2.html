@@ -1,0 +1,250 @@
+<div class="contenu">
+    <h1>
+        Classes And Objects
+    </h1>
+    <ol>
+        <li class="step">
+            Declaring a Class
+        </li>
+        <p>
+            Classes in Dart are declared using the keyword <span class="word">class</span>:
+        </p>
+        <div class="syn">
+            <span style="color: yellow;">class</span> Person{ <br>
+            &nbsp;&nbsp;&nbsp;/* ... */ <br>
+            } <br>
+        </div>
+        <p>
+            The class declaration consists of the class name, the class header (specifying its type parameters, the primary constructor etc.) and the class body, surrounded by curly braces.  <br>
+            Both the header and the body are optional: if the class has no body, curly braces can be omitted.
+        </p>
+        <div class="syn">
+            <span style="color: yellow;">class</span> Person;<br>
+        </div>
+        <br>
+        <li class="step">
+            Creating instances of classes
+        </li>
+        <p>
+            After creating the class, we can create an instance or object of that class which we want to access its fields and functions. <br>
+        </p>
+        <div class="res">
+            var p1 = Person(); <br>
+            var p2 = Person(); <br>
+        </div>
+        <p>
+            The following code has the same effect, but uses the optional new keyword before the constructor name:
+        </p>
+        <div class="res">
+            var p1 =<span style="color:yellow">new</span> Person(); <br>
+            var p2 =<span style="color:yellow">new</span> Person(); <br>
+        </div>
+        <p>
+            <span class="note">Version note</span>: The new keyword became optional in Dart 2. <br>
+        </p>
+        <br>
+        <li class="step">
+            Assessing Instance Variable and Function
+        </li>
+        <p>
+            Objects have members consisting of functions and data (methods and instance variables, respectively). When you call a method, you invoke it on an object: the method has access to that object’s functions and data. <br>
+            Use a dot <span class="word">.</span> to refer to an instance variable or method
+        </p>
+        <br>
+        <div class="res">
+            var p1 = Person(); <br>
+            print ( p1.name );<br>
+            print ( p1.phone ):<br>
+        </div>
+        <br>
+        <li class="step">
+            Examples
+        </li>
+        <br>
+        
+<div class=code>
+
+    <p ><span  style='color:#569CD6'>import</span><span  style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:math'</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span  style='color:#569CD6'>class</span><span  style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#4EC9B0'>Point</span><span
+     style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='color:#4EC9B0'>double</span><span 
+    style='color:#D4D4D4'>&nbsp;x;</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='color:#4EC9B0'>double</span><span 
+    style='color:#D4D4D4'>&nbsp;y;</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='color:#4EC9B0'>double</span><span 
+    style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>distance</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#C586C0'>return</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>sqrt</span><span
+     style='color:#D4D4D4'>(x&nbsp;*&nbsp;x&nbsp;+&nbsp;y&nbsp;*&nbsp;y);</span></p>
+    
+    <p ><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>Point</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;a.x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;a.y&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>Point</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;b.x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>4</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;b.y&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(a.</span><span style='color:#DCDCAA'>distance</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(b.</span><span style='color:#DCDCAA'>distance</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>    
+    </div>
+
+<br>
+<div class="res">
+    3.605551275463989 <br>
+    4.0 <br>
+</div>
+
+    <br>
+    <br>
+        
+<div class=code>
+
+    <p ><span style='
+    color:#6A9955'>//dart:core&nbsp;contains&nbsp;DateTime&nbsp;Object</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:core'</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>class</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;phone;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;yearOfBirth;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>age</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>now</span><span style='color:#D4D4D4'>().year&nbsp;-&nbsp;yearOfBirth;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>printName</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(name);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>Person</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;p1.name&nbsp;=&nbsp;</span><span style='
+    color:#CE9178'>&quot;Tom&nbsp;Vardy&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;p1.yearOfBirth&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>1987</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(p1.</span><span style='color:#DCDCAA'>age</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span style='color:#DCDCAA'>printName</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        33 <br>
+        Tom Vardy <br>
+    </div>
+    <br>
+    <br>
+    <h3 class="note">
+        Note:
+    </h3>
+    <p>
+        All uninitialized instance variables have the value null.
+    </p>
+    </ol>
+</div>

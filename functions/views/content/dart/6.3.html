@@ -1,0 +1,314 @@
+<div class="contenu">
+    <h1>
+        Level 1 : Project 3
+    </h1>
+    <br>
+    <p>
+        Plane tickets from an airline show an 11- digit code preceded by a capital letter. <br>
+        &nbsp;&nbsp;&nbsp;Example: U19586900462.  <br><br>
+        To verify the authenticity of a ticket, replace the letter of the code by its alphabetical rank to obtain a number of 12 or 13 digits. <br>
+        <br>If the remainder of the division by 9 of the sum of the digits of this number is equal to 8 , this ticket is authentic, otherwise it's a fake ticket. <br>
+    </p>
+    <h3 class="note">
+        Example:
+    </h3>
+    <p>
+        The ticket with the code "U19586900462" is authentic. Indeed, <br>
+    </p>
+    <ul>
+        <li>
+            <p>
+                The letter "U" has alphabetical rank 21.
+            </p>
+        </li>
+        <li>
+            <p>
+                The number formed will be: " 21 19586900462".
+            </p>
+        </li>
+        <li>
+            <p>
+                The sum of the digits of this number is 2 + 1 + 1 + 9 + 5 + 8 + 6 + 9 + 0 + 0 + 4 + 6 + 2 = 53.
+            </p>
+        </li>
+        <li>
+            <p>
+                The remainder of the division of 53 by 9 is equal to 8 .
+            </p>
+        </li>
+    </ul>
+    <p style="color:forestgreen;">
+        We propose to write a Dart program which allows to verify the authenticity of a ticket from its code.
+    </p>
+	
+	
+	  <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <br>
+	
+	
+<div class=code>
+
+<p ><span style='
+color:#569CD6'>import</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#CE9178'>'dart:io'</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>typeCode</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;code;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;codeNum;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>do</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Enter&nbsp;the&nbsp;Code&nbsp;of&nbsp;the&nbsp;plane&nbsp;ticket&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;=&nbsp;stdin.</span><span
+style='color:#DCDCAA'>readLineSync</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//checking&nbsp;the&nbsp;first&nbsp;character&nbsp;of&nbsp;the&nbsp;code&nbsp;and&nbsp;its&nbsp;length</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((code.length&nbsp;==&nbsp;</span><span
+style='color:#B5CEA8'>12</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(code.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>)&nbsp;&gt;=&nbsp;</span><span
+style='color:#B5CEA8'>65</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;</span><span
+style='color:#6A9955'>//&gt;='A'</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(code.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>)&nbsp;&lt;=&nbsp;</span><span
+style='color:#B5CEA8'>90</span><span
+style='color:#D4D4D4'>))&nbsp;{</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//&lt;='Z'</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//checking&nbsp;if&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;code&nbsp;is&nbsp;numeric</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;codeNum&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>tryParse</span><span
+style='color:#D4D4D4'>(code.</span><span
+style='color:#DCDCAA'>substring</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>));</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//if&nbsp;codeNum&nbsp;==&nbsp;null&nbsp;then&nbsp;the&nbsp;rest&nbsp;is&nbsp;not&nbsp;numeric</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;(codeNum&nbsp;==&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;code;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>}</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>verifCode</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;code)&nbsp;{</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;firstLetterRank&nbsp;=&nbsp;code.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>)&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>64</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;sum;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(firstLetterRank&nbsp;&gt;&nbsp;</span><span
+style='color:#B5CEA8'>9</span><span
+style='color:#D4D4D4'>)&nbsp;</span><span
+style='color:#6A9955'>//a&nbsp;two-digit&nbsp;number</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;=&nbsp;(firstLetterRank&nbsp;%&nbsp;</span><span
+style='color:#B5CEA8'>10</span><span
+style='color:#D4D4D4'>)&nbsp;+&nbsp;(firstLetterRank&nbsp;~/&nbsp;</span><span
+style='color:#B5CEA8'>10</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#6A9955'>//a&nbsp;one-digit&nbsp;number</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;=&nbsp;firstLetterRank;</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;=&nbsp;</span><span
+style='color:#B5CEA8'>11</span><span
+style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;sum&nbsp;+=&nbsp;</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>parse</span><span
+style='color:#D4D4D4'>(code[i]);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(sum&nbsp;%&nbsp;</span><span style='font-size:
+10.5pt;color:#B5CEA8'>9</span><span style='
+color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>)</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Authentic&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span></p>
+
+<p ><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Fake&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span  style='
+color:#D4D4D4'>}</span></p>
+
+<p ><span  style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span  style='
+color:#569CD6'>void</span><span  style='
+color:#D4D4D4'>&nbsp;</span><span 
+style='color:#DCDCAA'>main</span><span
+ style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p ><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+color:#569CD6'>var</span><span  style='font-size:
+10.5pt;color:#D4D4D4'>&nbsp;code&nbsp;=&nbsp;</span><span
+ style='color:#DCDCAA'>typeCode</span><span
+ style='color:#D4D4D4'>();</span></p>
+
+<p ><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>verifCode</span><span style='font-size:
+10.5pt;color:#D4D4D4'>(code);</span></p>
+
+<p ><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+	
+</div>
+	<br>
+	<div class="res">
+    Enter the Code of the plane ticket <br>
+    U19586900462 <br>
+    Authentic <br>
+</div>
+<br>
+<br>
+<div class="res">
+    Enter the Code of the plane ticket <br>
+    U73985019381 <br>
+    Fake <br>
+</div>
+
+</div>

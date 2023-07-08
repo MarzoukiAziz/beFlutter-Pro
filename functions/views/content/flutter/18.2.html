@@ -1,0 +1,633 @@
+<div class="contenu">
+        <h1>
+                App11 : Discover Tunisia - Learning New Widgets
+        </h1>
+        <div class="Toc">
+                <h3>
+                        Table Of Content :
+                </h3>
+                <ol>
+                        <li><a href="#w1">DefaultTabController & TabBar</a></li>
+                        <li><a href="#w2">Scrollbar </a></li>
+                        <li><a href="#w3">ClipOval </a></li>
+                        <li><a href="#w4">SafeArea </a></li>
+
+                </ol>
+        </div>
+        <br>
+        <br>
+        <ol>
+                <li id="w1" class="step">DefaultTabController & TabBar</li>
+                <p>TabBar :A material design widget that displays a horizontal row of tabs. <br><br>
+                        Typically created as the AppBar.bottom part of an AppBar and in conjunction with a TabBarView.
+                        <br><br>
+                        If a TabController is not provided, then a DefaultTabController ancestor must be provided
+                        instead. The tab
+                        controller's TabController.length must equal the length of the tabs list and the length of the
+                        TabBarView.children list. <br><br>
+
+                        Requires one of its ancestors to be a Material widget. <br><br>
+
+                        Uses values from TabBarTheme if it is set in the current context. <br><br>
+
+
+                        The TabController for descendant widgets that don't specify one explicitly. <br><br>
+                        DefaultTabController is an inherited widget that is used to share a TabController with a TabBar
+                        or a
+                        TabBarView. It's used when sharing an explicitly created TabController isn't convenient because
+                        the tab bar
+                        widgets are created by a stateless parent widget or by different parent widgets. <br><br>
+
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/POtoEH-5l40"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() =&gt;
+                                </span><span style='color:#DCDCAA'>runApp</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>({</span><span
+                                        style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>_title</span><span style='color:#D4D4D4'> = </span><span
+                                        style='color:#CE9178'>'Flutter Code
+                                        Sample'</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>_title</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>home</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>MyStatelessWidget</span><span
+                                        style='color:#D4D4D4'>(),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyStatelessWidget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyStatelessWidget</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>? </span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>}) : </span><span style='color:#569CD6'>super</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>DefaultTabController</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>initialIndex</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#B5CEA8'>1</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>length</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#B5CEA8'>3</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>Scaffold</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>AppBar</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'TabBar
+                                        Widget'</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>bottom</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>TabBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>tabs</span><span style='color:#D4D4D4'>: &lt;</span><span
+                                        style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Tab</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>cloud_outlined</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Tab</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>beach_access_sharp</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Tab</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>brightness_5_sharp</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>body</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>TabBarView</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:
+                                        &lt;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&gt;[</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;It's cloudy here&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;It's rainy here&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;It's sunny here&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; ],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+                        <br>
+                </div>
+
+                <br>
+                <video src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/Screenrecorder-2021-12-22-21-00-05-228.mp4?alt=media&token=6a08b971-03a1-498c-bbd0-30cd5ac3ca13"
+                        class="ss" autoplay loop muted></video>
+                <br>
+                <br>
+                <li id="w2" class="step">Scrollbar </li>
+                <p>
+                        A Material Design scrollbar. <br><br>
+
+                        To add a scrollbar to a ScrollView, wrap the scroll view widget in a Scrollbar widget. <br><br>
+
+                        A scrollbar thumb indicates which portion of a ScrollView is actually visible. <br>
+
+                </p>
+                <br>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#4EC9B0'>Scrollbar</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>controller</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>_controllerOne</span><span style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>isAlwaysShown</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#569CD6'>true</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>GridView</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>builder</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>controller</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>_controllerOne</span><span style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>itemCount</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#B5CEA8'>120</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>gridDelegate</span><span
+                                        style='color:#D4D4D4'>:</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>SliverGridDelegateWithFixedCrossAxisCount</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>crossAxisCount</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>itemBuilder</span><span
+                                        style='color:#D4D4D4'>: (</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'item </span><span style='color:#D4D4D4'>$</span><span
+                                        style='color:#9CDCFE'>index</span><span style='color:#CE9178'>'</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; },</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+                        <br>
+                </div>
+                <br>
+                <video src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/scrollbar%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=fe3baf41-ae97-4a27-886d-299579c9d2ca"
+                        autoplay loop muted class="ss"></video>
+                <br>
+                <br>
+                <li id="w3" class="step">ClipOval </li>
+                <p>
+                        A widget that clips its child using an oval. <br><br>
+                        By default, inscribes an axis-aligned oval into its layout dimensions and prevents its child
+                        from painting
+                        outside that oval, but the size and location of the clip oval can be customized using a custom
+                        clipper.
+
+                </p>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vzWWDO6whIM"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <br>
+
+                <h3 class="note">
+                        Some properties of ClipOval Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>child : </strong> Widget?
+                        </li>
+                        <p>
+
+                                The widget below this widget in the tree.
+                        </p>
+                        <li>
+                                <strong>clipBehavior : </strong>Clip
+                        </li>
+                        <p>
+                                Controls how to clip.
+                        </p>
+
+                </ol>
+                <br>
+
+                <br>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#4EC9B0'>Center</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#4EC9B0'>ClipOval</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>Image</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>network</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#CE9178'>&quot;https://images.unsplash.com/photo-1626836014893-37663794dca7?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXMlMjBmbGFnfGVufDB8fDB8fA%3D%3D&amp;w=1000&amp;q=80&quot;</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c18l2p1.jpg?alt=media&token=8e534fb5-b1b2-4377-b3fa-f4da245f1b1a"
+                        alt="ClipOval Flutter" class="ss">
+                <br>
+                <br>
+                <li id="w4" class="step">SafeArea </li>
+                <p>
+                        A widget that insets its child by sufficient padding to avoid intrusions by the operating
+                        system.
+
+                        For example, this will indent the child by enough to avoid the status bar at the top of the
+                        screen.
+
+                        It will also indent the child by the amount necessary to avoid The Notch on the iPhone X, or
+                        other similar
+                        creative physical features of the display. <br><br>
+
+                        When a minimum padding is specified, the greater of the minimum padding or the safe area padding
+                        will be
+                        applied.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/lkF0TQJO0bA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                <h3 class="note">
+                        Some properties of Table Class:
+                </h3>
+                <ol>
+
+                        <li>
+                                <strong>child : </strong> Widget
+                        </li>
+                        <p>
+                                The widget below this widget in the tree.
+                        </p>
+                        <li>
+                                <strong>left : </strong> bool
+                        </li>
+                        <p>
+                                Whether to avoid system intrusions on the left.
+                        </p>
+                        <li>
+                                <strong>maintainBottomViewPadding : </strong>bool
+                        </li>
+                        <p>
+                                Specifies whether the SafeArea should maintain the MediaQueryData.viewPadding instead of
+                                the
+                                MediaQueryData.padding when consumed by the MediaQueryData.viewInsets of the current
+                                context's
+                                MediaQuery,
+                                defaults to false.
+                        </p>
+                        <li>
+                                <strong>minimum : </strong> EdgeInsets
+                        </li>
+                        <p>
+                                This minimum padding to apply.
+                        </p>
+                        <li>
+                                <strong>right : </strong>bool
+                        </li>
+                        <p>
+                                Whether to avoid system intrusions on the right. </p>
+                        <li>
+                                <strong>top : </strong>bool
+                        </li>
+                        <p>
+                                Whether to avoid system intrusions at the top of the screen, typically the system status
+                                bar.
+                        </p>
+                </ol>
+                <br>
+                <br>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#4EC9B0'>SafeArea</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>minimum</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>Center</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>ClipOval</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>network</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#CE9178'>&quot;https://images.unsplash.com/photo-1626836014893-37663794dca7?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXMlMjBmbGFnfGVufDB8fDB8fA%3D%3D&amp;w=1000&amp;q=80&quot;</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c18l2p2.jpg?alt=media&token=6f9b154c-4465-453d-a898-1489033387fc"
+                        alt="SafeArea Flutter" class="ss">
+
+
+        </ol>
+</div>

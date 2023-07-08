@@ -1,0 +1,358 @@
+<div class="contenu">
+    <h1>
+        Level 1 : Project 1
+    </h1>
+	<br>
+
+        <p>
+            In a list of integers, the existence of at least two even elements consecutively forrms "an even sequence". <br><br>
+            <span style="color:forestgreen;">We propose to write a Dart program which allows to fill a list T by N postive integers(with 3≤ N ≤20) and display the number of even sequences of this table as well as the integers of each of these sequences. </span><br>
+        </p>
+        <h3 class="note">
+            Example:
+        </h3>
+        <p>
+            For N = 15 and the following table T : <br>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/project%201%20example.jpg?alt=media&token=2c9a4a65-cbc6-40f3-92db-872e8c03a84b" alt="example of a table"> <br>
+            <span class="note">Output :</span> <br>
+            The number of even sequences is 3. <br>
+            The sequences of even integers are: <br>
+[18, 4] <br>
+[6, 24, 10] <br>
+[18, 4] <br>
+        </p>
+	        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <br>
+	
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>fill</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;tab&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>do</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Enter&nbsp;the&nbsp;element&nbsp;number&nbsp;${</span><span
+    style='color:#9CDCFE'>i&nbsp;+&nbsp;1</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(x&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(x&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;x&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(x&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;tab.</span><span style='color:#DCDCAA'>add</span><span style='color:#D4D4D4'>(x);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;tab;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>display</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;tab)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;sum&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>,&nbsp;i&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;listOfSequence&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;sequence&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(i&nbsp;&lt;&nbsp;tab.length&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;((tab[i]&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(tab[i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>))&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence&nbsp;=&nbsp;[tab[i],&nbsp;tab[i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;&nbsp;tab.length;&nbsp;j++)&nbsp;{</span></p>
+    
+
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(tab[j]&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(tab[j]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;j;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listOfSequence&nbsp;+=&nbsp;sequence.</span><span
+    style='color:#DCDCAA'>toString</span><span
+    style='color:#D4D4D4'>()&nbsp;+&nbsp;</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;The&nbsp;number&nbsp;of&nbsp;even&nbsp;sequences&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>sum</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;The&nbsp;sequences&nbsp;of&nbsp;even&nbsp;integers&nbsp;are:&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(listOfSequence);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//reading&nbsp;n&nbsp;(with&nbsp;3&#8804;&nbsp;n&nbsp;&#8804;20)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>do</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Enter&nbsp;n&nbsp;(with&nbsp;3&#8804;&nbsp;n&nbsp;&#8804;20)&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(n&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(!((n&nbsp;&gt;=&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(n&nbsp;&lt;=&nbsp;</span><span
+    style='color:#B5CEA8'>20</span><span
+    style='color:#D4D4D4'>)))&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(n&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//&nbsp;//filling&nbsp;the&nbsp;list</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;t&nbsp;=&nbsp;</span><span style='color:#DCDCAA'>fill</span><span style='color:#D4D4D4'>(n);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//display&nbsp;the&nbsp;number&nbsp;of&nbsp;even&nbsp;sequences&nbsp;of&nbsp;this&nbsp;table</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//and&nbsp;the&nbsp;integers&nbsp;of&nbsp;each&nbsp;of&nbsp;these&nbsp;sequences</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>(t);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+Enter n (with 3≤ n ≤20) <br>
+15 <br>
+Enter the element number 1 <br>
+3 <br>
+Enter the element number 2 <br>
+18 <br>
+Enter the element number 3 <br>
+4 <br>
+Enter the element number 4 <br>
+7 <br>
+Enter the element number 5 <br>
+5 <br>
+Enter the element number 6 <br>
+6 <br>
+Enter the element number 7 <br>
+24 <br>
+Enter the element number 8 <br>
+10 <br>
+Enter the element number 9 <br>
+1 <br>
+Enter the element number 10 <br>
+8 <br>
+Enter the element number 11 <br>
+3 <br>
+Enter the element number 12 <br>
+18 <br>
+Enter the element number 13 <br>
+4 <br>
+Enter the element number 14 <br>
+11 <br>
+Enter the element number 15 <br>
+8 <br>
+The number of even sequences is 3 <br>
+The sequences of even integers are: <br>
+[18, 4] <br>
+[6, 24, 10] <br>
+[18, 4] <br>
+    </div>
+</div>

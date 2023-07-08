@@ -1,0 +1,386 @@
+<div class="contenu">
+    <h1>
+        Set
+    </h1>
+    <OL>
+        <li class="step">
+            Definition
+        </li>
+        <p>
+            Set is a unordered list of objects in which each object can occur only once. <br>
+            Sets are typed: if you specify the type of the set or Dart infers it then all the elements of the set must have the same type.
+        </p><br>
+        <li class="step">
+            Syntax
+        </li>
+        <br>
+        <p class=syn>
+            <span style="color: cyan;">var</span> setName = <span style="color: yellow;">&lt;type&gt;</span>{} <br></p>
+            <span style="font-weight: 700;">OR</span> <br>
+            <p class=syn>
+            <span style="color: yellowgreen;">Set</span> <span style="color: yellow;">&lt;type&gt;</span> setName={}
+
+        </p>
+        <br>
+        <li class="step">
+            Example
+        </li>
+        <br>
+        <p class=res>
+            var champs={"lux", "Diana", "Ahri"}
+        </p>
+        <br>
+        <li class="step">
+            Inserting Elements
+        </li>
+        <br>
+        <p>
+            <span class="note">add(): </span>insert single item into the set. <br>
+            <span class="note">addAll(): </span>insert multiple items into the set. <br>
+        </p>
+        <br>
+        
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;</span>
+    <span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&gt;{};</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>set</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>add</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>set</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>addAll</span><span style='
+    color:#D4D4D4'>({</span><span style='
+    color:#B5CEA8'>2</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>});</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>set</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>add</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>addAll</span><span style='
+    color:#D4D4D4'>({</span><span style='
+    color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>});</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#569CD6'>set</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    <br>
+    </div>
+    <br>
+    <p class="res">
+        {} <br>
+        {1} <br>
+        {1, 2, 3, 4} <br>
+        {1, 2, 3, 4} <br>r
+    </p>
+    <br>
+    <li class="step">
+        Removing Elements
+    </li>
+    <br>
+    <p>
+        <span class="note">remove(value): </span>
+        Removes value from the set. Returns true if value was in the set. Returns false otherwise. The method has no effect if value value was not in the set. <br>
+        <span class="note">
+            removeAll(elements): 
+        </span>
+R       emoves each element of elements from this set. <br>
+        <span class="note">
+            clear(): 
+        </span> 
+        Removes all elements in the set. <br>
+        
+    </p>
+    <br>
+    <div class=code>
+
+        <p ><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span>
+        <span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span style='
+        color:#4EC9B0'>int</span><span style='
+        color:#D4D4D4'>&gt;{</span><span style='
+        color:#B5CEA8'>0</span><span style='
+        color:#D4D4D4'>,&nbsp;</span><span style='
+        color:#B5CEA8'>1</span><span style='
+        color:#D4D4D4'>,&nbsp;</span><span style='
+        color:#B5CEA8'>2</span><span style='
+        color:#D4D4D4'>,&nbsp;</span><span style='
+        color:#B5CEA8'>3</span><span style='
+        color:#D4D4D4'>,&nbsp;</span><span style='
+        color:#B5CEA8'>4</span><span style='
+        color:#D4D4D4'>};</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+        color:#569CD6'>set</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+        color:#DCDCAA'>remove</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#B5CEA8'>4</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+        color:#569CD6'>set</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+        color:#DCDCAA'>removeAll</span><span style='
+        color:#D4D4D4'>({</span><span style='
+        color:#B5CEA8'>2</span><span style='
+        color:#D4D4D4'>,&nbsp;</span><span style='
+        color:#B5CEA8'>3</span><span style='
+        color:#D4D4D4'>});</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+        color:#569CD6'>set</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>.</span><span style='
+        color:#DCDCAA'>clear</span><span style='
+        color:#D4D4D4'>();</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+        color:#569CD6'>set</span><span style='
+        color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        <br>
+        
+        </div>
+        <br>
+        <div class="res">
+            {0, 1, 2, 3, 4} <br>
+{0, 1, 2, 3} <br>
+{0, 1} <br>
+{} <br>
+
+        </div>
+        <br>
+        <li class="step">
+            Methods And Properties
+        </li>
+        <br>
+        <p>
+            <span class="note">length: </span>Returns the number of elements.
+            <br><span class="note">contains(value): </span>returns true if value is in the set.
+            <br><span class="note">elementAt(index): </span>returns the element at specified index postion(0 &lt;=index &lt;=size-1) .
+            <br><span class="note">union(Set<E> other): </span>Returns a new set which contains all the elements of this set and other.
+            <br><span class="note">intersection(Set<Object?> other): </span>Returns a new set which is the intersection between this set and other. 
+            <br><span class="note">difference(Set<Object?> other): </span>Returns a new set with the elements of this that are not in other.
+            <br><span class="note">toList(): </span>Creates a List containing the elements of this Set.
+
+        </p>
+        <br>
+			
+<div class=code>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>set</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;{</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>2</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>4</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>5</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>6</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>7</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>8</span><span style='
+color:#D4D4D4'>};</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;set1&nbsp;=&nbsp;{</span><span style='font-size:
+10.5pt;color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>5</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>7</span><span style='
+color:#D4D4D4'>};</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;set2&nbsp;=&nbsp;{</span><span style='font-size:
+10.5pt;color:#B5CEA8'>2</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>4</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>6</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>8</span><span style='
+color:#D4D4D4'>};</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;set3&nbsp;=&nbsp;{</span><span style='font-size:
+10.5pt;color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span style='
+color:#B5CEA8'>6</span><span style='
+color:#D4D4D4'>};</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+color:#569CD6'>set</span><span style='
+color:#D4D4D4'>.length);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(set1.</span><span style='color:#DCDCAA'>contains</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(set2.</span><span style='color:#DCDCAA'>contains</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#B5CEA8'>5</span><span style='
+color:#D4D4D4'>));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+color:#569CD6'>set</span><span style='
+color:#D4D4D4'>.</span><span style='
+color:#DCDCAA'>elementAt</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;setUnion&nbsp;=&nbsp;set1.</span><span
+style='color:#DCDCAA'>union</span><span
+style='color:#D4D4D4'>(set2);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(setUnion);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;setIntersection&nbsp;=&nbsp;set1.</span><span
+style='color:#DCDCAA'>intersection</span><span
+style='color:#D4D4D4'>(set2);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(setIntersection);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;setDifference&nbsp;=&nbsp;</span><span
+style='color:#569CD6'>set</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>difference</span><span
+style='color:#D4D4D4'>(set3);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(setDifference);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;listFromSet&nbsp;=&nbsp;[];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;listFromSet&nbsp;=&nbsp;</span><span
+style='color:#569CD6'>set</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>toList</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(listFromSet);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+			<br>
+			<div class=res>
+8 <br>
+true<br>
+false<br>
+4<br>
+{1, 3, 5, 7, 2, 4, 6, 8}<br>
+{}<br>
+{2, 4, 5, 7, 8}<br>
+[1, 2, 3, 4, 5, 6, 7, 8]<br>
+				
+			</div>
+			<br>
+			<br>
+			<h3 class=note> 
+				Note:
+			</h3>
+			<p>
+				For the full list of properties and methods visit this link: <a href="https://api.dart.dev/stable/2.10.2/dart-core/Set-class.html">Dart Documentation</a>
+			</p>
+    </OL>
+</div>

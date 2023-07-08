@@ -1,0 +1,15 @@
+<% checkLessonProgress=(s,c, l)=> { %>
+    <% let ch=`c${c}`; %>
+        <% let les=`l${l}`; %>
+            <% if (userData !=null) { %>
+                <% if (userData.progress !=null) { %>
+                    <% if (userData.progress[s] !=null) { %>
+                        <% if (userData.progress[s][ch] !=null) { %>
+                            <% if (userData.progress[s][ch][les] !=null) %>
+                                <% return userData.progress[s][ch][les] %>
+                                    <% } %>
+                                        <% } %>
+                                            <% } %>
+                                                <% } %>
+                                                    <% return false; %>
+                                                        <% } %>

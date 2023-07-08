@@ -1,0 +1,227 @@
+<div class="contenu">
+    <h1>
+        Super Constructor
+    </h1>
+    <p>
+        The Derived class can inherit all properties and behavior of the base class expect base class constructor. <br><br>
+        The superclass constructor can be invoked in the subclass by using the super() constructor.
+        We can access both non-parameterized and parameterized constructor of the superclass.
+    </p>
+    <ol>
+        <li class="step">
+            Implicit super
+        </li>
+        <p>
+            When creating a subclass constructor, if you don't explicitly call a superclass constructor with  <span class="word"> super </span> , then Dart will insert an implicit call to the  <span class="word"> no-arg </span>  "default" superclass constructor:
+        </p>
+        <h3 class="note">
+            Example: 
+        </h3>
+        
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Base&nbsp;Constructor&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Base</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Derived&nbsp;Constructor&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;object&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Derived</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Base Constructor <br>
+        Derived Constructor
+    </div>
+    <br>
+    <li class="step">
+        Explicit super
+    </li>
+    <p>
+        If the Base class constructor consists of parameters then we require to call <span class="word">super</span> constructor with args in to invoke Base class constructor in the derived class explicitly.
+    </p>
+    <h3 class="note">
+        Example:
+    </h3>
+    <div class=code>
+
+<p ><span
+style='color:#569CD6'>class</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#4EC9B0'>Base</span><span
+style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Base</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Base&nbsp;Constructor&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;I&nbsp;have&nbsp;$</span><span
+style='color:#9CDCFE'>x</span><span
+style='color:#CE9178'>&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p ><span
+style='color:#D4D4D4'>}</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span
+style='color:#569CD6'>class</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#4EC9B0'>Derived</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#569CD6'>extends</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#4EC9B0'>Base</span><span
+style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Derived</span><span
+style='color:#D4D4D4'>(aux,&nbsp;aux2)&nbsp;:&nbsp;</span><span
+style='color:#569CD6'>super</span><span
+style='color:#D4D4D4'>(aux)&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Derived&nbsp;Constructor&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;I&nbsp;have&nbsp;$</span><span
+style='color:#9CDCFE'>aux2</span><span
+style='color:#CE9178'>&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p ><span
+style='color:#D4D4D4'>}</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span
+style='color:#569CD6'>void</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#DCDCAA'>main</span><span
+style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#569CD6'>var</span><span
+style='color:#D4D4D4'>&nbsp;object&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>Derived</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>4</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+<br>
+<div class="res">
+    Base Constructor <br>
+    I have 4 <br>
+    Derived Constructor <br>
+    I have 8 <br>
+</div>
+    </ol>
+</div>

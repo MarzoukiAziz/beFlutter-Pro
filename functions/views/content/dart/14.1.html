@@ -1,0 +1,108 @@
+<div class="contenu">
+    <h1>
+        Generators
+    </h1>
+    <p>
+        When you need to lazily produce a sequence of values, consider using a generator function. Dart has built-in support for two kinds of generator functions:
+    </p>
+    <ul>
+        <li>
+            <p>
+                <span class="note">Synchronous </span> generator: Returns an <a href="https://api.dart.dev/stable/2.10.4/dart-core/Iterable-class.html">Iterable</a> object.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="note">Asynchronous</span> generator: Returns a <a href="https://api.dart.dev/stable/2.10.4/dart-async/Stream-class.html">Stream</a> object.
+            </p>
+        </li>
+    </ul>
+    <p>
+        To implement a <span class="word">synchronous</span> generator function, mark the function body as <span class="word">sync*</span>, and use <span class="word">yield</span> statements to deliver values:
+    </p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#4EC9B0'>Stream</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>asynchronousNaturalsTo</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;n)&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>*&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;k&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>while</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;&lt;&nbsp;n)&nbsp;</span><span
+    style='color:#C586C0'>yield</span><span
+    style='color:#D4D4D4'>&nbsp;k++;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <p>
+        If your generator is recursive, you can improve its performance by using <span class="word">yield*</span>:
+    </p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#4EC9B0'>Iterable</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>naturalsDownFrom</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;n)&nbsp;</span><span
+    style='color:#C586C0'>sync</span><span
+    style='color:#D4D4D4'>*&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(n&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>yield</span><span
+    style='color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>yield</span><span
+    style='color:#D4D4D4'>*&nbsp;</span><span
+    style='color:#DCDCAA'>naturalsDownFrom</span><span
+    style='color:#D4D4D4'>(n&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+    
+</div>

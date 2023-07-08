@@ -1,0 +1,378 @@
+<div class="contenu">
+    <h1>
+        Optional Parameters
+    </h1>
+    <ol>
+        <p>
+In normal case, you have to specify all parameters value when you declare a function with arguments, then. But what we will do if we want our arguments to be optional. <br><br>
+You are free to give value to optional parameters or not. If you don’t specify its value then also its okay. <br><br>
+Good practice says optional parameters should be placed in last at parameters list.
+        </p>
+        <li class="step">
+            Optional Positional argument:
+        </li>
+        <p>
+            Wrapping a set of function parameters in [] marks them as optional positional parameters:
+        </p>
+        
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;msg1,&nbsp;[</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;msg2,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;msg3])&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(msg1);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(msg2&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(msg2);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(msg3&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(msg3);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;----&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#CE9178'>&quot;salut&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;----&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#CE9178'>&quot;salut&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#CE9178'>&quot;Hallo&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    </div>
+    <br>
+    <div class="res">
+        hi <br>
+        ---- <br>
+        hi <br>
+        salut <br>
+        ---- <br>
+        hi <br>
+        salut <br>
+        Hallo <br>
+    </div>
+    <p>
+        In optional positional argument if we don’t pass value then it is set to NULL.
+    </p>
+    <li class="step">
+        Optional Named Argument:
+    </li>
+    <p>
+        For Optional Named Parameter, the parameter's name must be specified while the value is being passed. A parameter wrapped by { } is a named optional parameter. Here is an example:
+    </p>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;msg1,&nbsp;{</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;msg2,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;msg3})&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(msg1);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(msg2&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(msg2);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(msg3&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(msg3);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;----&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;msg3:&nbsp;</span><span style='
+    color:#CE9178'>&quot;hallo&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;----&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;msg2:&nbsp;</span><span style='
+    color:#CE9178'>&quot;salut&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;msg3:&nbsp;</span><span
+    style='color:#CE9178'>&quot;Hallo&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;----&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;hi&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;msg3:&nbsp;</span><span style='
+    color:#CE9178'>&quot;hallo&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;msg2:&nbsp;</span><span
+    style='color:#CE9178'>&quot;salut&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    </div>
+    <br>
+    <div class="res">
+        hi <br>
+        ---- <br>
+        hi <br>
+        hallo <br>
+        ---- <br>
+        hi <br>
+        salut <br>
+        Hallo <br>
+        ---- <br>
+        hi <br>
+        salut <br>
+        hallo <br>
+    </div>
+    <br>
+    <p>
+        The advantage here is that as we specify the parameter's name and value, we can pass parameters in any order.
+    </p>
+    <li class="step">
+        Optional Parameters with default values:
+    </li>
+    <p>
+    In optional positional Parameters and optional named Parameters, if you don’t specify the value at function calling it will set to NULL. <br>
+    Your function can use = to define default values for both named and positional parameters. The default values must be compile-time constants. If no default value is provided, the default value is null. <br>     
+    </p>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>say1</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;value1,&nbsp;{</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;value2&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;value3&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>})&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;value1:$</span><span
+    style='color:#9CDCFE'>value1</span><span
+    style='color:#CE9178'>&nbsp;value2:$</span><span
+    style='color:#9CDCFE'>value2</span><span
+    style='color:#CE9178'>&nbsp;value3:$</span><span
+    style='color:#9CDCFE'>value3</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>say2</span><span style='
+    color:#D4D4D4'>(msg1,&nbsp;[msg2&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;empty&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;msg3&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;empty&quot;</span><span
+    style='color:#D4D4D4'>])&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;msg1:$</span><span style='font-size:
+    10.5pt;color:#9CDCFE'>msg1</span><span style='font-size:
+    10.5pt;color:#CE9178'>&nbsp;msg2:$</span><span
+    style='color:#9CDCFE'>msg2</span><span
+    style='color:#CE9178'>&nbsp;msg3:$</span><span
+    style='color:#9CDCFE'>msg3</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+	<br>
+	
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say1</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>,&nbsp;value3:&nbsp;</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>say2</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;one&quot;</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#CE9178'>&quot;two&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+
+<br>
+    
+    </div>
+    <br>
+
+    <div class="res">
+        value1:4 value2:0 value3:5 <br>
+        msg1:one msg2:two msg3:empty
+        
+
+    </div>
+    </ol>
+
+</div>

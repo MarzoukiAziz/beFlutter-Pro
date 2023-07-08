@@ -1,0 +1,119 @@
+<div class="contenu">
+    <h1>
+        Handling Streams
+    </h1>
+    <ol>
+        <li class="step">
+            Streams
+        </li>
+        <p>
+            A <span class="word">stream</span> is a sequence of asynchronous events. It is like an asynchronous Iterable—where, instead of getting the next event when you ask for it, the stream tells you that there is an event when it is ready. 
+        </p>
+        <br>
+
+        <li class="step">
+            Handling Streams
+        </li>
+        <p>
+            When you need to get values from a Stream, you have two options:
+        </p>
+        <ul>
+            <li><p>Use async and an asynchronous for loop (await for).            </p></li>
+            <li><p>Use the Stream API, as described  <a target="_blank" href="https://dart.dev/guides/libraries/library-tour#stream">in the library tour</a> .            </p></li>
+        </ul>
+        <h3 class="note">
+            Note:
+        </h3>
+        <p>
+            Before using <span class="word">await for</span>, be sure that it makes the code clearer and that you really do want to wait for all of the stream’s results. For example, you usually should not use await for for UI event listeners, because UI frameworks send endless streams of events.
+        </p>
+        <p>
+            An asynchronous for loop has the following form:
+        </p>
+        
+<div class=code>
+
+    <p><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(varOrType&nbsp;identifier&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;expression)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;Executes&nbsp;each&nbsp;time&nbsp;the&nbsp;stream&nbsp;emits&nbsp;a&nbsp;value.</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p>
+        The value of <span class="word">expression</span> must have type Stream. Execution proceeds as follows:
+    </p>
+    <ol>
+        <li><p>Wait until the stream emits a value.
+        </p></li>
+        <li><p>Execute the body of the for loop, with the variable set to that emitted value.
+        </p></li>
+        <li><p>Repeat 1 and 2 until the stream is closed.
+        </p></li>
+    </ol>
+    <br>
+    <p>
+        To stop listening to the stream, you can use a <span class="word">break</span> or <span class="word">return</span> statement, which breaks out of the for loop and unsubscribes from the stream.
+    </p>
+    <br>
+    <p>
+        If you get a compile-time error when implementing an asynchronous for loop, make sure the <span class="word">await for  </span> is in an <span class="word">async</span> function. For example, to use an asynchronous for loop in your app’s <span class="word">main()</span> function, the body of <span class="word">main()</span> must be marked as async:
+    </p>
+    
+<div class=code>
+
+    <p><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;...</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;request&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;requestServer)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>handleRequest</span><span
+    style='color:#D4D4D4'>(request);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;...</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p style="background-color: #4EC9B0; padding: 20px;width: 70%;border-radius: 30px;">
+        &nbsp;&nbsp;&nbsp;&nbsp;If you went to go deeper into this subject : <a target="_blank" href="https://dart.dev/tutorials/language/streams">Streams</a>
+    </p>
+    </ol>
+</div>

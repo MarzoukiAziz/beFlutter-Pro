@@ -1,0 +1,431 @@
+<div class="contenu">
+    <h1>
+        Level 1 : Project 2
+    </h1>
+    <br>
+    <p>
+        In order to secure the messages to be sent, an encryption method can be used. <br>
+        <br>
+        One of the methods used consists in replacing each letter of the message to be encrypted by the one that follows it from <span class="word">p</span> positions in the English alphabet, where <span class="word">p</span> denotes the number of words in the message. <br>
+        <br>
+        <h3 class="note">Note:</h3>
+        <ul>
+            <li>
+                <p>
+					It is assumed that the character which follows the letter " Z " is the character " A " and that which follows the letter " z "is the " a " character.
+				</p> 
+            </li>
+            <li>
+                <p>
+					The space character is not modified. 
+				</p>
+            </li>
+            <li>
+               <p>
+				    The ASCII code of the letter " a " is equal to 97 and that of the letter " A " is equal to 65. 
+				</p>
+            </li>
+        </ul>
+        <br>
+        <h3 class="note">Example:</h3>
+        <p>
+			For the message " The Second Project Of Level One " <br><br>
+        Since the message to be encrypted is made up of 6 words, for the alphabetical letter " T " for example, it will be replaced by " Z " because by adding to the Ascii code of " T " which is 84 the value 6, we obtain 90 whichis the Ascii code of " Z ". <br><br>
+        By continuing to apply this coding principle, the encrypted message will be: <br>
+        " Znk Ykiutj Vxupkiz Ul Rkbkr Utk " <br> <br>
+
+       <span style="color:forestgreen;"> We propose to write a Dart program which allows you to enter a message "msg" formed only letters and spaces and then display it encrypted, using the principle cited above.
+    </span>
+    </p>
+	        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <br>
+	
+<div class=code>
+
+<p><span style='
+color:#569CD6'>import</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#CE9178'>'dart:io'</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>enterMessage</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>do</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Enter&nbsp;a&nbsp;message&nbsp;formed&nbsp;only&nbsp;letters&nbsp;and&nbsp;spaces&nbsp;&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;txt&nbsp;=&nbsp;stdin.</span><span
+style='color:#DCDCAA'>readLineSync</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//check&nbsp;if&nbsp;txt&nbsp;formed&nbsp;only&nbsp;letters&nbsp;and&nbsp;spaces</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt&nbsp;!=&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>for</span><span
+style='color:#D4D4D4'>&nbsp;(</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(txt[i]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(!((txt.</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>().</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+style='color:#B5CEA8'>65</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((txt.</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>().</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+style='color:#B5CEA8'>90</span><span
+style='color:#D4D4D4'>))))&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;txt&nbsp;=&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>break</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;(txt&nbsp;==&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;txt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>wordsNumber</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;words;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt[</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;words&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;words&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((txt[i]&nbsp;==&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(txt[i&nbsp;+&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>))&nbsp;words++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;words;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>encryption</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt,&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;p)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;encryptedMsg&nbsp;=&nbsp;</span><span
+style='color:#CE9178'>&quot;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt[i]&nbsp;==&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedMsg&nbsp;+=&nbsp;</span><span
+style='color:#CE9178'>&quot;&nbsp;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#569CD6'>var</span><span
+style='color:#D4D4D4'>&nbsp;ascii&nbsp;=&nbsp;txt.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//UpperCase</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(ascii&nbsp;&lt;=&nbsp;</span><span
+style='color:#B5CEA8'>90</span><span
+style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;((ascii&nbsp;+&nbsp;p)&nbsp;&gt;&nbsp;</span><span
+style='color:#B5CEA8'>90</span><span
+style='color:#D4D4D4'>)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedMsg&nbsp;+=&nbsp;</span><span
+style='color:#4EC9B0'>String</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>fromCharCode</span><span
+style='color:#D4D4D4'>(ascii&nbsp;+&nbsp;p&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>26</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedMsg&nbsp;+=&nbsp;</span><span
+style='color:#4EC9B0'>String</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>fromCharCode</span><span
+style='color:#D4D4D4'>(ascii&nbsp;+&nbsp;p);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#6A9955'>//LowerCase</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(ascii&nbsp;&gt;=&nbsp;</span><span
+style='color:#B5CEA8'>97</span><span
+style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;((ascii&nbsp;+&nbsp;p)&nbsp;&gt;&nbsp;</span><span
+style='color:#B5CEA8'>122</span><span
+style='color:#D4D4D4'>)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedMsg&nbsp;+=&nbsp;</span><span
+style='color:#4EC9B0'>String</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>fromCharCode</span><span
+style='color:#D4D4D4'>(ascii&nbsp;+&nbsp;p&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>26</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedMsg&nbsp;+=&nbsp;</span><span
+style='color:#4EC9B0'>String</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>fromCharCode</span><span
+style='color:#D4D4D4'>(ascii&nbsp;+&nbsp;p);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(encryptedMsg);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;msg,&nbsp;p;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;msg&nbsp;=&nbsp;</span><span style='
+color:#DCDCAA'>enterMessage</span><span style='font-size:
+10.5pt;color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;p&nbsp;=&nbsp;</span><span style='
+color:#DCDCAA'>wordsNumber</span><span style='font-size:
+10.5pt;color:#D4D4D4'>(msg);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>encryption</span><span style='
+color:#D4D4D4'>(msg,&nbsp;p);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+	<br>
+	<div class=res>
+Enter a message formed only letters and spaces <br>
+The Second Project Of Level One <br>
+Znk Ykiutj Vxupkiz Ul Rkbkr Utk <br>
+	</div>
+
+</div>

@@ -1,0 +1,430 @@
+<div class="contenu">
+   <h1>
+        Operators
+   </h1>
+   <p>
+     In this lesson we will go on all types of operators that any developer must know (not only dart programmers).
+     To be a good developer you need to master these operators so read them carefully and try to take notes before moving to exercises.     
+   </p>
+   <ol>
+        <li class="step">
+          Arithmetic Operators:  (easy)
+        </li>
+	   <br>
+        <table class="tableau">
+             <tr>
+                  <th>
+                       Operator
+                  </th>
+                  <th>
+                       Meaning
+                  </th>
+             </tr>
+             <tr>
+                  <td>
+                       +
+                  </td>
+                  <td>
+                       Add
+                  </td>
+             </tr>
+             <tr>
+                  <td>
+                    -
+                  </td>
+                  <td>
+                    Subtract
+                  </td>
+             </tr>
+             <tr>
+               <td>
+                    -expr
+               </td>
+               <td>
+                    Unary minus, also known as negation (reverse the sign of the expression)
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    *
+               </td>
+               <td>
+                    Multiply
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    /
+               </td>
+               <td>
+                    Divide
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    ~/
+               </td>
+               <td>
+                    Divide, returning an integer result
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    %
+               </td>
+               <td>
+                    Get the remainder of an integer division (modulo)
+               </td>
+          </tr>
+        </table>
+	   <br>
+	   <br>
+        <li class="step">
+          Assignment Operators:  (shorter)
+        </li>
+	   
+        <p>Assignment operators assign values to dart variables.</p>
+	   <br>
+        <table class="tableau">
+             <tr>
+                  <th>
+                    Operator
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Example
+                  </th>
+                  <th>
+                    Same As
+                  </th>
+             </tr>
+             <tr>
+                  <td>
+                    =
+                  </td>
+                  <td>
+                    assign
+                  </td>
+                  <td>
+                    x=y
+               </td>
+               <td>
+
+               </td>
+             </tr>
+             <tr>
+               <td>
+                    +=
+               </td>
+               <td>
+                    add & assign
+               </td>
+               <td>
+                    x+=y
+               </td>
+               <td>
+                    x=x+y
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    -=
+               </td>
+               <td>
+                    subtract & assign
+               </td>
+               <td>
+                    x-=y
+               </td>
+               <td>
+                    x=x-y
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    *=
+               </td>
+               <td>
+                    multiply & assign
+               </td>
+               <td>
+                    x*=y
+               </td>
+               <td>
+                    x=x*y
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    /=
+               </td>
+               <td>
+                    divide & assign
+               </td>
+               <td>
+                    x/=y
+               </td>
+               <td>
+                    x=x/y
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    ~/=
+               </td>
+               <td>
+                    divide & assign (integer result)
+               </td>
+               <td>
+                    x~/=y
+               </td>
+               <td>
+                    x=x~/y
+               </td>
+          </tr>
+          <tr>
+               <td>
+                    %=
+               </td>
+               <td>
+                    mod & assign
+               </td>
+               <td>
+                    x%=y
+               </td>
+               <td>
+                    x=x%y
+               </td>
+          </tr>
+        </table>
+	   <br><br>
+        <li class="step">
+          Unary Operators:    ( practical )
+        </li>
+	   <br>
+       <table class="tableau">
+             <tr>
+                  <th>
+                       Operator
+                  </th>
+                  <th>
+                       Description
+                  </th>
+                  <th>
+                       Example
+                  </th>
+             </tr>
+             <tr>
+                  <td>
+                    ++x   
+                  </td>
+                  <td>
+                    the value of x after increment     
+                  </td>
+                  <td>
+                    x=5;  y=++x;    //x = 6 & y= 6                      
+                  </td>
+             </tr>
+             <tr>
+                  <td>
+                    x++   
+                  </td>
+                  <td>
+                    the value of x before increment   
+                  </td>
+                  <td>
+                    x=10;  y=x++;   //x=11 & y=10   
+                  </td>
+             </tr>
+             <tr>
+                  <td>
+                    --x   
+                  </td>
+                  <td>
+                    the value of x after decrement   
+                  </td>
+                  <td>
+                    x=20 ;   y=--x ;   //x=19 & y=19
+                  </td>
+             </tr>
+             <tr>
+                  <td>
+                    x--   
+                  </td>
+                  <td>
+                    the value of x before decrement   
+                  </td>
+                  <td>
+                    x=50 ;   y=x-- ;   // x=49 & y50; 
+                  </td>
+             </tr>
+        </table> 
+	   <br>
+<br>
+<li class="step">
+     Relational Operators : (easy)
+   </li>
+	   <br>
+   <table class="tableau">
+        <tr>
+             <th>
+                  Operator
+             </th>
+             <th>
+                  Meaning
+             </th>
+        </tr>
+        <tr>
+             <td>
+               ==  
+             </td>
+             <td>
+               Equal
+             </td>
+        </tr>
+        <tr>
+          <td>
+            !=  
+          </td>
+          <td>
+           Not Equal  
+          </td>
+     </tr>
+     <tr>
+          <td>
+            >  
+          </td>
+          <td>
+            Greater Than   
+          </td>
+     </tr>
+     <tr>
+          <td>
+            <
+          </td>
+          <td>
+            Less Than   
+          </td>
+     </tr>
+     <tr>
+          <td>
+            >=  
+          </td>
+          <td>
+            Greater than or equal to 
+          </td>
+     </tr>
+     <tr>
+          <td>
+            <=  
+          </td>
+          <td>
+            Less than or equal to   
+          </td>
+     </tr>
+   </table>
+	    <br>
+   <br>
+   <li class="step">
+     Loogical Operators : (catch the syntax)
+   </li>
+	   <br>
+   <table class="tableau">
+     <tr>
+          <th>
+               Operator
+          </th>
+          <th>
+               Meaning
+          </th>
+     </tr>
+     <tr>
+          <td>
+               !exp
+          </td>
+          <td>
+               inverts the following expression (changes false to true, and vice versa)
+          </td>
+     </tr>
+     <tr>
+          <td>
+               ||
+          </td> 
+
+          <td>
+          logical OR
+           </td>  
+     </tr>
+     <tr>
+          <td>
+               &&
+          </td>
+          <td>
+               logical AND
+          </td>
+     </tr>
+   </table>
+	   <br>
+   <br>
+   <li class="step">
+     Type Test Operators : (you will get familiar with them sooner)
+   </li>
+   <p>The as, is, and is! operators are handy for checking types at runtime</p>
+   <br>
+   <table class="tableau">
+     <tr>
+          <th>
+               Operator
+          </th>
+          <th>
+               Meaning
+          </th>
+     </tr>
+      <tr>
+          <td>
+               as
+          </td>
+          <td>
+               Typecast (also used to specify library prefixes) 
+          </td>
+     </tr>
+     <tr>
+          <td>
+               is
+          </td>
+          <td>
+               True if the object has the specified type
+          </td>
+     </tr>    
+     <tr>
+          <td>
+               is!
+          </td>
+          <td>
+               False if the object has the specified type
+          </td>
+     </tr>
+   </table>
+	   <br>
+	   <br>
+	   <li class="step">
+	Conditional Operators:(you will get familiar with them sooner)
+   </li>
+   <br>
+   <ul>
+   <li class="subtitle">
+        <u>condition ? expr1 : expr2</u>
+   </li>
+   <br>
+   <p>If condition is true, evaluates expr1 (and returns its value); otherwise, evaluates and returns the value of expr2.</p>
+   <br>
+   <li class="subtitle">
+     	<u>expr1 ?? expr2</u>   
+   </li>
+   <br>
+   <p>If expr1 is non-null, returns its value; otherwise, evaluates and returns the value of expr2.</p>
+   </ul>
+   </ol>
+</div>

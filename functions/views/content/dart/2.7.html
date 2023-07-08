@@ -1,0 +1,114 @@
+<div class="contenu">
+     <h1>
+          Final and Const
+     </h1>
+	
+<div >
+
+<p  style='line-height:normal'><span
+>If you
+never intend to change a variable, use&nbsp;</span><span style='
+font-family:Consolas;color:#247777'>final</span><span>&nbsp;or&nbsp;</span><span
+style='color:#247777'>const</span><span
+style='color:#212529'>, either
+instead of&nbsp;</span><span style='
+color:#247777'>var</span><span style='
+color:#212529'>&nbsp;or in addition to a type. A final variable can be set only
+once; a const variable is a compile-time constant. </span>
+	</p>
+	<br>
+
+<p>
+	Here’s an
+example of creating and setting a final variable:
+	</p>
+     <div class=res>
+
+          <p><span
+          style='color:#569CD6'>final</span><span
+          style='color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span
+          style='color:#CE9178'>'Bob'</span><span
+          style='color:#D4D4D4'>;&nbsp;</span><span
+          style='color:#a07df1'>//&nbsp;Without&nbsp;a&nbsp;type&nbsp;annotation</span></p>
+          
+          <p ><span
+          style='color:#569CD6'>final</span><span
+          style='color:#D4D4D4'>&nbsp;</span><span
+          style='color:#4EC9B0'>String</span><span
+          style='color:#D4D4D4'>&nbsp;nickname&nbsp;=&nbsp;</span><span
+          style='color:#CE9178'>'Bobby'</span><span
+          style='color:#D4D4D4'>;</span></p>
+
+          </div>
+		<br>
+
+		<br>
+
+<p>
+	You can’t
+change the value of a final variable:
+	</p>
+
+
+     <div class=res>
+
+          <p ><span
+          style='color:#D4D4D4'>name&nbsp;=&nbsp;</span><span
+          style='color:#CE9178'>'Alice'</span><span
+          style='color:#D4D4D4'>;&nbsp;</span><span
+          style='color:#a07df1'>//&nbsp;Error:&nbsp;a&nbsp;final&nbsp;variable&nbsp;can&nbsp;only&nbsp;be&nbsp;set&nbsp;once.</span></p>
+          
+          
+          </div>
+
+<br>
+
+		<br>
+
+<p>Use <span style='color:#247777'>const</span> for
+variables that you want to be compile-time constants</p>
+
+<div class=res>
+
+     <p><span
+     style='color:#569CD6'>const</span><span
+     style='color:#D4D4D4'>&nbsp;bar&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>1000000</span><span
+     style='color:#D4D4D4'>;&nbsp;</span><span
+     style='color:#a07df1'>//&nbsp;Unit&nbsp;of&nbsp;pressure&nbsp;(dynes/cm2)</span></p>
+     
+     <p><span
+     style='color:#569CD6'>const</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#4EC9B0'>double</span><span
+     style='color:#D4D4D4'>&nbsp;atm&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>1.01325</span><span
+     style='color:#D4D4D4'>&nbsp;*&nbsp;bar;&nbsp;</span><span
+     style='color:#a07df1'>//&nbsp;Standard&nbsp;atmosphere</span></p>
+     
+     </div>
+<br>
+
+		<br>
+
+</div>
+
+     <h2 class="note">
+          Conclusion:
+     </h2>
+     <div style="padding-left:1rem;">
+		 <p>
+     <span style="font-weight: 700;">
+          <u>Const</u> <br>
+     </span>
+     Value must be known at <u>compile-time</u>, const birthday  = "2008/12/26"<br>
+     Can't be changed after initialized.<br><br>
+     <span style="font-weight: 700;">
+          <u>Final</u>
+     </span><br>
+     Value must be known at <u>run-time</u>, final birthday = getBirthDateFromDB();<br>
+     Can't be changed after initialized.<br>
+     </p>
+	</div>
+
+</div>

@@ -1,0 +1,380 @@
+<div class="contenu">
+    <h1>
+        Device Orientation
+    </h1>
+    <ol>
+        <li class="step">
+            Lock rotation in the entire app
+        </li>
+        <p>
+            Quite often an application is developed only for single orientation, for example — portrait. But by default
+            an application changes orientation when you rotate a device.
+            <br><br>
+            To change this behaviour we need to explicitly define supported orientation.
+
+        </p>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>WidgetsFlutterBinding</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>ensureInitialized</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>SystemChrome</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>setPreferredOrientations</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR style='color:#6A9955'>//1.&nbsp;Portrait&nbsp;mode:</span></p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR
+                    style='color:#6A9955'>//&nbsp;[DeviceOrientation.portraitUp,&nbsp;DeviceOrientation.portraitDown]</span>
+            </p>
+
+            <p><span lang=FR
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#6A9955'>//2.&nbsp;Landscape&nbsp;mode:</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span><span
+                    style='color:#4EC9B0'>DeviceOrientation</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>landscapeLeft</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#4EC9B0'>DeviceOrientation</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>landscapeRight</span><span style='color:#D4D4D4'>])</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+                    style='color:#DCDCAA'>then</span><span style='color:#D4D4D4'>((</span><span
+                    style='color:#9CDCFE'>_</span><span style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                    style='color:#DCDCAA'>runApp</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>()));</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <h3 class="note">
+            Note:
+        </h3>
+        <p>
+            There are a small problem which is the application changes orientation after the launch :
+
+        </p>
+        <img src="https://miro.medium.com/max/700/1*kMrRAs0u2cQ1XeBREG0w6w.gif" alt="" class="ss">
+
+        <p>
+            To solve this problem check this <a
+                href="https://greymag.medium.com/flutter-orientation-lock-portrait-only-c98910ebd769">Article </a> on
+            Medium.
+        </p>
+        <br><br>
+        <li class="step">
+            Detect Orientation Change in Layout
+        </li>
+        <p>
+            Now we can use <span class="word">MediaQuery</span> to check orientation:
+        </p>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Scaffold</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>appBar</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>AppBar</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>title</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Text</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'Device&nbsp;Orientation'</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>)),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>body</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>MediaQuery</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>of</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>context</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>).</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>orientation</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Orientation</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4FC1FF'>portrait</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Container</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>alignment</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Alignment</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>center</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>margin</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>EdgeInsets</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>all</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>20</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>height</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>200</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>color</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>blueAccent</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>child</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Text</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'Portrait&nbsp;Screen'</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>style</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextStyle</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>fontSize</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>20</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>fontWeight</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>FontWeight</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>bold</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>color</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>white</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Container</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>alignment</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Alignment</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>center</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>margin</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>EdgeInsets</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>all</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>20</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>height</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>200</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>color</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>deepOrange</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>child</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>const</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Text</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>'Landscape&nbsp;Screen'</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>style</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextStyle</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>fontSize</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>20</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>fontWeight</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>FontWeight</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>bold</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>color</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>white</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span
+                    style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+14.25pt;background:#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))</span></p>
+            <br>
+        </div>
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l4p1.png?alt=media&token=969a0dab-105e-448a-9361-161d249d7170"
+            alt="Portrait Orientation Flutter" class="ss">
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l4p2.png?alt=media&token=5c3e5bc9-47c5-4ff0-8ee8-de41e59c9866"
+            alt="Landscape Orientation Flutter" style="width: 60%;">
+    </ol>
+</div>

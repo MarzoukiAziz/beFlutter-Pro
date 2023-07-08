@@ -1,0 +1,293 @@
+<div class="contenu">
+    <h1>
+        App7 : Short Vacation - Learning New Widgets
+    </h1>
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">OutlinedButton</a></li>
+            <li><a href="#w2">CupertinoDatePicker</a></li>
+        </ol>
+    </div>
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">OutlinedButton</li>
+        <p>
+            A Material Design "Outlined Button"; essentially a TextButton with an outlined border. <br><br>
+
+            Outlined buttons are medium-emphasis buttons. They contain actions that are important, but they aren’t the
+            primary action in an app.
+
+        </p>
+        <h3 class="note">
+            Some properties of CupertinoButton Class:
+        </h3>
+        <ol>
+
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                Typically the button's label.
+            </p>
+            <li>
+                <strong>onPressed : </strong>
+            </li>
+            <p>
+                Called when the button is tapped or otherwise activated.
+            </p>
+            <li>
+                <strong>style : </strong> ButtonStyle?
+            </li>
+            <p>
+                Customizes this button's appearance.
+            </p>
+
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>OutlinedButton</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>child</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Text</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;Click&nbsp;Me&quot;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>onPressed</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>print</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#CE9178'>&quot;clicked&quot;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>);</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>style</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>TextButton</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>styleFrom</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>backgroundColor</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#9CDCFE'>white38</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+            <br>
+        </div>
+
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l2p1.png?alt=media&token=2efea3c1-c6b6-4f5e-9975-e46ce696600b"
+            alt="OutlinedButton Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w2" class="step">CupertinoDatePicker </li>
+        <p>
+
+            A date picker widget in iOS style. <br><br>
+
+            There are several modes of the date picker listed in CupertinoDatePickerMode. <br><br>
+
+            The class will display its children as consecutive columns. Its children order is based on
+            internationalization, or the dateOrder property if specified.
+        </p>
+
+        <h3 class="note">
+            Some properties of CupertinoDatePicker Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>backgroundColor : </strong> Color?
+            </li>
+            <p>
+                Background color of date picker.
+            </p>
+            <li>
+                <strong>initialDateTime : </strong> DateTime
+            </li>
+            <p>
+                The initial date and/or time of the picker. Defaults to the present date and time and must not be null.
+                The present must conform to the intervals set in minimumDate, maximumDate, minimumYear, and maximumYear.
+            </p>
+            <li>
+                <strong>maximumDate : </strong> DateTime?
+            </li>
+            <p>
+                The maximum selectable date that the picker can settle on.
+            </p>
+            <li>
+                <strong>minimumDate : </strong> DateTime?
+            </li>
+            <p>
+                The minimum selectable date that the picker can settle on.
+            </p>
+            <li>
+                <strong>mode : </strong>CupertinoDatePickerMode
+            </li>
+            <p>
+                The mode of the date picker as one of CupertinoDatePickerMode. Defaults to
+                CupertinoDatePickerMode.dateAndTime. Cannot be null and value cannot change after initial build.
+            </p>
+            <li>
+                <strong>onDateTimeChanged : </strong> Widget?
+            </li>
+            <p>
+                Callback called when the selected date and/or time changes. If the new selected DateTime is not valid,
+                or is not in the minimumDate through maximumDate range, this callback will not be called.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>DateTime</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;date&nbsp;=</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>DateTime</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>now</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>();</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#569CD6'>@override</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Widget</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>build</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>BuildContext</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#C586C0'>return</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Scaffold</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Center</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>CupertinoDatePicker</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Colors</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.lime,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initialDateTime:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>DateTime</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>now</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximumDate:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>DateTime</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>now</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>().</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>add</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Duration</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(days:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>365</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>)),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimumDate:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>DateTime</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>now</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>().</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#DCDCAA'>subtract</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>Duration</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>(days:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#B5CEA8'>30</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>)),</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#4EC9B0'>CupertinoDatePickerMode</span><span
+                    style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>.date,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onDateTimeChanged:&nbsp;(newDate){</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date=newDate;</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l2p2.png?alt=media&token=72806c4a-9096-4c61-9c12-3fe1c6337bf3"
+            alt="CupertinoDatePicker Flutter" class="ss">
+        <br>
+        <br>
+    </ol>
+</div>

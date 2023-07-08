@@ -1,0 +1,119 @@
+<div class="contenu">
+    <h1>Variables</h1>
+   <ol>
+       <li class="step">
+            Definition:
+       </li>
+       <p>
+        To store a value in the computer memory we need an identifier (variable name) that refers to the memory location of this value. The value can be changed during the execution of the program.
+       </p>
+       <br>
+       <li class="step">
+            Naming Rules:
+       </li>
+       <ul>
+        <li><p>Contain alphabets & numbers.</p>  </li>
+        <li><p>Spaces, special character (except the underscore _) and the dollar sign ($) are not allowed</p> </li>
+        <li><p>Cannot begin with a number</p>  </li>
+        <li><p>Cannot be <strong>Reserved Keywords</strong></p>  </li>
+        <p>
+            <strong>Reserved Keywords</strong> : are the words predefined by the compiler like: for, get, null, true, void…
+        </p>
+       </ul>
+       <br>
+       <li class="step">
+            Syntax:
+       </li>
+       <p>
+        Before using the variable, it’s necessary to declare it: </p>
+        <div class="syn">
+          var &lt;variableName&gt;;
+        </div>
+        <br>
+        <div class="res">
+          var country;
+        </div>
+        <br>
+  <p>  we can initial it with a value or it will take the default value “null”:</p>
+        <div class="syn">
+          var &lt;variableName&gt; = &lt;expression&gt;;
+        </div>
+        <br>
+  <div class="res">
+        var country = ”Japan”;
+      </div>
+      <br>
+    
+    <p>Dart detect the variable type with the initial value.<br>
+    We can optionally provide a type to ensures the data types of the variable:</p>
+      <div class="syn">
+        &lt;type&gt; &lt;variableName&gt;;
+      </div>
+      <br>
+    <div class="res">
+          String country;
+         </div>
+         <br>
+         <div class="syn">
+          &lt;type&gt; &lt;variableName&gt; = &lt;expression&gt;;
+         </div>
+         <br>
+         <div class="res">
+          String country = ”Japan”;
+         </div>
+         <br>
+    <p>For multiple variables declarations:</p>
+         <div class="syn">
+          &lt;type&gt; varA, varB, varC ,.. ;
+         </div>
+         <br>
+    <div class="res">
+        int A,B,C;
+      </div>
+    
+       </p>
+	   <p>
+		 <span class="note">Note:</span>  ( = ) is called the assignment operator that gives to the variable in the left the value of the expression in the right.
+	   </p>
+	   <br>
+	   <li class="step">
+	   		Types:
+	   </li>
+	   <br>
+	   <br>
+	   <table class="tableau">
+        <tr>
+          <th>Type</th>
+          <th>Example</th> 
+        </tr>
+        <tr>
+          <td>Integer</td>
+          <td>int count = 32;</td>
+        </tr>
+        <tr>
+            <td>Double</td>
+            <td>double average = 3.14;</td>
+          </tr>
+          <tr>
+            <td>String</td>
+            <td>String name = ”john”;</td>
+          </tr>
+          <tr>
+            <td>Boolean</td>
+            <td>bool isReady = true;</td>
+          </tr>
+          <tr>
+            <td>List</td>
+            <td>List nums = [13, 7, 34];</td>
+          </tr>
+          <tr>
+            <td>Map</td>
+            <td>Map couple = {“husband”:”Mario”, ”wife”:”Diana”}</td>
+          </tr>
+          <tr>
+            <td>Runes</td>
+            <td>var heart = '\u2665';</td>
+          </tr>
+      </table>
+   </ol>
+</div>

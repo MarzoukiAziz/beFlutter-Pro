@@ -1,0 +1,329 @@
+<div class="contenu">
+    <h1>
+        Imports
+    </h1>
+    <p>
+        A library in a programming language represents a collection of routines (set of programming instructions).
+    </p>
+    <ol>
+        <li class="step">
+            Core libraries
+        </li>
+        <p>
+            Dart has a rich set of core libraries that provide essentials for many everyday programming tasks such as working on collections of objects (dart:collection), making calculations (dart:math), and encoding/decoding data (dart:convert). Additional APIs are available in community contributed packages.
+        </p>
+        <br>
+        <p>
+            The Dart core libraries that work on all Dart platforms:
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:async 
+            </span> : Support for asynchronous programming, with classes such as Future and Stream.	 
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:collection
+            </span> : Classes and utilities that supplement the collection support in dart:core.	
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:convert
+            </span> : Encoders and decoders for converting between different data representations. 
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:core
+            </span> : Built-in types, collections, and other core functionality for every Dart program.	 
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:developer
+            </span> : Interaction with developer tools such as the debugger and inspector.
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:math
+            </span> : Mathematical constants and functions, plus a random number generator.	 
+        </p>
+        <p>
+            <span style="color:blue;font-weight: bold;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Dart:typed_data
+            </span> : Lists that efficiently handle fixed sized data (for example, unsigned 8-byte integers) and SIMD numeric types.	 
+        </p>
+        <br>
+        <h3 class="note">
+            Example:
+        </h3>
+        <div class=code>
+
+            <p><span style='
+            color:#569CD6'>import</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#CE9178'>'dart:math'</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#DCDCAA'>cos</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#B5CEA8'>0.5</span><span style='
+            color:#D4D4D4'>));</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(e);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#DCDCAA'>min</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#B5CEA8'>13</span><span style='
+            color:#D4D4D4'>&nbsp;*&nbsp;</span><span style='
+            color:#B5CEA8'>12</span><span style='
+            color:#D4D4D4'>,&nbsp;</span><span style='
+            color:#B5CEA8'>11</span><span style='
+            color:#D4D4D4'>&nbsp;*&nbsp;</span><span style='
+            color:#B5CEA8'>14</span><span style='
+            color:#D4D4D4'>));</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+        <br>
+            
+        </div> 
+
+        <br>
+        <br>
+        <div class="res">
+                0.8775825618903728 <br>
+                2.718281828459045 <br>
+                154 <br>
+        </div>
+        <br>
+        <br>
+        <p>
+            For more about the math library : <a href="https://api.dart.dev/stable/2.10.4/dart-math/dart-math-library.html">Dart:Math</a>
+        </p>
+        <br>
+        <p>
+            If you import two libraries that have conflicting identifiers, then you can specify a prefix for one or both libraries using "<span class=word style="font-weight: bold;color: green;">as</span>".
+        </p>
+        <h3 class="note">
+            Example:
+        </h3>
+        
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:math'</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#569CD6'>as</span><span style='
+    color:#D4D4D4'>&nbsp;math;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(math.</span><span style='
+    color:#DCDCAA'>sin</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>0.5</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(math.</span><span style='
+    color:#DCDCAA'>exp</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    <br>
+    </div>
+    <br>
+    <br>
+    <div class="res">
+        0.479425538604203 <br>
+        54.598150033144236 <br>
+
+    </div>
+    <br>
+    <li class="step">
+        Importing  Custom Libraries
+    </li>
+    <p>
+        Dart also allows you to use your own code as a library.
+    </p>
+    <h3 class="note">
+        Example:
+    </h3>
+    <p>File 1 :</p>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printmax</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;y)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;max&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>max(x,&nbsp;y)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printmin</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;y)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;min&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>min(x,&nbsp;y)</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <p>
+        The main file in the same directory:
+    </p>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'file1.dart'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>34</span><span style='
+    color:#D4D4D4'>,&nbsp;b&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>printmax</span><span style='
+    color:#D4D4D4'>(a,&nbsp;b);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>printmin</span><span style='
+    color:#D4D4D4'>(a,&nbsp;b);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br><br>
+    <div class="res">
+        the max is 50 <br>
+        the min is 34 <br>
+    </div>
+    <br>
+<br>
+<h3 class="note">
+    Note:
+</h3>
+<p>
+    If the two files are not within the same directory, we need to add the path: <br>
+    <div class="code">
+        <p><span style='
+            color:#569CD6'>import</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#CE9178'>'dir/library_name'</span><span style='
+            color:#D4D4D4'>&nbsp;;</span></p>
+    </div>
+
+</p>
+
+    </ol>
+
+</div>
+
+
+ 
+
+
+	 
+

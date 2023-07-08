@@ -1,0 +1,905 @@
+<div class="contenu">
+    <h1>
+        Level 2 : Project 9
+    </h1>
+    <br>
+    <p>
+        We want to develop software to generate exam papers. A programmer has writes the following class before resigning. You must continue on development.
+    </p>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_statement;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_difficulty&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>;&nbsp;</span><span
+    style='color:#6A9955'>//the&nbsp;difficulty&nbsp;varies&nbsp;from&nbsp;0&nbsp;to&nbsp;100</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._statement);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._difficulty&nbsp;=&nbsp;d;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getDifficulty</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_difficulty;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getStatement</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_statement;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p>
+        We want to represent multiple choice questions. Each question has, in addition to a statement and a difficulty, a set of possible answers, each answer having a statement and a truth value (an answer can be true or false).
+    </p>
+    <p style="font-weight: 700;">
+        1) Suggest a code to represent multiple choice questions.
+    </p>
+    <p>
+        An exam subject is a list of questions <span class="word">(MCQ or other)</span> with a scale. Each question of the subject therefore has a number of points. 
+    </p>
+    <p style="font-weight: 700;">
+        
+        2) Without modifying the classes you wrote before, write object code to represent the topics, in particular with a method that achieves the average difficulty of the topic. The average difficulty is the sum of the difficulties of the subject's questions divided by the number of questions.
+    </p>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_statement;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_difficulty&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>;&nbsp;</span><span
+    style='color:#6A9955'>//the&nbsp;difficulty&nbsp;varies&nbsp;from&nbsp;0&nbsp;to&nbsp;100</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._statement);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._difficulty&nbsp;=&nbsp;d;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getDifficulty</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_difficulty;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getStatement</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_statement;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Answer</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_statement;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;_validity;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Answer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;t,&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._statement&nbsp;=&nbsp;t;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._validity&nbsp;=&nbsp;v;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>MCQ</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>Answer</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;_answers&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>MCQ</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;s)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(s)&nbsp;{}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;txt,&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_answers.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Answer</span><span
+    style='color:#D4D4D4'>(txt,&nbsp;v));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getStatement</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;res&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._statement&nbsp;+&nbsp;</span><span
+    style='color:#CE9178'>&quot;&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>Answer</span><span
+    style='color:#D4D4D4'>&nbsp;a&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;_answers)&nbsp;res&nbsp;+=&nbsp;</span><span
+    style='color:#CE9178'>&quot;-&nbsp;${</span><span
+    style='color:#9CDCFE'>a._statement</span><span
+    style='color:#CE9178'>}&nbsp;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;res;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>&nbsp;_q;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_points;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>&nbsp;q,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;points)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._q&nbsp;=&nbsp;q;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._points&nbsp;=&nbsp;points;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getPoints</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._points;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getDifficulty</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._q.</span><span
+    style='color:#DCDCAA'>getDifficulty</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._q.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(d);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getStatement</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._q.</span><span
+    style='color:#DCDCAA'>getStatement</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Exam</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;_questions&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>&nbsp;q)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._questions.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(q);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>removeQuestion</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>&nbsp;q)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._questions.</span><span
+    style='color:#DCDCAA'>remove</span><span
+    style='color:#D4D4D4'>(q);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>difficultyAverage</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>&nbsp;q&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;_questions)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;+=&nbsp;q.</span><span
+    style='color:#DCDCAA'>getDifficulty</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;n&nbsp;/&nbsp;_questions.length;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getExam</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;ex&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>---------------Exam---------------&nbsp;</span><span
+    style='color:#D7BA7D'>\n\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#C586C0'>for</span><span
+     style='color:#D4D4D4'>&nbsp;(</span><span
+     style='color:#4EC9B0'>QuestionNote</span><span
+     style='color:#D4D4D4'>&nbsp;q&nbsp;</span><span
+     style='color:#C586C0'>in</span><span
+     style='color:#D4D4D4'>&nbsp;_questions)&nbsp;{</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;+=&nbsp;q.</span><span
+     style='color:#DCDCAA'>getStatement</span><span
+     style='color:#D4D4D4'>()&nbsp;+&nbsp;</span><span
+     style='color:#CE9178'>&quot;&nbsp;</span><span
+     style='color:#D7BA7D'>\n</span><span
+     style='color:#CE9178'>&quot;</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;+=&nbsp;</span><span
+     style='color:#CE9178'>&quot;&nbsp;&nbsp;&nbsp;&nbsp;..............................&nbsp;</span><span
+    style='color:#D7BA7D'>\n\n</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;ex;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;mcq1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>MCQ</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;How&nbsp;many&nbsp;rings&nbsp;are&nbsp;on&nbsp;the&nbsp;Olympic&nbsp;flag?&quot;</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mcq2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>MCQ</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;What&nbsp;is&nbsp;a&nbsp;tarsier?&quot;</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mcq3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>MCQ</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Who&nbsp;are&nbsp;known&nbsp;as&nbsp;Brahmins?&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq1.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;4&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq1.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;5&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq1.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;7&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq2.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;A&nbsp;primate&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq2.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;A&nbsp;lizard&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq2.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;A&nbsp;bird&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq3.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Surfers&nbsp;in&nbsp;California&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;mcq3.</span><span
+    style='color:#DCDCAA'>addAnswer</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Members&nbsp;of&nbsp;India's&nbsp;highest&nbsp;caste&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;q1&nbsp;=</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;What&nbsp;is&nbsp;the&nbsp;highest&nbsp;mountain&nbsp;in&nbsp;Britain?&quot;</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Question</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;What&nbsp;is&nbsp;the&nbsp;hottest&nbsp;continent&nbsp;on&nbsp;Earth?&quot;</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(mcq1,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q4&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(mcq2,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q5&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>QuestionNote</span><span
+    style='color:#D4D4D4'>(mcq3,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q1.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>30</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q2.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>40</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q3.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>20</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q4.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q5.</span><span
+    style='color:#DCDCAA'>setDifficulty</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;exam&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Exam</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;exam.</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(q1);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;exam.</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(q2);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;exam.</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(q3);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;exam.</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(q4);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;exam.</span><span
+    style='color:#DCDCAA'>addQuestion</span><span
+    style='color:#D4D4D4'>(q5);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;This&nbsp;Difficulty&nbsp;Average&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>exam.difficultyAverage()</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(exam.</span><span
+    style='color:#DCDCAA'>getExam</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+    <br>
+    <div class="res">
+        This Difficulty Average is 23.0 <br>
+ <br>
+        ---------------Exam---------------  <br>
+         <br>
+        What is the highest mountain in Britain?  <br>
+        &nbsp;&nbsp;&nbsp;..............................  <br>
+         <br>
+        What is the hottest continent on Earth?  <br>
+        &nbsp;&nbsp;&nbsp;..............................  <br>
+         <br>
+        How many rings are on the Olympic flag?  <br>
+        - 4  <br>
+        - 5  <br>
+        - 7  <br>
+          <br>
+          &nbsp;&nbsp;&nbsp; ..............................  <br>
+         <br>
+        What is a tarsier?  <br>
+        - A primate  <br>
+        - A lizard  <br>
+        - A bird  <br>
+          <br>
+          &nbsp;&nbsp;&nbsp; ..............................  <br>
+         <br>
+        Who are known as Brahmins?  <br>
+        - Surfers in California  <br>
+        - Members of India's highest caste  <br>
+          <br>
+          &nbsp;&nbsp;&nbsp;  ..............................  <br>
+         <br>
+         <br>
+    </div>
+</div>

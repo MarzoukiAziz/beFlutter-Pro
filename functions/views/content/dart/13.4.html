@@ -1,0 +1,372 @@
+<div class="contenu">
+    <h1>
+        Examples Of Async 
+    </h1>
+    <ul>
+        <li class="step">
+            Example 1:
+        </li>
+        <br>
+        <p>
+            The <span class="word">Future.value</span> creates a future completed with value.
+        </p>
+        <br>
+
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;f1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>value</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(f1);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;f2&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>value</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(f2);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Instance of 'Future<int>' <br>
+        50            
+    </div>
+    <br>
+    <p>
+        In this example, the main function contains two futures so we mark it with the <span class="word">async</span> keyword. <br> <br>
+        <span class="word">f1</span> is a future with value but not a completed instance of the future because we didn't use the <span class="word">await</span>. <br><br>
+        <span class="word">f2</span> is the same as f1 but we add the await keyword and now it's completed.
+    </p>
+    <br>
+    <li class="step">
+        Example 2:
+    </li>
+    <br>
+    <p>
+        The <span class="word">Future.delayed</span> creates a future that runs its computation after a delay.
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>delayed</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Duration</span><span
+    style='color:#D4D4D4'>(seconds:&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>),&nbsp;()&nbsp;=&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>404</span><span
+    style='color:#D4D4D4'>).</span><span
+    style='color:#DCDCAA'>then</span><span
+    style='color:#D4D4D4'>((value)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(value));</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>final</span><span
+    style='color:#D4D4D4'>&nbsp;res&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>delayed</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Duration</span><span
+    style='color:#D4D4D4'>(seconds:&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>),&nbsp;()&nbsp;=&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>666</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(res);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        404 &nbsp;&nbsp;&nbsp;&nbsp;//after 3 sec <br>
+        666 &nbsp;&nbsp;&nbsp;&nbsp;//after 5 sec 
+    </div>
+    <br>
+    <p>
+        In this example, we create two delayed futures the first is executed after 3s and the second after 5s. <br><br>
+        The first use <span class="word">.then()</span> as a callback to print the value when the future is completed without storing the result. <br><br>
+        The second use the <span class="word">await</span> keyword and store the result in res.
+    </p>
+    <br>
+
+    <li class="step">
+        Example 3: 
+    </li>
+    <br>
+    <p>
+        The <span class="word">Future.wait</span> waits for multiple futures to complete and collects their results. It returns a future which completes once all the given futures have completed.
+    </p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:async'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>delayed</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Duration</span><span
+    style='color:#D4D4D4'>(seconds:&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Random</span><span
+    style='color:#D4D4D4'>().</span><span
+    style='color:#DCDCAA'>nextInt</span><span
+    style='color:#D4D4D4'>(x);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>findAverage</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;list)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;sum&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;list.</span><span
+    style='color:#DCDCAA'>forEach</span><span
+    style='color:#D4D4D4'>((e)&nbsp;=&gt;&nbsp;sum&nbsp;+=&nbsp;e);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;sum&nbsp;/&nbsp;list.length;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;</span><span
+    style='color:#C586C0'>async</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>final</span><span
+    style='color:#D4D4D4'>&nbsp;average&nbsp;=&nbsp;</span><span
+    style='color:#C586C0'>await</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Future</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>wait</span><span
+    style='color:#D4D4D4'>([</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>getRandomNumber</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>250</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;]).</span><span
+    style='color:#DCDCAA'>then</span><span
+    style='color:#D4D4D4'>((</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;res)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(res);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>findAverage</span><span
+    style='color:#D4D4D4'>(res);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;});</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>'The&nbsp;average&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>average</span><span
+    style='color:#CE9178'>'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        [103, 189, 154, 222, 136, 69] <br>
+        The average : 145.5 
+
+    </div>
+    <br>
+    <p>
+        In this example, we use an asynchronous function multiple time to generate a random number each 1 second. <br><br>
+        We place all the futures inside a <span class="word">Future.wait</span> then we pass the result to findAverage method when all the futures are completed.
+          
+    </p>
+
+    </ul>
+</div>

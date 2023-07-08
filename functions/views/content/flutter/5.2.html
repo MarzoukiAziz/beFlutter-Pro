@@ -1,0 +1,491 @@
+<div class="contenu">
+    <h1>
+        App3 : Simple Calculator - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">TextButton</a></li>
+            <li><a href="#w2">FittedBox</a></li>
+            <li><a href="#w3">Padding</a></li>
+            <li><a href="#w4">Align</a></li>
+            <li><a href="#w5">RichText</a></li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">TextButton</li>
+        <p>
+            A TextButton widget is just a text label displayed on a zero elevation Material widget. By default, it
+            doesn’t have visible borders and reacts to touches by filling with a background color. <br><br>
+            Note that <span class="word">FlatButton</span> have been replaced by TextButton,
+        </p>
+        <h3 class="note">
+            Some properties of TextButton Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                Typically the button's label.
+            </p>
+            <li>
+                <strong>style : </strong>ButtonStyle
+            </li>
+            <p>
+                Customizes this button's appearance.
+            </p>
+            <li>
+                <strong>onPressed : </strong> VoidCallback (that have no arguments and return no data )
+            </li>
+            <p>
+                Called when the button is tapped or otherwise activated.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Click&nbsp;Me!&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>35</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed:&nbsp;()&nbsp;{</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Clicked&nbsp;!&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>styleFrom</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.deepOrange,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;primary:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.white,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shape:&nbsp;</span><span
+                    style='color:#4EC9B0'>RoundedRectangleBorder</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borderRadius:&nbsp;</span><span
+                    style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>50.0</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p> <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c5l2p1.png?alt=media&token=8941e731-4b11-457d-ae7d-7034a08e11cc"
+            alt="TextButton example" class="ss">
+        <br>
+        <li id="w2" class="step">FittedBox</li>
+        <p>
+            A widget that displays an image.
+        </p>
+        <p>
+            Scales and positions its child within itself according to fit.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/T4Uehk3_wlY" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <br>
+        <h3 class="note">
+            Some properties of FittedBox Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>fit : </strong>BoxFit
+            </li>
+            <p>
+                How to inscribe the child into the space allocated during layout.
+            </p>
+            <li>
+                <strong>alignment : </strong>AlignmentGeometry
+            </li>
+            <p>
+                How to align the child within its parent's bounds.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>350</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.redAccent,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>FittedBox</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;</span><span
+                    style='color:#4EC9B0'>BoxFit</span><span style='color:#D4D4D4'>.scaleDown,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;&nbsp;helmit&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>26</span><span style='color:#D4D4D4'>,&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.white),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c5l2p2.png?alt=media&token=dc1307f0-3716-438d-b0f6-afbfc1333eee"
+            alt="FittedBox Flutter Example" class="ss">
+        <br>
+        <li id="w3" class="step">Padding</li>
+        <p>
+            A widget that insets its child by the given padding.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oD5RtLhhubg" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <br>
+        <h3 class="note">
+            Some properties of Padding Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>padding : </strong>EdgeInsetsGeometry
+            </li>
+            <p>
+                The amount of space by which to inset the child.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.redAccent,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Padding</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>14.0</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>26</span><span style='color:#D4D4D4'>,&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.white),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c5l2p3.png?alt=media&token=2ad277c9-637f-4797-92de-c623cb9f1a1a"
+            alt="Padding Flutter Example" class="ss">
+        <br>
+        <li id="w4" class="step">Align</li>
+        <p>
+            A widget that aligns its child within itself and optionally sizes itself based on the child's size.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oD5RtLhhubg" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <br>
+        <h3 class="note">
+            Some properties of Padding Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>alignment : </strong>AlignmentGeometry
+            </li>
+            <p>
+                How to align the child.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Align</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alignment:&nbsp;</span><span
+                    style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>0.5</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#B5CEA8'>0.2</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.redAccent,</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>26</span><span style='color:#D4D4D4'>,&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.white),</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c5l2p4.png?alt=media&token=b65641ac-dc73-4091-93d8-a81ac08a5b05"
+            alt="Align Flutter Example" class="ss">
+        <br>
+        <li id="w5" class="step">RichText</li>
+        <p>
+            The RichText widget displays text that uses multiple different styles. The text to display is described
+            using a tree of TextSpan objects, each of which has an associated style that is used for that subtree. The
+            text might break across multiple lines or might all be displayed on the same line depending on the layout
+            constraints.
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rykDVh-QFfw" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <br>
+        <h3 class="note">
+            Some properties of RichText Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>children : </strong> List&lt;Widget&gt;
+            </li>
+            <p>
+                The widgets below this widget in the tree.
+            </p>
+            <li>
+                <strong>text : </strong>InlineSpan
+            </li>
+            <p>
+                The text to display in this widget.
+            </p>
+            <li>
+                <strong>maxLines : </strong>Int
+            </li>
+            <p>
+                An optional maximum number of lines for the text to span, wrapping if necessary. If the text exceeds the
+                given number of lines, it will be truncated according to overflow.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.teal,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>RichText</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextSpan</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;letterSpacing:&nbsp;</span><span
+                    style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>18</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontWeight:&nbsp;</span><span
+                    style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.w700),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;[</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextSpan</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Lorem&nbsp;&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>23</span><span style='color:#D4D4D4'>,&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.yellow)),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextSpan</span><span style='color:#D4D4D4'>(text:&nbsp;</span><span
+                    style='color:#CE9178'>&quot;ipsum&nbsp;&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextSpan</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;</span><span
+                    style='color:#CE9178'>&quot;dolor&nbsp;&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontSize:&nbsp;</span><span
+                    style='color:#B5CEA8'>23</span><span style='color:#D4D4D4'>,&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.yellow)),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextSpan</span><span style='color:#D4D4D4'>(text:&nbsp;</span><span
+                    style='color:#CE9178'>'smet'</span><span style='color:#D4D4D4'>)</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c5l2p5.png?alt=media&token=6765fd4d-e974-4d0c-b55d-5103a631db93"
+            alt="RichText Flutter Example" class="ss">
+    </ol>
+</div>

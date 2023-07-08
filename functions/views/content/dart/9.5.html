@@ -1,0 +1,283 @@
+<div class="contenu">
+    <h1>
+        Static Keyword
+    </h1>
+    <ol>
+        <li class="step">
+            Static Keyword
+        </li>
+        <p>
+            In Dart, a static member is a member of a class that isn’t associated with an instance of a class.<br>
+            Instead, the member <span class="word">belongs to the class itself.</span> As a result, you can access the static member without first creating a class instance. <br>
+            The static members are the same for every instance of the class. <br>
+        </p>
+        <li class="step">
+            Static Variable
+        </li>
+        <p>
+            We can call the static variable as a <span class="word">class variable</span>.<br><br>
+            The value of a static variable is the <span class="word">same</span> across all instances of the class. In other words, if a class has a static field named x, all objects created from the class will have the same value for x. <br> <br>
+            We can access to it <span class="word">using the class name</span> so there are no need for creating an object to do that. <br>
+        </p>
+        <h3 class="note">
+            Declaring Static Variable :
+        </h3>
+        <div class="syn">
+            <span style="color: yellow;">static</span> &lt;data_type&gt; &lt;variable_name&gt; ;
+        </div>
+        <br>
+        <h3 class="note">
+            Accessing Static Variable :
+        </h3>
+        <div class="syn">
+            class_name.static_variable ; 
+        </div>
+        <br>
+        <li class="step">
+            Static Methods
+        </li>
+        <p>
+            A method declared with the static keyword. Like static variable, static methods are associated with the class itself, not with any particular object created from the class. As a result, you don’t have to create an object from a class before you can use static methods defined by the class. <br><br>
+            One of the basic rules of working with static methods is : you can’t access a nonstatic method or variable from a static method.
+        </p>
+        <h3 class=note>
+            Declaring Static Methods :
+        </h3>
+        <div class="syn">
+            <span style="color: yellow;">static</span> &lt;return_type&gt; method_name(){ <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;//method body <br>
+            } <br>
+        </div>
+        <br>
+        <h3 class="note">
+            Calling Static Method :
+        </h3>
+        <div class="syn">
+            class_name.method_name();
+        </div>
+        <br>
+        <li class="step">
+            Example :
+        </li>
+        <br>
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;nbOfPerons&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.name,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.id)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>nbOfPerons++;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#569CD6'>static</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>printNbOfPersons</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(nbOfPerons);</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#569CD6'>static</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>modifyNbOfPerons</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;nbOfPerons&nbsp;=&nbsp;x;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printNbOfPersonsFromObject</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(nbOfPerons);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>printNbOfPersons</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Adem&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>12345</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;p2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;John&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>65437</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;p3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Tom&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>97072</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>printNbOfPersons</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>modifyNbOfPerons</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>8</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>Person</span><span
+     style='color:#D4D4D4'>.</span><span
+     style='color:#DCDCAA'>printNbOfPersons</span><span
+     style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>Person</span><span
+     style='color:#D4D4D4'>.nbOfPerons&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>15</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>Person</span><span
+     style='color:#D4D4D4'>.</span><span
+     style='color:#DCDCAA'>printNbOfPersons</span><span
+     style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>p1.</span><span
+    style='color:#DCDCAA'>printNbOfPersonsFromObject</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p2.</span><span
+    style='color:#DCDCAA'>printNbOfPersonsFromObject</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p3.</span><span
+    style='color:#DCDCAA'>printNbOfPersonsFromObject</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+    <br>
+    <div class="res">
+        0 <br>
+        3 <br>
+        8 <br>
+        15 <br>
+        15 <br>
+        15 <br>
+        15 <br>
+    </div>
+    </ol>
+</div>

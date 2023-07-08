@@ -1,0 +1,649 @@
+<div class="contenu">
+    <h1>
+        Inheritance
+    </h1>
+    <ol>
+        <li class="step">
+            What is Inheritance?
+        </li>
+        <p>
+            <span style="font-weight: bold;">Inheritance</span> is a mechanism in which one class acquires the property of another class.
+             For example, a child inherits the traits of his/her parents.
+              With inheritance, we can reuse the variables and methods of the existing class. 
+              Hence, inheritance facilitates Reusability and is an important concept of OOPs. <br><br>
+        </p>
+        <p>
+            <span style="color: darkred;font-weight: bold;">
+                Child Class
+            </span> : The class that extends the features of another class is known as child class, sub class or derived class.
+
+        </p>
+        
+        <p>
+            <span style="color: darkred;font-weight: bold;">
+                Parent Class
+            </span> : The class whose properties and functionalities are used(inherited) by another class is known as parent class, super class or Base class.
+        </p>
+        <br>
+        <p>
+            The inheritance can be mainly three types:
+        </p>
+        <ol>
+            <li><p>Single Inheritance</p></li>
+            <li><p>Multilevel Inheritance</p></li>
+            <li><p>Hierarchical Inheritance</p></li>
+        </ol>
+        <p>
+            Dart doesn’t support Multiple Inheritance
+        </p>
+        <br>
+        <li class="step">
+            Syntax
+        </li><br>
+        <div class="syn">
+            <span style="color: yellow;">class</span> child_class <span style="color: yellow;">extends</span>  parent_class {   <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;//body of child class   <br>
+            }   <br>
+        </div><br>
+        <li class="step">
+            Single Level Inheritance
+        </li>
+        <p>
+            A single subclass extends from a single superclass.
+        </p>
+        <img style="    width: 50%;" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/Single%20Inheritance.png?alt=media&token=6835161b-5521-4ffd-9599-9c0b254c0419" alt="Dart: Single Level Inheritance">
+        <br>
+        <h3 class="note">
+            Example:
+        </h3>
+        <br>
+        
+<div class=code>
+
+    <p><span style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(name);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;nb;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printId</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(id);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;student1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Sam&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>1234</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.</span><span
+    style='color:#DCDCAA'>printId</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.nb&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Sam <br>
+        1234
+    </div>
+    <br>
+    <li class="step">
+        Multilevel Inheritance
+    </li>
+    <p>
+        A subclass extends from a superclass and then the same subclass acts as a superclass for another class. 
+    </p>
+    <br>
+    <img style="width: 50%;" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/multilevel%20inheritance.png?alt=media&token=3b786fe1-c54a-417f-8837-3eeffa409b1f" alt="dart : Multilevel Inheritance">
+    <br>
+    <h3 class="note">
+        Example:
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(name);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;nb;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printId</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(id);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>ClubMember</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;role;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setRole</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;role&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;member1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>ClubMember</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Sam&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>1234</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>printId</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.nb&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>setRole</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Admin&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(member1.role);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Sam <br>
+        1234 <br>
+        Admin <br>
+    </div>
+    <br>
+    <li class="step">
+        Hierarchical Inheritance
+    </li>
+    <p>
+        Multiple subclasses extend from a single superclass.
+    </p>
+    <br>
+    <img style="width: 50%;" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/hierarchical%20inheritance.png?alt=media&token=1972fcb8-5764-437b-b8f0-43cd94cbcfe5" alt="dart : Hierarchical Inheritance">
+    <br>
+    <h3 class="note">
+        Example:
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;name;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;id;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(name);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;nb;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printId</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(id);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>ClubMember</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Person</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;role;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setRole</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;role&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;member1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>ClubMember</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;Adem&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;member1.</span><span
+    style='color:#DCDCAA'>setRole</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Founder&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(member1.role);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;student1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Student</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.</span><span
+    style='color:#DCDCAA'>setName</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Elon&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;student1.nb&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>345</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(student1.nb);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p class=MsoNormal>&nbsp;</p>
+    
+    </div>
+<br>
+<div class="res">
+    Adem <br>
+    Founder <br>
+    Elon <br>
+    345 <br>
+</div>    
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+</div>

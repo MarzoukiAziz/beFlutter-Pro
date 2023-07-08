@@ -1,0 +1,221 @@
+<div class="contenu">
+    <h1>
+        Exceptions
+    </h1>
+    <p>
+        An exception is a signal that a condition has occurred that can’t be easily handled using the normal flow-of-control of a Dart program. Exceptions are often defined as being “errors” but this is not always the case. All errors in Dart are dealt with using exceptions, but not all exceptions are errors. <br><br>
+        Every exception in Dart is a subtype of the pre-defined class Exception. Exceptions must be handled to prevent the application from terminating abruptly. <br><br>
+        Built-in Dart exceptions include : <br>
+    </p>
+    <br>
+    <table class="tableau">
+        <tr>
+            <th>
+                Exception
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                DeferredLoadException
+            </td>
+            <td>
+                Thrown when a deferred library fails to load.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                FormatException
+            </td>
+            <td>
+                Exception thrown when a string or some other data does not have an expected format and cannot be parsed or processed.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IntegerDivisionByZeroException
+            </td>
+            <td>
+                Thrown when a number is divided by zero.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IOException
+            </td>
+            <td>
+                Base class for all Inupt-Output related exceptions.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IsolateSpawnException
+            </td>
+            <td>
+                Thrown when an isolate cannot be created.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Timeout
+            </td>
+            <td>
+                Thrown when a scheduled timeout happens while waiting for an async result.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Others
+            </td>
+            <td>
+                ....
+            </td>
+        </tr>
+
+    </table>
+    <br>
+    <h2 class="note">
+        Examples:
+    </h2>
+    <br>
+
+
+    <div class=code>
+
+        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>main</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span
+        style='color:#B5CEA8'>3</span><span
+        style='color:#D4D4D4'>,&nbsp;y&nbsp;=&nbsp;</span><span
+        style='color:#B5CEA8'>0</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(x&nbsp;~/&nbsp;y);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+        
+       <br>
+        
+        </div>
+
+<br>
+
+
+<div style="color: rgb(255 169 0);"s class="res">
+    Unhandled exception: <br>
+    IntegerDivisionByZeroException <br>
+
+</div>
+
+
+<br>
+
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>,&nbsp;y&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;w&nbsp;=&nbsp;x&nbsp;/&nbsp;y;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(w);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;w&nbsp;-=&nbsp;</span><span style='
+    color:#B5CEA8'>500</span><span style='
+    color:#D4D4D4'>&nbsp;/&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(w);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+	<br>
+    <div class="res">
+        Infinity <br>
+        NaN <br>
+    </div>
+<br>
+<p>
+    The key here is that n / 0 is not integer division. <br>
+    <br>
+
+Dart automatically performs double division and the double type has the double.infinity constant. This means that print(n / 0) will yield Infinity. <br>
+<br>
+Furthermore, double.infinity is actually defined as 1.0 / 0.0. <br><br>
+
+
+If you use integer division instead (~/), you will receive an IntegerDivisionByZeroException:
+</p>
+        <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;li&nbsp;=&nbsp;[</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>2</span><span style='
+    color:#D4D4D4'>];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(li[</span><span style='
+    color:#B5CEA8'>6</span><span style='
+    color:#D4D4D4'>]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>    
+    <br>
+    <div  style="color: rgb(255 169 0);" class="res">
+        Unhandled exception: <br>
+        RangeError (index): Invalid value: Not in inclusive range 0..2: 6 <br>
+
+    </div>
+</div>

@@ -1,0 +1,554 @@
+<div class="contenu">
+    <h1>
+        Level 1 : Project 5 
+    </h1>
+
+    <br>
+    <p>
+        On the occasion of its twentieth anniversary and to encourage its customers, a company of telecommunications, whose numbers start with 65 and 66, grants a top-up bonus for the winning customers.  <br><br>
+        A customer is a winner if the amount of his communications is greater than or equal to the average consumption of N customers of the company. <br><br>
+    </p>
+    <p style="color:forestgreen;">
+        To automate this task, we propose to write a Dart program which allows to: <br>    </p>
+        <ol style="color:forestgreen;">
+            <li>
+                <p>
+                    Fill 2 tables <span style="color:purple;" class="word"> t </span> and <span style="color:purple;" class="word"> c </span>  respectively, by the numbers and the telephone consumption of <span style="color:purple;" class="word"> n </span>  customers, with 7 ≤ n ≤ 100, knowing that:
+                </p>
+                <ul>
+                    <li>
+                        <p>
+                            Each number is unique and consists of eight digits necessarily starting with 65 or 66.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            For each telephone number  t[i], we match a consumption amount c[i] expressed in Dollar.
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    View winning phone numbers and bonuses, obtained by multiplying by 20 the sum of the last six digits of each winning number.
+                </p>
+            </li>
+        </ol>
+
+    <br>
+    <br>
+    <h3 class="note">
+        Example:
+    </h3>
+    <br>
+    <p>
+        For N = 7 and the following tables T and C: <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/example%20project%205.jpg?alt=media&token=a9c02e96-3226-47fb-868a-13a51303ac7f" alt="project 5 example"> <br>
+        The program displays: <br><br>
+        The average amount consumed is: 156,285$ <br>
+        The number 66456789 won 780$ <br>
+        The number 65980765 won 700$ <br>
+        The number 66123321 won 240$ <br>
+        The number 65347743 won 560$ <br>
+
+    </p>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+	
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>inputNumber</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>do</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;the&nbsp;number&nbsp;of&nbsp;customers&nbsp;(&nbsp;7&nbsp;&#8804;&nbsp;n&nbsp;&#8804;&nbsp;100)&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(n&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(n&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>100</span><span
+    style='color:#D4D4D4'>&nbsp;||&nbsp;n&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>)&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(n&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>return</span><span style='
+    color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>inputCustomerNumers</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;customers&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;number;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;testnumeric;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>do</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;enter&nbsp;the&nbsp;phone&nbsp;number&nbsp;of&nbsp;customer&nbsp;${</span><span
+    style='color:#9CDCFE'>i&nbsp;+&nbsp;1</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testnumeric&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(number);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(testnumeric&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;((number.length&nbsp;!=&nbsp;</span><span
+    style='color:#B5CEA8'>8</span><span
+    style='color:#D4D4D4'>)&nbsp;||</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(number[</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+    style='color:#CE9178'>&quot;6&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;||</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((number[</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+    style='color:#CE9178'>&quot;5&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(number[</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+    style='color:#CE9178'>&quot;6&quot;</span><span
+    style='color:#D4D4D4'>)))&nbsp;testnumeric&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(testnumeric&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;customers.</span><span style='
+    color:#DCDCAA'>add</span><span style='
+    color:#D4D4D4'>(number);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>return</span><span style='
+    color:#D4D4D4'>&nbsp;customers;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>inputCustomerConsumption</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;consumptions&nbsp;=&nbsp;[];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;cons;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>do</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;enter&nbsp;the&nbsp;consumption&nbsp;of&nbsp;customer&nbsp;${</span><span
+    style='color:#9CDCFE'>i&nbsp;+&nbsp;1</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cons&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(cons&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(cons&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;cons&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(cons&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;consumptions.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(cons);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>return</span><span style='
+    color:#D4D4D4'>&nbsp;consumptions;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>average</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;l)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;l.length;&nbsp;i++)&nbsp;a&nbsp;+=&nbsp;l[i];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>return</span><span style='
+    color:#D4D4D4'>&nbsp;a&nbsp;/&nbsp;l.length;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>viewWinners</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;t,&nbsp;</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;c,&nbsp;</span><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;av)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;t.length;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(c[i]&nbsp;&gt;=&nbsp;av)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;sum&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>8</span><span
+    style='color:#D4D4D4'>;&nbsp;j++)&nbsp;sum&nbsp;+=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>parse</span><span
+    style='color:#D4D4D4'>(t[i][j]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;The&nbsp;number&nbsp;${</span><span
+    style='color:#9CDCFE'>t[i]</span><span
+    style='color:#CE9178'>}&nbsp;won&nbsp;${</span><span
+    style='color:#9CDCFE'>sum&nbsp;*&nbsp;20</span><span
+    style='color:#CE9178'>}</span><span
+    style='color:#D7BA7D'>\$</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;n&nbsp;=&nbsp;</span><span style='
+    color:#DCDCAA'>inputNumber</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;t&nbsp;=&nbsp;</span><span style='
+    color:#DCDCAA'>inputCustomerNumers</span><span
+    style='color:#D4D4D4'>(n);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span style='
+    color:#DCDCAA'>inputCustomerConsumption</span><span
+    style='color:#D4D4D4'>(n);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;averageOfConsumption&nbsp;=&nbsp;</span><span
+    style='color:#DCDCAA'>average</span><span
+    style='color:#D4D4D4'>(c);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;The&nbsp;average&nbsp;amount&nbsp;consumed&nbsp;is:&nbsp;$</span><span
+    style='color:#9CDCFE'>averageOfConsumption</span><span
+    style='color:#D7BA7D'>\$</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>viewWinners</span><span style='
+    color:#D4D4D4'>(t,&nbsp;c,&nbsp;averageOfConsumption);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        enter the number of customers ( 7 ≤ n ≤ 100) <br>
+        7 <br>
+        enter the phone number of customer 1 <br>
+        66456789 <br>
+        enter the phone number of customer 2 <br>
+        66127721 <br>
+        enter the phone number of customer 3 <br>
+        65980765 <br>
+        enter the phone number of customer 4 <br>
+        66123321 <br>
+        enter the phone number of customer 5 <br>
+        66285585 <br>
+        enter the phone number of customer 6 <br>
+        66285582 <br>
+        enter the phone number of customer 7 <br>
+        65347743 <br>
+        enter the consumption of customer 1 <br>
+        200 <br>
+        enter the consumption of customer 2 <br>
+        20 <br>
+        enter the consumption of customer 3 <br>
+        300 <br>
+        enter the consumption of customer 4 <br>
+        250 <br>
+        enter the consumption of customer 5 <br>
+        45 <br>
+        enter the consumption of customer 6 <br>
+        99 <br>
+        enter the consumption of customer 7 <br>
+        180 <br>
+        The average amount consumed is: 156.28571428571428$ <br>
+        The number 66456789 won 780$ <br>
+        The number 65980765 won 700$ <br>
+        The number 66123321 won 240$ <br>
+        The number 65347743 won 560$ <br>
+    </div>
+</div>

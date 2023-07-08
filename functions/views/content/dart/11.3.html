@@ -1,0 +1,661 @@
+<div class="contenu">
+    <h1>
+        Level 2 : Project 8
+    </h1>
+    <br>
+    <p>
+        We want to develop software to computerize the care pathway in a hospital.
+        A programmer wrote the following code, but had to stop its development. <br>
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>enum</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;assume&nbsp;that&nbsp;all&nbsp;diseases&nbsp;are&nbsp;listed&nbsp;here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Stroke</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Traacbea</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Alzheimer</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Tuberculosis</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Cirrhosis</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Diagnostic</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;caregiver;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;date;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>&nbsp;disease;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;validity;&nbsp;</span><span
+    style='color:#6A9955'>//diagnostic&nbsp;reliability,&nbsp;between&nbsp;0&nbsp;and&nbsp;100%</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Diagnostic</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.caregiver,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.date,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.disease,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.validity);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+   <br>
+</div>
+<br>
+    <p> 
+        <span class="word">Patients</span> must be represented in the software, with their last name, first name, date of birth, sex and the medical acts they have undergone. <br> <br>
+These acts can be <span class="word">Diagnostic</span> or <span class="word">Treatment</span>.
+ A treatment is performed by a nursing staff, at a certain date and produces a certain improvement in the patient's condition (in percentage). 
+    </p>
+    <h3 class="note">
+        Note:
+    </h3>
+    <p>
+        We can represent dates with the DateTime class. It must be possible to retrieve the age of a patient and add a medical procedure.
+    </p>
+    <p style="font-weight: 700;">
+        1) Propose object code to represent patients and acts (we have the right to modify the Diagnosis class).
+    </p>
+    <p>
+        Among all the possible treatments, there is the taking of <span class="word">medications</span>, with a dosage (whole quantity) and a frequency (number of times the drug is taken per day).
+    </p>
+    <p style="font-weight: 700;">
+        2) Suggest object code to represent medication taken. Add a method of knowing how much medication a patient should take per day
+    </p>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+
+
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>enum</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;assume&nbsp;that&nbsp;all&nbsp;diseases&nbsp;are&nbsp;listed&nbsp;here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Stroke</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Traacbea</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Alzheimer</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Tuberculosis</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Cirrhosis</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#569CD6'>enum</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Sex</span><span
+    style='color:#D4D4D4'>&nbsp;{&nbsp;</span><span
+    style='color:#4EC9B0'>Male</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>Female</span><span
+    style='color:#D4D4D4'>&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_caregiver;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;_date;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._caregiver,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._date);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Diagnostic</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>&nbsp;_disease;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_validity;&nbsp;</span><span
+    style='color:#6A9955'>//between&nbsp;0&nbsp;and&nbsp;100&nbsp;%</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Diagnostic</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;cg,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;d,&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>&nbsp;ds,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(cg,&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_disease&nbsp;=&nbsp;ds;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_validity&nbsp;=&nbsp;v;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Treatment</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_improvement;&nbsp;</span><span
+    style='color:#6A9955'>//improvement&nbsp;rate&nbsp;between&nbsp;0&nbsp;and&nbsp;100%</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Treatment</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;cg,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;d,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;a)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(cg,&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_improvement&nbsp;=&nbsp;a;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Patient</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_firstName,&nbsp;_lastName;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;_birthDay;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Sex</span><span
+    style='color:#D4D4D4'>&nbsp;_sex;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;_acts;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Patient</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._firstName,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._lastName,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._birthDay,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._sex,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._acts);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getAge</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>now</span><span
+    style='color:#D4D4D4'>().</span><span
+    style='color:#DCDCAA'>difference</span><span
+    style='color:#D4D4D4'>(_birthDay).inDays)&nbsp;~/&nbsp;</span><span
+    style='color:#B5CEA8'>365</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>addAct</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Act</span><span
+    style='color:#D4D4D4'>&nbsp;a)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._acts.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(a);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>nbMedDaily</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;n&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;a&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;_acts)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(a.runtimeType&nbsp;==&nbsp;</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>&nbsp;aux&nbsp;=&nbsp;a;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;+=&nbsp;aux._frequency;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Treatment</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_dosage,&nbsp;_frequency;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;cg,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>&nbsp;d,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;a,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;dos,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;f)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(cg,&nbsp;d,&nbsp;a)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_dosage&nbsp;=&nbsp;dos;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_frequency&nbsp;=&nbsp;f;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Patient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Velvel&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;Adalwin&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>1980</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>23</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#4EC9B0'>Sex</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#4EC9B0'>Male</span><span
+    style='color:#D4D4D4'>,&nbsp;[</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Diagnostic</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Barrfind&nbsp;Piripi&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2020</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>12</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>03</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#4EC9B0'>Disease</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#4EC9B0'>Stroke</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>98</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Treatment</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Qillaq&nbsp;Ingo&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2021</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>03</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#B5CEA8'>70</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;]);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(p1.</span><span
+    style='color:#DCDCAA'>getAge</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(p1.</span><span
+    style='color:#DCDCAA'>nbMedDaily</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>addAct</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Gohar&nbsp;Hamlet&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2021</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>05</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>11</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(p1.</span><span
+    style='color:#DCDCAA'>nbMedDaily</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>addAct</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>Medication</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Ani&nbsp;Rouben&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>DateTime</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2021</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>07</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>),&nbsp;</span><span
+    style='color:#B5CEA8'>20</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(p1.</span><span
+    style='color:#DCDCAA'>nbMedDaily</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        40 <br>
+        0 <br>
+        3 <br>
+        5 <br>
+    </div>
+    
+</div>

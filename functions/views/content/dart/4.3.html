@@ -1,0 +1,217 @@
+<div class="contenu">
+	
+
+<h1>
+    For Loops
+</h1>
+
+<p>
+    Loops are used to execute a set of statements repeatedly until a particular condition is satisfied. <br>
+     It can be used to iterate over a fixed set of values, such as a list.
+</p>
+<ol>
+    <li class="step">
+        Syntax:
+    </li>
+<br>
+    <div class="syn">
+        <p>
+            <span style="color: yellow;">for</span> ( initialization; condition; increment/decrement ) {<br>
+       &nbsp; &nbsp; &nbsp;statement(s);<br>
+    }<br>
+        </p>
+    </div>
+    <br>
+    <li class="step">
+        Flow of Execution:
+    </li>
+    <br>
+    
+        <center><img style="height:500px;width:auto;" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/for%20flow%20control%20(2).png?alt=media&token=92cc60c3-37ad-4a1a-8bdb-c2d56023cae2" alt="For loop Control Flow"></center>
+        <br>
+        <p><span style="font-weight: 700;">First step:</span> In for loop, initialization happens first and only one time, which means that the initialization part of for loop only executes once. <br><br></p>
+        <p><span style="font-weight: 700;">Second step:</span> Condition in for loop is evaluated on each iteration, if the condition is true then the statements inside for loop body gets executed. Once the condition returns false, the statements in for loop does not execute and the control gets transferred to the next statement in the program after for loop. <br><br></p>
+        <p><span style="font-weight: 700;">Third step:</span> After every execution of for loop’s body, the increment/decrement part of for loop executes that updates the loop counter. <br><br></p>
+        <p><span style="font-weight: 700;">Fourth step:</span> After third step, the control jumps to second step and condition is re-evaluated. <br></p>
+    <br>
+    <li class="step">
+        Examples:
+    </li>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span>
+    <span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>;&nbsp;i&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;&nbsp;i--)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;i&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>i</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>9</span><span
+    style='color:#D4D4D4'>;&nbsp;j++)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;j&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>j</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+    <br>
+    <div class="res">
+i = 8 <br>
+i = 7 <br>
+i = 6 <br>
+i = 5 <br>
+i = 4 <br>
+i = 3 <br>
+i = 2 <br>
+i = 1 <br>
+j = 1 <br>
+j = 2 <br>
+j = 3 <br>
+j = 4 <br>
+j = 5 <br>
+j = 6 <br>
+j = 7 <br>
+j = 8 <br>
+
+    </div>
+    <br>
+    <br>
+    <div class=code>
+
+        <p><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>,&nbsp;j&nbsp;=&nbsp;</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>;&nbsp;i&nbsp;&gt;&nbsp;</span><span
+        style='color:#B5CEA8'>0</span><span
+        style='color:#D4D4D4'>&nbsp;&amp;&amp;&nbsp;j&nbsp;&lt;&nbsp;</span><span
+        style='color:#B5CEA8'>9</span><span
+        style='color:#D4D4D4'>;&nbsp;i--,&nbsp;j++)&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;i&nbsp;=&nbsp;$</span><span
+        style='color:#9CDCFE'>i</span><span
+        style='color:#CE9178'>&nbsp;and&nbsp;j&nbsp;=&nbsp;$</span><span
+        style='color:#9CDCFE'>j</span><span
+        style='color:#CE9178'>&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <br>
+        
+        </div>
+        <br>
+        <div class="res">
+i = 8 and j = 1 <br>
+i = 7 and j = 2 <br>
+i = 6 and j = 3 <br>
+i = 5 and j = 4 <br>
+i = 4 and j = 5 <br>
+i = 3 and j = 6 <br>
+i = 2 and j = 7 <br>
+i = 1 and j = 8 <br>
+
+        </div>
+	<br>
+	<br>
+    <li class="step">
+        For..in Loop
+    </li>
+    <br>
+    <p>
+        For..in loop is useful when you want to iterate classes such as List and Set , it is easy to write and understand.
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;list1&nbsp;=&nbsp;[</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>];</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;</span><span style='color:#C586C0'>in</span><span style='color:#D4D4D4'>&nbsp;list1)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(x);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;////////&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;set1&nbsp;=&nbsp;{</span><span style='color:#CE9178'>&quot;one&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;two&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;three&quot;</span><span
+    style='color:#D4D4D4'>};</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;</span><span style='color:#C586C0'>in</span><span style='color:#D4D4D4'>&nbsp;set1)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(x);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+  <br>
+    </div>
+    <br>
+    <div class="res">
+        1 <br>
+        2 <br>
+        3 <br>
+        //////// <br>
+        one <br>
+        two <br>
+        three <br>
+
+    </div>
+</ol>
+	</div>

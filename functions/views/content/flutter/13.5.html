@@ -1,0 +1,49 @@
+<div class="contenu">
+    <h1>
+        Flutter BuildContext
+    </h1>
+    <p>
+        Every Flutter widget has <anspan class="word"> @override build()</anspan> method with the argument of <span
+            class="word">BuildContext</span>. <br><br>
+        Simply, BuildContext is a handle to the location of a widget in the widget tree. <br><br>
+    </p>
+    <ol>
+        <li class="step">
+            What's really mean by "build location" ?
+        </li>
+        <ul>
+            <li>
+                <p>when the framework builds a widget object by calling its constructor will correspondingly need to
+                    create
+                    an element object for that widget object.</p>
+            </li>
+            <li>
+                <p>And this element object represents the build location of that widget.</p>
+            </li>
+            <li>
+                <p>This element object has many useful instance methods.</p>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <li class="step">
+            What is BuildContext object ?
+        </li>
+        <p>
+            BuildContext objects are actually Element objects. The BuildContext interface is used to discourage direct
+            manipulation of Element objects.
+
+
+        </p>
+    </ol>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        Sources :
+    </h3>
+    <p>
+        <a href="https://stackoverflow.com/questions/49100196/what-does-buildcontext-do-in-flutter">What does
+            BuildContext do in Flutter?</a> <br><br>
+        <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext class</a>
+    </p>
+
+</div>

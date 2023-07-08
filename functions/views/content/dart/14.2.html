@@ -1,0 +1,81 @@
+<div class="contenu">
+    <h1>
+        Callable classes
+    </h1>
+    <P>
+        To allow an instance of your Dart class to be called like a function, implement the <span class="word">call()</span> method.
+    </P>
+    <p>
+        In the following example, the <span class="word">WannabeFunction</span> class defines a call() function that takes three strings and concatenates them, separating each with a space, and appending an exclamation.
+    </p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>WannabeFunction</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>call</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;a,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;b,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;c)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#CE9178'>'$</span><span
+    style='color:#9CDCFE'>a</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>b</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>c</span><span
+    style='color:#CE9178'>!'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;wf&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>WannabeFunction</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;out&nbsp;=&nbsp;</span><span
+    style='color:#DCDCAA'>wf</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>'Hi'</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>'there,'</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>'gang'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(out);</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Hi there, gang!
+    </div>
+</div>

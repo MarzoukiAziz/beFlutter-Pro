@@ -1,0 +1,1818 @@
+<div class="contenu">
+        <h1>
+                Internationalization
+        </h1>
+        <p>
+                If you are going to deploy your app to users who speak another language then you’ll need to
+                “internationalize”
+                it. Flutter offers good documentation on how to set up your localized values for each locale that your
+                app
+                supports. but it can be sometimes unclear and hard to implement or hard to manage. <br><br>
+                In this tutorial, we are going to learn how to localize our apps the simple way by using JSON files to
+                store
+                your data in multiple languages.
+        </p>
+        <ol>
+                <li class="step">
+                        Getting Started
+                </li>
+                <p>
+                        Let’s create a new Flutter project and clean your <span class="word">main.dart</span> file. In
+                        this
+                        tutorial, my app has 2 languages
+                        which are English(LTR) and Arabic(RTL). The App will show sentences by device language.let’s do
+                        it
+
+                </p>
+                <li class="step">
+                        Prepare Your Project
+                </li>
+                <p>
+                        before writing any actual code we need to create the files containing translated strings first
+                        and update
+                        the <span class="word">pubspec.yaml</span> file.
+                </p>
+                <h2 class="note">
+                        Create the language files
+                </h2>
+                <p>
+                        Create a new folder <span class="word">i18n</span> in the project root. This folder will hold
+                        all of the
+                        language files. Our project,
+                        we will have 2 Language Arabic and English so we will create <strong>en.json</strong> and
+                        <strong>
+                                ar.json</strong>.
+                </p>
+                <img class="ss" src="https://miro.medium.com/max/690/1*7Jur_Yq5FyfyttVxcrpI0Q.png" alt="">
+                <p>
+                        These files will contain only simple key-value pairs of strings. Using JSON is beneficial,
+                        because similar
+                        to XML, you can just give it to a translator without them needing to access your code.
+                </p>
+                <div class="res">
+                        { <br>
+                        "title": "Hello!", <br>
+                        "Message" : "This is English" <br>
+                        }
+                </div>
+                <br>
+                <div class="res">
+                        { <br>
+                        "title": "مرحبا!", <br>
+                        "Message" : "هذه هي اللغة العربي" <br>
+                        }
+                </div>
+                <br>
+                <h2 class="note">
+                        Update pubspec.yaml
+                </h2>
+                <p>
+                        Flutter has a localization package for translating own component by languages. so we need to add
+                        it .open
+                        pubspec.yaml file and add <span class="word">flutter_localizations</span> to your dependencies.
+                </p>
+                <img class="ss" src="https://miro.medium.com/max/362/1*9ylTMooJ0q08mzeAOK3-jw.png" alt="">
+                <p>
+                        since you’ve just added new language JSON files, you need to specify them as
+                        <strong>assets</strong> in
+                        order to access them in code.
+                </p>
+                <img class="ss" src="https://miro.medium.com/max/287/1*yfNS1SG0r-H4mUbnc7DTFQ.png" alt="">
+                <br>
+                <h2 class="note">
+                        Create DemoLocalizations Class And Delegate Class
+
+                </h2>
+                <p>
+                        <strong>DemoLocalizations</strong> Class is the main class of localization. This class will load
+                        all
+                        sentences by given
+                        language then this class gives sentences by the loaded languages. This class uses <span
+                                class="word">load</span> a method for loading
+                        the sentences from json files and it can get sentences from loaded sentences with <span
+                                class="word">translate</span> method. My
+                        Language service will work by sentence keys. <br><br>
+                        you still need to provide a way for Flutter to step in and decide when the load() method will be
+                        called and
+                        which locale will be used. Flutter localization uses delegates for initialization. this is why
+                        we will
+                        create a delegate class to be able to use that class.
+
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'dart:async'</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'dart:convert'</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:flutter/services.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Locale</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>locale</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>locale</span><span
+                                        style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        Helper
+                                        method
+                                        to
+                                        keep
+                                        the
+                                        code
+                                        in
+                                        the
+                                        widgets
+                                        concise</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        Localizations
+                                        are
+                                        accessed
+                                        using
+                                        an
+                                        InheritedWidget
+                                        &quot;of&quot;
+                                        syntax</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Localizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>&gt;(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        Static
+                                        member
+                                        to
+                                        have
+                                        a
+                                        simple
+                                        access
+                                        to
+                                        the
+                                        delegate
+                                        from
+                                        the
+                                        MaterialApp</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>LocalizationsDelegate</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#9CDCFE'>delegate</span><span style='color:#D4D4D4'>
+                                        =</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>_AppLocalizationsDelegate</span><span
+                                        style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Map</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#9CDCFE'>_localizedStrings</span><span
+                                        style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Future</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>bool</span><span
+                                        style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#DCDCAA'>load</span><span style='color:#D4D4D4'>()
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        Load
+                                        the
+                                        language
+                                        JSON
+                                        file
+                                        from
+                                        the
+                                        &quot;lang&quot;
+                                        folder</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>jsonString</span><span style='color:#D4D4D4'>
+                                        =</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>rootBundle</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>loadString</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'i18n/</span><span
+                                        style='color:#D4D4D4'>${</span><span style='color:#9CDCFE'>locale</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>languageCode</span><span
+                                        style='color:#D4D4D4'>}</span><span style='color:#CE9178'>.json'</span><span
+                                        style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>Map</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#9CDCFE'>jsonMap</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>decode</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>jsonString</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>_localizedStrings</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#9CDCFE'>jsonMap</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>map</span><span
+                                        style='color:#D4D4D4'>((</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>MapEntry</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>());</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        });</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>true</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        This
+                                        method
+                                        will
+                                        be
+                                        called
+                                        from
+                                        every
+                                        widget
+                                        which
+                                        needs
+                                        a
+                                        localized
+                                        text</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>translate</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>_localizedStrings</span><span
+                                        style='color:#D4D4D4'>[</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>];</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#6A9955'>//
+                                        LocalizationsDelegate
+                                        is
+                                        a
+                                        factory
+                                        for
+                                        a
+                                        set
+                                        of
+                                        localized
+                                        resources</span>
+                        </p>
+
+                        <p><span style='color:#6A9955'>//
+                                        In
+                                        this
+                                        case,
+                                        the
+                                        localized
+                                        strings
+                                        will
+                                        be
+                                        gotten
+                                        in
+                                        an
+                                        AppLocalizations
+                                        object</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>_AppLocalizationsDelegate</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>LocalizationsDelegate</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>&gt;
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        This
+                                        delegate
+                                        instance
+                                        will
+                                        never
+                                        change
+                                        (it
+                                        doesn't
+                                        even
+                                        have
+                                        fields!)</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        It
+                                        can
+                                        provide
+                                        a
+                                        constant
+                                        constructor.</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>_AppLocalizationsDelegate</span><span
+                                        style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>isSupported</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>locale</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        Include
+                                        all
+                                        of
+                                        your
+                                        supported
+                                        language
+                                        codes
+                                        here</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                        [</span><span style='color:#CE9178'>'en'</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'ar'</span><span style='color:#D4D4D4'>].</span><span
+                                        style='color:#DCDCAA'>contains</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>locale</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>languageCode</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Future</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#DCDCAA'>load</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Locale</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>locale</span><span style='color:#D4D4D4'>)
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#6A9955'>//
+                                        AppLocalizations
+                                        class
+                                        is
+                                        where
+                                        the
+                                        JSON
+                                        loading
+                                        actually
+                                        runs</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>localizations</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#569CD6'>new</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>locale</span><span
+                                        style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>localizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>load</span><span
+                                        style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>localizations</span><span
+                                        style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>shouldReload</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>_AppLocalizationsDelegate</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>old</span><span style='color:#D4D4D4'>)
+                                        =&gt;
+                                </span><span style='color:#569CD6'>false</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+                </div>
+                <br><br>
+                <h2 class="note">
+                        Make the MaterialApp localized
+                </h2>
+                <p>
+                        The setup of the localization happens inside the MaterialApp widget, which is the root of a
+                        Flutter app.
+                        Here you specify which languages are supported
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>supportedLocales</span><span
+                                        style='color:#D4D4D4'>: [</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'en'</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'US'</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'ar'</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>''</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp;
+                                        ],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>localizationsDelegates</span><span
+                                        style='color:#D4D4D4'>:
+                                        [</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>GlobalMaterialLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>GlobalWidgetsLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:
+                                        AppLang(),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        );</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }}</span>
+                        </p>
+                        <br>
+                </div>
+                <br><br>
+                <p>
+                        Now we have all the setup done to start working.
+                </p>
+                <br>
+                <li class="step">
+                        Translating text in the UI
+                </li>
+                <p>
+                        to translate your Just call the <span class="word">
+                                of()
+                        </span> helper static method on <strong>AppLocalizations()</strong> to get the instance properly
+                        set up by Flutter and then translate using the keys you’ve specified in the JSON files!
+
+                </p>
+                <br>
+                <div class="code">
+
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>AppLang</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Scaffold</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>AppBar</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>).</span><span style='color:#DCDCAA'>translate</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'title'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp;
+                                </span><span style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>).</span><span style='color:#DCDCAA'>translate</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'Message'</span><span
+                                        style='color:#D4D4D4'>)),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        );</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+                </div>
+                <br><br>
+                <img src="https://miro.medium.com/max/540/1*tUaG5hiRawCB9q-MNw5Ezw.png" alt="" class="ss">
+                <br>
+                <p>
+                        Now to test if this works. Go to the app Settings and change the language to Arabic and re-open
+                        the app and
+                        you will see that the message and title are translated immediately to Arabic.
+
+                </p>
+                <br>
+                <img src="https://miro.medium.com/max/540/1*ynfD2vN0DMLjmlJyJQr13Q.png" alt="" class="ss">
+                <br><br>
+                <li class="step">
+                        changing App language manually
+
+                </li>
+                <p>
+                        Let’s be honest. When you’re building an app which you plan to release to the public, having it
+                        responsive
+                        to locale is not enough. you need to give the user the option to change the language and store
+                        his preferred
+                        language. MaterialApp allows us to immediately specify what locale we want our app using the
+                        locale property
+                        . to change this property I will be using <strong>provider</strong> and
+                        <strong>shared_preferences</strong>
+                        to store user choice.
+                </p>
+                <br>
+                <h2 class="note">
+                        Update pubspec.yaml
+
+                </h2>
+                <p>
+                        Go ahead and install the 2 new dependencies into our pubspec.yaml
+
+                </p>
+                <br>
+                <img src="https://miro.medium.com/max/638/1*rRK5qH16aXKGsnm0yUWc6w.png" alt="" class="ss">
+                <br>
+                <h2 class="note">
+                        Creating AppLanguage() Provider to manage Locale
+                </h2>
+                <p>
+                        Our AppLanguage will have 2 responsibilities
+                </p>
+                <ul>
+                        <li>
+                                <p>
+                                        fetch the locale from the SharedPreferences whenever the app loads for the first
+                                        time
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        Calling changeLanguage() from anywhere in the app to change the locale and store
+                                        it in
+                                        SharedPreferences .
+
+                                </p>
+                        </li>
+                </ul>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>AppLanguage</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>ChangeNotifier</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'> =
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'en'</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>get</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>appLocal</span><span style='color:#D4D4D4'> =&gt;
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'> ??
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;en&quot;</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#DCDCAA'>fetchLocale</span><span style='color:#D4D4D4'>()
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'> =
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>SharedPreferences</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>
+                                        (</span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.getString(</span><span
+                                        style='color:#CE9178'>'language_code'</span><span style='color:#D4D4D4'>)
+                                        == </span><span style='color:#569CD6'>null</span><span style='color:#D4D4D4'>)
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp;
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'>
+                                        = </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'en'</span><span
+                                        style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Null</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.getString(</span><span
+                                        style='color:#CE9178'>'language_code'</span><span
+                                        style='color:#D4D4D4'>));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Null</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>changeLanguage</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>type</span><span style='color:#D4D4D4'>)
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>SharedPreferences</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>
+                                        (</span><span style='color:#9CDCFE'>_appLocale</span><span
+                                        style='color:#D4D4D4'>
+                                        ==
+                                </span><span style='color:#9CDCFE'>type</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>
+                                        (</span><span style='color:#9CDCFE'>type</span><span style='color:#D4D4D4'>
+                                        ==
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;ar&quot;</span><span style='color:#D4D4D4'>))
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;ar&quot;</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.setString(</span><span
+                                        style='color:#CE9178'>'language_code'</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'ar'</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.setString(</span><span
+                                        style='color:#CE9178'>'countryCode'</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>''</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        }
+                                </span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>_appLocale</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;en&quot;</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.setString(</span><span
+                                        style='color:#CE9178'>'language_code'</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'en'</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>prefs</span><span
+                                        style='color:#D4D4D4'>.setString(</span><span
+                                        style='color:#CE9178'>'countryCode'</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'US'</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#DCDCAA'>notifyListeners</span><span
+                                        style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>SharedPreferences</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>()
+                                        {}</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+                </div>
+                <br>
+                <li class="step">
+                        Updating Main And Ui
+                </li>
+                <br>
+                <p>
+
+                        to force our app to change language we will use locale property. <br><br>
+                        locale property: is the locale used when .the app first run. The initial locale for this app’s
+                        Localizations
+                        widget. If the locale is null the system’s locale value is used. <br><br>
+                        before starting our app we will create AppLanguage() instance and call our function
+                        fetchLocale() and pass
+                        to it our app to make sure it's unique and we will create two buttons to change the language.
+                        <br><br>
+                </p>
+                <br>
+                <div class="code">
+
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() </span><span
+                                        style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>AppLanguage</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span style='color:#D4D4D4'> =
+                                </span><span style='color:#4EC9B0'>AppLanguage</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#C586C0'>await</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>fetchLocale</span><span style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#DCDCAA'>runApp</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>appLanguage</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        ));</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>AppLanguage</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>appLanguage</span><span style='color:#D4D4D4'>});</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>ChangeNotifierProvider</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLanguage</span><span style='color:#D4D4D4'>&gt;(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>create</span><span style='color:#D4D4D4'>:
+                                        (</span><span style='color:#9CDCFE'>_</span><span style='color:#D4D4D4'>)
+                                        =&gt;
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Consumer</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLanguage</span><span
+                                        style='color:#D4D4D4'>&gt;(</span><span
+                                        style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:
+                                        (</span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#9CDCFE'>model</span><span style='color:#D4D4D4'>,
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>MaterialApp</span><span
+                                        style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#6A9955'>//locale:
+                                        model.appLocal,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>supportedLocales</span><span style='color:#D4D4D4'>:
+                                        [</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'en'</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>'US'</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'ar'</span><span
+                                        style='color:#D4D4D4'>,
+                                </span><span style='color:#CE9178'>''</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>localizationsDelegates</span><span
+                                        style='color:#D4D4D4'>: [</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>GlobalMaterialLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>GlobalWidgetsLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>delegate</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>AppLang</span><span style='color:#D4D4D4'>(),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        );</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        }),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        );</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>AppLang</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span style='color:#D4D4D4'>
+                                        =
+                                </span><span style='color:#4EC9B0'>Provider</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>AppLanguage</span><span
+                                        style='color:#D4D4D4'>&gt;(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>).</span><span style='color:#DCDCAA'>translate</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'title'</span><span
+                                        style='color:#D4D4D4'>)),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>MainAxisAlignment</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#4FC1FF'>center</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>crossAxisAlignment</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>CrossAxisAlignment</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#4FC1FF'>center</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:
+                                        &lt;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&gt;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>AppLocalizations</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>).</span><span style='color:#DCDCAA'>translate</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'Message'</span><span
+                                        style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>TextStyle</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#B5CEA8'>32</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>MainAxisAlignment</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#4FC1FF'>center</span><span
+                                        style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:
+                                        &lt;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&gt;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>RaisedButton</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>:
+                                        ()
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>changeLanguage</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;en&quot;</span><span
+                                        style='color:#D4D4D4'>));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        },</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'English'</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#4EC9B0'>RaisedButton</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>:
+                                        ()
+                                        {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>appLanguage</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>changeLanguage</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Locale</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;ar&quot;</span><span
+                                        style='color:#D4D4D4'>));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        },</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'</span><span lang=AR-SA dir=RTL style='
+color:#CE9178'>&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;</span><span dir=LTR></span><span dir=LTR></span><span
+                                        style='color:#CE9178'><span dir=LTR></span><span dir=LTR></span>'</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        )</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        )</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        ),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp;
+                                        );</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>}</span>
+                        </p>
+                        <br>
+                </div>
+                <br><br>
+                <p>
+                        That’s all our app Should Be ready to rock.
+                </p>
+                <img src="https://miro.medium.com/max/540/1*mjubQBrkINXQx7lCySitNw.png" alt="" class="ss"> <br><br>
+        </ol>
+        <br><br>
+        <p>
+                <strong>Source code : </strong> <a
+                        href="https://github.com/mohamedHassanKa/flutter_internationalization">Github</a>
+        </p>
+        <p>
+                <strong>Source :</strong>
+                <a
+                        href="https://medium.com/flutter-community/flutter-internationalization-the-easy-way-using-provider-and-json-c47caa4212b2">medium</a>
+        </p>
+</div>

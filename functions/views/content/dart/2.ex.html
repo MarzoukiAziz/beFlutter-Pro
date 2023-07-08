@@ -1,0 +1,513 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="step">Exercise 1 :</li>
+        <p>
+            Write a program that accepts two Strings from user : <span style="font-weight: bold;">first_name</span> and <span style="font-weight: bold;">last_name</span> 
+            and print : <br> Dr. <span style="font-weight: bold;">last_name</span> <span style="font-weight: bold;">first_name</span>.
+        </p>
+        <h3 class="note">
+            Input:
+        </h3>
+        <p>
+            Albert <br>
+            Einstein
+        </p>
+        <h3 class="note">
+            Output:
+        </h3>
+        <p>
+            Dr. Einstein Albert
+        </p>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Enter&nbsp;First&nbsp;Name&nbsp;:&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;first_name&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Enter&nbsp;Last&nbsp;Nale&nbsp;&nbsp;:&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;last_name&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Dr.&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>&nbsp;+&nbsp;last_name&nbsp;+&nbsp;</span><span
+    style='color:#CE9178'>&quot;&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>&nbsp;+&nbsp;first_name);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Enter First Name :  <br>
+        Albert <br>
+        Enter Last Nale  :  <br>
+        Einstein <br>
+        Dr. Einstein Albert <br>
+    </div>
+    <br>
+    <li class="step">Exercise 2 :</li>
+    <p>
+        Write a program that accepts three integers from user : <span style="font-weight: bold;">a, b, c</span> , create these new variables and print their value :<br>
+    </p>
+        <ul>
+        <li><p>1) sum = a+b+c <br></p></li>
+        <li><p>2) mul = a*b*c <br></p></li>
+        <li><p>3) diff = mul - sum <br></p></li>
+        <li><p>4) aa=a++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(use Unary Operators) <br></p></li>
+        <li><p>5) bb=++b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(use Unary Operators) <br></p></li>
+        <li><p>6) cc=--c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(use Unary Operators) <br></p></li>
+        <li><p>7) aa=aa+bb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(use Assignment Operators) <br></p></li>
+        <li><p>8) cc=cc-aa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(use Assignment Operators) <br></p></li>
+        <li><p>9) d=a/(b/c)  <br></p></li>
+        <li><p>10) check if <span style="font-weight: bold;">d</span> is of type double using <span style="font-weight: bold;">is</span> keyword. <br></p></li>
+        </ul>
+
+    </ul>
+    <br>
+    <div class="indice">
+			
+		
+        <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+        <span class="word">stdin.readLineSync()</span>  read the input as a string. <br>
+        To convert it to int use this function: <br>
+        <br>
+        <span class="word">
+            int.parse(stdin.readLineSync());
+        </span>
+</p>
+</div>
+<br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <div class=code>
+
+        <p ><span
+        style='color:#569CD6'>import</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#CE9178'>'dart:io'</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>main</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;Enter&nbsp;3&nbsp;integers&nbsp;:&nbsp;&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>int</span><span
+        style='color:#D4D4D4'>.</span><span
+        style='color:#DCDCAA'>parse</span><span
+        style='color:#D4D4D4'>(stdin.</span><span
+        style='color:#DCDCAA'>readLineSync</span><span
+        style='color:#D4D4D4'>());</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>int</span><span
+        style='color:#D4D4D4'>.</span><span
+        style='color:#DCDCAA'>parse</span><span
+        style='color:#D4D4D4'>(stdin.</span><span
+        style='color:#DCDCAA'>readLineSync</span><span
+        style='color:#D4D4D4'>());</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>int</span><span
+        style='color:#D4D4D4'>.</span><span
+        style='color:#DCDCAA'>parse</span><span
+        style='color:#D4D4D4'>(stdin.</span><span
+        style='color:#DCDCAA'>readLineSync</span><span
+        style='color:#D4D4D4'>());</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//1</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;sum&nbsp;=&nbsp;a&nbsp;+&nbsp;b&nbsp;+&nbsp;c;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(sum);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//2</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;mul&nbsp;=&nbsp;a&nbsp;*&nbsp;b&nbsp;*&nbsp;c;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(mul);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//3</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;diff&nbsp;=&nbsp;mul&nbsp;-&nbsp;sum;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(diff);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//4</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;aa&nbsp;=&nbsp;a++;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(aa);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//5</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;bb&nbsp;=&nbsp;++b;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(bb);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//6</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;cc&nbsp;=&nbsp;--c;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(cc);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//7</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;aa&nbsp;+=&nbsp;bb;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(aa);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//8</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;cc&nbsp;-=&nbsp;aa;</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(cc);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//9</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;d&nbsp;=&nbsp;a&nbsp;/&nbsp;(b&nbsp;/&nbsp;c);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(d);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//10</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(d&nbsp;is&nbsp;</span><span
+        style='color:#4EC9B0'>double</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <br>
+        
+        </div>
+        <br>
+        <div class="res">
+            Enter 3 integers :  <br>
+            5 <br>
+            7 <br>
+            10 <br>
+            22 <br>
+            350 <br>
+            328 <br>
+            5 <br>
+            8 <br>
+            9 <br>
+            13 <br>
+            -4 <br>
+            6.75 <br>
+            true <br>
+        </div>
+        <br>
+        <li class="step">Exercise 3 :</li>
+        <p>
+            Write a program that accepts a string from user and check if the first letter and the last letter are equals then print "Equals" else print "Not equals". <br>
+            Try to use Conditional Operators.
+        </p>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;input[</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>]&nbsp;==&nbsp;input[input.length&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]&nbsp;?&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Equals&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;:&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Not&nbsp;Equals&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        ADAMA <br>
+        Equals
+    </div>
+    <br>
+    <div class="res">
+        JOHN <br>
+        Not Equals
+    </div>
+    <br>
+    <li class="step">Exercise 4 :</li>
+    <p>
+        What is the ouput of this program?
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>const</span><span
+    style='color:#D4D4D4'>&nbsp;pi&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>3.14</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>,&nbsp;b&nbsp;=&nbsp;-</span><span
+    style='color:#B5CEA8'>12</span><span
+    style='color:#D4D4D4'>,&nbsp;c&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>27</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;test1&nbsp;=&nbsp;(c&nbsp;+&nbsp;b)&nbsp;%&nbsp;a&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(test1);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c&nbsp;-=&nbsp;</span><span
+    style='color:#B5CEA8'>20</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;test2&nbsp;=&nbsp;((c&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;||&nbsp;(b&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>))&nbsp;&amp;&amp;&nbsp;(</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>&nbsp;!=&nbsp;a++);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(test2);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;test3&nbsp;=&nbsp;!test1&nbsp;||&nbsp;!test2;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(test3);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>bool</span><span
+    style='color:#D4D4D4'>&nbsp;test4&nbsp;=&nbsp;++a&nbsp;+&nbsp;--b&nbsp;+&nbsp;c++&nbsp;&gt;&nbsp;pi;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(test4);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <div class="res">
+        true <br>
+        false <br>
+        true <br>
+        false <br>
+    </div>
+</div>

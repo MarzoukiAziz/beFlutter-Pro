@@ -1,0 +1,717 @@
+<div class="contenu">
+    <h1>
+        App6 v2 : My Books - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">CupertinoButton</a></li>
+            <li><a href="#w2">CupertinoPicker</a></li>
+            <li><a href="#w3">CupertinoTabBar</a></li>
+            <li><a href="#w4">CupertinoTextField</a></li>
+            <li><a href="#w5">CupertinoNavigationBar</a></li>
+        </ol>
+    </div>
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">CupertinoButton</li>
+        <p>
+            An iOS-style button. <br><br>
+
+            Takes in a text or an icon that fades out and in on touch. May optionally have a background. <br><br>
+
+            The padding defaults to 16.0 pixels. When using a CupertinoButton within a fixed height parent, like a
+            CupertinoNavigationBar, a smaller, or even EdgeInsets.zero, should be used to prevent clipping larger child
+            widgets.
+
+        </p>
+        <h3 class="note">
+            Some properties of CupertinoButton Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>borderRadius : </strong> BorderRadius?
+            </li>
+            <p>
+                The radius of the button's corners when it has a background color.
+            </p>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>color : </strong> Color?
+            </li>
+            <p>
+                The color of the button's background.
+            </p>
+            <li>
+                <strong>onPressed : </strong>
+            </li>
+            <p>
+                The callback that is called when the button is tapped or otherwise activated.
+            </p>
+            <li>
+                <strong>padding : </strong> EdgeInsetsGeometry?
+            </li>
+            <p>
+                The amount of space to surround the child inside the bounds of the button.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Click&nbsp;Me&nbsp;!&quot;</span><span style='color:#D4D4D4'>),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed:&nbsp;()&nbsp;{</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Clicked=&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;borderRadius:&nbsp;</span><span
+                    style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.lightBlue,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c12l2p1.png?alt=media&token=9ed10a3f-cb86-4ce0-a021-64d558a42d1e"
+            alt="CupertinoButton Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w2" class="step">CupertinoPicker</li>
+        <p>
+
+            An iOS-styled picker. <br><br>
+
+            Displays its children widgets on a wheel for selection and calls back when the currently selected item
+            changes. <br><br>
+
+            By default, the first child in children will be the initially selected child. The index of a different child
+            can be specified in scrollController, to make that child the initially selected child. <br><br>
+
+            Can be used with showCupertinoModalPopup to display the picker modally at the bottom of the screen. When
+            calling showCupertinoModalPopup, be sure to set semanticsDismissible to true to enable dismissing the modal
+            via semantics. <br><br>
+
+            Sizes itself to its parent. All children are sized to the same size based on itemExtent. <br><br>
+
+            By default, descendent texts are shown with CupertinoTextThemeData.pickerTextStyle.
+        </p>
+
+        <h3 class="note">
+            Some properties of CupertinoPicker Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>children : </strong> List&lt;Widget&gt;
+            </li>
+            <p>
+                The widgets.
+            </p>
+            <li>
+                <strong>backgroundColor : </strong> Color?
+            </li>
+            <p>
+                Background color behind the children.
+            </p>
+            <li>
+                <strong>itemExtent : </strong> double
+            </li>
+            <p>
+                The uniform height of all children.
+            </p>
+            <li>
+                <strong>magnification : </strong> double
+            </li>
+            <p>
+                The zoomed-in rate of the magnifier, if it is used.
+            </p>
+            <li>
+                <strong>onSelectedItemChanged : </strong>
+            </li>
+            <p>
+                An option callback when the currently centered item changes.
+            </p>
+            <li>
+                <strong>selectionOverlay : </strong> Widget?
+            </li>
+            <p>
+                A widget overlaid on the picker to highlight the currently selected entry.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoPicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;1&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;2&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;3&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;4&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;5&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;6&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;7&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Choice&nbsp;8&quot;</span><span style='color:#D4D4D4'>)</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.white38,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;itemExtent:&nbsp;</span><span
+                    style='color:#B5CEA8'>30</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;magnification:&nbsp;</span><span
+                    style='color:#B5CEA8'>1.5</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSelectedItemChanged:&nbsp;(</span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;val)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected&nbsp;=&nbsp;val;</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c12l2p2.png?alt=media&token=9f4b37dc-62cc-48a6-b6c5-789fac6cc233"
+            alt="CupertinoPicker Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w3" class="step">CupertinoTabBar</li>
+        <p>
+            An iOS-styled bottom navigation tab bar. <br><br>
+
+            Displays multiple tabs using BottomNavigationBarItem with one tab being active, the first tab by default.
+            <br><br>
+
+            This StatelessWidget doesn't store the active tab itself. You must listen to the onTap callbacks and call
+            <br><br>
+            setState with a new currentIndex for the new selection to reflect. This can also be done automatically by
+            wrapping this with a CupertinoTabScaffold.
+
+            Tab changes typically trigger a switch between Navigators, each with its own navigation stack, per standard
+            <br><br>
+            iOS design. This can be done by using CupertinoTabViews inside each tab builder in CupertinoTabScaffold.
+
+            If the given backgroundColor's opacity is not 1.0 (which is the case by default), it will produce a blurring
+            effect to the content behind it.
+        </p>
+
+        <h3 class="note">
+            Some properties of CupertinoTabBar Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>activeColor : </strong> Color?
+            </li>
+            <p>
+                The foreground color of the icon and title for the BottomNavigationBarItem of the selected tab.
+            </p>
+            <li>
+                <strong>backgroundColor : </strong> Color?
+            </li>
+            <p>
+                The background color of the tab bar. If it contains transparency, the tab bar will automatically produce
+                a blurring effect to the content behind it.
+            </p>
+            <li>
+                <strong>currentIndex : </strong> int
+            </li>
+            <p>
+                The index into items of the current active item.
+            </p>
+            <li>
+                <strong>iconSize : </strong> double
+            </li>
+            <p>
+                The size of all of the BottomNavigationBarItem icons.
+            </p>
+            <li>
+                <strong>inactiveColor : </strong> Color
+            </li>
+            <p>
+                The foreground color of the icon and title for the BottomNavigationBarItems in the unselected state.
+            </p>
+            <li>
+                <strong>items : </strong> List&lt;BottomNavigationBarItem&gt;
+            </li>
+            <p>
+                The interactive items laid out within the bottom navigation bar.
+            </p>
+            <li>
+                <strong>onTap : </strong>
+            </li>
+            <p>
+                The callback that is called when a item is tapped.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#4EC9B0'> int</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>selected</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>texts</span><span
+                    style='color:#D4D4D4'>&nbsp;=&nbsp;[</span><span style='color:#CE9178'>'RED'</span><span
+                    style='color:#D4D4D4'>,&nbsp;</span><span style='color:#CE9178'>'BLUE'</span><span
+                    style='color:#D4D4D4'>,&nbsp;</span><span style='color:#CE9178'>'GREEN'</span><span
+                    style='color:#D4D4D4'>];</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>colors</span><span
+                    style='color:#D4D4D4'>&nbsp;=&nbsp;[</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>red</span><span
+                    style='color:#D4D4D4'>,&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>blue</span><span
+                    style='color:#D4D4D4'>,&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>green</span><span
+                    style='color:#D4D4D4'>];</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                    style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Scaffold</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                    style='color:#9CDCFE'>selected</span><span style='color:#D4D4D4'>]),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>bottomNavigationBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoTabBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>currentIndex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selected</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>iconSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>activeColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>inactiveColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>backgroundColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                    style='color:#9CDCFE'>selected</span><span style='color:#D4D4D4'>],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onTap</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>selected</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>items</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>BottomNavigationBarItem</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>arrow_left</span><span style='color:#D4D4D4'>)),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>BottomNavigationBarItem</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>arrow_drop_up</span><span style='color:#D4D4D4'>)),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>BottomNavigationBarItem</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>arrow_right</span><span style='color:#D4D4D4'>))</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            <br>
+        </div>
+
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c12l2p3.png?alt=media&token=9cbbef64-5619-406b-a828-a5fbf5bc8dee"
+            alt="CupertinoTabBar Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w4" class="step">CupertinoTextField</li>
+        <p>
+            An iOS-style text field. <br><br>
+
+            A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.
+            <br><br>
+
+            This widget corresponds to both a UITextField and an editable UITextView on iOS. <br><br>
+
+            The text field calls the onChanged callback whenever the user changes the text in the field. If the user
+            indicates that they are done typing in the field (e.g., by pressing a button on the soft keyboard), the text
+            field calls the onSubmitted callback. <br><br>
+
+            It's important to always use characters when dealing with user input text that may contain complex
+            characters. This will ensure that extended grapheme clusters and surrogate pairs are treated as single
+            characters, as they appear to the user.
+        </p>
+
+        <h3 class="note">
+            Some properties of CupertinoTextField Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>controller : </strong> TextEditingController?
+            </li>
+            <p>
+                Controls the text being edited.
+            </p>
+            <li>
+                <strong>decoration : </strong> BoxDecoration?
+            </li>
+            <p>
+                Controls the BoxDecoration of the box behind the text input.
+            </p>
+            <li>
+                <strong>keyboardType : </strong> TextInputType
+            </li>
+            <p>
+                The type of keyboard to use for editing the text.
+            </p>
+            <li>
+                <strong>placeholder : </strong> String?
+            </li>
+            <p>
+                A lighter colored placeholder hint that appears on the first line of the text field when the text entry
+                is empty.
+            </p>
+            <li>
+                <strong>style : </strong> TextStyle?
+            </li>
+            <p>
+                The style to use for the text being edited.
+            </p>
+            <li>
+                <strong>textAlign : </strong> TextAlign
+            </li>
+            <p>
+                How the text should be aligned horizontally.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoTextField</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>tec</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>BoxDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>white70</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>border</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Border</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>black45</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>borderRadius</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>)</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>keyboardType</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextInputType</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>number</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>placeholder</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Age&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>blue</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>textAlign</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextAlign</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c12l2p4.png?alt=media&token=1781e825-e2b9-463b-8fc1-bece41ac1616"
+            alt="CupertinoTextField" class="ss">
+        <br>
+        <br>
+        <li id="w5" class="step">CupertinoNavigationBar</li>
+        <p>
+            An iOS-styled navigation bar. <br><br>
+
+            The navigation bar is a toolbar that minimally consists of a widget, normally a page title, in the middle of
+            the toolbar.
+        </p>
+        <h3 class="note">
+            Some properties of CupertinoNavigationBar Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>backgroundColor : </strong> Color?
+            </li>
+            <p>
+                The background color of the navigation bar. If it contains transparency, the tab bar will automatically
+                produce a blurring effect to the content behind it.
+            </p>
+            <li>
+                <strong>leading : </strong> Widget?
+            </li>
+            <p>
+                Widget to place at the start of the navigation bar. Normally a back button for a normal page or a cancel
+                button for full page dialogs.
+            </p>
+            <li>
+                <strong>middle : </strong> Widget?
+            </li>
+            <p>
+                Widget to place in the middle of the navigation bar. Normally a title or a segmented control.
+            </p>
+            <li>
+                <strong>trailing : </strong> Widget?
+            </li>
+            <p>
+                Widget to place at the end of the navigation bar. Normally additional actions taken on the page such as
+                a search or edit function
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appBar:&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoNavigationBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.lightGreenAccent,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leading:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.home),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Home&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trailing:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.travel_explore),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c12l2p5.png?alt=media&token=5f3b7bce-3c31-4e26-8dbf-3e64bc2b64a6"
+            alt="CupertinoNavigationBar Flutter" class="ss">
+        <br>
+        <br>
+    </ol>
+</div>

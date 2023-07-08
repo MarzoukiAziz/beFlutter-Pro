@@ -1,0 +1,785 @@
+<div class="contenu">
+    <h1>
+        Generics
+    </h1>
+    <p>
+        If you look at the API documentation for the basic array type,
+         <a target="_blank" href="https://api.dart.dev/stable/2.10.5/dart-core/List-class.html" >List</a>, 
+         you’ll see that the type is actually <span class="word">List&lt;E&gt;</span>. The &lt;…&gt; notation marks List as a generic (or parameterized) type—a type that has formal type parameters. By convention, most type variables have single-letter names, such as E, T, S, K, and V.
+    </p>
+    <ol>
+        <li class="step">
+            Why use generics?
+        </li>
+        <p>
+            Generics are often required for type safety, but they have more benefits than just allowing your code to run:
+        </p>
+        <ul>
+            <li><p>Properly specifying generic types results in better generated code.            </p></li>
+            <li><p>You can use generics to reduce code duplication.            </p></li>
+        </ul>
+        <p>
+            If you intend for a list to contain only strings, you can declare it as <span class="word">List&lt;String&gt;</span> (read that as “list of string”). That way you, your fellow programmers, and your tools can detect that assigning a non-string to the list is probably a mistake. Here’s an example:
+        </p>
+        <br>
+        <div class=code>
+
+            <p><span
+            style='color:#569CD6'>var</span><span
+            style='color:#D4D4D4'>&nbsp;words&nbsp;=&nbsp;</span><span
+            style='color:#4EC9B0'>List</span><span
+            style='color:#D4D4D4'>&lt;</span><span
+            style='color:#4EC9B0'>String</span><span
+            style='color:#D4D4D4'>&gt;();</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>words.</span><span
+            style='color:#DCDCAA'>addAll</span><span
+            style='color:#D4D4D4'>([</span><span
+            style='color:#CE9178'>&quot;Hi&quot;</span><span
+            style='color:#D4D4D4'>,&nbsp;</span><span
+            style='color:#CE9178'>&quot;Hello&quot;</span><span
+            style='color:#D4D4D4'>]);</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>words.</span><span
+            style='color:#DCDCAA'>add</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#B5CEA8'>42</span><span
+            style='color:#D4D4D4'>);&nbsp;</span><span
+            style='color:#fa6868'>//Error</span></p>
+            
+            </div>
+            <br>
+            <p>
+                Another reason for using generics is to reduce code duplication. Generics let you share a single interface and implementation between many types, while still taking advantage of static analysis. For example, say you create a class for caching an object of type Point:
+            </p>
+            <br>
+            
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x,&nbsp;y;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Vector</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;x,&nbsp;y,&nbsp;z;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>PointCache</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;key;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;point;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>PointCache</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.key,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.point);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;point;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k,&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;p)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point&nbsp;=&nbsp;p;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+ <br>
+    
+    </div>
+    <br>
+    <p>
+        You discover that you want a Vector-specific version of this class, so you create another class:
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>VectorCache</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;key;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Vector</span><span
+    style='color:#D4D4D4'>&nbsp;vector;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>VectorCache</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.key,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.vector);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Vector</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;vector;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k,&nbsp;</span><span
+    style='color:#4EC9B0'>Vector</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vector&nbsp;=&nbsp;v;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+<br>    
+    </div>
+    <br>
+    <p>
+        Later, you decide you want another version of this class... You get the idea.
+    </p>
+    <p>
+        Generic types can save you the trouble of creating all these classes. Instead, you can create a single class that takes a type parameter:
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;key;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;object;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.key,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.object);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;object;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>setByKey</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;k,&nbsp;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;o)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(k&nbsp;==&nbsp;key)</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;=&nbsp;o;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Key&nbsp;!&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p>
+        In this code, T is the stand-in type. It’s a placeholder that you can think of as a type that a developer will define later.
+    </p>
+    <br>
+    <li class="step">
+        Using collection literals
+    </li>
+    <p>
+        List, set, and map literals can be parameterized. Parameterized literals are just like the literals you’ve already seen, except that you add <span class="word">&lt;type&gt;</span> (for lists and sets) or <span class="word">&lt;keyType, valueType&gt;</span> (for maps) before the opening bracket. Here is an example of using typed literals:
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;words&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;[</span><span
+    style='color:#CE9178'>&quot;dart&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;flutter&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'></span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;uniqueNumbers&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;{</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>};</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'></span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;steps&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;{</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;dart&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;flutter&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>};</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <li class="step">
+        Using parameterized types with constructors
+    </li>
+    <p>
+        To specify one or more types when using a constructor, put the types in angle brackets (<...>) just after the class name. For example:
+    </p>
+    <br>
+
+    <div class=code>
+
+        <p><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;numbers&nbsp;=&nbsp;[</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>4</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>5</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>3</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>4</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>6</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#B5CEA8'>6</span><span
+        style='color:#D4D4D4'>];</span></p>
+        
+        <p><span
+        style='color:#D4D4D4'></span><span
+        style='color:#569CD6'>var</span><span
+        style='color:#D4D4D4'>&nbsp;uniqueNumber&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>Set</span><span
+        style='color:#D4D4D4'>&lt;</span><span
+        style='color:#4EC9B0'>int</span><span
+        style='color:#D4D4D4'>&gt;.</span><span
+        style='color:#DCDCAA'>from</span><span
+        style='color:#D4D4D4'>(numbers);&nbsp;</span><span
+        style='color:#6A9955'>//{1,&nbsp;4,&nbsp;5,&nbsp;3,&nbsp;6}</span></p>
+        
+    </div>
+
+    <br>
+    <p>
+        The following code creates a map that has integer keys and values of type Point:
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;points&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Map</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&gt;();</span></p>
+    
+    
+</div>
+
+<br>
+<li class="step">
+    Generic collections and the types they contain
+</li>
+
+<p>
+    Dart generic types are reified, which means that they carry their type information around at runtime. For example, you can test the type of a collection:
+
+
+</p>
+<br>
+
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;words&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;[</span><span
+    style='color:#CE9178'>&quot;dart&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;flutter&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>words.</span><span
+    style='color:#DCDCAA'>add</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Pro&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'></span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(words&nbsp;is&nbsp;</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;);&nbsp;</span><span
+    style='color:#6A9955'>//true</span></p>
+    
+    </div>
+<br>
+<li class="step">
+    Restricting the parameterized type
+</li>
+<p>
+    When implementing a generic type, you might want to limit the types of its parameters. You can do this using <span class="word">
+        extends
+    </span>.
+</p>
+<br>
+
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>SomeBaseClass</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//Implementation&nbsp;of&nbsp;SomeBaseClass&nbsp;goes&nbsp;Here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>SomeBaseClass</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//Implementation&nbsp;of&nbsp;Point&nbsp;goes&nbsp;Here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Vector</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>SomeBaseClass</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//Implementation&nbsp;of&nbsp;Vector&nbsp;goes&nbsp;Here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>SomeBaseClass</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//Implementation&nbsp;goes&nbsp;Here</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+<br>
+<p>
+    It’s OK to use <span class="word">SomeBaseClass</span> or any of its subclasses as generic argument:
+</p>
+<br>
+
+<div class=code>
+
+    <p><span
+    lang=FR style='color:#569CD6'>var</span><span
+    lang=FR style='color:#D4D4D4'>&nbsp;p&nbsp;=&nbsp;</span><span
+    lang=FR style='color:#4EC9B0'>Cache</span><span
+    lang=FR style='color:#D4D4D4'>&lt;</span><span
+    lang=FR style='color:#4EC9B0'>Point</span><span
+    lang=FR style='color:#D4D4D4'>&gt;();</span></p>
+    
+    <p><span
+    lang=FR style='color:#569CD6'>var</span><span
+    lang=FR style='color:#D4D4D4'>&nbsp;v&nbsp;=&nbsp;</span><span
+    lang=FR style='color:#4EC9B0'>Cache</span><span
+    lang=FR style='color:#D4D4D4'>&lt;</span><span
+    lang=FR style='color:#4EC9B0'>Vector</span><span
+    lang=FR style='color:#D4D4D4'>&gt;();</span></p>
+    
+    <p><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>SomeBaseClass</span><span
+    style='color:#D4D4D4'>&gt;();</span></p>
+
+</div>    
+<br>
+<p>
+    It’s also OK to specify no generic argument:
+</p>
+<br>
+
+<div class=code>
+
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c);&nbsp;</span><span
+    style='color:#6A9955'>//Instance&nbsp;of&nbsp;'Cache&lt;SomeBaseClass&gt;'</span></p>
+    
+    
+    
+    </div>
+<br>
+<p>
+    Specifying any <span class="word">non-SomeBaseClass</span> type results in an error:
+</p>
+<br>
+
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Cache</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;();&nbsp;</span><span
+    style='color:#fa6868'>//Error</span></p>
+    
+    </div>
+    </ol>
+</div>

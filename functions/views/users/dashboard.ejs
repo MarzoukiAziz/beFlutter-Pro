@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="/styles/bootstrap.css" rel="stylesheet">
+    <link rel="icon" href="images/flutter_icon.png">
+    <link href="/styles/fontawesome-all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+</head>
+
+<body>
+    <header class="page-header">
+        <nav>
+            <a href="/" aria-label="forecastr logo" class="logo">
+                <img class="websitebrand" src="/images/flutter_brand.png">
+            </a>
+            <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
+                <img src="/images/down.svg" style="width: 30px;" alt="">
+            </button>
+            <ul class="admin-menu">
+                <li class="menu-heading">
+                    <h3>Content</h3>
+                </li>
+                <li>
+                    <a href="/dart">
+                        <img src="/images/dart.svg" class="navbarLogo" alt="">
+                        <span>Dart</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/flutter">
+                        <img src="/images/flutter.svg" class="navbarLogo" alt="">
+                        <span>Flutter</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <img src="/images/apps.svg" class="navbarLogo" alt="">
+                        <span>Apps </span>
+                        <span style="    margin-left: auto;
+                        font-family: 'Audiowide';
+                        color: #54ecff;
+                        font-style: italic;
+                        text-transform: lowercase;">soon</span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="#">
+                        <img src="/images/forum.svg" class="navbarLogo" alt="">
+                        <span>Forum</span>
+                        <span style="    margin-left: auto;
+                        font-family: 'Audiowide';
+                        color: #54ecff;
+                        font-style: italic;
+                        text-transform: lowercase;">soon</span>
+                    </a>
+                </li>
+                <li class="menu-heading">
+                    <h3>Settings</h3>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <img src="/images/vip.svg" class="navbarLogo" alt="">
+                        <span>Upgrade Plan</span>
+                        <span style="    margin-left: auto;
+                        font-family: 'Audiowide';
+                        color: #54ecff;
+                        font-style: italic;
+                        text-transform: lowercase;">soon</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/images/control.svg" class="navbarLogo" alt="">
+                        <span>Settings</span>
+                        <span style="    margin-left: auto;
+                        font-family: 'Audiowide';
+                        color: #54ecff;
+                        font-style: italic;
+                        text-transform: lowercase;">soon</span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="/signOut">
+                        <img src="/images/logout.svg" class="navbarLogo" alt="">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+                <li>
+
+                    <button class="collapse-btn" aria-expanded="true" aria-label="collapse menu">
+                        <img src="/images/collapse.svg" class="navbarLogo" alt="">
+                        <span>Collapse</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="page-content ">
+        <div style="display: flex;flex-direction: column;" class="profile">
+            <div class="widgets">
+
+                <div class="window">
+                    <div class="overlay"></div>
+                    <div class="box header">
+                        <img id="avatar" src="/images/avatars/<%= userData.avatar%>.png" alt="user avatar" />
+                        <h2>
+                            <%=userData.username %>
+                        </h2>
+                    </div>
+                    <div id="plan" class="box footer">
+                        <!-- <% plans=['Free','Premium','VIP'] %>
+                            Plan : <%=plans[userData.Plan-1] %> -->
+                        Member
+                    </div>
+                </div>
+
+
+                <ul class="list-group details">
+                    <button id="editBtn" type="button" class="btn btn-danger"><a href="/editData">Edit</a></button>
+                    <li class="list-group-item">First Name : <%=userData.firstName %>
+                    </li>
+                    <li class="list-group-item">Last Name : <%=userData.lastName %>
+                    </li>
+                    <li class="list-group-item">Email : <%=userData.email %>
+                    </li>
+
+                </ul>
+            </div>
+            <h1 style="    margin-top: 40px;
+            color: white;
+            font-weight: 800">Progress :</h1>
+            <div class="progressContainer">
+                <div class="wrapper">
+                    <div class="card">
+                        <div class="circle">
+
+                            <div class="bar"></div>
+                            <div class="box"><span>
+
+                                </span></div>
+                        </div>
+                        <div class="text">Dart</div>
+                    </div>
+                    <div class="card js">
+                        <div class="circle">
+                            <div class="bar"></div>
+                            <div class="box"><span></span></div>
+                        </div>
+                        <div class="text">Flutter</div>
+                    </div>
+                    <!-- <div class="card react">
+                            <div class="circle">
+                                <div class="bar"></div>
+                                <div class="box"><span></span></div>
+                            </div>
+                            <div class="text">Apps</div>
+                        </div> -->
+                </div>
+                <% let x2=fp*100;%>
+                    <% let x1=dp*100; %>
+
+                        <div class="texts">
+                            <p class="txt">Dart : <%= parseInt(x1.toFixed(2).substr(2)) %> %</p>
+                            <p class="txt">Flutter : <%=x2 %> % </p>
+                            <p class="txt">
+                                Apps : 0 %
+                            </p>
+                        </div>
+            </div>
+        </div>
+        <footer>
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">Copyright © Flutter Pro 2020-2022 by MoAzMar &trade;</p>
+                    </div> <!-- end of col -->
+                </div> <!-- enf of row -->
+            </div> <!-- end of copyright -->
+            <!-- end of copyright -->
+        </footer>
+        <div id="dartProgress" data-test=<%=dp %>></div>
+        <div id="flutterProgress" data-test=<%=fp %>></div>
+
+
+        <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+
+        <script>
+            const html = document.documentElement;
+            const body = document.body;
+            const menuLinks = document.querySelectorAll(".admin-menu a");
+            const collapseBtn = document.querySelector(".admin-menu .collapse-btn");
+            const toggleMobileMenu = document.querySelector(".toggle-mob-menu");
+            const collapsedClass = "collapsed";
+
+            /*TOGGLE HEADER STATE*/
+            collapseBtn.addEventListener("click", function () {
+                body.classList.toggle(collapsedClass);
+                this.getAttribute("aria-expanded") == "true"
+                    ? this.setAttribute("aria-expanded", "false")
+                    : this.setAttribute("aria-expanded", "true");
+                this.getAttribute("aria-label") == "collapse menu"
+                    ? this.setAttribute("aria-label", "expand menu")
+                    : this.setAttribute("aria-label", "collapse menu");
+            });
+
+            /*TOGGLE MOBILE MENU*/
+            toggleMobileMenu.addEventListener("click", function () {
+                body.classList.toggle("mob-menu-opened");
+                this.getAttribute("aria-expanded") == "true"
+                    ? this.setAttribute("aria-expanded", "false")
+                    : this.setAttribute("aria-expanded", "true");
+                this.getAttribute("aria-label") == "open menu"
+                    ? this.setAttribute("aria-label", "close menu")
+                    : this.setAttribute("aria-label", "open menu");
+            });
+
+            /*SHOW TOOLTIP ON MENU LINK HOVER*/
+            for (const link of menuLinks) {
+                link.addEventListener("mouseenter", function () {
+                    if (
+                        body.classList.contains(collapsedClass) &&
+                        window.matchMedia("(min-width: 768px)").matches
+                    ) {
+                        const tooltip = this.querySelector("span").textContent;
+                        this.setAttribute("title", tooltip);
+                    } else {
+                        this.removeAttribute("title");
+                    }
+                });
+            }
+
+        </script>
+        <script>
+            let options = {
+                startAngle: -1.55,
+                size: 150,
+                lineWidth: 2,
+                value: document.getElementById('dartProgress').dataset.test,
+                fill: { gradient: ['#a445b2', '#fa4299'] }
+            }
+            $(".circle .bar").circleProgress(options).on('circle-animation-progress',
+                function (event, progress, stepValue) {
+                    $(this).parent().find("span").text(String(parseInt(stepValue.toFixed(2).substr(2))) + "%");
+                });
+            $(".js .bar").circleProgress({
+                value: document.getElementById('flutterProgress').dataset.test,
+            });
+            $(".react .bar").circleProgress({
+                value: 0
+            });
+
+
+
+
+
+        </script>
+</body>
+
+</html>

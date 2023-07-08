@@ -1,0 +1,530 @@
+<div class="contenu">
+    <h1>
+        Break and Continue
+    </h1>
+    <ol>
+        <li class="step">Break</li>
+        <p>
+            Sometimes, it is necessary to jump out of a loop irrespective of the conditional test value. The break statement is used inside any loop to allow the control to jump to the instant statement, following the loop. <br> <br>s
+            Break statement can be used inside any loop i.e. while, do-while, for and switch statement. <br>
+            As soon as, the break statement is encountered inside the loop, that loop is immediately terminated without executing the remaining code in the body of that loop, and the program control reaches to next statement written after that loop. <br>
+        </p>
+        <ol>
+            <li class="note">
+                Syntax:
+            </li>
+            <br>
+            <p class="syn">
+                <span style="color: yellow;">break</span> ;
+            </p>
+            <br>
+            <li class="note">
+                Example:
+            </li>
+            <br>
+            
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//Example&nbsp;1</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;i&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>i</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(i&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;------------------&quot;</span><span style='font-size:
+    10.5pt;color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//Example&nbsp;2</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='font-size:
+    10.5pt;color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#569CD6'>true</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;*=&nbsp;i;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;i++;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;count&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>count</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(count&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>21</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+        <br>
+    </div>
+    <br>
+    <div class="res">
+        i = 1 <br>
+        i = 2 <br>
+        i = 3 <br>
+        i = 4 <br>
+        i = 5 <br>
+        --------- <br>--------- <br>
+        count = 3 <br>
+        count = 6 <br>
+        count = 18 <br>
+        count = 72 <br>
+        count = 360 <br>
+        count = 2160 <br>
+        count = 15120 <br>
+
+    </div>
+    <br>
+    <li class="note">
+        Break statement with a nested loop
+    </li>
+    <br>
+    <p>
+        Break only let the program exit the loop which encloses it. If the break is used with a nested loop, it breaks out only the innermost loop and does not affect the outer loop. It breaks nested loop only if we use break statement inside the nested loop. 
+
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>8</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;---&nbsp;i&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>i</span><span
+    style='color:#CE9178'>&nbsp;---&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;=&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>;&nbsp;j++)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;j&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>j</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(i&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Breaking&nbsp;out&nbsp;the&nbsp;inner&nbsp;loop&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(i&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Breaking&nbsp;out&nbsp;the&nbsp;outer&nbsp;loop&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+
+    <div class="res">
+        --- i = 1 --- <br>
+        j = 1 <br>
+        j = 2 <br>
+        j = 3 <br>
+        --- i = 2 --- <br>
+        j = 1 <br>
+        j = 2 <br>
+        j = 3 <br>
+        --- i = 3 --- <br>
+        j = 1 <br>
+        Breaking out the inner loop <br>
+        --- i = 4 --- <br>
+        j = 1 <br>
+        Breaking out the inner loop <br>
+        --- i = 5 --- <br>
+        j = 1 <br>
+        Breaking out the inner loop <br>
+        --- i = 6 --- <br>
+        j = 1 <br>
+        Breaking out the inner loop <br>
+        Breaking out the outer loop <br>
+
+    </div>
+    
+		</ol>
+		<li class=step>
+			Continue
+		</li>
+		<p>
+    The continue statement skips the current iteration of a loop (for, while, do...while, etc). <br><br>
+    The remaining statements in the loop are skipped. The execution starts from the top of the loop again. We can use continue statement to skip current iteration and continue the next iteration inside loops.  <br> <br>
+</p>
+
+<ol>
+    <li class="note">
+        Syntax:
+    </li>
+    <br>
+    <p class="syn">
+            <span style="color: yellow;">continue </span>;
+    </p>
+    <br>
+    <li class="note">
+        Example:
+    </li>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>9</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(i&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>i</span><span
+    style='color:#CE9178'>&nbsp;is&nbsp;skipped&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>continue</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;$</span><span style='
+    color:#9CDCFE'>i</span><span style='
+    color:#CE9178'>&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;---------------&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='font-size:
+    10.5pt;color:#B5CEA8'>10</span><span style='font-size:
+    10.5pt;color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(count&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>100</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(count&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#C586C0'>continue</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;$</span><span style='
+    color:#9CDCFE'>count</span><span style='
+    color:#CE9178'>&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>    
+    </div>
+    <br>
+    <div class="res">
+        1 <br>
+        2 is skipped <br>
+        3 <br>
+        4 is skipped <br>
+        5 <br>
+        6 is skipped <br>
+        7 <br>
+        8 is skipped <br>
+        --------------- <br>
+        15 <br>
+        25 <br>
+        35 <br>
+        45 <br>
+        55 <br>
+        65 <br>
+        75 <br>
+        85 <br>
+        95 <br>
+    </div>
+    <br>
+    <li class="note">
+        continue statement with a nested loop 
+    </li>
+    <br>
+    <p>
+        If a continue statement is encountered inside a nested loop, only the current iteration of the inner loop is skipped while the outer loop is not affected.    </p>
+    <br>
+    <div class=code>
+
+        <p ><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+        color:#B5CEA8'>1</span><span style='
+        color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+        style='color:#B5CEA8'>9</span><span
+        style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#C586C0'>if</span><span style='
+        color:#D4D4D4'>&nbsp;(i&nbsp;%&nbsp;</span><span
+        style='color:#B5CEA8'>2</span><span
+        style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+        style='color:#B5CEA8'>0</span><span
+        style='color:#D4D4D4'>)&nbsp;</span><span
+        style='color:#C586C0'>continue</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(</span><span style='
+        color:#CE9178'>&quot;---&nbsp;i&nbsp;=&nbsp;$</span><span
+        style='color:#9CDCFE'>i</span><span
+        style='color:#CE9178'>&nbsp;---&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#C586C0'>for</span><span style='
+        color:#D4D4D4'>&nbsp;(</span><span style='
+        color:#4EC9B0'>int</span><span style='
+        color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;=&nbsp;</span><span
+        style='color:#B5CEA8'>7</span><span
+        style='color:#D4D4D4'>;&nbsp;j++)&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#C586C0'>if</span><span
+        style='color:#D4D4D4'>&nbsp;(j&nbsp;%&nbsp;</span><span
+        style='color:#B5CEA8'>2</span><span
+        style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>)&nbsp;</span><span
+        style='color:#C586C0'>continue</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>&quot;j&nbsp;=&nbsp;$</span><span
+        style='color:#9CDCFE'>j</span><span
+        style='color:#CE9178'>&quot;</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <br>
+        
+        </div>
+        <br>
+        <div class="res">
+            --- i = 1 --- <br>
+            j = 2 <br>
+            j = 4 <br>
+            j = 6 <br>
+            --- i = 3 --- <br>
+            j = 2 <br>
+            j = 4 <br>
+            j = 6 <br>
+            --- i = 5 --- <br>
+            j = 2 <br>
+            j = 4 <br>
+            j = 6 <br>
+            --- i = 7 --- <br>
+            j = 2 <br>
+            j = 4 <br>
+            j = 6 <br>
+        </div>
+</ol>
+    </ol>
+</div>

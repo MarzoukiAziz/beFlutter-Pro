@@ -1,0 +1,2052 @@
+<div class="contenu">
+        <h1>
+                App6 v1 : My Books - Learning New Widgets
+        </h1>
+
+        <div class="Toc">
+                <h3>
+                        Table Of Content :
+                </h3>
+                <ol>
+                        <li><a href="#w1">IconButton</a></li>
+                        <li><a href="#w2">TextField</a></li>
+                        <li><a href="#w3">CircleAvatar</a></li>
+                        <li><a href="#w4">ListTile</a></li>
+                        <li><a href="#w5">Card</a></li>
+                        <li><a href="#w6">Flexible</a></li>
+                        <li><a href="#w7">ListView</a></li>
+                        <li><a href="#w8">BottomNavigationBar</a></li>
+                </ol>
+        </div>
+
+        <br>
+        <br>
+        <ol>
+                <li id="w1" class="step">IconButton</li>
+                <p>
+                        An icon button is a picture printed on a Material widget that reacts to touches by filling with
+                        color (ink).
+                        <br>
+
+                        Icon buttons are commonly used in the AppBar.actions field, but they can be used in many other
+                        places as
+                        well.
+                </p>
+                <h3 class="note">
+                        Some properties of IconButton Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>icon : </strong> Widget
+                        </li>
+                        <p>
+                                The icon to display inside the button.
+                        </p>
+                        <li>
+                                <strong>color : </strong> Color
+                        </li>
+                        <p>
+                                The color to use for the icon inside the button, if the icon is enabled. Defaults to
+                                leaving this up to
+                                the icon widget.
+                        </p>
+                        <li>
+                                <strong>iconSize : </strong> double
+                        </li>
+                        <p>
+                                The size of the icon inside the button.
+                        </p>
+                        <li>
+                                <strong>onPressed : </strong>
+                        </li>
+                        <p>
+                                The callback that is called when the button is tapped or otherwise activated.
+                        </p>
+                        <li>
+                                <strong>padding : </strong> EdgeInsetsGeometry
+                        </li>
+                        <p>
+                                The padding around the button's icon. The entire padded icon will react to input
+                                gestures.
+                        </p>
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Test&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>actions</span><span style='color:#D4D4D4'>:&nbsp;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>add_circle_rounded</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>iconSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>35</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#6A9955'>//adding</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>padding</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p1.png?alt=media&token=d2c14de9-685f-43d3-aa5b-326102bae976"
+                        alt="IconButton example" class="ss">
+                <br>
+                <br>
+                <li id="w2" class="step">TextField</li>
+                <p>
+                        A text field lets the user enter text, either with hardware keyboard or with an onscreen
+                        keyboard.
+                        <br><br>
+                        The text field calls the onChanged callback whenever the user changes the text in the field. If
+                        the user
+                        indicates that they are done typing in the field (e.g., by pressing a button on the soft
+                        keyboard), the text
+                        field calls the onSubmitted callback.
+                        <br><br>
+                        To control the text that is displayed in the text field, use the controller. For example, to set
+                        the initial
+                        value of the text field, use a controller that already contains some text. The controller can
+                        also control
+                        the selection and composing region (and to observe changes to the text, selection, and composing
+                        region).
+                        <br><br>
+                        Remember to call TextEditingController.dispose of the TextEditingController when it is no longer
+                        needed.
+                        This will ensure we discard any resources used by the object.
+                </p>
+
+                <h3 class="note">
+                        Some properties of TextField Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>controller : </strong> TextEditingController
+                        </li>
+                        <p>
+                                Controls the text being edited.
+                        </p>
+                        <li>
+                                <strong>decoration : </strong> InputDecoration
+                        </li>
+                        <p>
+                                The decoration to show around the text field.
+                        </p>
+                        <li>
+                                <strong>expands : </strong> bool
+                        </li>
+                        <p>
+                                Whether this widget's height will be sized to fill its parent.
+                        </p>
+                        <li>
+                                <strong>keyboardType : </strong> TextInputType
+                        </li>
+                        <p>
+                                The type of keyboard to use for editing the text.
+                        </p>
+                        <li>
+                                <strong>obscureText : </strong> bool
+                        </li>
+                        <p>
+                                Whether to hide the text being edited (e.g., for passwords).
+                        </p>
+                        <li>
+                                <strong>readOnly : </strong> bool
+                        </li>
+                        <p>
+                                Whether the text can be changed.
+                        </p>
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>late</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextEditingController</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>_textEditingController</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>initState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>_textEditingController</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextEditingController</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>()&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>_textEditingController</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>dispose</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Test&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>alignment</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>controller</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>_textEditingController</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>decoration</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>InputDecoration</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>labelText</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;Age&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>keyboardType</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextInputType</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>number</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p2.png?alt=media&token=28c051fa-f3bc-4717-9645-e9acd3c646bc"
+                        alt="TextField flutter" class="ss">
+                <br> <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p3.png?alt=media&token=d552ae0c-cf11-4118-a6ad-f200055f9167"
+                        alt="TextField flutter" class="ss">
+                <br>
+                <br>
+                <li id="w3" class="step">CircleAvatar</li>
+                <p>
+                        Typically used with a user's profile image, or, in the absence of such an image, the user's
+                        initials. A
+                        given user's initials should always be paired with the same background color, for consistency.
+                </p>
+
+                <h3 class="note">
+                        Some properties of CircleAvatar Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>child : </strong> Widget
+                        </li>
+                        <p>
+                                The widget below this widget in the tree.
+                        </p>
+                        <li>
+                                <strong>backgroundImage : </strong> ImageProvider&lt;Object&gt;
+                        </li>
+                        <p>
+                                The background image of the circle. Changing the background image will cause the avatar
+                                to animate to
+                                the new image.
+                        </p>
+                        <li>
+                                <strong>backgroundColor : </strong> Color
+                        </li>
+                        <p>
+                                The color with which to fill the circle. Changing the background color will cause the
+                                avatar to animate
+                                to the new color.
+                        </p>
+                        <li>
+                                <strong>foregroundColor : </strong> Color
+                        </li>
+                        <p>
+                                The default text color for text in the circle.
+                        </p>
+                        <li>
+                                <strong>radius : </strong> double
+                        </li>
+                        <p>
+                                The size of the avatar, expressed as the radius (half the diameter).
+                        </p>
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>mainAxisAlignment</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>MainAxisAlignment</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#4FC1FF'>spaceBetween</span><span style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>children</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;[</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundImage</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>NetworkImage</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;https://www.hotfootdesign.co.uk/wp-content/uploads/2016/05/d5jA8OZv.jpg&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>radius</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>35</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;User&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>blue</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>foregroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>radius</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>35</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Icon</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Icons</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>print</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>foregroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>amberAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>radius</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>20</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                        </p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p4.png?alt=media&token=c43924bf-b885-4de0-95f0-4c75dd8a7bed"
+                        alt="CircleAvatar Flutter" class="ss">
+                <br>
+                <br>
+                <li id="w4" class="step">ListTile</li>
+                <p>
+                        A single fixed-height row that typically contains some text as well as a leading or trailing
+                        icon. <br>
+                        A list tile contains one to three lines of text optionally flanked by icons or other widgets,
+                        such as check
+                        boxes. The icons (or other widgets) for the tile are defined with the leading and trailing
+                        parameters. The
+                        first line of text is not optional and is specified with title. The value of subtitle, which is
+                        optional,
+                        will occupy the space allocated for an additional line of text, or two lines if isThreeLine is
+                        true.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/l8dj0yPBvgQ"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <h3 class="note">
+                        Some properties of ListTile Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>leading : </strong> Widget
+                        </li>
+                        <p>
+                                A widget to display before the title.
+                        </p>
+                        <li>
+                                <strong>title : </strong> Widget
+                        </li>
+                        <p>
+                                The primary content of the list tile.
+                        </p>
+                        <li>
+                                <strong>subtitle : </strong> Widget
+                        </li>
+                        <p>
+                                Additional content displayed below the title.
+                        </p>
+                        <li>
+                                <strong>trailing : </strong> Widget
+                        </li>
+                        <p>
+                                A widget to display after the title.
+                        </p>
+                        <li>
+                                <strong>isThreeLine : </strong> bool
+                        </li>
+                        <p>
+                                Whether this list tile is intended to display three lines of text.
+                        </p>
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListTile</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>leading</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Icon</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Icons</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>headphones</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Headphones&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>trailing</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>music_note</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListTile</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>leading</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Icon</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Icons</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>headphones_outlined</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Headphones&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>subtitle</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Easy&nbsp;and&nbsp;comfortable&nbsp;to&nbsp;wear!&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>trailing</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>my_library_music</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListTile</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>leading</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Icon</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Icons</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>headset_mic</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Headphones&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>subtitle</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;They&nbsp;are&nbsp;easy&nbsp;and&nbsp;comfortable&nbsp;to&nbsp;wear,&nbsp;they&nbsp;don’t&nbsp;fall&nbsp;out&nbsp;of&nbsp;your&nbsp;ears!&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>isThreeLine</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#569CD6'>true</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>trailing</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>queue_music</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;])</span>
+                        </p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p5.png?alt=media&token=8ed6cfb6-a1b7-46c0-8092-f71660c8ad48"
+                        alt="ListTile flutter" class="ss">
+                <br>
+                <br>
+                <li id="w5" class="step">Card</li>
+                <p>
+                        A material design card: a panel with slightly rounded corners and an elevation shadow.
+                </p>
+
+                <h3 class="note">
+                        Some properties of Card Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>child : </strong> Widget
+                        </li>
+                        <p>
+                                The widget below this widget in the tree.
+                        </p>
+                        <li>
+                                <strong>elevation : </strong> double
+                        </li>
+                        <p>
+                                The z-coordinate at which to place this card. This controls the size of the shadow below
+                                the card.
+                        </p>
+                        <li>
+                                <strong>shadowColor : </strong> Color
+                        </li>
+                        <p>
+                                The color to paint the shadow below the card.
+                        </p>
+                        <li>
+                                <strong>shape : </strong>ShapeBorder
+                        </li>
+                        <p>
+                                The shape of the card's Material.
+                        </p>
+                        <li>
+                                <strong>margin : </strong>EdgeInsetsGeometry
+                        </li>
+                        <p>
+                                The empty space that surrounds the card.
+                        </p>
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Card</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>elevation</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>10</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>shape</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>RoundedRectangleBorder</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>side</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>BorderSide</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>width</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>1</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>borderRadius</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>BorderRadius</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>circular</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#B5CEA8'>10</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>shadowColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>black</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListTile</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>leading</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Icon</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Icons</span><span
+                                        style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>headset_mic</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Headphones&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>subtitle</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;They&nbsp;are&nbsp;easy&nbsp;and&nbsp;comfortable&nbsp;to&nbsp;wear,&nbsp;they&nbsp;don’t&nbsp;fall&nbsp;out&nbsp;of&nbsp;your&nbsp;ears!&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>isThreeLine</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#569CD6'>true</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>trailing</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>queue_music</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p> <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p6.png?alt=media&token=98a8f164-9413-4319-9522-f30a622b0542"
+                        alt="flutter Card" class="ss">
+                <br>
+                <br>
+                <li id="w6" class="step">Flexible</li>
+                <p>
+                        A widget that controls how a child of a Row, Column, or Flex flexes.
+                        <br><br>
+                        Using a Flexible widget gives a child of a Row, Column, or Flex the flexibility to expand to
+                        fill the
+                        available space in the main axis (e.g., horizontally for a Row or vertically for a Column), but,
+                        unlike
+                        Expanded, Flexible does not require the child to fill the available space.
+                        <br><br>
+                        A Flexible widget must be a descendant of a Row, Column, or Flex, and the path from the Flexible
+                        widget to
+                        its enclosing Row, Column, or Flex must contain only StatelessWidgets or StatefulWidgets.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CI7x0mAZiY0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <h3 class="note">
+                        Some properties of Flexible Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>child : </strong> Widget
+                        </li>
+                        <p>
+                                The widget below this widget in the tree.
+                        </p>
+                        <li>
+                                <strong>fit : </strong> FlexFit
+                        </li>
+                        <p>
+                                How a flexible child is inscribed into the available space.
+                        </p>
+                        <li>
+                                <strong>flex : </strong> int
+                        </li>
+                        <p>
+                                The flex factor to use for this child.
+                        </p>
+
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Row</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>blue</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>purple</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>6</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>4</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Flexible</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>yellowAccent</span><span style='color:#D4D4D4'>,</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>flex</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p7.png?alt=media&token=a94186d7-ab2c-450a-b6e8-cabd86004166"
+                        alt="flutter Flexible" class="ss">
+                <li id="w7" class="step">ListView</li>
+                <p>
+                        A scrollable list of widgets arranged linearly. <br><br>
+                        ListView is the most commonly used scrolling widget. It displays its children one after another
+                        in the
+                        scroll direction. In the cross axis, the children are required to fill the ListView. <br><br>
+                        There are four options for constructing a ListView:
+                </p>
+                <ol>
+                        <li>
+                                <p>
+                                        The default constructor takes an explicit <strong>List &lt;Widget&gt;</strong>
+                                        of children. This
+                                        constructor is appropriate
+                                        for list views with a small number of children because constructing the List
+                                        requires doing work
+                                        for every child that could possibly be displayed in the list view instead of
+                                        just those children
+                                        that are actually visible.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        The <strong>ListView.builder</strong> constructor takes an IndexedWidgetBuilder,
+                                        which builds the
+                                        children on demand.
+                                        This constructor is appropriate for list views with a large (or infinite) number
+                                        of children because
+                                        the builder is called only for those children that are actually visible.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        The <strong>ListView.separated </strong> constructor takes two
+                                        IndexedWidgetBuilders: itemBuilder
+                                        builds child items
+                                        on demand, and separatorBuilder similarly builds separator children which appear
+                                        in between the
+                                        child items. This constructor is appropriate for list views with a fixed number
+                                        of children.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        The <strong>ListView.custom</strong> constructor takes a SliverChildDelegate,
+                                        which provides the
+                                        ability to customize
+                                        additional aspects of the child model. For example, a SliverChildDelegate can
+                                        control the algorithm
+                                        used to estimate the size of children that are not actually visible.
+                                </p>
+                        </li>
+                </ol>
+
+
+                <h3 class="note">
+                        Example 1:
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#4EC9B0'>ListView</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>padding</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>children</span><span
+                                        style='color:#D4D4D4'>:&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>height</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>50</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>vertical</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>30</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Entry&nbsp;A'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>height</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>50</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>vertical</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>30</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Entry&nbsp;B'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>height</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>50</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>vertical</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>30</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Entry&nbsp;C'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p8.png?alt=media&token=0cfd59c0-6f27-45eb-9273-dc54d45a7613"
+                        alt="flutter ListView" class="ss">
+                <br><br>
+                <h3 class="note">
+                        Example 2:
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>entries</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt;[</span><span
+                                        style='color:#CE9178'>'A'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'B'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'C'</span><span style='color:#D4D4D4'>];</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>&gt;[</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>];</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Test&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListView</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>builder</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>padding</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>itemCount</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>entries</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>itemBuilder</span><span
+                                        style='color:#D4D4D4'>:&nbsp;(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span style='color:#4EC9B0'>int</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>index</span><span
+                                        style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>height</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>50</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>vertical</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>30</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Entry&nbsp;</span><span
+                                        style='color:#D4D4D4'>${</span><span style='color:#9CDCFE'>entries</span><span
+                                        style='color:#D4D4D4'>[</span><span style='color:#9CDCFE'>index</span><span
+                                        style='color:#D4D4D4'>]}</span><span style='color:#CE9178'>'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p9.png?alt=media&token=f1f8f057-72ce-47d4-a868-88a1b1b88d89"
+                        alt="flutter ListView" class="ss">
+                <br><br>
+                <h3 class="note">
+                        Example 3:
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>entries</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt;[</span><span
+                                        style='color:#CE9178'>'A'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'B'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'C'</span><span style='color:#D4D4D4'>];</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>&gt;[</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>];</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Test&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ListView</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>separated</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>padding</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>itemCount</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>entries</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>itemBuilder</span><span
+                                        style='color:#D4D4D4'>:&nbsp;(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span style='color:#4EC9B0'>int</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>index</span><span
+                                        style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>height</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>50</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>margin</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>symmetric</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>vertical</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>20</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Entry&nbsp;</span><span
+                                        style='color:#D4D4D4'>${</span><span style='color:#9CDCFE'>entries</span><span
+                                        style='color:#D4D4D4'>[</span><span style='color:#9CDCFE'>index</span><span
+                                        style='color:#D4D4D4'>]}</span><span style='color:#CE9178'>'</span><span
+                                        style='color:#D4D4D4'>)),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>separatorBuilder</span><span
+                                        style='color:#D4D4D4'>:&nbsp;(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span style='color:#4EC9B0'>int</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>index</span><span
+                                        style='color:#D4D4D4'>)&nbsp;=&gt;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p10.png?alt=media&token=ee31a096-bd54-48a1-b059-d65cafd37277"
+                        alt="flutter ListView" class="ss">
+                <br><br>
+
+                <li id="w8" class="step">BottomNavigationBar</li>
+                <p>
+                        A material widget that's displayed at the bottom of an app for selecting among a small number of
+                        views,
+                        typically between three and five.
+                        <br><br>
+                        The bottom navigation bar consists of multiple items in the form of text labels, icons, or both,
+                        laid out on
+                        top of a piece of material. It provides quick navigation between the top-level views of an app.
+                        For larger
+                        screens, side navigation may be a better fit.
+                        <br><br>
+                        A bottom navigation bar is usually used in conjunction with a Scaffold, where it is provided as
+                        the
+                        Scaffold.bottomNavigationBar argument.
+                </p>
+
+                <h3 class="note">
+                        Some properties of BottomNavigationBar Class:
+                </h3>
+                <ol>
+                        <li>
+                                <strong>items : </strong> List&lt;BottomNavigationBarItem&gt;
+                        </li>
+                        <p>
+                                Defines the appearance of the button items that are arrayed within the bottom navigation
+                                bar.
+                        </p>
+                        <li>
+                                <strong>currentIndex : </strong> int
+                        </li>
+                        <p>
+                                The index into items for the current active BottomNavigationBarItem.
+                        </p>
+                        <li>
+                                <strong>selectedItemColor : </strong> Color
+                        </li>
+                        <p>
+                                The color of the selected BottomNavigationBarItem.icon.
+                        </p>
+                        <li>
+                                <strong>onTap : </strong>
+                        </li>
+                        <p>
+                                Called when one of the items is tapped.
+                        </p>
+                        <li>
+                                <strong>selectedLabelStyle : </strong> TextStyle
+                        </li>
+                        <p>
+                                The TextStyle of the BottomNavigationBarItem labels when they are selected.
+                        </p>
+
+                </ol>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>String</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt;[</span><span
+                                        style='color:#CE9178'>'Home'</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'Phone'</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span style='color:#CE9178'>'TV'</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#CE9178'>'Headphone'</span><span style='color:#D4D4D4'>];</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;&lt;</span><span
+                                        style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>purple</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;];</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>_index</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                        style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Test&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#9CDCFE'>_index</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#9CDCFE'>_index</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>style</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>white</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>35</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>bottomNavigationBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>BottomNavigationBar</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>items</span><span style='color:#D4D4D4'>:&nbsp;[</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>BottomNavigationBarItem</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>label</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>]),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>BottomNavigationBarItem</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>phone</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>label</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>]),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>BottomNavigationBarItem</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>tv</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>label</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>]),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>BottomNavigationBarItem</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>headphones</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>label</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>texts</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>]),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>currentIndex</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>_index</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>selectedItemColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>yellow</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onTap</span><span
+                                        style='color:#D4D4D4'>:&nbsp;(</span><span style='color:#4EC9B0'>int</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>idx</span><span
+                                        style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>setState</span><span
+                                        style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>_index</span><span
+                                        style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                        style='color:#9CDCFE'>idx</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+                        <br>
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p11.png?alt=media&token=e24daa37-0cec-42fe-a6d0-e4ef9b0aec62"
+                        alt="BottomNavigationBar Card" class="ss"> <br><br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p12.png?alt=media&token=1ea97043-7945-4ea7-a8e2-2abb55e17325"
+                        alt="BottomNavigationBar Card" class="ss"> <br><br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p13.png?alt=media&token=aee9f3c6-7fd0-4acf-a223-7430814ad16e"
+                        alt="BottomNavigationBar Card" class="ss"> <br><br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l2p14.png?alt=media&token=3d081b85-f4a2-479d-b7f1-7712b93e76a5"
+                        alt="BottomNavigationBar Card" class="ss"> <br><br>
+        </ol>
+</div>

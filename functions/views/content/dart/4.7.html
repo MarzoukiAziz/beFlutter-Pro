@@ -1,0 +1,282 @@
+<div class="contenu">
+    <h1>
+        For Each
+    </h1>
+    <p>
+        In the following Dart Program, we apply forEach method for a list, a set and a map.
+    </p>
+    <ol>
+        <li class="step">List:</li> <br>
+
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;nums&nbsp;=&nbsp;[</span><span style='color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>2</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>6</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>7</span><span style='
+    color:#D4D4D4'>];</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;nums.</span><span style='
+    color:#DCDCAA'>forEach</span><span style='
+    color:#D4D4D4'>((element)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;element&nbsp;*=&nbsp;</span><span
+    style='color:#B5CEA8'>11</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(element);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;});</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(nums);</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+11 <br>
+22 <br>
+33 <br>
+44 <br>
+55 <br>
+66 <br>
+77 <br>
+[1, 2, 3, 4, 5, 6, 7] <br>
+
+
+    </div>
+    <br>
+    <br>
+       <li class="step">Set:</li>
+		<br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;eng&nbsp;=&nbsp;{</span><span style='color:#CE9178'>&quot;one&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;two&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;three&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;four&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;five&quot;</span><span
+    style='color:#D4D4D4'>};</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#569CD6'>var</span><span  style='color:#D4D4D4'>&nbsp;fr&nbsp;=&nbsp;[</span><span
+     style='color:#CE9178'>&quot;un&quot;</span><span
+     style='color:#D4D4D4'>,&nbsp;</span><span
+     style='color:#CE9178'>&quot;deux&quot;</span><span
+     style='color:#D4D4D4'>,&nbsp;</span><span
+     style='color:#CE9178'>&quot;trois&quot;</span><span
+     style='color:#D4D4D4'>,&nbsp;</span><span
+     style='color:#CE9178'>&quot;quatre&quot;</span><span
+     style='color:#D4D4D4'>,&nbsp;</span><span
+     style='color:#CE9178'>&quot;cinq&quot;</span><span
+     style='color:#D4D4D4'>];</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;engAndFr&nbsp;=&nbsp;eng;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;index&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;engAndFr.</span><span style='
+    color:#DCDCAA'>forEach</span><span style='
+    color:#D4D4D4'>((element)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;element&nbsp;=&nbsp;element&nbsp;+&nbsp;</span><span
+    style='color:#CE9178'>&quot;&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>&nbsp;+&nbsp;fr[index];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;index++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(element);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;});</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(engAndFr);</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+
+one un <br>
+two deux <br>
+three trois <br>
+four quatre <br>
+five cinq <br>
+{one, two, three, four, five} <br>
+
+    </div>
+    <br>
+    <br>
+       <li class="step">Map</li><br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;carDescription&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;My&nbsp;car&nbsp;is&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;car&nbsp;=&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#CE9178'>&quot;model&quot;</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;R8&quot;</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#CE9178'>&quot;Horsepower&quot;</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;602&quot;</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#CE9178'>&quot;Energy&quot;</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;Gasoline&quot;</span><span
+    style='color:#D4D4D4'>,</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#CE9178'>&quot;transmission&quot;</span><span
+    style='color:#D4D4D4'>:&nbsp;</span><span
+    style='color:#CE9178'>&quot;automatic&quot;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;};</span></p>
+    
+
+	
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='color:#DCDCAA'>forEach</span><span style='color:#D4D4D4'>((key,&nbsp;value)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;carDescription&nbsp;+=&nbsp;</span><span
+    style='color:#CE9178'>&quot;&nbsp;&quot;</span><span
+    style='color:#D4D4D4'>&nbsp;+&nbsp;value;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;});</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(carDescription);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+
+My car is R8 602 Gasoline automatic <br>
+
+    </div>
+		<br>
+		<br>
+    <p>
+        You may ask a questio here : Why forEach is unable to modify the elements of the list and the set ? <br>
+    </p>
+    <div class="indice">
+			
+		
+		<img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0">
+    <p>
+
+The <span class="word">element</span> parameter of the <span class="word">forEach</span> callback is just a normal <span class="word">local</span> variable, and assigning to it has <span class="word">no effect outside</span> the callback. <br><br>
+<span class="note">Why ? </span><br><br>
+Dart does not have variable references, all elements are passed as a reference to an object, not to a variable. (In other words, Dart is purely "call-by-sharing" like both Java and JavaScript). <br>
+
+The same goes for iterators: they return the value in the iterable, but it has no reference back to the iterable after that. <br><br>
+		
+		<a target="_blank" href="https://stackoverflow.com/questions/22210247/list-foreach-unable-to-modify-element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Source</a>
+    </p>
+		
+</div>
+</ol>
+</div>

@@ -1,0 +1,178 @@
+<div class="contenu">
+        <h1>
+                Checking Device Platform
+        </h1>
+        <p>
+                Messages are passed between the client (UI) and host (platform) using platform channels as illustrated
+                in this
+                diagram:
+        </p>
+        <img src="https://flutter.dev/assets/images/docs/PlatformChannels.png" alt="platform channels flutter">
+        <p>
+                Messages and responses are passed asynchronously, to ensure the user interface remains responsive.
+        </p>
+        <h2 class="step">
+                Detecting the Current Platform – iOS or Android
+        </h2>
+        <div class="code">
+
+                <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#CE9178'>'package:flutter/foundation.dart'</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                style='color:#D4D4D4'>());</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#CE9178'>'responsive&nbsp;and&nbsp;adaptive'</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>theme</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>primarySwatch</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                                style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>blue</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#9CDCFE'>platform</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>Theme</span><span
+                                style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>).</span><span style='color:#9CDCFE'>platform</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>platform</span><span
+                                style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+                                style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#4FC1FF'>iOS</span><span style='color:#D4D4D4'>&nbsp;?&nbsp;</span><span
+                                style='color:#CE9178'>'iOS'</span><span style='color:#D4D4D4'>&nbsp;:&nbsp;</span><span
+                                style='color:#CE9178'>'Android&nbsp;or&nbsp;Other'</span><span
+                                style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+        </div>
+        <br><br>
+        <h3 class="note">
+                On Android
+        </h3>
+        <img class="ss"
+                src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l7p1.png?alt=media&token=b0e5848a-385d-4ce2-9d1d-4841beb83a4e"
+                alt="flutter android">
+        <br>
+        <br>
+
+        <h3 class="note">
+                On iOS
+        </h3>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l7p2.png?alt=media&token=07e5eaa1-2d42-4d07-8218-aa2c0d6e1fc2"
+                alt="flutter iOS" class="ss">
+</div>

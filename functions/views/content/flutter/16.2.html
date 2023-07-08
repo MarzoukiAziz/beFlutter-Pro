@@ -1,0 +1,300 @@
+<div class="contenu">
+    <h1>
+        Adding Shared Preferences To App4
+    </h1>
+    <ol>
+        <li class="step">
+            Installing
+        </li>
+        <p>
+            Run this command:
+        </p>
+        <p class="syn">
+            flutter pub add shared_preferences
+        </p>
+        <p>
+            This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):
+        </p>
+        <p class="res">
+            dependencies: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shared_preferences: ^2.0.9
+        </p>
+        <p>
+            Or visit <a href="https://pub.dev/packages/shared_preferences/install">shared_preferences - pub.dev</a>
+        </p>
+        <p>
+            Now run pub get from the command line:
+        </p>
+        <p class="syn">
+            flutter pub get
+        </p>
+        <p>
+            You’re now ready to store data.
+        </p>
+        <br>
+        <li class="step">
+            Import the package in the main
+        </li>
+        <br>
+        <div class="code">
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'package:shared_preferences/shared_preferences.dart'</span><span
+                    style='color:#D4D4D4'>;</span></p>
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Create a key
+        </li>
+        <p>
+            All preferences need to use a unique key or they’ll be overwritten. Here, you’re
+            simply defining a constant for the preference key.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>static</span><span
+                    style='color:#D4D4D4'> </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>bestScorekey</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#CE9178'>'bestScore'</span><span style='color:#D4D4D4'>;</span></p>
+
+        </div>
+        <br><br>
+        <li class="step">
+            Saving The Best Score
+        </li>
+        <p>
+            To understand the code you’ll add next, you need to know a bit about running code in
+            the background. <br><br>
+            Most modern UIs have a main thread that runs the UI code. Any code that takes a
+            long time needs to run on a different thread or process so it doesn’t block the UI. <br>
+            Dart uses a technique similar to JavaScript to achieve this. The language includes
+            these two keywords: <br><br>
+            • async <br>
+            • await <br><br>
+            Check these lessons :
+        <p><a href="http://localhost:5000/Dart/13/1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handling Futures</a></p>
+        <p>
+            <a href="http://localhost:5000/Dart/13/2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Declaring async funtions</a>
+        </p>
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>saveNewBestScore</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>) </span><span
+                    style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//1</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#C586C0'>await</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>SharedPreferences</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//2</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>setInt</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>bestScorekey</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+            <br>
+        </div>
+        <br><br>
+        <p>
+            Here, you use the async keyword to indicate that this method will run
+            asynchronously. It also: <br><br>
+            1. Uses the await keyword to wait for an instance of SharedPreferences. <br><br>
+            2. Saves the best score using the prefSearchKey key.
+            <br><br>
+            Next, call it in the check answer method:
+
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>checkAnswer</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                    style='color:#9CDCFE'>answer</span><span style='color:#D4D4D4'> == </span><span
+                    style='color:#9CDCFE'>correctCountry</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()
+                    {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>score</span><span
+                    style='color:#D4D4D4'>++;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#DCDCAA'>prepareCountries</span><span
+                    style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; });</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; } </span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                    style='color:#9CDCFE'>score</span><span style='color:#D4D4D4'> &gt; </span><span
+                    style='color:#9CDCFE'>bestScore</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>bestScore</span><span style='color:#D4D4D4'>
+                    = </span><span style='color:#9CDCFE'>score</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#6A9955'>///add this here</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#DCDCAA'>saveNewBestScore</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>score</span><span
+                    style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()
+                    {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>playing</span><span style='color:#D4D4D4'> =
+                </span><span style='color:#569CD6'>false</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; });</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#DCDCAA'>prepareCountries</span><span
+                    style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+            <br>
+
+        </div>
+        <br><br>
+        <li class="step">
+            Getting The Best Score
+        </li>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>getBestScore</span><span style='color:#D4D4D4'>() </span><span
+                    style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//1</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#C586C0'>await</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>SharedPreferences</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//2</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>containsKey</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>bestScorekey</span><span style='color:#D4D4D4'>)) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#6A9955'>//3</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>bestScore</span><span style='color:#D4D4D4'> =
+                </span><span style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getInt</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>bestScorekey</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p> <br>
+        </div>
+        <br><br>
+        <p>
+            This method is also asynchronous. Here, you: <br><br>
+            1. Use the await keyword to wait for an instance of SharedPreferences. <br><br>
+            2. Check if a preference for the best score already exists. <br><br>
+            3. Get the best score. <br><br><br>
+            Finally, right after super.initState() in initState() call it:
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#DCDCAA'>prepareCountries</span><span
+                    style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#DCDCAA'>getBestScore</span><span style='color:#D4D4D4'>();</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <br>
+        </div>
+        <br><br>
+        <p>
+            This loads the previous best score when the user restarts the app.
+        </p>
+        <br>
+        <br>
+        <li class="step">
+            Test the app
+        </li>
+        <br>
+        <video class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/app4v2.mp4?alt=media&token=c1729bef-4dbf-4e45-86d5-5c2cff241129"
+            autoplay muted loop></video>
+        <br><br>
+        <li class="step">
+            Code Source
+        </li>
+        <br><br>
+        <a class="githubLink" href="https://github.com/moazmar/App4-v2--Flags-Quiz---FlutterCourse" target="_blank">
+            <img class="github"
+                src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/f3mn2sw6is59zrxhzj51.jpg?alt=media&token=9dc18b84-5c6c-47a4-a553-fdc879d50b9f"
+                alt="github">
+    </ol>
+</div>

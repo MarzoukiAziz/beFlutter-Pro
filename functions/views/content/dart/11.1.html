@@ -1,0 +1,282 @@
+<div class="contenu">
+    <h1>
+        Level 2 : Project 6
+    </h1>
+    <p style="font-weight: 700;">
+        1) We want to create a class called <span class="word">Complex</span> to handle complex numbers:
+    </p>
+    <h3 class="note">
+        Attributes: 
+    </h3>
+    <ul>
+        <li><p><span style="font-weight: 700;">re</span> the real part of type double</p></li>
+        <li><p><span style="font-weight: 700;">img</span> the imaginary part of type double</p> </li>
+    </ul>
+    <br>
+    <h3 class="note">
+        Methods:
+    </h3>
+    <ol>
+        <li><p><span class="word">Constructor</span> with arguments (default initialization values)</p></li>
+        <li><p><span class="word">Display</span> function</p></li>
+        <li><p>Function that returns the <span class="word">module</span> knowing that: |z| = √(a²+b²)</p></li>
+        <li><p>Function which returns the <span class="word">conjugate</span> knowing that: <span style="-webkit-text-decoration-line: overline;
+        text-decoration-line: overline">z</span> = a - bi</p></li>
+        <li><p>Overload of the following operators:</p></li>
+        <ul>
+            <li><p><span class=word style="font-weight: 700;">+</span> : for <span style="font-weight: 700;">(complex + complex)</span> knowing that: ( a + bi ) + ( c + di ) = ( a + c ) + ( b + d )i </p></li>
+            <li><p>The same for <span class=word style="font-weight: 700;">-</span> and <span class=word style="font-weight: 700;">*</span> knowing that : ( a + bi ) * ( c + di ) = ( ac - bd ) + ( ad + bc)i</p></li>
+        </ul>
+    </ol>
+    <br>
+    <p style="font-weight: 700;">
+        2) Create a <span class="word">main()</span> test program.
+    </p>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution :
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'<span class=SpellE><span
+    class=GramE>dart:math</span></span>'</span><span style='color:#D4D4D4'>;<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+    
+    <p><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;{<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;re,&nbsp;<span
+    class=SpellE>img</span>;<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    class=GramE><span style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>[</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.re&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    class=SpellE><span style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.img</span></span><span
+    style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>]);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>)&nbsp;{<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(<span
+    class=SpellE>img</span>&nbsp;&gt;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>)<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#CE9178'>&quot;z&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>re</span><span
+    style='color:#CE9178'>&nbsp;+&nbsp;$</span><span
+    class=SpellE><span style='color:#9CDCFE'>img</span></span><span
+    style='color:#CE9178'>&nbsp;<span class=SpellE>i</span>&quot;</span><span
+    style='color:#D4D4D4'>);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'><o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#CE9178'>&quot;z&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>re</span><span
+    style='color:#CE9178'>&nbsp;-&nbsp;${</span><span
+    style='color:#9CDCFE'>-<span class=SpellE>img</span></span><span
+    style='color:#CE9178'>}&nbsp;<span
+    class=SpellE>i</span>&quot;</span><span style='
+    color:#D4D4D4'>);&nbsp;</span><span style='
+    color:#6A9955'>//&nbsp;to&nbsp;avoid&nbsp;a+-bi</span><span style='
+    color:#D4D4D4'><o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>module</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#DCDCAA'>sqrt</span><span
+    style='color:#D4D4D4'>(re&nbsp;*&nbsp;re&nbsp;+&nbsp;<span
+    class=SpellE>img</span>&nbsp;*&nbsp;<span class=SpellE>img</span>);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>conjugate</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(re,&nbsp;-<span
+    class=SpellE>img</span>);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;<span class=GramE>+(</span></span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;c)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(re&nbsp;+&nbsp;c.re,&nbsp;img&nbsp;+&nbsp;c.img);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;<span class=GramE>-(</span></span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;c)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(re&nbsp;-&nbsp;c.re,&nbsp;img&nbsp;-&nbsp;c.img);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;*(</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>&nbsp;c)&nbsp;=&gt;<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    class=GramE><span style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>re&nbsp;*&nbsp;c.re&nbsp;-&nbsp;<span
+    class=SpellE>img</span>&nbsp;*&nbsp;<span class=SpellE>c.img</span>,&nbsp;re&nbsp;*&nbsp;<span
+    class=SpellE>c.img</span>&nbsp;+&nbsp;<span class=SpellE>img</span>&nbsp;+&nbsp;c.re);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    class=GramE><span style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>)&nbsp;{<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c1&nbsp;=&nbsp;</span><span
+    class=GramE><span style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(</span></span><span
+    style='color:#D4D4D4'>),&nbsp;c2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>),&nbsp;c3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Complex</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>,&nbsp;-</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c<span
+    class=GramE>1.<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c<span
+    class=GramE>2.<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c<span
+    class=GramE>3.<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c<span class=GramE>2.<span
+    style='color:#DCDCAA'>module</span></span>());<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c<span
+    class=GramE>3.<span style='color:#DCDCAA'>conjugate</span></span>().</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(c2&nbsp;+&nbsp;c3<span
+    class=GramE>).<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(c2&nbsp;-&nbsp;c3<span
+    class=GramE>).<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(c2&nbsp;*&nbsp;c3<span
+    class=GramE>).<span style='color:#DCDCAA'>display</span></span>();<o:p></o:p></span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}<o:p></o:p></span></p>
+    <br>
+    </div>
+    <br>
+    <div class="res">
+        z = 0.0 + 0.0 i <br>
+        z = 2.0 + 7.0 i <br>
+        z = 3.0 - 5.0 i <br>
+        7.280109889280518 <br>
+        z = 3.0 + 5.0 i <br>
+        z = 5.0 + 2.0 i <br>
+        z = -1.0 + 12.0 i <br>
+        z = 41.0 + 0.0 i <br>
+    </div>
+</div>

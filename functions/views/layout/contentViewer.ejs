@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<link rel="icon" href="../../images/flutter_icon.png">
+
+	<meta charset="utf-8">
+	<title>
+		<% if( lesson==null){ %>
+			<%= section %>
+				<%}else{ %>
+					<%= lesson +" - " + chapiter %>
+						<%}%>
+	</title>
+	<meta name=" viewport" content="width=device-width, initial-scale=1.0">
+						<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+						<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+						<link href="/styles/start.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<%- include("../../utils/helper.ejs") %>
+
+	<body style="background-color: whitesmoke;">
+		<div class="layout layout-nav-side">
+			<div class="main-container">
+				<div class="navbar bg-white breadcrumb-bar ">
+					<nav aria-label="breadcrumb">
+						<!-- collapse button in mob  -->
+						<div class="d-lg-none align-items-center">
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
+								data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon" style="color: white;"></span>
+							</button>
+						</div>
+						<!-- logo -->
+						<a href="/"><img id="brand" alt="Flutter Pro" src="/images/flutter_brand.png" /></a>
+						<!-- white border -->
+						<div
+							style="border-left: rgba(234, 234, 234, 0.4) 1px solid; margin-right: 1rem; margin-top:0.5rem ;margin-bottom: 0.5rem;">
+						</div>
+						<!-- current course path -->
+						<ol class="breadcrumb ">
+							<li class="breadcrumb-item ">
+								<%= section %>
+							</li>
+							<% if(chapiter !=null ){%>
+								<li class="breadcrumb-item ">
+									<%= chapiter %>
+								</li>
+								<li class="breadcrumb-item " aria-current="page">
+									<%= lesson %>
+								</li>
+								<%}%>
+						</ol>
+						<% if(userData!=null && chapiter !=null){%>
+							<form action="/updateLessonProgress" method="POST">
+								<input type="hidden" name="section" value="<%= section %>">
+								<input type="hidden" name="ch" value='c<%= ch %>'>
+								<input type="hidden" name="les" value="l<%= les %>">
+								<% if(checkLessonProgress(section,ch,les)==true){ %>
+									<input type="image" src="/images/checked.png" alt="" style="width: 40px;
+										height: 40px;
+										position: absolute;
+										right: 35px;
+										margin-top: 5px;
+										top: 5px;" disabled>
+									<%}else{%>
+										<input type="image" src="/images/unchecked.png" alt="" style="width: 40px;
+											height: 40px;
+											position: absolute;
+											right: 35px;
+											margin-top: 5px;
+											top: 5px;" onclick="this.form.submit();">
+
+										<%}%>
+							</form>
+							<%}%>
+
+
+					</nav>
+				</div>
+				<!-- colapsed side -->
+				<div class="navbar navbar-expand-lg bg-dark navbar-dark d-lg-none ">
+					<!-- the  content -->
+					<div class="collapse navbar-collapse flex-column" id="navbar-collapse">
+						<!-- login btns in mob -->
+						<div id="container">
+							<% if (userData!=null){ %>
+								<div class="userTab">
+									<% if (userData.avatar) { %>
+										<img id="avatar" src="/images/avatars/<%= userData.avatar%>.png"
+											alt="user avatar" />
+										<% }else { %>
+											<img id="avatar" src="/images/user.svg" alt="user avatar">
+											<% }%>
+												<div class="d-block">
+													<h2 style="margin: 0px;line-break: anywhere;">
+														<%=userData.username %>
+													</h2>
+													<h5 style="margin: 0px;">
+														<a style="color: cornflowerblue !important;"
+															href="/dashboard">View
+															Dashboard</a>
+													</h5>
+												</div>
+								</div>
+								<%}else{ %>
+									<button style="background-color:rgb(91, 91, 231);" type="button" class="btn1">
+										<a href="/signIn">Login</a>
+									</button><button style="background-color: rgb(48, 184, 48);margin-left: 19px;"
+										type="button" class="btn1">
+										<a href="/signUp">Sign Up</a>
+									</button>
+									<%}%>
+						</div>
+						<!-- Sections in mob -->
+						<div style="margin-left: 10px;" class="switch">
+							<a href="/dart" class="action-button <% if(section==" Dart"){%>current<% }%>">Dart</a>
+							<a href="/flutter" class="action-button <% if(section==" Flutter"){%>current<% }%>
+									">Flutter</a>
+							<!-- <a href="#" class="action-button <% if(section==" Apps"){%>current<% }%>">Apps <span style="margin-left: auto;
+								font-family: 'Audiowide';
+								color: #54ecff;
+								font-style: italic;
+								text-transform: lowercase;">soon</span></a> -->
+							<a href="#" class="action-button <% if(section==" Forum"){%>current<% }%>">Forum <span
+										style="margin-left: auto;
+								font-family: 'Audiowide';
+								color: #54ecff;
+								font-style: italic;
+								text-transform: lowercase;">soon</span></a>
+						</div>
+						<!-- search in mob -->
+						<div id="search">
+							<form>
+								<div class="input-group input-group-dark input-group-round">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="material-icons">search</i>
+										</span>
+									</div>
+									<input type="search" class="form-control form-control-dark" placeholder="Search"
+										aria-label="Search app">
+								</div>
+							</form>
+						</div>
+						<!-- Course Content in mob -->
+						<div style="display: contents;">
+							<ol id="contnet" class="navbar-nav d-lg-block">
+								<% for(var i of data){ %>
+
+									<li class="nav-item">
+										<a class="nav-link nav1" href="#" data-toggle="collapse" aria-expanded="false"
+											data-target=<%="#" +i.chapiter%> aria-controls=<%=i.chapiter%>>
+												<%= i.chapiter%></a>
+										<div class="collapse" id=<%=i.chapiter%>>
+											<ol class="nav nav-small flex-column padnav">
+
+												<% for (var j of i.lessons){%>
+													<%if(checkLessonProgress(section,data.indexOf(i)+1,i.lessons.indexOf(j)+1)){%>
+														<li class="nav-item">
+															<a class="nav-link" style="color: yellowgreen;"
+																href="/<%=section%>/<%=data.indexOf(i)+1%>/<%=i.lessons.indexOf(j)+1%>">
+																<%= j %>
+															</a>
+
+															<% }else{%>
+																<a class="nav-link"
+																	href="/<%=section%>/<%=data.indexOf(i)+1%>/<%=i.lessons.indexOf(j)+1%>">
+																	<%= j %>
+																</a>
+																<%}%>
+														</li>
+														<% } %>
+															<% if (i.exercise){%>
+
+																<%if(checkLessonProgress(section,data.indexOf(i)+1,'ex')){%>
+																	<li class="nav-item exercice">
+																		<a class="nav-link ex"
+																			style="color: yellowgreen;"
+																			href="/<%=section%>/<%=data.indexOf(i)+1%>/ex">Exercises</a>
+																	</li>
+																	<% }else{%>
+																		<li class="nav-item exercice">
+																			<a class="nav-link ex"
+																				href="/<%=section%>/<%=data.indexOf(i)+1%>/ex">Exercises</a>
+																		</li>
+																		<%}%>
+																			<% }%>
+											</ol>
+										</div>
+									</li>
+									<%}%>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- Lesson -->
+				<%- include("../content/"+section+"/"+ref+".html") %>
+
+					<h1 id="commentSection">Comments:</h1>
+					<div id="disqus_thread"></div>
+
+			</div>
+			<!-- the aside in web version -->
+			<div class="navbar navbar-expand-lg bg-dark navbar-dark ">
+				<!-- the  content -->
+				<div class="collapse navbar-collapse flex-column">
+					<div id="container">
+						<% if (userData!=null){ %>
+							<div class="userTab">
+								<% if (userData.avatar) { %>
+									<img id="avatar" src="/images/avatars/<%= userData.avatar%>.png"
+										alt="user avatar" />
+									<% }else { %>
+										<img id="avatar" src="/images/user.svg" alt="user avatar">
+										<% }%>
+											<div class="d-block">
+												<h2 style="margin: 0px;line-break: anywhere;">
+													<%=userData.username %>
+												</h2>
+												<h5 style="margin: 0px;">
+													<a style="color: cornflowerblue !important;" href="/dashboard">View
+														Dashboard</a>
+												</h5>
+											</div>
+							</div>
+							<%}else{ %>
+								<button style="background-color:rgb(91, 91, 231);" type="button" class="btn1"> <a
+										href="/signIn">Login</a>
+								</button><button style="background-color: rgb(48, 184, 48);margin-left: 19px;"
+									type="button" class="btn1">
+									<a href="/signUp">Sign Up</a>
+								</button>
+								<%}%>
+					</div>
+					<div class="switch">
+						<a href="/dart" class="action-button  <% if(section==" Dart"){%>current<% }%>">Dart</a>
+						<a href="/flutter" class="action-button  <% if(section==" Flutter"){%>current<% }%>">Flutter</a>
+						<!-- <a href="#" class="action-button  <% if(section==" Apps"){%>current<% }%>">Apps <span style="margin-left: auto;
+					font-family: 'Audiowide';
+					color: #54ecff;
+					font-style: italic;
+					text-transform: lowercase;">soon</span></a> -->
+						<a href="#" class="action-button <% if(section==" Forum"){%>current<% }%> ">Forum <span style="margin-left: auto;
+					font-family: 'Audiowide';
+					color: #54ecff;
+					font-style: italic;
+					text-transform: lowercase;">soon</span></a>
+					</div>
+					<div class="gcse-search"></div>
+
+					<div style="display: contents;">
+						<ol id="contnet" class="navbar-nav d-lg-block">
+							<% for (var i of data){%>
+
+								<li class="nav-item">
+									<a class="nav-link nav1" href="#" data-toggle="collapse" aria-expanded="false"
+										data-target=<%="#" +i.chapiter%> aria-controls=<%=i.chapiter%>><%=i.chapiter%>
+									</a>
+									<div class="collapse" id=<%=i.chapiter%>>
+										<ol class="nav nav-small flex-column padnav">
+											<% for(j of i.lessons){%>
+												<li class="nav-item">
+													<%if(checkLessonProgress(section,data.indexOf(i)+1,i.lessons.indexOf(j)+1)){%>
+														<a class="nav-link" style="color: yellowgreen;"
+															href="/<%=section%>/<%=data.indexOf(i)+1%>/<%=i.lessons.indexOf(j)+1%>">
+															<%=j%>
+														</a>
+														<% }else{%>
+
+															<a class="nav-link"
+																href="/<%=section%>/<%=data.indexOf(i)+1%>/<%=i.lessons.indexOf(j)+1%>">
+																<%=j%>
+															</a>
+															<%}%>
+												</li>
+												<% } %>
+
+													<% if (i.exercise){%>
+														<%if(checkLessonProgress(section,data.indexOf(i)+1,'ex')){%>
+															<li class="nav-item exercice">
+																<a class="nav-link ex" style="color: yellowgreen;"
+																	href="/<%=section%>/<%=data.indexOf(i)+1%>/ex">Exercises</a>
+															</li>
+															<% }else{%>
+																<li class="nav-item exercice">
+																	<a class="nav-link ex"
+																		href="/<%=section%>/<%=data.indexOf(i)+1%>/ex">Exercises</a>
+																</li>
+																<%}%>
+																	<% }%>
+										</ol>
+									</div>
+								</li>
+								<% } %>
+						</ol>
+					</div>
+				</div>
+				<!-- the login access -->
+			</div>
+		</div>
+		<!-- Copyright -->
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="p-small">Copyright © Flutter Pro 2020-2021 by MoAzMar &trade;</p>
+					</div> <!-- end of col -->
+				</div> <!-- enf of row -->
+			</div> <!-- end of container -->
+		</div> <!-- end of copyright -->
+		<!-- end of copyright -->
+		<!-- Required vendor scripts (Do not remove) -->
+		<script type="text/javascript" src="https://pipeline.mediumra.re/assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://pipeline.mediumra.re/assets/js/popper.min.js"></script>
+		<script type="text/javascript" src="https://pipeline.mediumra.re/assets/js/bootstrap.js"></script>
+		</div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+		<script type="text/javascript" src="/js/copyBtn.js"></script>
+		<script>
+
+			var disqus_config = function () {
+				this.page.url = window.location.href;
+				this.page.identifier = "<%=section %>-<%= chapiter %>-<%= lesson %>";
+			};
+
+			(function () { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://flutter-pro.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
+		</script>
+	</body>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4892871937571788"
+		crossorigin="anonymous"></script>
+
+</html>

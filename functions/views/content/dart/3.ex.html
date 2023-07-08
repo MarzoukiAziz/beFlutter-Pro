@@ -1,0 +1,608 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="note">
+            Exercise 1 : 
+        </li>
+        <p>
+            Create a enum Weekday with constants for MONDAY, TUESDAY,... until SUNDAY. <br>
+Write a program that takes a day from user using its reference (1,2..7) and print "Holiday" if the day is SATURDAY or SUNDAY else print "not Holiday". <br>
+Try to use only : <br>
+- enum <br>
+- Conditional Operators : condition ? expr1 : expr2 <br>
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3><br>
+        
+<div class=code>
+
+    <p
+    ><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#CE9178'>'dart:io'</span><span style='color:#D4D4D4'>;<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
+<p
+    ><span style='color:#569CD6'>enum</span><span style='color:#D4D4D4'>&nbsp;weekDay&nbsp;{&nbsp;</span><span style='    color:#4EC9B0'>MONDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>TUESDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>WEDNESDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>THURSDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>FRIDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>SATURDAY</span><span style='    color:#D4D4D4'>,&nbsp;</span><span style='    color:#4EC9B0'>SUNDAY</span><span style='    color:#D4D4D4'>&nbsp;}<o:p></o:p></span></p>
+<p
+    ><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Give&nbsp;a&nbsp;day&nbsp;reference&nbsp;from&nbsp;1&nbsp;to&nbsp;7&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;day&nbsp;=&nbsp;weekDay.values[</span><span
+    style='    color:#4EC9B0'>int</span><span
+    style='    color:#D4D4D4'>.</span><span
+    style='    color:#DCDCAA'>parse</span><span
+    style='    color:#D4D4D4'>(stdin.</span><span
+    style='    color:#DCDCAA'>readLineSync</span><span
+    style='    color:#D4D4D4'>())&nbsp;-&nbsp;</span><span
+    style='    color:#B5CEA8'>1</span><span
+    style='    color:#D4D4D4'>];<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;day&nbsp;==&nbsp;weekDay.</span><span
+    style='    color:#4EC9B0'>SATURDAY</span><span
+    style='    color:#D4D4D4'>&nbsp;||&nbsp;day&nbsp;==&nbsp;weekDay.</span><span
+    style='    color:#4EC9B0'>SUNDAY</span><span
+    style='    color:#D4D4D4'><o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;Holiday&quot;</span><span
+    style='    color:#D4D4D4'>)<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;not&nbsp;Holiday&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>}<o:p></o:p></span></p>
+    </div>
+    <br>
+    <p class="res">
+        3 <br>
+        not Holiday
+    </p>
+    <p class="res">
+        6 <br>
+        Holiday
+    </p>
+    <p class="res">
+        7 <br>
+        Holiday
+    </p>
+		<br>
+		<li class="note">
+            Exercise 2 : 
+        </li>
+        <p>
+           Print the result of every question <br>
+           1) Declare and initialize 2 lists : <br>
+           - li1 : 1,2,3,4,5,6,7,8 <br>
+           - li2 : 0,1,4,5,6 <br>
+           2) Add 9 to li1 and add 7,8,9 to li2 <br>
+           3) Insert 0 at the beginning of li1 and insert 2,3 after 1 in li2 <br>
+           4) Replace the last element in li1 with 10 and Replace the first 3 elements in li2 with 11,12,13 <br>
+           5) Remove 5 and the element at index 3 from li1 and remove 3 elements with index from 4 to 6 from li2 <br>
+           6) Print "Yes" if li2 contains 7 else print "No" <br>
+           7) Shuffle  li1 and clear li2 <br>
+           8) Create new list containing the elements from 2 to 5 of li1.
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3><br>
+   
+<div class=code>
+
+    <p
+    ><span  style='color:#569CD6;'>void</span><span  style='color:#D4D4D4;'>&nbsp;</span><span
+     style='color:#DCDCAA;
+    '>main</span><span  style='    color:#D4D4D4;'>()&nbsp;{<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#569CD6;'>var</span><span
+     style='color:#D4D4D4;
+    '>&nbsp;li1&nbsp;=&nbsp;[</span><span 
+    style='    color:#B5CEA8;'>1</span><span
+     style='color:#D4D4D4;
+    '>,&nbsp;</span><span  style='    color:#B5CEA8;'>2</span><span 
+    style='    color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>3</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span 
+    style='    color:#B5CEA8;'>4</span><span
+     style='color:#D4D4D4;
+    '>,&nbsp;</span><span  style='    color:#B5CEA8;'>5</span><span 
+    style='    color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>6</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span 
+    style='    color:#B5CEA8;'>7</span><span
+     style='color:#D4D4D4;
+    '>,&nbsp;</span><span  style='    color:#B5CEA8;'>8</span><span 
+    style='    color:#D4D4D4;'>];<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#569CD6;'>var</span><span
+     style='color:#D4D4D4;
+    '>&nbsp;li2&nbsp;=&nbsp;[</span><span 
+    style='    color:#B5CEA8;'>0</span><span
+     style='color:#D4D4D4;
+    '>,&nbsp;</span><span  style='    color:#B5CEA8;'>1</span><span 
+    style='    color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>4</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span 
+    style='    color:#B5CEA8;'>5</span><span
+     style='color:#D4D4D4;
+    '>,&nbsp;</span><span  style='    color:#B5CEA8;'>6</span><span 
+    style='    color:#D4D4D4;'>];<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li1.</span><span 
+    style='    color:#DCDCAA;'>add</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#B5CEA8;'>9</span><span  style='color:#D4D4D4;'>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li2.</span><span 
+    style='    color:#DCDCAA;'>addAll</span><span
+     style='color:#D4D4D4;
+    '>([</span><span  style='    color:#B5CEA8;'>7</span><span 
+    style='    color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>8</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span 
+    style='    color:#B5CEA8;'>9</span><span
+     style='color:#D4D4D4;
+    '>]);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li1.</span><span 
+    style='    color:#DCDCAA;'>insert</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#B5CEA8;'>0</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>0</span><span  style='color:#D4D4D4;'>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li2.</span><span 
+    style='    color:#DCDCAA;'>insertAll</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#B5CEA8;'>2</span><span  style='color:#D4D4D4;'>,&nbsp;[</span><span
+     style='color:#B5CEA8;
+    '>2</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span 
+    style='    color:#B5CEA8;'>3</span><span
+     style='color:#D4D4D4;
+    '>]);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>li1[li1.length&nbsp;-&nbsp;</span><span
+    style='    color:#B5CEA8'>1</span><span
+    style='    color:#D4D4D4'>]&nbsp;=&nbsp;</span><span
+    style='    color:#B5CEA8'>10</span><span
+    style='    color:#D4D4D4'>;<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;li2.</span><span style='color:#DCDCAA'>replaceRange</span><span style='color:#D4D4D4'>(</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>,&nbsp;[</span><span style='color:#B5CEA8'>11</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>12</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>13</span><span style='color:#D4D4D4'>]);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>li1.</span><span
+    style='    color:#DCDCAA'>remove</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#B5CEA8'>5</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;li1.</span><span style='color:#DCDCAA'>removeAt</span><span style='color:#D4D4D4'>(</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;li2.</span><span style='color:#DCDCAA'>removeRange</span><span style='color:#D4D4D4'>(</span><span style='color:#B5CEA8'>4</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>7</span><span style='color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li2.</span><span 
+    style='    color:#DCDCAA;'>contains</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#B5CEA8;'>7</span><span  style='color:#D4D4D4;'>)&nbsp;?&nbsp;</span><span
+     style='color:#DCDCAA;
+    '>print</span><span  style='    color:#D4D4D4;'>(</span><span 
+    style='    color:#CE9178;'>&quot;Yes&quot;</span><span
+     style='color:#D4D4D4;
+    '>)&nbsp;:&nbsp;</span><span  style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;No&quot;</span><span 
+    style='    color:#D4D4D4;'>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li1.</span><span 
+    style='    color:#DCDCAA;'>shuffle</span><span
+     style='color:#D4D4D4;
+    '>();<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;li2.</span><span 
+    style='    color:#DCDCAA;'>clear</span><span
+     style='color:#D4D4D4;
+    '>();<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#569CD6;'>var</span><span
+     style='color:#D4D4D4;
+    '>&nbsp;li3&nbsp;=&nbsp;li1.</span><span 
+    style='    color:#DCDCAA;'>sublist</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#B5CEA8;'>2</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#B5CEA8;
+    '>5</span><span  style='color:#D4D4D4;'>);<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span 
+    style='    color:#DCDCAA;'>print</span><span
+     style='color:#D4D4D4;
+    '>(</span><span  style='color:#CE9178;'>&quot;li1&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li1</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li2&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li2</span><span  style='    color:#CE9178;'>&nbsp;&amp;&nbsp;li3&nbsp;=&nbsp;$</span><span
+     style='color:#9CDCFE;
+    '>li3</span><span  style='    color:#CE9178;'>&quot;</span><span
+     style='color:#D4D4D4;
+    '>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>}<o:p></o:p></span></p>
+    <br>
+    </div>
+    <br>
+    <p class="res">
+        li1 = [1, 2, 3, 4, 5, 6, 7, 8] & li2 = [0, 1, 4, 5, 6] <br> <br>
+        li1 = [1, 2, 3, 4, 5, 6, 7, 8, 9] & li2 = [0, 1, 4, 5, 6, 7, 8, 9] <br> <br>
+        li1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] & li2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] <br> <br>
+        li1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10] & li2 = [11, 12, 13, 3, 4, 5, 6, 7, 8, 9] <br> <br>
+        li1 = [0, 1, 2, 4, 6, 7, 8, 10] & li2 = [11, 12, 13, 3, 7, 8, 9] <br> <br>
+        Yes <br> <br>
+        li1 = [8, 6, 1, 7, 4, 0, 2, 10] & li2 = [] <br> <br>
+        li1 = [8, 6, 1, 7, 4, 0, 2, 10] & li2 = [] & li3 = [1, 7, 4] <br> <br>
+    </p>
+		<br>
+	
+        <li class="note">
+            Exercise 3 : 
+        </li>
+        <p>
+           Print the result of every question <br>
+           1) Declare and initialize 2 Sets : <br>
+           - boys : Peter,John,Jamie,Kit,Iain,Taylor <br>
+           - girls  :  Lena,Emilia,Taylor,Sophie,Jamie,Maisie<br>
+           2) Add Daniel to boys and Anna & Betsy to girls. <br>
+           3) Create new set called "all" that contains both sets. <br>
+           4) Create new set called "both" that contains the unisex names(both boys and girls). <br>
+           5) Create new set called "onlyBoys" that contains all male-specific name (without unisex names). <br>
+           6) remove all the unisex names from boys and remove "Lena" from girls. <br>
+           7) Print <span class="word">Yes</span> if "only" contains "Taylor" else print <span class="word">No</span>. <br>
+           8) Remove all elements from "all". <br>
+           9) Create a list called "listOfBoys" from "onlyBoys" and print its length.
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3><br>
+ 
+<div class=code>
+
+    <p
+    ><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;boys&nbsp;=&nbsp;{</span><span style='    color:#CE9178'>&quot;Peter&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;John&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Jamie&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Kit&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Iain&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Taylor&quot;</span><span
+    style='    color:#D4D4D4'>};<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='    color:#569CD6;'>var</span><span 
+    style='    color:#D4D4D4;'>&nbsp;girls&nbsp;=&nbsp;{</span><span
+     style='color:#CE9178;
+    '>&quot;Lena&quot;</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#CE9178;
+    '>&quot;Emilia&quot;</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#CE9178;
+    '>&quot;Taylor&quot;</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#CE9178;
+    '>&quot;Sophie&quot;</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#CE9178;
+    '>&quot;Jamie&quot;</span><span  style='color:#D4D4D4;'>,&nbsp;</span><span
+     style='color:#CE9178;
+    '>&quot;Maisie&quot;</span><span  style='color:#D4D4D4;'>};<o:p></o:p></span></p>
+<p
+    ><span  style='color:#D4D4D4;'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;boys&nbsp;=&nbsp;$</span><span
+    style='    color:#9CDCFE'>boys</span><span
+    style='    color:#CE9178'>&nbsp;&amp;&nbsp;girls&nbsp;=&nbsp;$</span><span
+    style='    color:#9CDCFE'>girls</span><span
+    style='    color:#CE9178'>&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>boys.<span style='color:#DCDCAA'>add</span></span>(</span><span
+    style='    color:#CE9178'>&quot;Daniel&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>girls.<span style='color:#DCDCAA'>addAll</span></span>({</span><span
+    style='    color:#CE9178'>&quot;Anna&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Betsy&quot;</span><span
+    style='    color:#D4D4D4'>});<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;boys&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>boys</span><span style='    color:#CE9178'>&nbsp;&amp;&nbsp;girls&nbsp;=&nbsp;$</span><span
+    style='    color:#9CDCFE'>girls</span><span
+    style='    color:#CE9178'>&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;all&nbsp;=&nbsp;<span class=SpellE>boys.<span
+    style='color:#DCDCAA'>union</span></span>(girls);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;all&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>all</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;both&nbsp;=&nbsp;<span class=SpellE>boys.<span
+    style='color:#DCDCAA'>intersection</span></span>(girls);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;both&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>both</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;<span class=SpellE>onlyBoys</span>&nbsp;=&nbsp;<span
+    class=SpellE>boys.<span style='color:#DCDCAA'>difference</span></span>(girls);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;<span class=SpellE>onlyBoys</span>&nbsp;=&nbsp;$</span><span
+    class=SpellE><span style='color:#9CDCFE'>onlyBoys</span></span><span
+    style='    color:#CE9178'>&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>boys.<span style='color:#DCDCAA'>removeAll</span></span>(both);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;boys&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>boys</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>girls.<span style='color:#DCDCAA'>remove</span></span>(</span><span
+    style='    color:#CE9178'>&quot;Lena&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;girls&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>girls</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>onlyBoys.<span style='color:#DCDCAA'>contains</span></span>(</span><span
+    style='    color:#CE9178'>&quot;Taylor&quot;</span><span
+    style='    color:#D4D4D4'>)&nbsp;?&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;Yes&quot;</span><span
+    style='    color:#D4D4D4'>)&nbsp;:&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;No&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;<span class=SpellE>all.<span style='color:#DCDCAA'>clear</span></span>();<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;all&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>all</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;<span class=SpellE>listOfBoys</span>&nbsp;=&nbsp;<span
+    class=SpellE>onlyBoys.<span style='color:#DCDCAA'>toList</span></span>();<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;listOfBoys&nbsp;=&nbsp;$</span><span style='color:#9CDCFE'>listOfBoys</span><span
+    style='    color:#CE9178'>&nbsp;and&nbsp;its&nbsp;length&nbsp;=&nbsp;${</span><span
+    style='    color:#9CDCFE'>listOfBoys.length</span><span
+    style='    color:#CE9178'>}&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>}<o:p></o:p></span></p>
+<br>
+</div>
+    <br>
+    <p class="res">
+        boys = {Peter, John, Jamie, Kit, Iain, Taylor} & girls = {Lena, Emilia, Taylor, Sophie, Jamie, Maisie} <br> <br>
+        boys = {Peter, John, Jamie, Kit, Iain, Taylor, Daniel} & girls = {Lena, Emilia, Taylor, Sophie, Jamie, Maisie, Anna, Betsy} <br> <br>
+        all = {Peter, John, Jamie, Kit, Iain, Taylor, Daniel, Lena, Emilia, Sophie, Maisie, Anna, Betsy} <br> <br>
+        both = {Jamie, Taylor} <br> <br>
+        onlyBoys = {Peter, John, Kit, Iain, Daniel} <br> <br>
+        boys = {Peter, John, Kit, Iain, Daniel} <br> <br>
+        girls = {Emilia, Taylor, Sophie, Jamie, Maisie, Anna, Betsy} <br> <br>
+        No <br> <br>
+        all = {} <br><br>
+        listOfBoys = [Peter, John, Kit, Iain, Daniel] and its length = 5 <br>
+
+    </p>
+		
+       <br>
+       <li class="note">
+            Exercise 4 : 
+        </li>
+        <p>
+           Print the result of every question <br>
+           1) Declare and initialize this Map : <br>
+           - student :<br>
+           &nbsp;&nbsp;&nbsp;&nbsp; name : "John Kane"<br>
+           &nbsp;&nbsp;&nbsp;&nbsp; gender : "Male" <br>
+           &nbsp;&nbsp;&nbsp;&nbsp; age : 21 <br>
+           &nbsp;&nbsp;&nbsp;&nbsp; id : 12345678<br>
+           &nbsp;&nbsp;&nbsp;&nbsp; phone : 565689891 <br>
+           &nbsp;&nbsp;&nbsp;&nbsp; email : "johnkane@gmail.com"<br>
+           2) Add "stateID" : "WA" and "yearEnrolled" : 2017 <br>
+           3) Check if there is a key called "phone" then delete it else print "NO" <br>
+           4) Print all keys  <br>
+           5) Check if there is a value equal to 20 then print "Yes" else print "No" <br>
+           6) Print all values <br>
+           7) Update the "age" with 23 and "phone" with 213456789 with diffrent methods <br>
+           8) Print the length of this map <br>
+           9) Clear it
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3><br>
+        
+<div class=code>
+
+    <p
+    ><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;student&nbsp;=&nbsp;{<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;name&quot;</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#CE9178'>&quot;John&nbsp;Kane&quot;</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;gender&quot;</span><span
+    style='    color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#CE9178'>&quot;Male&quot;</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;age&quot;</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#B5CEA8'>21</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;id&quot;</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#B5CEA8'>12345678</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;phone&quot;</span><span
+    style='    color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#B5CEA8'>565689891</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='    color:#CE9178'>&quot;emil&quot;</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#CE9178'>&quot;johnkane@gmail.com&quot;</span><span
+    style='    color:#D4D4D4'>,<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;};<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;student&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>student</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student.</span><span style='    color:#DCDCAA'>addAll</span><span style='    color:#D4D4D4'>({</span><span style='    color:#CE9178'>&quot;statedID&quot;</span><span
+    style='    color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#CE9178'>&quot;WA&quot;</span><span
+    style='    color:#D4D4D4'>,&nbsp;</span><span
+    style='    color:#CE9178'>&quot;yearEnrolled&quot;</span><span
+    style='    color:#D4D4D4'>:&nbsp;</span><span
+    style='    color:#B5CEA8'>2017</span><span
+    style='    color:#D4D4D4'>});<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;student&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>student</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student.</span><span style='    color:#DCDCAA'>containsKey</span><span style='    color:#D4D4D4'>(</span><span style='    color:#CE9178'>&quot;phone&quot;</span><span
+    style='    color:#D4D4D4'>)&nbsp;?&nbsp;student.</span><span
+    style='    color:#DCDCAA'>remove</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;phone&quot;</span><span
+    style='    color:#D4D4D4'>)&nbsp;:&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;No&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;student&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>student</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;keys&nbsp;=&nbsp;${</span><span style='    color:#9CDCFE'>student.keys</span><span style='color:#CE9178'>}&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student.</span><span style='    color:#DCDCAA'>containsValue</span><span style='color:#D4D4D4'>(</span><span
+    style='    color:#B5CEA8'>20</span><span
+    style='    color:#D4D4D4'>)&nbsp;?&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;Yes&quot;</span><span
+    style='    color:#D4D4D4'>)&nbsp;:&nbsp;</span><span
+    style='    color:#DCDCAA'>print</span><span
+    style='    color:#D4D4D4'>(</span><span
+    style='    color:#CE9178'>&quot;No&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;values&nbsp;=&nbsp;${</span><span style='    color:#9CDCFE'>student.values</span><span style='color:#CE9178'>}&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student.</span><span style='    color:#DCDCAA'>update</span><span style='    color:#D4D4D4'>(</span><span style='    color:#CE9178'>&quot;age&quot;</span><span style='color:#D4D4D4'>,&nbsp;(value)&nbsp;=&gt;&nbsp;</span><span
+    style='    color:#B5CEA8'>23</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student[</span><span style='    color:#CE9178'>&quot;phone&quot;</span><span
+    style='    color:#D4D4D4'>]&nbsp;=&nbsp;</span><span
+    style='    color:#B5CEA8'>213456789</span><span
+    style='    color:#D4D4D4'>;<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;student&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>student</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;length&nbsp;=&nbsp;${</span><span style='    color:#9CDCFE'>student.length</span><span style='color:#CE9178'>}&quot;</span><span
+    style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;student.</span><span style='    color:#DCDCAA'>clear</span><span style='    color:#D4D4D4'>();<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;student&nbsp;=&nbsp;$</span><span style='    color:#9CDCFE'>student</span><span style='    color:#CE9178'>&quot;</span><span style='    color:#D4D4D4'>);<o:p></o:p></span></p>
+<p
+    ><span style='color:#D4D4D4'>}<o:p></o:p></span></p>
+    <br>
+</div>
+    <br>
+    <p class="res">
+        student = {name: John Kane, gender: Male, age: 21, id: 12345678, phone: 565689891, emil: johnkane@gmail.com} <br> <br>
+        student = {name: John Kane, gender: Male, age: 21, id: 12345678, phone: 565689891, emil: johnkane@gmail.com, statedID: WA, yearEnrolled: 2017} <br> <br>
+        student = {name: John Kane, gender: Male, age: 21, id: 12345678, emil: johnkane@gmail.com, statedID: WA, yearEnrolled: 2017} <br> <br>
+        keys = (name, gender, age, id, emil, statedID, yearEnrolled) <br> <br>
+        No <br> <br>
+        values = (John Kane, Male, 21, 12345678, johnkane@gmail.com, WA, 2017) <br> <br>
+        student = {name: John Kane, gender: Male, age: 23, id: 12345678, emil: johnkane@gmail.com, statedID: WA, yearEnrolled: 2017, phone: 213456789} <br> <br>
+        length = 8 <br> <br>
+        student = {} <br> <br>
+</p>
+
+    </ul>
+</div>

@@ -1,0 +1,81 @@
+<div class="contenu">
+    <h1>
+        The shared_preferences plugin
+    </h1>
+
+    <ol>
+        <li class="step">
+            Saving data
+        </li>
+        <p>
+            There are three primary ways to save data to your device:
+        </p>
+        <ol>
+            <li>
+                <p>Write formatted data, like JSON, to a file.</p>
+            </li>
+            <li>
+                <p>Use a library or plugin to write simple data to a shared location</p>
+            </li>
+            <li>
+                <p>Use a SQLite database.</p>
+            </li>
+        </ol>
+        <p>
+            Writing data to a file is simple, but it requires you to handle reading and writing data
+            in the correct format and order.
+            <br><br>
+            You can also use a library or plugin to write simple data to a shared location
+            managed by the platform, like iOS and Android. This is what you’ll do in this chapter.
+            <br><br>
+            For more complex data, you can save the information to a local database. You’ll learn
+            more about that in future chapters.
+        </p>
+        <li class="step">
+            Why save small bits of data?
+        </li>
+        <p>
+            There are many reasons to save small bits of data. For example, you could save the
+            user ID when the user has logged in — or if the user has logged in at all. You could
+            also save the search history to consult later.
+            <br>
+            <br>
+            Note that this simple data saved to a shared location is lost when the user uninstalls
+            the app or clear the app data and cache.
+        </p>
+        <li class="step">
+            The shared_preferences plugin
+        </li>
+        <p>
+            <strong>shared_preferences</strong> is a Flutter plugin that allows you to save data in a key-value
+            format so you can easily retrieve it later. Behind the scenes, it uses the aptly named
+            <strong>SharedPreferences</strong> on Android and the similar <strong>UserDefaults</strong> on iOS.
+            <br><br>
+            For the app 4, you’ll learn to use the plugin by saving the Best Score and for the app 8, by saving the
+            favorite movies.
+            <br><br>
+            One of the great things about this plugin is that it doesn’t require any setup or
+            configuration. Just create an instance of the plugin and you’re ready to fetch and save
+            data.
+        </p>
+    </ol>
+    <br>
+    <p><a href="https://pub.dev/packages/shared_preferences">shared_preferences - pub.dev</a></p>
+    <br><br>
+    <div class="word" style="padding: 20px;">
+        <h3 class="note">
+            Note
+        </h3>
+        <p>
+            The shared_preferences plugin gives you a quick way to persist and
+            retrieve data, but it only supports saving <strong>simple properties</strong> like strings,
+            numbers, and boolean values. <br><br>
+            In later chapters, you’ll learn about alternatives that you can use when you
+            want to save complex data. <br><br>
+            Be aware that shared_preferences is not a good fit to store sensitive data. To
+            store passwords or access tokens, check out the Android Keystore for Android
+            and Keychain Services for iOS, or consider using the <strong>flutter_secure_storage</strong>
+            plugin. <br><br>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,1116 @@
+<div class="contenu">
+        <h1>
+                Flutter Navigator 1.0
+        </h1>
+        <p>
+                Navigation is very important for any application. It provides a uniform abstraction over navigation APIs
+                provided by various platforms. Flutter provides two types of APIs for navigation: imperative and
+                declarative.
+                <br><br>
+                In this lesson, we will cover the imperative approach (Navigator 1.0) and use it for the "Movie Time"
+                app.
+                <br><br>
+                Later, we will dive deeper into the declarative approach (Navigator 2.0).
+        </p>
+        <p>
+                In Flutter, navigation consists of a stack of widgets in which widgets are pushed on top and popped from
+                the top
+                as well.
+        </p>
+        <ol>
+                <li class="step">
+                        Flutter Navigator class
+                </li>
+                <p>
+                        The <span class="word">Navigator</span> class provides all the navigation capabilities in a
+                        Flutter app.
+                        <br><br>
+
+                        <span class="word">Navigator</span> provides methods to mutate the stack by a push to stack or
+                        by popping
+                        from the stack. The
+                        <span style="color: red;">Navigator.push</span> method is for navigating to a newer page and
+                        <span style="color: red;">Navigator.pop</span> is for going back from the current
+                        page. <br><br>
+
+                        Here is a basic example of <span style="color: red;">pop</span> and <span
+                                style="color: red;">push</span>:
+                        <br><br>
+                        The <span style="color: red;">push</span> method
+                        takes <span class="word">BuildContext</span> as the first argument and the
+                        second argument is a <span class="word">PageBuilder</span>. <br><br>
+                        The <span style="color: red;">pop</span> method only takes <span
+                                class="word">BuildContext</span> and
+                        changes
+                        the
+                        current route. <br><br>
+
+
+
+                        This example uses <span class="word">MaterialPageRoute</span>, which provides the transition
+                        animation and handles route changes:
+                </p>
+                <br>
+
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>'Flutter&nbsp;Demo'</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>theme</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>primarySwatch</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>green</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MainPage</span><span style='color:#D4D4D4'>(),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MainPage</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MainPage</span><span style='color:#D4D4D4'>({</span><span
+                                        style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>?&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Main&nbsp;Page&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>OutlinedButton</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Go&nbsp;To&nbsp;Second&nbsp;Page&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>push</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#4EC9B0'>MaterialPageRoute</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>builder</span><span
+                                        style='color:#D4D4D4'>:&nbsp;(</span><span
+                                        style='color:#9CDCFE'>context</span><span
+                                        style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                                        style='color:#4EC9B0'>SecondPage</span><span style='color:#D4D4D4'>()));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>SecondPage</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>SecondPage</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Second&nbsp;Page&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>backgroundColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>OutlinedButton</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Go&nbsp;Back&nbsp;To&nbsp;Main&nbsp;Page&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>pop</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <br>
+
+                </div>
+                <br><br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c14l4p1.gif?alt=media&token=c2620981-9835-4304-a8af-826f118ee3a3"
+                        alt="" class="ss">
+                <br><br>
+
+                <p>
+                        Navigator provides more methods, including <span style="color: red;">pushReplacement</span>,
+                        that make
+                        arguments similar to push. It will
+                        replace the current route, so navigating back to the older route is not possible.
+
+                        For example, upon successful login, you would want to use <span
+                                style="color: red;">pushReplacement</span>
+                        to prevent the user from
+                        returning to the login screen.
+                </p>
+                <br><br>
+                <li class="step">
+                        Named routes
+                </li>
+                <p>
+                        Named Routes allow you to change the path by using strings instead of providing component
+                        classes, which in
+                        turn enables you to reuse code. <br><br>
+                        Named routes are defined as a map on <span class="word">MaterialApp</span>. These routes are
+                        usable from any
+                        part of the application.
+
+                </p>
+                <ul>
+                        <li class="note">
+                                Defining routes
+                        </li>
+                        <p>
+                                The route is a map with string keys and values such as builders that are passed to the
+                                <span class="word">routes</span> property on <span class="word">MaterialApp</span>:
+                        </p>
+                        <br>
+                        <div class="code">
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>MaterialApp</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>title</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#CE9178'>'Flutter&nbsp;Navigator&nbsp;1.0'</span><span
+                                                style='color:#D4D4D4'>,</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>theme</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThemeData</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>primarySwatch</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>green</span><span style='color:#D4D4D4'>,</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>home</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MainPage</span><span
+                                                style='color:#D4D4D4'>(),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>routes</span><span
+                                                style='color:#D4D4D4'>:&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;second&quot;</span><span
+                                                style='color:#D4D4D4'>:&nbsp;(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                                                style='color:#4EC9B0'>SecondPage</span><span
+                                                style='color:#D4D4D4'>(),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;third&quot;</span><span
+                                                style='color:#D4D4D4'>:&nbsp;(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThirdPage</span><span
+                                                style='color:#D4D4D4'>()</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+                                <br>
+                        </div>
+                        <br>
+                        <br>
+                        <li class="note">
+                                Using named routes
+                        </li>
+                        <p>
+                                Instead of push, <span style="color: red;">pushNamed</span> is used to change to a new
+                                route. <br><br>
+                                Similarly, <span style="color: red;">pushReplacementNamed</span> is used instead of
+                                pushReplacement. The
+                                pop method is the same for all the routes.
+                        </p>
+                        <br>
+                        <div class="code">
+
+                                <p><span style='color:#569CD6'>import</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                                style='color:#D4D4D4'>;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#DCDCAA'>main</span><span
+                                                style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#DCDCAA'>runApp</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MyApp</span><span
+                                                style='color:#D4D4D4'>());</span></p>
+
+                                <p><span style='color:#D4D4D4'>}</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#569CD6'>class</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MyApp</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#569CD6'>extends</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>StatelessWidget</span><span
+                                                style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MyApp</span><span
+                                                style='color:#D4D4D4'>({</span><span
+                                                style='color:#4EC9B0'>Key</span><span
+                                                style='color:#D4D4D4'>?&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                                style='color:#569CD6'>super</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>@override</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Widget</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#DCDCAA'>build</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>BuildContext</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#C586C0'>return</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>MaterialApp</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>title</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#CE9178'>'Flutter&nbsp;Navigator&nbsp;1.0'</span><span
+                                                style='color:#D4D4D4'>,</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>theme</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThemeData</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>primarySwatch</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>green</span><span style='color:#D4D4D4'>,</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>home</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MainPage</span><span
+                                                style='color:#D4D4D4'>(),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>routes</span><span
+                                                style='color:#D4D4D4'>:&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;second&quot;</span><span
+                                                style='color:#D4D4D4'>:&nbsp;(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                                                style='color:#4EC9B0'>SecondPage</span><span
+                                                style='color:#D4D4D4'>(),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;third&quot;</span><span
+                                                style='color:#D4D4D4'>:&nbsp;(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;=&gt;&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThirdPage</span><span
+                                                style='color:#D4D4D4'>()</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                                <p><span style='color:#D4D4D4'>}</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#569CD6'>class</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MainPage</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#569CD6'>extends</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>StatelessWidget</span><span
+                                                style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>MainPage</span><span
+                                                style='color:#D4D4D4'>({</span><span
+                                                style='color:#4EC9B0'>Key</span><span
+                                                style='color:#D4D4D4'>?&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                                style='color:#569CD6'>super</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>@override</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Widget</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#DCDCAA'>build</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>BuildContext</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#C586C0'>return</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Scaffold</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>appBar</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>title</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Main&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>body</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>children</span><span
+                                                style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;&nbsp;To&nbsp;Second&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pushNamed</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>,&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;second&quot;</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;To&nbsp;Third&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pushNamed</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>,&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;third&quot;</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                                <p><span style='color:#D4D4D4'>}</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#569CD6'>class</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>SecondPage</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#569CD6'>extends</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>StatelessWidget</span><span
+                                                style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>SecondPage</span><span
+                                                style='color:#D4D4D4'>({</span><span
+                                                style='color:#4EC9B0'>Key</span><span
+                                                style='color:#D4D4D4'>?&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                                style='color:#569CD6'>super</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>@override</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Widget</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#DCDCAA'>build</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>BuildContext</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#C586C0'>return</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Scaffold</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>appBar</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>title</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Second&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>backgroundColor</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>body</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>children</span><span
+                                                style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;Back&nbsp;To&nbsp;Main&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pop</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;To&nbsp;Third&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pushReplacementNamed</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>,&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;third&quot;</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                                <p><span style='color:#D4D4D4'>}</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#569CD6'>class</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThirdPage</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#569CD6'>extends</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>StatelessWidget</span><span
+                                                style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThirdPage</span><span
+                                                style='color:#D4D4D4'>({</span><span
+                                                style='color:#4EC9B0'>Key</span><span
+                                                style='color:#D4D4D4'>?&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                                style='color:#569CD6'>super</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>key</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>@override</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Widget</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#DCDCAA'>build</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>BuildContext</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#C586C0'>return</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Scaffold</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>appBar</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>title</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Second&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>backgroundColor</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>blueGrey</span><span
+                                                style='color:#D4D4D4'>,</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>body</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>children</span><span
+                                                style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;Back&nbsp;To&nbsp;Main&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pop</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>OutlinedButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Text</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#CE9178'>&quot;Go&nbsp;To&nbsp;Second&nbsp;Page&quot;</span><span
+                                                style='color:#D4D4D4'>),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#4EC9B0'>Navigator</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#DCDCAA'>pushReplacementNamed</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>,&nbsp;</span><span
+                                                style='color:#CE9178'>&quot;second&quot;</span><span
+                                                style='color:#D4D4D4'>);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                                <p><span style='color:#D4D4D4'>}</span></p>
+                                <br>
+                        </div>
+                        <br><br>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c14l4p2.gif?alt=media&token=ad28a2f3-707e-4c00-819d-92a798a92a2f"
+                                alt="" class="ss">
+                </ul>
+        </ol>
+        <br><br><br><br><br><br><br><br><br>
+        <h3>
+                Soruces :
+        </h3>
+        <a target="_blank"
+                href="https://blog.logrocket.com/understanding-flutter-navigation-routing/#flutter-navigator-class">Understanding
+                Flutter navigation and routing </a> <br>
+        <a target="_blank"
+                href="https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade">Learning
+                Flutter’s new navigation and routing system
+        </a>
+</div>

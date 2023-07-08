@@ -1,0 +1,310 @@
+<div class="contenu">
+    <h1>Assets & Fonts</h1>
+    <ol>
+        <li class="note">
+            How to include assets in your app :
+        </li>
+        <p>
+            <i>(Images for example)</i>
+        </p>
+        <ol>
+            <li class="step">
+                Create an <spin class="word">assets/images</spin> folder
+            </li>
+            <ul>
+                <li>
+                    <p>This should be located in the root of your project, in the same folder as your <spin
+                            class="word">pubspec.yaml</spin> file.
+                    </p>
+                </li>
+                <li>
+                    <p>You don't have to call it <spin class="word">assets</spin> or <spin class="word">images</spin>.
+                        You don't even need to make images a subfolder.
+                        Whatever name you use, though, is what you will regester in the <spin class="word">pubspec.yaml
+                        </spin> file.</p>
+                </li>
+            </ul>
+            <li class="step">Add your image to the new folder
+            </li>
+            <p>
+                You can just copy your image into assets/images. The relative path of heart.jpg, for example, would be
+                <spin class="word">assets/images/lake.jpg</spin>.
+            </p>
+            <li class="step">Register the assets folder in <spin class="word">pubspec.yaml</spin>
+            </li>
+            <ul>
+                <li>
+                    <p>
+                        Open the pubspec.yaml file that is in the root of your project.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Add an <word class="spin">assets</word> subsection to the <spin class="word">flutter</spin>
+                        section like this:
+                    </p>
+                </li>
+                <div class="code">
+
+                    <p><span style='color:#569CD6'>flutter</span><span style='color:#D4D4D4'>:</span></p>
+
+                    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>assets</span><span
+                            style='color:#D4D4D4'>:</span></p>
+
+                    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</span><span
+                            style='color:#CE9178'>assets/images/heart.jpg</span></p> <br>
+                </div>
+                <li>
+                    <p>
+                        If you have multiple images that you want to include then you can leave off the file name and
+                        just use the directory name (include the final <word class="spin">/</word>
+                        ):
+                    </p>
+                </li>
+                <div class="code">
+
+                    <p><span style='color:#569CD6'>flutter</span><span style='color:#D4D4D4'>:</span></p>
+
+                    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>assets</span><span
+                            style='color:#D4D4D4'>:</span></p>
+
+                    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</span><span
+                            style='color:#CE9178'>assets/images/</span></p> <br>
+                </div>
+            </ul>
+            <li class="step">
+                Use the image in code
+            </li>
+            <p>
+                Get the asset in an Image widget with <spin class="word">Image.asset('assets/images/heart.jpg')
+                </spin>
+            </p>
+            <div class="code">
+
+                <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#CE9178'>'package:flutter/material.dart'</span><span style='color:#D4D4D4'>;</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                        style='color:#DCDCAA'>runApp</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>());</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+                        style='color:#CE9178'>'Asset&nbsp;Image&nbsp;Test'</span><span style='color:#D4D4D4'>,</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme:&nbsp;</span><span
+                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;primarySwatch:&nbsp;</span><span
+                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.blue,</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualDensity:&nbsp;</span><span
+                        style='color:#4EC9B0'>VisualDensity</span><span
+                        style='color:#D4D4D4'>.adaptivePlatformDensity,</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home:&nbsp;</span><span
+                        style='color:#4EC9B0'>HomeWidget</span><span style='color:#D4D4D4'>());</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>HomeWidget</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>HomeWidget</span><span
+                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                        style='color:#D4D4D4'>&nbsp;key})&nbsp;:&nbsp;</span><span
+                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(key:&nbsp;key);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appBar:&nbsp;</span><span
+                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#CE9178'>&quot;Asset&nbsp;Image&quot;</span><span style='color:#D4D4D4'>),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;</span><span
+                        style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>asset</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#CE9178'>&quot;assets/images/heart.jpg&quot;</span><span
+                        style='color:#D4D4D4'>));</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+            </div>
+            <br>
+            <li class="step">
+                Restart your app
+            </li>
+            <p>
+                When making changes to pubspec.yaml, you may often need to completely stop the app and restart it
+                again, especially when adding assets. Otherwise you may get a crash. <br> <br>
+
+                Running the app now you should have this:
+            </p>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c4l3p1.png?alt=media&token=49a6550c-b745-40e0-a771-8cd28a609a81"
+                alt="Asset Image Flutter Example" class="ss">
+
+
+        </ol>
+        <br>
+        <br><br>
+        <li class="note">
+            Use a custom font :
+
+        </li>
+        <br>
+        <ol>
+            <li class="step">Import the font files.</li>
+            <p>
+                To work with a font, import the font files into the project. It’s common practice to put font files in a
+                <spin class="word">fonts</spin> or <spin class="word">assets/fonts</spin> folder at the root of a
+                Flutter project.
+            </p>
+            <h4>
+                Supported font formats : <spin style="color: cadetblue;">.ttf & .otf</spin>
+            </h4>
+            <p>
+                Visit <a href="https://fonts.google.com/">Google Fonts</a> and choose the font that you like.
+            </p>
+            <li class="step">Declare the font in the pubspec.</li>
+            <p>
+                Once you’ve identified a font, tell Flutter where to find it. You can do this by including a font
+                definition in the pubspec.yaml file.
+            </p>
+            <div class="code">
+
+                <p><span style='color:#569CD6'>flutter</span><span style='color:#D4D4D4'>:</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>fonts</span><span
+                        style='color:#D4D4D4'>:</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</span><span
+                        style='color:#569CD6'>family</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#CE9178'>Audiowide</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#569CD6'>fonts</span><span style='color:#D4D4D4'>:</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;</span><span
+                        style='color:#569CD6'>asset</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#CE9178'>assets/fonts/Audiowide-Regular.ttf</span>
+                </p><br>
+            </div>
+            <p>
+                The <spin class="word">family</spin> determines the name of the font, which you use in the fontFamily
+                property of a TextStyle object.
+            </p>
+            <p>
+                The <spin class="word">asset</spin> is a path to the font file, relative to the pubspec.yaml file.
+            </p>
+            <h3 class="word" style="color: darkorchid;">
+                You have two options for how to apply fonts to text: as the default font or only within specific
+                widgets.
+
+            </h3>
+            <li class="step">Set a font as the default.</li>
+            <p>
+                To use a font as the default, set the fontFamily property as part of the app’s theme. The value provided
+                to fontFamily must match the family name declared in the pubspec.yaml.
+
+            </p>
+            <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+                        style='color:#CE9178'>'Custom&nbsp;Font'</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme:&nbsp;</span><span
+                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(fontFamily:&nbsp;</span><span
+                        style='color:#CE9178'>'Audiowide'</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home:&nbsp;</span><span
+                        style='color:#4EC9B0'>HomeWidget</span><span style='color:#D4D4D4'>()</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span></p> <br>
+
+            </div>
+            <br>
+            <li class="step">Use a font in a specific widget.</li>
+            <p>
+                If you want to apply the font to a specific widget, such as a Text widget, provide a TextStyle to the
+                widget.
+            </p>
+            <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#CE9178'>&quot;Lorem&nbsp;Ipsum&nbsp;is&nbsp;simply&nbsp;dummy&nbsp;text&nbsp;of&nbsp;the&nbsp;printing&nbsp;and&nbsp;typesetting&nbsp;industry.&quot;</span><span
+                        style='color:#D4D4D4'>,</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(fontFamily:&nbsp;</span><span
+                        style='color:#CE9178'>&quot;Audiowide&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p><br>
+            </div>
+            <br>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c4l3p2.png?alt=media&token=d010be98-356f-4172-ba99-f40452e3a176"
+                alt="Custom Font Flutter Example" class="ss">
+        </ol>
+    </ol>
+</div>

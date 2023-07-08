@@ -1,0 +1,986 @@
+<div class="contenu">
+    <h1>
+        Content depending on the available device size
+    </h1>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l6p1.jpg?alt=media&token=38bcc296-8f3a-4c25-b03c-8c734f4b3afb"
+        alt="Content depending on the available device size">
+    <br>
+    <p>
+        A multitude of different screen sizes exist across phones, tablets, desktops, TVs,
+        and even wearables. Screen sizes are always changing, so it's important that your app can adapt to any screen
+        size, today or in the future. In addition, devices have different features with which we interact with them. For
+        example some of your visitors will be using a touchscreen others will be using keyboard and mouse. Modern
+        responsive design considers all of these
+        things to optimize the experience for everyone
+    </p>
+    <h3 class="step">Exercise :</h3>
+    <p>
+        Try to make something like that where :
+    </p>
+    <p>
+        <strong>UCL Clubs 2019-20 file :</strong> <a
+            href="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/cl2019.dart?alt=media&token=157163ba-4f33-4f1d-8a34-a736f02da55d">Download</a>
+    </p>
+    <ul>
+        <li>
+            <p>
+                Width &lt; 500 :
+            </p>
+        </li>
+        <video
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l6v1%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=04634004-f4a8-4826-a3fc-e6ea45f1fd24"
+            autoplay muted loop class="ss"></video>
+        <li>
+            <p>
+                500 &lt; Width &lt; 700 <br>
+            </p>
+        </li>
+        <video width="50%"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l6v2%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=d6a17180-6df1-4579-927d-bfef2f08dfb8"
+            loop autoplay muted>
+
+        </video>
+        <li>
+            <p>
+                Width > 700 with GridView crossAxisCount: width ~/ 300,
+            </p>
+        </li>
+        <video class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l6v3%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=5e3b924b-6061-4be0-8483-c0b18fd5e696"
+            loop autoplay muted></video>
+        <br><br>
+        <video width="50%"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l6v4%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=57daeffd-def7-460b-ba02-c9a3149d3b43"
+            loop autoplay muted></video>
+    </ul>
+
+    <br><br><br><br>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">Solution :</h3>
+    <div class="code">
+
+        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#CE9178'>'package:flutter/material.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#CE9178'>'./cl2019.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                style='color:#D4D4D4'>());</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MaterialApp</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#CE9178'>&quot;UCL&nbsp;Clubs&nbsp;2019-20&quot;</span><span style='color:#D4D4D4'>,</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>_MyHomePageState</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>createState</span><span
+                style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span style='color:#4EC9B0'>_MyHomePageState</span><span
+                style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>width</span><span
+                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>MediaQuery</span><span
+                style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>context</span><span
+                style='color:#D4D4D4'>).</span><span style='color:#9CDCFE'>size</span><span
+                style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>width</span><span
+                style='color:#D4D4D4'>;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Scaffold</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>&quot;UCL&nbsp;Clubs&nbsp;2019-20&quot;</span><span
+                style='color:#D4D4D4'>),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>backgroundColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>fromRGBO</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>60</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#B5CEA8'>60</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#B5CEA8'>230</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;&gt;&nbsp;</span><span
+                style='color:#B5CEA8'>700</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#4EC9B0'>GridView</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>count</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>crossAxisCount</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;~/&nbsp;</span><span
+                style='color:#B5CEA8'>300</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>generate</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>,&nbsp;(</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Card</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>spaceAround</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>BoxDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>borderRadius</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>accents</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>&nbsp;%&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>accents</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>]),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxFinite</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.01</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'code'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>textAlign</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextAlign</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>35</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'name'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'country'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>lightBlue</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Divider</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>GestureDetector</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#CE9178'>&quot;Favorite&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>pink</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>favorite</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>favorite_border_outlined</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>onTap</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;=</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#569CD6'>false</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#569CD6'>true</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#4EC9B0'>ListView</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>builder</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>itemCount</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>itemBuilder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                style='color:#9CDCFE'>ctx</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Card</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>ListTile</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>leading</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>BoxDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>borderRadius</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>BorderRadius</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>circular</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>accents</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>&nbsp;%&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>accents</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>]),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'code'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>textAlign</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextAlign</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'name'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>subtitle</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'country'</span><span style='color:#D4D4D4'>].</span><span
+                style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>15</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>lightBlue</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>trailing</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>GestureDetector</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FittedBox</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;&gt;&nbsp;</span><span
+                style='color:#B5CEA8'>500</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#CE9178'>&quot;Favorite&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>]</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>pink</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>favorite</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>favorite_border_outlined</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>onTap</span><span style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;=</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>uclClubs2019_20</span><span style='color:#D4D4D4'>[</span><span
+                style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>][</span><span
+                style='color:#CE9178'>'favorite'</span><span style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+                style='color:#569CD6'>true</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                style='color:#569CD6'>false</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                style='color:#569CD6'>true</span><span style='color:#D4D4D4'>;</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+        <br>
+    </div>
+
+</div>

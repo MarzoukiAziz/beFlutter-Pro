@@ -1,0 +1,935 @@
+<div class="contenu">
+        <h1>
+                Fetch data from the internet
+        </h1>
+        <p>
+                Fetching data from the internet is necessary for most apps. Luckily, Dart and Flutter provide tools,
+                such as the
+                http package, for this type of work.
+        </p>
+        <ol>
+                <li class="step">
+                        Add the http package
+                </li>
+                <p>
+                        The <strong>http</strong> package provides the simplest way to fetch data from the internet.
+                        <br><br>
+                        To install the http package, add it to the dependencies section of the pubspec.yaml file. You
+                        can find the
+                        latest version of the <a href="https://pub.dev/packages/http/install"> http package </a> the
+                        pub.dev.
+                </p>
+                <div class="code">
+                        <p><span style='color:#569CD6'>dependencies</span><span style='color:#D4D4D4'>:</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>http</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#CE9178'>^0.13.3</span></p>
+                        <br>
+                </div>
+                <br>
+                <p>
+                        Import the http package.
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:http/http.dart'</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>as</span><span
+                                        style='color:#D4D4D4'> http;</span></p>
+                        <br>
+                </div>
+                <br>
+                <p>
+                        Additionally, in your AndroidManifest.xml file, add the Internet permission.
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'> </span><span style='color:#6A9955'>&lt;!-- Required to fetch
+                                        data from the
+                                        internet. --&gt;</span></p>
+
+                        <p><span style='color:#D4D4D4'> </span><span style='color:gray'>&lt;</span><span
+                                        style='color:#569CD6'>uses-permission</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>android:name</span><span
+                                        style='color:#D4D4D4'>=</span><span
+                                        style='color:#CE9178'>&quot;android.permission.INTERNET&quot;</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:gray'>/&gt;</span></p>
+
+                        <br>
+                </div>
+                <br><br>
+                <li class="step">
+                        Make a network request
+                </li>
+                <p>
+                        This recipe covers how to fetch a sample album from the <span
+                                class="word">JSONPlaceholder</span> using the
+                        <span class="word">http.get()</span> method.
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Future</span><span
+                                        style='color:#D4D4D4'>&lt;http.</span><span
+                                        style='color:#4EC9B0'>Response</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#DCDCAA'>fetchAlbum</span><span style='color:#D4D4D4'>()
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>
+                                        http.</span><span style='color:#DCDCAA'>get</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Uri</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>parse</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'https://jsonplaceholder.typicode.com/albums/1'</span><span
+                                        style='color:#D4D4D4'>));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+                        <br>
+                </div>
+                <p>
+                        The <strong>http.get()</strong> method returns a <strong>Future</strong> that contains a
+                        <strong>Response</strong>.
+                </p>
+                <ul>
+                        <li>
+                                <p>
+                                        <strong>Future</strong> is a core Dart class for working with async operations.
+                                        A Future object
+                                        represents a
+                                        potential value or error that will be available at some time in the future.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        The <strong>http.Response</strong> class contains the data received from a
+                                        successful http call.
+                                </p>
+                        </li>
+                </ul>
+                <br><br>
+                <li class="step">
+                        Convert the response into a custom Dart object
+                </li>
+                <p>
+                        While it’s easy to make a network request, working with a raw
+                        <strong>Future&lt;http.Response&gt;</strong>
+                        isn’t very
+                        convenient.
+                        To make your life easier, convert the <strong>http.Response</strong> into a Dart object.
+                </p>
+                <h2 class="note">
+                        Create an Album class
+                </h2>
+                <p>
+                        First, create an Album class that contains the data from the network request. It includes a
+                        factory
+                        constructor that creates an Album from JSON.
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>userId</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>({</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>userId</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>id</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        });</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>factory</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>userId</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#9CDCFE'>json</span><span style='
+color:#D4D4D4'>[</span><span style='
+color:#CE9178'>'userId'</span><span style='
+color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>id</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#9CDCFE'>json</span><span style='
+color:#D4D4D4'>[</span><span style='
+color:#CE9178'>'id'</span><span style='
+color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='
+color:#9CDCFE'>title</span><span style='
+color:#D4D4D4'>: </span><span style='
+color:#9CDCFE'>json</span><span style='
+color:#D4D4D4'>[</span><span style='
+color:#CE9178'>'title'</span><span style='
+color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+                        <br>
+                </div>
+                <br><br>
+                <h2 class="note">
+                        Convert the http.Response to an Album
+                </h2>
+                <p>
+                        Now, use the following steps to update the fetchAlbum() function to return a
+                        Future&lt;Album&gt;:
+                </p>
+                <ol>
+                        <li>
+                                <p>Convert the response body into a JSON <strong>Map</strong> with the
+                                        <strong>dart:convert</strong>
+                                        package</p>
+                        </li>
+                        <li>
+                                <p>
+                                        If the server does return an OK response with a status code of 200, then convert
+                                        the JSON Map into
+                                        an <strong>Album</strong> using the <strong>fromJson()</strong> factory method.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        If the server does not return an OK response with a status code of 200, then
+                                        throw an exception.
+                                        (Even in the case of a “404 Not Found” server response, throw an exception. Do
+                                        not return
+                                        <strong>null</strong>. This
+                                        is important when examining the data in snapshot, as shown below.)
+                                </p>
+                        </li>
+                </ol>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#4EC9B0'>Future</span><span style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>&gt; </span><span
+                                        style='color:#DCDCAA'>fetchAlbum</span><span style='color:#D4D4D4'>()
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>response</span><span style='color:#D4D4D4'> = </span><span
+                                        style='color:#C586C0'>await</span><span style='color:#D4D4D4'> http</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; .</span><span style='color:#DCDCAA'>get</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Uri</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>parse</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'https://jsonplaceholder.typicode.com/albums/1'</span><span
+                                        style='color:#D4D4D4'>));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                                        style='color:#9CDCFE'>response</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>statusCode</span><span style='color:#D4D4D4'> ==
+                                </span><span style='color:#B5CEA8'>200</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        If the server did return a 200 OK response,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        then parse the JSON.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>jsonDecode</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>response</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>body</span><span
+                                        style='color:#D4D4D4'>));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        } </span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        If the server did not return a 200 OK response,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        then throw an exception.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>throw</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Exception</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'Failed to load
+                                        album'</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <br>
+                </div>
+                <br>
+                <p>
+                        Hooray! Now you’ve got a function that fetches an album from the internet.
+                </p>
+                <li class="step">
+                        Fetch the data
+                </li>
+                <p>
+                        Call the <strong>fetchAlbum()</strong> method in either the <strong>initState()</strong> or
+                        <strong>didChangeDependencies()</strong> methods.
+
+                        The <strong>initState()</strong> method is called exactly once and then never again. If you want
+                        to have the
+                        option of
+                        reloading the API in response to an <a
+                                href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a>
+                        changing,
+                        put the call into the <strong>didChangeDependencies()</strong>
+                        method.
+                </p>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>() {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>super</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>initState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#9CDCFE'>futureAlbum</span><span
+                                        style='color:#D4D4D4'> =
+                                </span><span style='color:#DCDCAA'>fetchAlbum</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+                        <br>
+                </div>
+                <br><br>
+                <li class="step">
+                        Display the data
+                </li>
+                <p>
+                        To display the data on screen, use the <a
+                                href="https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html">FutureBuilder</a>
+                        widget. The
+                        <strong>FutureBuilder</strong> widget comes with Flutter and
+                        makes it easy to work with asynchronous data sources.
+
+                        You must provide two parameters:
+                </p>
+                <ol>
+                        <li>
+                                <p>
+                                        The <strong>Future</strong> you want to work with. In this case, the future
+                                        returned from the
+                                        <strong>fetchAlbum()</strong> function.
+                                </p>
+                        </li>
+                        <li>
+                                <p>
+                                        A builder function that tells Flutter what to render, depending on the state of
+                                        the Future: loading,
+                                        success, or error.
+                                </p>
+                        </li>
+                </ol>
+                <p>
+                        Note that <strong>snapshot.hasData</strong> only returns <strong>true</strong> when the snapshot
+                        contains a
+                        non-null data value. <br><br>
+
+                        Because <strong>fetchAlbum</strong> can only return non-null values, the function should throw
+                        an exception
+                        even
+                        in the case
+                        of a “404 Not Found” server response. <br>
+                        Throwing an exception sets the <strong>snapshot.hasError</strong> to
+                        <strong>true</strong>
+                        which can be
+                        used to display an error message.
+
+                        Otherwise, the spinner will be displayed.
+                </p>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#4EC9B0'>FutureBuilder</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>&gt;(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>future</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>futureAlbum</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>: (</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>, </span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>hasData</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>data</span><span style='color:#D4D4D4'>!.</span><span
+                                        style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } </span><span
+                                        style='color:#C586C0'>else</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#C586C0'>if</span><span style='color:#D4D4D4'>
+                                        (</span><span style='color:#9CDCFE'>snapshot</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>hasError</span><span
+                                        style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'</span><span style='color:#D4D4D4'>${</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>error</span><span style='color:#D4D4D4'>}</span><span
+                                        style='color:#CE9178'>'</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#6A9955'>//
+                                        By default, show a
+                                        loading spinner.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>CircularProgressIndicator</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+                        <br>
+                </div>
+                <br><br>
+                <li class="step">
+                        Why is fetchAlbum() called in initState()?
+
+                </li>
+                <p>
+                        Although it’s convenient, it’s not recommended to put an API call in a build() method.
+                        <br><br>
+                        Flutter calls the build() method every time it needs to change anything in the view, and this
+                        happens
+                        surprisingly often. Leaving the fetch call in your build() method floods the API with
+                        unnecessary calls and
+                        slows down your app.
+
+
+                </p>
+                <li class="step">
+                        Complete example
+
+                </li>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'dart:async'</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'dart:convert'</span><span style='color:#D4D4D4'>;</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#CE9178'>'package:http/http.dart'</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>as</span><span
+                                        style='color:#D4D4D4'> http;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#4EC9B0'>Future</span><span style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>&gt; </span><span
+                                        style='color:#DCDCAA'>fetchAlbum</span><span style='color:#D4D4D4'>()
+                                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>response</span><span style='color:#D4D4D4'> = </span><span
+                                        style='color:#C586C0'>await</span><span style='color:#D4D4D4'> http</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; .</span><span style='color:#DCDCAA'>get</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>Uri</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>parse</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'https://jsonplaceholder.typicode.com/albums/1'</span><span
+                                        style='color:#D4D4D4'>));</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                                        style='color:#9CDCFE'>response</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>statusCode</span><span style='color:#D4D4D4'> ==
+                                </span><span style='color:#B5CEA8'>200</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        If the server did return a 200 OK response,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        then parse the JSON.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>fromJson</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>jsonDecode</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>response</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>body</span><span
+                                        style='color:#D4D4D4'>));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        } </span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>
+                                        {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        If the server did not return a 200 OK response,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#6A9955'>//
+                                        then throw an exception.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>throw</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Exception</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'Failed to load
+                                        album'</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'> {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>userId</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>({</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>userId</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>id</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>required</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#569CD6'>this</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        });</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>factory</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                                        style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;
+                                </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>userId</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#CE9178'>'userId'</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>id</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#9CDCFE'>json</span><span
+                                        style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'id'</span><span
+                                        style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                                        style='color:#CE9178'>'title'</span><span style='color:#D4D4D4'>],</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() =&gt;
+                                </span><span style='color:#DCDCAA'>runApp</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'> </span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'> {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>({</span><span
+                                        style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>_MyAppState</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>()
+                                        =&gt; </span><span style='color:#4EC9B0'>_MyAppState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>_MyAppState</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>&gt; {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>late</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Future</span><span style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>Album</span><span style='color:#D4D4D4'>&gt; </span><span
+                                        style='color:#9CDCFE'>futureAlbum</span><span style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>() {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#569CD6'>super</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>initState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#9CDCFE'>futureAlbum</span><span
+                                        style='color:#D4D4D4'> =
+                                </span><span style='color:#DCDCAA'>fetchAlbum</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#9CDCFE'>@override</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; </span><span style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#CE9178'>'Fetch Data Example'</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>theme</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>primarySwatch</span><span style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Colors</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>blue</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; </span><span style='color:#9CDCFE'>home</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>: </span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'Fetch Data Example'</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>body</span><span
+                                        style='color:#D4D4D4'>:
+                                </span><span style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>: </span><span
+                                        style='color:#4EC9B0'>FutureBuilder</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Album</span><span
+                                        style='color:#D4D4D4'>&gt;(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>future</span><span style='color:#D4D4D4'>: </span><span
+                                        style='color:#9CDCFE'>futureAlbum</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>: (</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>, </span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>hasData</span><span style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>data</span><span style='color:#D4D4D4'>!.</span><span
+                                        style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } </span><span
+                                        style='color:#C586C0'>else</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#C586C0'>if</span><span style='color:#D4D4D4'>
+                                        (</span><span style='color:#9CDCFE'>snapshot</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>hasError</span><span
+                                        style='color:#D4D4D4'>) {</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>'</span><span style='color:#D4D4D4'>${</span><span
+                                        style='color:#9CDCFE'>snapshot</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>error</span><span style='color:#D4D4D4'>}</span><span
+                                        style='color:#CE9178'>'</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#6A9955'>//
+                                        By default, show a
+                                        loading spinner.</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                                </span><span style='color:#4EC9B0'>CircularProgressIndicator</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; &nbsp; ),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        &nbsp; );</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;
+                                        }</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+                        <br>
+                </div>
+        </ol>
+</div>

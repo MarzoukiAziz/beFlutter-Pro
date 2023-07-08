@@ -1,0 +1,314 @@
+<div class="contenu">
+    <h1>
+        Adding Shared Preferences To App8
+    </h1>
+    <p>
+        We will store the list of favorite movies by saving their ids using shared preferences.
+    </p>
+    <ol>
+        <li class="step">
+            Installing
+        </li>
+        <p>
+            Run this command:
+        </p>
+        <p class="syn">
+            flutter pub add shared_preferences
+        </p>
+        <p>
+            This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):
+        </p>
+        <p class="res">
+            dependencies: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shared_preferences: ^2.0.9
+        </p>
+        <p>
+            Or visit <a href="https://pub.dev/packages/shared_preferences/install">shared_preferences - pub.dev</a>
+        </p>
+        <p>
+            Now run pub get from the command line:
+        </p>
+        <p class="syn">
+            flutter pub get
+        </p>
+        <p>
+            You’re now ready to store data.
+        </p>
+        <br>
+        <li class="step">
+            Import the package in /models/movie.dart
+        </li>
+        <br>
+        <div class="code">
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'package:shared_preferences/shared_preferences.dart'</span><span
+                    style='color:#D4D4D4'>;</span></p>
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Create a key and list of ids
+        </li>
+        <p>
+            All preferences need to use a unique key or they’ll be overwritten. Here, you’re
+            simply defining a constant for the preference key.
+        </p>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+            #1E1E1E'><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>favMoviesKey</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#CE9178'>'favMovies'</span><span style='color:#D4D4D4'>;</span></p>
+            <br>
+            <p><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt; </span><span
+                    style='color:#9CDCFE'>favMoviesIds</span><span style='color:#D4D4D4'> = [];</span></p>
+            <br>
+
+        </div>
+        <br><br>
+        <li class="step">
+            Adding Movie To Favorites by updating the addMovieToFavorite method
+        </li>
+
+        <br><br>
+        <p>
+
+            Here, you use the async keyword to indicate that this method will run
+            asynchronously. It also: <br><br>
+            1. Uses the await keyword to wait for an instance of SharedPreferences. <br><br>
+            2. Adding the id of the movie to favMoviesIds <br><br>
+            3. Saves the new list using the favMoviesKey.
+            <br><br>
+
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>addMovieToFavorite</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>m</span><span style='color:#D4D4D4'>) </span><span
+                    style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//1</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#C586C0'>await</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>SharedPreferences</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//2</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#9CDCFE'>favMoviesIds</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>add</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>m</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>id</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>toString</span><span
+                    style='color:#D4D4D4'>());</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//3</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>setStringList</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>favMoviesKey</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#9CDCFE'>favMoviesIds</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#9CDCFE'>_favoriteMovies</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>add</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>m</span><span
+                    style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Getting The List Of Favorite Movies
+        </li>
+        <br>
+        <div class="code">
+
+            <p>&nbsp;
+                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>getFavMoviesFromSharedPreferences</span><span style='color:#D4D4D4'>()
+                </span><span style='color:#C586C0'>async</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#6A9955'>//1</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#C586C0'>await</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>SharedPreferences</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getInstance</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#6A9955'>//2</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>containsKey</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>favMoviesKey</span><span style='color:#D4D4D4'>)) {</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+            color:#6A9955'>//3</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+            color:#9CDCFE'>favMoviesIds</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#9CDCFE'>prefs</span><span style='color:#D4D4D4'>.</span><span style='
+            color:#DCDCAA'>getStringList</span><span style='color:#D4D4D4'>(</span><span style='
+            color:#9CDCFE'>favMoviesKey</span><span style='color:#D4D4D4'>)!;</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+            color:#6A9955'>//4</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; </span><span style='
+            color:#C586C0'>for</span><span style='
+            color:#D4D4D4'> (</span><span style='
+            color:#4EC9B0'>String</span><span style='
+            color:#D4D4D4'> </span><span style='
+            color:#9CDCFE'>id</span><span style='
+            color:#D4D4D4'> </span><span style='
+            color:#C586C0'>in</span><span style='
+            color:#D4D4D4'> </span><span style='
+            color:#9CDCFE'>favMoviesIds</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; &nbsp; </span><span style='
+            color:#9CDCFE'>_favoriteMovies</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .</span><span style='color:#DCDCAA'>add</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>movies</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>firstWhere</span><span style='font-size:
+            10.5pt;font-family:Consolas;color:#D4D4D4'>((</span><span style='font-size:
+            10.5pt;font-family:Consolas;color:#9CDCFE'>movie</span><span style='font-size:
+            10.5pt;font-family:Consolas;color:#D4D4D4'>) =&gt; </span><span style='color:#9CDCFE'>movie</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>id</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>toString</span><span
+                    style='color:#D4D4D4'>() == </span><span style='color:#9CDCFE'>id</span><span
+                    style='color:#D4D4D4'>));</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; }</span></p>
+
+            <p>&nbsp;
+                &nbsp; }</span></p>
+
+            <p>&nbsp;
+                }</span></p>
+            <br>
+        </div>
+        <br><br>
+        <p>
+            This method is also asynchronous. Here, you: <br><br>
+            1. Use the await keyword to wait for an instance of SharedPreferences. <br><br>
+            2. Check if a preference for the list of favorite movies already exists. <br><br>
+            3. Get the list. <br><br>
+            4. Use the id to load the movie object in the _favoriteMovies list. <br><br><br>
+            Finally, call it before runApp(const MyApp()) to load the list when the app starts:
+        </p>
+        <div class="code">
+
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+            #1E1E1E'><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'./models/movie.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p>&nbsp;</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+            #1E1E1E'><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p>&nbsp;
+                </span><span style='color:#6A9955'>//locking
+                    orientaiton</span></p>
+
+            <p>&nbsp;
+                </span><span style='color:#4EC9B0'>WidgetsFlutterBinding</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>ensureInitialized</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p>&nbsp;
+                </span><span style='color:#4EC9B0'>SystemChrome</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>setPreferredOrientations</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p>&nbsp;
+                &nbsp; &nbsp; [</span><span style='
+            color:#4EC9B0'>DeviceOrientation</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>portraitDown</span><span style='font-size:
+            10.5pt;font-family:Consolas;color:#D4D4D4'>, </span><span style='font-size:
+            10.5pt;font-family:Consolas;color:#4EC9B0'>DeviceOrientation</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#4FC1FF'>portraitUp</span><span
+                    style='color:#D4D4D4'>]).</span><span style='color:#DCDCAA'>then</span><span
+                    style='color:#D4D4D4'>((</span><span style='color:#9CDCFE'>_</span><span style='color:#D4D4D4'>)
+                    {</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#6A9955'>//add
+                    it here</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>getFavMoviesFromSharedPreferences</span><span style='color:#D4D4D4'>();</span>
+            </p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#6A9955'>//</span></p>
+
+            <p>&nbsp;
+                &nbsp; </span><span style='color:#DCDCAA'>runApp</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>());</span></p>
+
+            <p>&nbsp;
+                });</span></p>
+
+            <p>}</span></p>
+            <br>
+
+            <br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <li class="step">
+            Test the app
+        </li>
+        <br>
+        <video class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/app8v2.mp4?alt=media&token=9c3e13f8-edc1-446e-abeb-9f50a3a2b82f"
+            autoplay muted loop></video>
+        <br><br>
+        <li class="step">
+            Code Source
+        </li>
+        <br><br>
+        <a class="githubLink" href="https://github.com/moazmar/App8-v2--Movie-Time---FlutterCourse" target="_blank">
+            <img class="github"
+                src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/f3mn2sw6is59zrxhzj51.jpg?alt=media&token=9dc18b84-5c6c-47a4-a553-fdc879d50b9f"
+                alt="github">
+    </ol>
+</div>

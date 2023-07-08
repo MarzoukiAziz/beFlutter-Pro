@@ -1,0 +1,106 @@
+<div class="contenu">
+    <h1>
+        Gerneric Methods
+    </h1>
+    <p>
+        Initially, Dart’s generic support was limited to classes. A newer syntax, called generic methods, allows type arguments on methods and functions:
+    </p>
+    <h3 class="note">Example :</h3>
+    <br>
+<div class=code>
+
+    <p><span
+     style='color:#4EC9B0'>T</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>lastElementOfList</span><span
+     style='color:#D4D4D4'>&lt;</span><span
+     style='color:#4EC9B0'>T</span><span
+     style='color:#D4D4D4'>&gt;(</span><span
+     style='color:#4EC9B0'>List</span><span
+     style='color:#D4D4D4'>&lt;</span><span
+     style='color:#4EC9B0'>T</span><span
+     style='color:#D4D4D4'>&gt;&nbsp;lt)&nbsp;{</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;last&nbsp;=&nbsp;lt[lt.length&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;last;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>lastElementOfList</span><span
+    style='color:#D4D4D4'>([</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>6</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>]);&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;7</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>lastElementOfList</span><span
+    style='color:#D4D4D4'>([</span><span
+    style='color:#CE9178'>&quot;dart&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;flutter&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>]);&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;apps</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>lastElementOfList</span><span
+    style='color:#D4D4D4'>([</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>]);&nbsp;</span><span
+    style='color:#6A9955'>//&nbsp;true</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <p>
+        Here the generic type parameter on lastElementOfList <span class="word">&lt;T&gt;</span> allows you to use the type argument T in several places:
+    </p>
+    <ul>
+        <li><p>In the function’s return type <span class="word">T</span></p></li>
+        <li><p>In the type of an argument <span class="word">List&lt;T&gt;</span></p></li>
+        <li><p>In the type of a local variable <span class="word">T lt</span></p></li>
+    </ul>
+
+
+    
+</div>

@@ -1,0 +1,409 @@
+<div class="contenu">
+    <h1>
+        Map
+    </h1>
+    <ol>
+        <li class="step">
+            Definition
+        </li>
+        <p>
+            A collection of key/value pairs, from which you retrieve a value using its associated key. <br>
+            Keys and values in a map may be of any type. <br>
+            Each key can only occurs once and it is used to accessed corresponding Map value. <br>
+        </p>
+        <br>
+        <li class="step">
+            Syntax
+        </li><br>
+        <p class=syn>
+			<span style="color: cyan;">var</span> <span style="color: cyan;"></span>&lt;map_name&gt; = <span style="color: yellow;">new</span> <span style="color: greenyellow;">Map</span>(); <br>
+			&lt;map_name&gt;[key]=value;<br></p>
+            <span style="font-weight: 700;">OR</span> 
+            <p class=syn>
+                <span style="color: cyan;">var</span> &lt;map_name&gt; = {key1:value1,key2:value2}
+        </p>
+        <br>
+        <li class="step">
+            Example
+        </li>
+        <br>
+        <p class=res>
+			var student = new Map();<br>
+  student["name"] = "Adem";<br>
+  student["age"] = 18;<br>
+        </p>
+  <span style="font-weight: 700;">OR</span> 
+  <p class=res>
+            var student = { <br>
+            &nbsp;&nbsp;&nbsp;"name": "Paul Smith", <br>
+            &nbsp;&nbsp;&nbsp;"age": 22, <br>
+            &nbsp;&nbsp;&nbsp;"id": 980908232 <br>
+            }; <br>
+
+        </p>
+        <br>
+		<li class="step">
+    Properties
+</li>
+<br>
+<table class="tableau">
+    <tr>
+        <th>
+            Property
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            entries 
+        </td>
+        <td>
+            The map entries of this.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            hashCode
+        </td>
+        <td>
+            The hash code for this object.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            isEmpty
+        </td>
+        <td>
+            Returns true if there is no key/value pair in the map.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            isNotEmpty
+        </td>
+        <td>
+            Returns true if there is at least one key/value pair in the map.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            keys
+        </td>
+        <td>
+            The keys of this. 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            length
+        </td>
+        <td>
+            The number of key/value pairs in the map.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            runtimeType
+        </td>
+        <td>
+            A representation of the runtime type of the object.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            values 
+        </td>
+        <td>
+            The values of this. [...]
+        </td>
+    </tr>
+
+</table>
+<br>
+<li class="step">
+    Methods
+</li>
+<br>
+<table class="tableau">
+    <tr>
+        <th>
+            Method
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>    
+            addAll(Map<K, V> other) 
+        </td>
+        <td>
+            Adds all key/value pairs of other to this map.
+        </td>
+    </tr><tr>
+        <td>
+            addEntries(Iterable<MapEntry<K, V>> newEntries)
+        </td>
+        <td>
+            Adds all key/value pairs of newEntries to this map.
+        </td>
+    </tr><tr>
+        <td>
+            cast<RK, RV>()
+        </td>
+        <td>
+            Provides a view of this map as having RK keys and RV instances, if necessary.
+        </td>
+    </tr><tr>
+        <td>
+            clear()
+        </td>
+        <td>
+            Removes all pairs from the map.
+        </td>
+    </tr><tr>
+        <td>
+            containsKey(Object? key)
+        </td>
+        <td>
+            Returns true if this map contains the given key.
+        </td>
+    </tr><tr>
+        <td>
+            containsValue(Object? value)
+        </td>
+        <td>
+            Returns true if this map contains the given value.
+        </td>
+    </tr><tr>
+        <td>
+            forEach(void f(K key, V value))
+        </td>
+        <td>
+            Applies f to each key/value pair of the map.
+        </td>
+    </tr><tr>
+        <td>
+            map<K2, V2>(MapEntry<K2, V2> f(K key, V value)) 
+        </td>
+        <td>
+            Returns a new map where all entries of this map are transformed by the given f function.
+        </td>
+    </tr><tr>
+        <td>
+            noSuchMethod(Invocation invocation)
+        </td>
+        <td>
+            Invoked when a non-existent method or property is accessed.
+        </td>
+    </tr><tr>
+        <td>
+            putIfAbsent(K key, V ifAbsent()) 
+        </td>
+        <td>
+            Look up the value of key, or add a new value if it isn't there.
+        </td>
+    </tr><tr>
+        <td>
+            remove(Object? key) 
+        </td>
+        <td>
+            Removes key and its associated value, if present, from the map. 
+        </td>
+    </tr><tr>
+        <td>
+            removeWhere(bool predicate(K key, V value)) 
+        </td>
+        <td>
+            Removes all entries of this map that satisfy the given predicate.
+        </td>
+    </tr><tr>
+        <td>
+            toString() 
+        </td>
+        <td>
+            Returns a string representation of this object.
+        </td>
+    </tr><tr>
+        <td>
+            update(K key, V update(V value), {V ifAbsent()}) 
+        </td>
+        <td>
+            Updates the value for the provided key. 
+        </td>
+    </tr><tr>
+        <td>
+            updateAll(V update(K key, V value))
+        </td>
+        <td>
+            Updates all values.
+        </td>
+    </tr>
+</table>
+<br>
+<li class="step">
+    Example
+</li>
+<br>
+<div class=code>
+
+<p><span style='
+color:#569CD6'>enum</span><span style='
+color:#D4D4D4'>&nbsp;transmission&nbsp;{&nbsp;manual,&nbsp;automatic&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;car&nbsp;=&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#CE9178'>&quot;model&quot;</span><span
+style='color:#D4D4D4'>:&nbsp;</span><span
+style='color:#CE9178'>&quot;R8&quot;</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#CE9178'>&quot;Horsepower&quot;</span><span
+style='color:#D4D4D4'>:&nbsp;</span><span
+style='color:#B5CEA8'>602</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#CE9178'>&quot;Energy&quot;</span><span
+style='color:#D4D4D4'>:&nbsp;</span><span
+style='color:#CE9178'>&quot;Gasoline&quot;</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#CE9178'>&quot;transmission&quot;</span><span
+style='color:#D4D4D4'>:&nbsp;transmission.automatic</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;};</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car.length);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car.keys);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car.values);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='
+color:#DCDCAA'>addAll</span><span style='
+color:#D4D4D4'>({</span><span style='
+color:#CE9178'>&quot;airbags&quot;</span><span style='
+color:#D4D4D4'>:&nbsp;</span><span style='
+color:#569CD6'>true</span><span style='
+color:#D4D4D4'>});</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car[</span><span style='
+color:#CE9178'>&quot;model&quot;</span><span style='
+color:#D4D4D4'>]&nbsp;=&nbsp;</span><span
+style='color:#CE9178'>&quot;Audi&nbsp;R8&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='
+color:#DCDCAA'>update</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Horsepower&quot;</span><span style='
+color:#D4D4D4'>,&nbsp;(value)&nbsp;=&gt;&nbsp;</span><span
+style='color:#B5CEA8'>650</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='
+color:#DCDCAA'>remove</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Energy&quot;</span><span style='
+color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='
+color:#DCDCAA'>updateAll</span><span style='
+color:#D4D4D4'>((key,&nbsp;value)&nbsp;=&gt;&nbsp;</span><span
+style='color:#CE9178'>&quot;unkown&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;car.</span><span style='
+color:#DCDCAA'>clear</span><span style='
+color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(car);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+
+<br>
+</div>
+<br>
+	<br>
+	<div class=res>
+4<br><br>
+(model, Horsepower, Energy, transmission)<br><br>
+(R8, 602, Gasoline, transmission.automatic)<br><br>
+{model: R8, Horsepower: 602, Energy: Gasoline, transmission: transmission.automatic, airbags: true}<br><br>
+{model: Audi R8, Horsepower: 602, Energy: Gasoline, transmission: transmission.automatic, airbags: true}<br><br>
+{model: Audi R8, Horsepower: 650, Energy: Gasoline, transmission: transmission.automatic, airbags: true}<br><br>
+{model: Audi R8, Horsepower: 650, transmission: transmission.automatic, airbags: true}<br><br>
+{model: unkown, Horsepower: unkown, transmission: unkown, airbags: unkown}<br><br>
+{}<br>
+
+	</div>
+    </ol>
+</div>

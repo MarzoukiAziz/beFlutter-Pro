@@ -1,0 +1,63 @@
+<div class="contenu">
+    <h1>
+        Anonymous Functions
+    </h1>
+    <p>
+        Most functions are named, such as main() or printElement(). You can also create a nameless function called an <span class="word">anonymous function</span>, or sometimes a <span class="word">lambda</span> or <span class="word">closure</span>. You might assign an anonymous function to a variable so that, for example, you can add or remove it from a collection. <br><br>
+An anonymous function looks similar to a named function with zero or more parameters, separated by commas and optional type annotations, between parentheses. <br>
+    </p>
+    <h2 class="note">
+        Syntax:
+    </h2>
+    <p class=syn>
+        &nbsp;&nbsp;( parameter_list ){  <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement(s) <br>
+        &nbsp;&nbsp;} <br>
+    </p>
+    <h2 class="note">
+        Example :
+    </h2>
+    <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;list&nbsp;=&nbsp;[</span><span style='font-size:
+    10.5pt;font-family:Consolas;color:#B5CEA8'>0</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>4</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>5</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>6</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>7</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>9</span><span style='color:#D4D4D4'>];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;list.</span><span style='color:#DCDCAA'>forEach</span><span style='color:#D4D4D4'>((element)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(element&nbsp;%&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(element);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;});</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+	<br>
+	<div class=res>
+        0 <br>
+        3 <br>
+        6 <br>
+        9 <br>
+
+	</div>
+</div>

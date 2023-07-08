@@ -1,0 +1,573 @@
+<div class="contenu">
+    <h1>
+        Level 1 : Project 4
+    </h1>
+    <br>
+    <p>
+        The game <span class="note" style="color: blueviolet;">Numbermind</span> is a game for two, which is to guess a number. <br><br>
+        The principle of the game is as follows: <br>
+        <ul>
+            <li>
+               <p> The first player suggests a combination of 8 digits representing the number to guess.</p>
+            </li>
+            <li>
+               <p> The second player announces a proposition of 8 digits, if this proposition corresponds to the number to guess, this player is a winner otherwise we show him his proposal which we keep all the numbers well placed and the rest is replaced by dashes while mentioning the correct numbers but misplaced in the proposal.</p>
+            </li>
+            <li>
+                <p>Repeat the previous step until you find the number sought or reach a number of tries equal to 8.</p>
+            </li>
+        </ul>
+        <br>
+        <span class="note">
+            Note:
+        </span><br>
+        <p> This command clear the terminal to hide the suggested number. </p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="word" style="font-weight:700;">print("\x1B[2J\x1B[0;0H");</span> 
+        
+    </p>
+    <br>
+    <span class="note">Example:</span>
+    <br>
+<p>
+	For the guess phone number 68456231, the program displays:
+</p>
+<br>
+<div class="res">
+    You have 8 tries <br>
+    Propose a Phone Number <br>
+    56426179 <br>
+    ::::: --4-6--- ::::: <br>
+    5 at position 1 is correct but badly placed <br>
+    6 at position 2 is correct but badly placed <br>
+    2 at position 4 is correct but badly placed <br>
+    1 at position 6 is correct but badly placed <br>
+    You have 7 tries <br>
+    Propose a Phone Number <br>
+    63456331 <br>
+    ::::: 6-456-31 :::::   <br>
+    You have 6 tries       <br>
+    Propose a Phone Number <br>
+    68456231 <br>
+    ::::: 68456231 ::::: <br>
+    Well done, you won   <br>
+</div>
+    <br>
+    <p style="color:forestgreen;">
+        We propose to write a Dart program which:
+        <ol style="color:forestgreen;">
+            <li>
+                 <p>Check if the proposed telephone number is composed only by 8 digits.</p>
+            </li>
+            <li>
+               <p>  Check each number proposed by the second player, keeping the numbers well placed and replacing the rest with dashes while mentioning the correct ones but badly placed in the proposal and the number of tests remaining.</p>
+            </li>
+            <li>
+                <p> Stop the game once the second player gives a number identical to the number to guess or we reach a number of tries equal to 8.</p>
+            </li>
+            <li>
+                <p> Display the message "Well done, you won" if player 2 manages to guess the number and the message "Sorry, you lost" if he does not guess the number after 8 tries.</p>
+            </li>
+        </ol>
+    </p>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+
+<div class=code>
+
+<p><span style='
+color:#569CD6'>import</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#CE9178'>'dart:io'</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>suggestNumber</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;number;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;testInt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>do</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Enter&nbsp;a&nbsp;suggested&nbsp;Phone&nbsp;Number&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;=&nbsp;stdin.</span><span
+style='color:#DCDCAA'>readLineSync</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;testInt&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>tryParse</span><span
+style='color:#D4D4D4'>(number);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;((testInt&nbsp;==&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>)&nbsp;||&nbsp;(number.length&nbsp;!=&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;number;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>play</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;tries&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>8</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;propose&nbsp;=&nbsp;</span><span
+style='color:#CE9178'>&quot;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>do</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//printing&nbsp;the&nbsp;number&nbsp;of&nbsp;tries&nbsp;left</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;You&nbsp;have&nbsp;$</span><span
+style='color:#9CDCFE'>tries</span><span
+style='color:#CE9178'>&nbsp;tries&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;testInt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//asking&nbsp;for&nbsp;a&nbsp;number</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>do</span><span style='
+color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;Propose&nbsp;a&nbsp;Phone&nbsp;Number&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propose&nbsp;=&nbsp;stdin.</span><span
+style='color:#DCDCAA'>readLineSync</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testInt&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>int</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>tryParse</span><span
+style='color:#D4D4D4'>(propose);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;((testInt&nbsp;==&nbsp;</span><span
+style='color:#569CD6'>null</span><span
+style='color:#D4D4D4'>)&nbsp;||&nbsp;(propose.length&nbsp;!=&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//Checking&nbsp;the&nbsp;number</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;result&nbsp;=&nbsp;</span><span
+style='color:#CE9178'>&quot;&quot;</span><span
+style='color:#D4D4D4'>,&nbsp;numbersLeft&nbsp;=&nbsp;[];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(propose[i]&nbsp;==&nbsp;n[i])</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;n[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span><span
+style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;</span><span
+style='color:#CE9178'>&quot;-&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numbersLeft.</span><span
+style='color:#DCDCAA'>add</span><span
+style='color:#D4D4D4'>(n[i]);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;:::::&nbsp;$</span><span
+style='color:#9CDCFE'>result</span><span
+style='color:#CE9178'>&nbsp;:::::&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//lokking&nbsp;for&nbsp;the&nbsp;correct&nbsp;ones&nbsp;but&nbsp;badly&nbsp;placed;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+style='color:#B5CEA8'>8</span><span
+style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(propose[i]&nbsp;!=&nbsp;n[i])&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(numbersLeft.</span><span
+style='color:#DCDCAA'>contains</span><span
+style='color:#D4D4D4'>(propose[i]))&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;${</span><span
+style='color:#9CDCFE'>propose[i]</span><span
+style='color:#CE9178'>}&nbsp;at&nbsp;position&nbsp;${</span><span
+style='color:#9CDCFE'>i + 1</span><span
+style='color:#CE9178'>} is&nbsp;correct&nbsp;but&nbsp;badly&nbsp;placed&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numbersLeft.</span><span
+style='color:#DCDCAA'>remove</span><span
+style='color:#D4D4D4'>(propose[i]);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//deincremennt&nbsp;the&nbsp;tries</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;tries--;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;((tries&nbsp;&gt;&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(propose&nbsp;!=&nbsp;n));</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//printing&nbsp;the&nbsp;final&nbsp;result</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(propose&nbsp;==&nbsp;n)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Well&nbsp;done,&nbsp;you&nbsp;won&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Sorry,&nbsp;you&nbsp;lost&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;number&nbsp;=&nbsp;</span><span style='
+color:#DCDCAA'>suggestNumber</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//Clear&nbsp;the&nbsp;terminal&nbsp;to&nbsp;hide&nbsp;the&nbsp;suggested&nbsp;number.</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;</span><span style='
+color:#D7BA7D'>\x</span><span style='
+color:#CE9178'>1B[2J</span><span style='
+color:#D7BA7D'>\x</span><span style='
+color:#CE9178'>1B[0;0H&quot;</span><span style='
+color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>play</span><span style='
+color:#D4D4D4'>(number);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+<br>
+<div class="res"> 
+You have 8 tries <br>
+Propose a Phone Number <br>
+384 <br>
+Propose a Phone Number <br>
+434932 <br>
+Propose a Phone Number <br>
+ZADS8 <br>
+Propose a Phone Number <br>
+ ZA <br>
+Propose a Phone Number <br>
+ <br>
+Propose a Phone Number <br>
+12398876 <br>
+::::: 123---7- ::::: <br>
+8 at position 4 is correct but badly placed <br>
+6 at position 7 is correct but badly placed <br>
+You have 7 tries <br>
+Propose a Phone Number <br>
+87654321 <br>
+::::: -------- ::::: <br>
+8 at position 0 is correct but badly placed <br>
+7 at position 1 is correct but badly placed <br>
+6 at position 2 is correct but badly placed <br>
+5 at position 3 is correct but badly placed <br>
+4 at position 4 is correct but badly placed <br>
+3 at position 5 is correct but badly placed <br>
+2 at position 6 is correct but badly placed <br>
+1 at position 7 is correct but badly placed <br>
+You have 6 tries <br>
+Propose a Phone Number <br>
+87654321 <br>
+::::: -------- ::::: <br>
+8 at position 0 is correct but badly placed <br>
+7 at position 1 is correct but badly placed <br>
+6 at position 2 is correct but badly placed <br>
+5 at position 3 is correct but badly placed <br>
+4 at position 4 is correct but badly placed <br>
+3 at position 5 is correct but badly placed <br>
+2 at position 6 is correct but badly placed <br>
+1 at position 7 is correct but badly placed <br>
+You have 5 tries <br>
+Propose a Phone Number <br>
+76543123 <br>
+::::: ---4---- ::::: <br>
+7 at position 0 is correct but badly placed <br>
+6 at position 1 is correct but badly placed <br>
+5 at position 2 is correct but badly placed <br>
+ <br>
+You have 8 tries <br>
+Propose a Phone Number <br>
+21456378 <br>
+::::: -------- ::::: <br>
+2 at position 0 is correct but badly placed <br>
+1 at position 1 is correct but badly placed <br>
+5 at position 3 is correct but badly placed <br>
+6 at position 4 is correct but badly placed <br>
+3 at position 5 is correct but badly placed <br>
+8 at position 7 is correct but badly placed <br>
+You have 7 tries <br>
+Propose a Phone Number <br>
+83652109 <br>
+::::: 8------- ::::: <br>
+3 at position 1 is correct but badly placed <br>
+6 at position 2 is correct but badly placed <br>
+5 at position 3 is correct but badly placed <br>
+2 at position 4 is correct but badly placed <br>
+1 at position 5 is correct but badly placed <br>
+You have 6 tries <br>
+Propose a Phone Number <br>
+86352118 <br>
+::::: 8------- ::::: <br>
+6 at position 1 is correct but badly placed <br>
+3 at position 2 is correct but badly placed <br>
+5 at position 3 is correct but badly placed <br>
+2 at position 4 is correct but badly placed <br>
+1 at position 5 is correct but badly placed <br>
+8 at position 7 is correct but badly placed <br>
+You have 5 tries <br>
+Propose a Phone Number <br>
+8112536 <br>
+Propose a Phone Number <br>
+81125368 <br>
+::::: 8-125--- ::::: <br>
+1 at position 1 is correct but badly placed <br>
+6 at position 6 is correct but badly placed <br>
+8 at position 7 is correct but badly placed <br>
+You have 4 tries <br>
+Propose a Phone Number <br>
+88125683 <br>
+::::: 881256-- ::::: <br>
+3 at position 7 is correct but badly placed <br>
+You have 3 tries <br>
+ <br>
+You have 8 tries <br>
+Propose a Phone Number <br>
+12345678 <br>
+::::: -------- ::::: <br>
+1 at position 1 is correct but badly placed <br>
+3 at position 3 is correct but badly placed <br>
+4 at position 4 is correct but badly placed <br>
+7 at position 7 is correct but badly placed <br>
+8 at position 8 is correct but badly placed <br>
+You have 7 tries <br>
+Propose a Phone Number <br>
+87431099 <br>
+::::: ---3---- ::::: <br>
+8 at position 1 is correct but badly placed <br>
+7 at position 2 is correct but badly placed <br>
+4 at position 3 is correct but badly placed <br>
+1 at position 5 is correct but badly placed <br>
+9 at position 7 is correct but badly placed <br>
+You have 6 tries <br>
+Propose a Phone Number <br>
+47833911 <br>
+::::: ---3---1 ::::: <br>
+4 at position 1 is correct but badly placed <br>
+7 at position 2 is correct but badly placed <br>
+8 at position 3 is correct but badly placed <br>
+9 at position 6 is correct but badly placed <br>
+You have 5 tries <br>
+Propose a Phone Number <br>
+98937441 <br>
+::::: --93---1 ::::: <br>
+8 at position 2 is correct but badly placed <br>
+7 at position 5 is correct but badly placed <br>
+4 at position 6 is correct but badly placed <br>
+4 at position 7 is correct but badly placed <br>
+You have 4 tries <br>
+Propose a Phone Number <br>
+847893471  <br>
+Propose a Phone Number <br>
+74934481 <br>
+::::: 74934-81 ::::: <br>
+You have 3 tries <br>
+Propose a Phone Number <br>
+74934781 <br>
+::::: 74934781 ::::: <br>
+Well done, you won <br>
+</div>
+</div>

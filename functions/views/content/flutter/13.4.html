@@ -1,0 +1,73 @@
+<div class="contenu">
+    <h1>
+        Best Practises For Better Flutter Code
+    </h1>
+    <ul>
+        <li class="step">
+            Don’t make costly operations in your build methods
+        </li>
+        <p>
+            Do nothing else than building your UI in your build method; adding costly operations (like async calls or
+            too big calculations) can lead to performance losses or unwanted behaviors.
+        </p>
+        <li class="step">
+            Split Large Widgets into Smaller Widgets
+
+        </li>
+        <p>
+            In Flutter, your widget tree can become pretty large pretty quickly. In order to make your code readable and
+            easy to manage, it’s advisable to separate such large widgets into a separate file.
+        </p>
+        <li class="step">
+            Use Const Widgets
+
+        </li>
+        <p>Whenever you have widgets that don’t change when the state changes, you should declare them as constants.
+            This will prevent them from being rebuilt, hence improving performance. <br><br>
+            This is similar to caching widgets that won’t get rebuilt. Some of the widgets that can be declared as const
+            include Text, Padding, and Icons, to mention a few. If the widgets contain dynamic information, they
+            shouldn’t be declared as constants.
+
+        </p>
+        <li class="step">
+            Use packages only when necessary
+
+        </li>
+        <p>
+            Packages can be a good choice when you want to speed up your building process and pub has a ton of them.
+            Nonetheless, they can have significant effects on your app performances when they are used without prior
+            study.
+        </p>
+        <li class="step">
+            Dealing with lists
+        </li>
+        <p>
+            Use the default constructor <span class="word">ListView</span> for rendering small lists of known size; for
+            longer lists, use the <span class="word">ListView.builder</span> constructor which renders list elements as
+            users scroll to them. <br><br>
+            This is is also applicable when working with <span class="word">GridView</span> that have a large or
+            infinite number of widgets.
+
+        </p>
+        <li class="step">
+            Remove Unused Resources
+        </li>
+        <p>
+            Especially when you’re ready to publish your application, you’ll need to remove resources that you aren’t
+            using in your application. These could be image assets, for example. Removing unused resources and
+            compressing images will help you reduce the size of your application.
+
+        </p>
+    </ul>
+    <br><br><br><br><br><br><br>
+    <h4>
+        Sources :
+    </h4>
+    <p>
+        <a href="https://heartbeat.comet.ml/flutter-development-best-practices-3e162765340a">Flutter Development Best
+            Practices </a> <br><br>
+        <a href="https://dev.to/no2s14/flutter-app-development-good-practices-9m5">Flutter app development good
+            practices
+        </a>
+    </p>
+</div>

@@ -1,0 +1,367 @@
+<div class="contenu">
+    <h1>
+        Basic Functions
+    </h1>
+    <ol>
+        <li class="step">
+            Definition:
+        </li>
+        <br>
+        <p>
+            Function is a logically grouped set of statements that perform a specific task. In Dart program, a function is created to achieve something. Every Dart program has at least one function i.e. main() where the execution of the program starts. It is a mandatory function in Dart.
+        </p>
+        <br>
+        <li class="step">
+            Advantages of function:
+        </li>
+        <ul>
+            <li><p>
+                Avoid repetition of codes.</p>
+            </li>
+            <li><p>
+                Increases program readability.</p>
+            </li>
+            <li><p>
+                Divide a complex problem into simpler ones.</p>
+            </li>
+            <li><p>
+                Reduces chances of error.</p>
+            </li>
+            <li><p>
+                Modifying a program becomes easier by using function.</p>
+            </li>
+        </ul>
+        <br>
+        <li class="step">
+            Syntax:
+        </li>
+        <br>
+        <div class="syn">
+            return_type <span style="color: yellow;">function_name</span>( <span style="color: yellowgreen;">parameters_list</span> ){ <br>
+            &nbsp;&nbsp;&nbsp; statement(s)    <br>
+            &nbsp;&nbsp;&nbsp; <span style="color: #12ffff;">return</span> value; <br>
+            } <br>
+        </div>
+        <br>
+        <ul>
+            <li><p>
+                <span class=word>function_name</span> :
+                 A function name to uniquely identify the function. Function naming follows the same rules of writing identifiers in Dart. <br>
+            </p></li>
+            <li><p>
+                <span class=word>parameters_list</span>  : Parameters (arguments) through which we pass values to a function. They are optional. <br>
+            </p></li>
+            <li><p>
+                <span class=word>return type</span> : Type of Return value. <br>
+               A function with void as return type don't return any value. <br>
+            </p></li>
+        </ul>
+        <br>
+        <li class="step">
+            Function call:
+        </li>
+        <br>
+        <p>
+            A function call can be made by using a call statement. A function call statement consists of function name and required argument enclosed in round brackets.
+        </p>
+        <p class=syn>
+            <span style="color: yellow;">function_name</span> ( <span style="color: yellowgreen;">parameters_list</span> );
+        </p>
+        <br>
+        <li class="step">
+            Types of functions:
+        </li>
+        <br>
+        <p>
+            <span class="note">
+                1. Library functions : <br>
+            </span>
+           &nbsp;&nbsp; Library functions are the built in function that are already defined in the Dart library. For Example : print(). <br><br>
+            <span class="note">
+                2. User-defined functions: <br>
+            </span>
+            &nbsp;&nbsp;Those functions that are defined by user to use them when required are called user-defined function. <br>
+
+        </p>
+        <br>
+        <li class="step">
+            Examples
+        </li>
+		<br>
+        <ol>
+            <li class="note">Example 1 : Average Calculator </li>
+            <br>
+            
+<div class=code>
+
+    <p ><span style='
+    color:#4EC9B0'>double</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>average</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>List</span><span style='
+    color:#D4D4D4'>&nbsp;numbers)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>&nbsp;total&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;numbers.length;&nbsp;i++)&nbsp;total&nbsp;+=&nbsp;numbers[i];</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;total&nbsp;/&nbsp;numbers.length;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;list1&nbsp;=&nbsp;[</span><span style='color:#B5CEA8'>12</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>18</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>19</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>double</span><span style='color:#D4D4D4'>&nbsp;average_list1&nbsp;=&nbsp;</span><span
+    style='color:#DCDCAA'>average</span><span
+    style='color:#D4D4D4'>(list1);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(average_list1);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;list2&nbsp;=&nbsp;[</span><span style='color:#B5CEA8'>3.14</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>5.34</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>12.0</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>19.4</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>average</span><span style='
+    color:#D4D4D4'>(list2));</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        14.2 <br>
+        9.969999999999999 <br>
+    </div>
+    <br>
+    <li class="note">Example 2 : Random numbers generator (Without Parameters)</li>
+    <br>
+    <div class=code>
+
+        <p><span style='
+        color:#569CD6'>import</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#CE9178'>'dart:math'</span><span style='color:#D4D4D4'>;</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p><span style='
+        color:#4EC9B0'>List</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>randomGenerator</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;randoms&nbsp;=&nbsp;[];</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+        style='color:#B5CEA8'>5</span><span
+        style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span
+        style='color:#4EC9B0'>Random</span><span
+        style='color:#D4D4D4'>().</span><span
+        style='color:#DCDCAA'>nextInt</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#B5CEA8'>100</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;randoms.</span><span style='color:#DCDCAA'>add</span><span style='color:#D4D4D4'>(x);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;randoms;</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+        color:#DCDCAA'>randomGenerator</span><span style='color:#D4D4D4'>());</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;l1&nbsp;=&nbsp;</span><span style='color:#DCDCAA'>randomGenerator</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(l1);</span></p>
+        
+        <p><span style='
+        color:#D4D4D4'>}</span></p>
+<br>
+        
+        </div>
+        <br>
+        <div class="res">
+            [70, 21, 24, 7, 94] <br>
+            [23, 57, 55, 42, 22] <br>
+        </div>
+        <br>
+        <li class="note">
+            Example 3 : Print a message (Void Function)
+        </li>
+        <br>
+        
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>show</span><span style='
+    color:#D4D4D4'>(object,&nbsp;quantity)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;You&nbsp;have&nbsp;$</span><span style='color:#9CDCFE'>quantity</span><span style='color:#CE9178'>&nbsp;$</span><span style='color:#9CDCFE'>object</span><span style='color:#CE9178'>&nbsp;in&nbsp;storage&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>show</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Pictures&quot;</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>23</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>show</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Documents&quot;</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>11</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>show</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Videos&quot;</span><span style='color:#D4D4D4'>,&nbsp;</span><span style='color:#B5CEA8'>5</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        You have 23 Pictures in storage <br>
+        You have 11 Documents in storage <br>
+        You have 5 Videos in storage <br>
+    </div>
+    <br>
+    <li class="note">Example 4 : helloWorld (void function without Parameters)</li>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>helloWorld</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Hello&nbsp;Flutter&nbsp;Pro&nbsp;students&nbsp;&lt;3&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>helloWorld</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Hello Flutter Pro students &lt;3 <br>
+    </div>
+        </ol>
+		<br>
+		<h3 class=note>
+			Note:
+		</h3>
+		<p>
+			For functions that contain just one expression, you can use a shorthand syntax:
+		</p>
+		<br>
+		
+<div class=code>
+
+<p ><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>helloWorld</span><span style='
+color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Hello&nbsp;World&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<br>
+
+</div>
+    </ol>
+</div>

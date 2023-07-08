@@ -1,0 +1,38 @@
+<div class="contenu">
+    <h1>
+        Networking & Http
+    </h1>
+    <ol>
+        <li class="step">
+            HTTP
+        </li>
+        <p>
+            Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents,
+            such as HTML. It was designed for communication between web browsers and web servers, but it can also be
+            used for other purposes. HTTP follows a classical client-server model, with a client opening a connection to
+            make a request, then waiting until it receives a response. HTTP is a stateless protocol, meaning that the
+            server does not keep any data (state) between two requests.
+        </p>
+        <li class="step">
+            Cross-platform http networking
+        </li>
+        <p>
+            The http package provides the simplest way to issue http requests. This package is supported on Android,
+            iOS, and the web.
+        </p>
+        <li class="step">
+            Platform notes
+        </li>
+        <p>
+            Some platforms require additional steps : <br><br>
+            - Android apps must declare their use of the internet in the Android manifest (AndroidManifest.xml ):
+        </p>
+        <div class="res">
+            &lt;manifest xmlns:android...&gt; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;... <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;uses-permission android:name="android.permission.INTERNET" /&gt; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;application ... <br>
+            &lt;/manifest&gt; <br>
+        </div>
+    </ol>
+</div>

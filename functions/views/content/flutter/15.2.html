@@ -1,0 +1,661 @@
+<div class="contenu">
+    <h1>
+        Build a form with validation
+    </h1>
+    <p>
+        Apps often require users to enter information into a text field. For example, you might require users to log in
+        with an email address and password combination. <br><br>
+
+        To make apps secure and easy to use, check whether the information the user has provided is valid. If the user
+        has correctly filled out the form, process the information. If the user submits incorrect information, display a
+        friendly error message letting them know what went wrong. <br><b></b>
+
+        In this example, learn how to add validation to a form that has a single text field using the following steps:
+    </p>
+    <br>
+    <ol>
+        <li class="step">Create a Form with a GlobalKey</li>
+        <p>
+            First, create a Form. The <span class="word">Form</span> widget acts as a container for grouping and
+            validating multiple form fields. <br><br>
+
+            When creating the form, provide a <a
+                href="https://api.flutter.dev/flutter/widgets/GlobalKey-class.html">GlobalKey</a>. This uniquely
+            identifies the Form, and allows validation of the
+            form in a later step.
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'package:flutter/material.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    Define a custom Form widget.</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'>({</span><span
+                    style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                    style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    Define a corresponding State class.</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    This class holds data related to the form.</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'>&gt; {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#6A9955'>//
+                    Create a global key that uniquely identifies the Form widget</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#6A9955'>// and
+                    allows validation of the form.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#6A9955'>//</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#6A9955'>//
+                    Note: This is a `GlobalKey&lt;FormState&gt;`,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#6A9955'>// not
+                    a GlobalKey&lt;MyCustomFormState&gt;.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>_formKey</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#4EC9B0'>GlobalKey</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>FormState</span><span style='color:#D4D4D4'>&gt;();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    Build a Form widget using the _formKey created above.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Form</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#9CDCFE'>_formKey</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:
+                    &lt;</span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#6A9955'>// Add TextFormFields and
+                    ElevatedButton here.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; ],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+        </div>
+        <br>
+        <h3 class="note">
+            Tip:
+        </h3>
+        <p>
+            Using a GlobalKey is the recommended way to access a form. However, if you have a more complex widget tree,
+            you can use the <span class="word">Form.of()</span> method to access the form within nested widgets.
+        </p>
+        <br>
+        <li class="step">
+            Add a TextFormField with validation logic
+        </li>
+        <p>
+            Although the Form is in place, it doesn’t have a way for users to enter text. That’s the job of a
+            TextFormField. The <span class="word">TextFormField</span> widget renders a material design text field and
+            can display validation
+            errors when they occur. <br><br>
+
+            Validate the input by providing a validator() function to the TextFormField. If the user’s input isn’t
+            valid, the validator function returns a String containing an error message. If there are no errors, the
+            validator must return null. <br><br>
+
+            For this example, create a validator that ensures the TextFormField isn’t empty. If it is empty, return a
+            friendly error message.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#4EC9B0'>TextFormField</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#6A9955'>// The validator receives the
+                    text that the
+                    user has entered.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>validator</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#C586C0'>if</span><span
+                    style='color:#D4D4D4'> (</span><span style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>
+                    == </span><span style='color:#569CD6'>null</span><span style='color:#D4D4D4'> || </span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>isEmpty</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>return</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span style='color:#CE9178'>'Please enter some text'</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'> </span><span style='color:#569CD6'>null</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+            <br>
+        </div>
+        <br>
+        <li class="step">
+            Create a button to validate and submit the form
+        </li>
+        <p>
+            Now that you have a form with a text field, provide a button that the user can tap to submit the
+            information. <br><br>
+
+            When the user attempts to submit the form, check if the form is valid. If it is, display a success message.
+            If it isn’t (the text field has no content) display the error message.
+        </p>
+        <br>
+        <li class="step">
+            Example:
+        </li>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'package:flutter/material.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() =&gt; </span><span
+                    style='color:#DCDCAA'>runApp</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>());</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>({</span><span
+                    style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                    style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>_title</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#CE9178'>'Flutter form with
+                    validation'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#9CDCFE'>_title</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>_title</span><span style='color:#D4D4D4'>)),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'>(),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'>({</span><span
+                    style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                    style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>createState</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>MyCustomFormState</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>MyCustomForm</span><span style='color:#D4D4D4'>&gt; {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>_formKey</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#4EC9B0'>GlobalKey</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>FormState</span><span style='color:#D4D4D4'>&gt;();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    Build a Form widget using the _formKey created above.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Padding</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>18.0</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Form</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#9CDCFE'>_formKey</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>children</span><span
+                    style='color:#D4D4D4'>: &lt;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&gt;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#4EC9B0'>TextFormField</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>decoration</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>hintText</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#CE9178'>&quot;Username&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>validator</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>if</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> == </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#569CD6'>null</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> || </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span style='color:#9CDCFE'>isEmpty</span><span
+                    style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'Please enter your
+                    username'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } </span><span
+                    style='color:#C586C0'>else</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'> &lt; </span><span
+                    style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>&quot;username must
+                    have a minimum length of 3&quot;</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>return</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span style='color:#569CD6'>null</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#4EC9B0'>TextFormField</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>decoration</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>hintText</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#CE9178'>&quot;Email&quot;</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>validator</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>if</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> == </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#569CD6'>null</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> || </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>value</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>.</span><span style='color:#9CDCFE'>isEmpty</span><span
+                    style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'Please enter your
+                    email'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } </span><span
+                    style='color:#C586C0'>else</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#C586C0'>if</span><span style='color:#D4D4D4'> (!</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>contains</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;@&quot;</span><span style='color:#D4D4D4'>)) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'Please enter a
+                    valid email'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>return</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> </span><span style='color:#569CD6'>null</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#4EC9B0'>ElevatedButton</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>onPressed</span><span
+                    style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>: () {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='font-size:
+10.5pt;font-family:Consolas;color:#C586C0'>if</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'> (</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#9CDCFE'>_formKey</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>currentState</span><span style='color:#D4D4D4'>!.</span><span
+                    style='color:#DCDCAA'>validate</span><span style='color:#D4D4D4'>()) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#4EC9B0'>ScaffoldMessenger</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                    style='color:#DCDCAA'>showSnackBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>SnackBar</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>content</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'Processing Data'</span><span style='color:#D4D4D4'>)),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span
+                    style='color:#D4D4D4'>: </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'Submit'</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; ],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p> <br>
+        </div>
+        <br>
+
+
+    </ol>
+    <br><br>
+    <video
+        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/flutter-form-preview%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=c8936651-4db0-4c9e-a43e-f3600fd73dfe"
+        class="ss" autoplay muted loop></video>
+    <br><br>
+    <h2 class="note">
+        How does this work?
+    </h2>
+    <p>
+        To validate the form, use the <span class="word">_formKey</span> created in step 1. You can use the
+        <span class="word">_formKey.currentState()</span> method to
+        access the FormState, which is automatically created by Flutter when building a Form.
+
+        The <span class="word">FormState</span> class contains the <span class="word">validate()</span> method. When the
+        validate() method is called, it runs the
+        <span class="word">validator()</span> function for each text field in the form. If everything looks good, the
+        validate() method returns
+        true. If any text field contains errors, the validate() method rebuilds the form to display any error messages
+        and returns false.
+    </p>
+    <br>
+</div>

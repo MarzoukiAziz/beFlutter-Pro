@@ -1,0 +1,372 @@
+<div class="contenu">
+    <h1>
+        Try Catch Finally
+    </h1>
+
+    <ol>
+        <p>
+            Dart try, catch and finally blocks helps in writing the application code which may throw exceptions in runtime and gives us a chance to either recover from exception by executing alternate application logic or handle the exception gracefully to report back to the user. It helps in preventing the ugly application crashes. <br>
+        </p>
+        <br>
+
+        <li class=step>
+            Try Catch
+        </li>
+        <p>
+            Try Catch statement allows you to handle Errors or Exceptions without actually exiting the execution when an Exception or Error occurs. <br><br>
+            The <span class="word">try</span> block contains the application code which is expected to work in normal conditions. Then if at all an exception occurs, the object is sent to the <span class="word">catch</span> block. You can access the exception object and continue with the program execution. In catch block, you can write program statements. <br><br>
+
+        </p>
+        <h3 class="note">
+            Example:
+        </h3>
+        <br>
+        
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;txt&nbsp;=&nbsp;</span><span style='
+    color:#CE9178'>&quot;Dart&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>try</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(txt[i]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>catch</span><span style='
+    color:#D4D4D4'>&nbsp;(exception)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Something&nbsp;Wrong&nbsp;happened&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(exception);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        D <br>
+        a <br>
+        r <br>
+        t <br>
+        Something Wrong happened <br>
+        RangeError (index): Invalid value: Not in inclusive range 0..3: 4 <br>
+        
+    </div>
+    <br>
+    <li class="step">
+        Try On Catch
+    </li>
+    <p>
+        Catch block can handle any type of Exception or Error. But if you want to handle a specific type of Error or Exception in some different way, you can use <span class="word">on</span> keyword. <br><br>
+        Each on-block can handle specified Exception or Error. <br>
+    </p>    
+    <br>
+    <h3 class="note">
+        Example:
+    </h3>
+    <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;list&nbsp;=&nbsp;[</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>16</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>15</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span style='
+    color:#B5CEA8'>45</span><span style='
+    color:#D4D4D4'>];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>try</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(list[i]&nbsp;~/&nbsp;list[i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>on</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>RangeError</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Error:&nbsp;Out&nbsp;of&nbsp;range&nbsp;for&nbsp;list.&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>on</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>IntegerDivisionByZeroException</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Error:&nbsp;Integer&nbsp;Division&nbsp;by&nbsp;Zero&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>catch</span><span style='
+    color:#D4D4D4'>&nbsp;(exception)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Something&nbsp;unknown&nbsp;happened&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(exception);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+
+<br>
+<div class="res">
+    0 <br>
+    0 <br>
+    Error: Integer Division by Zero <br>
+
+</div>
+
+<br>
+<li class="step">
+    Finally
+</li>
+<p>
+    An optional <span class="word">finally</span> block gives us a chance to run the code which we want to execute EVERYTIME a try-catch block is completed – either with errors or without any error. <br><br>
+
+    The finally block statements are guaranteed of execution even if we fail to handle the exception successfully in catch block. <br><br>
+</p>
+<h3 class="note">
+    Example:
+</h3>
+<br>
+
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;list&nbsp;=&nbsp;[</span><span style='
+    color:#B5CEA8'>10</span><span style='
+    color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>16</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>30</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>45</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>try</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(list[i]&nbsp;~/&nbsp;list[i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>]);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>on</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>RangeError</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Error:&nbsp;Out&nbsp;of&nbsp;range&nbsp;for&nbsp;list.&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>on</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#4EC9B0'>IntegerDivisionByZeroException</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Error:&nbsp;Integer&nbsp;Division&nbsp;by&nbsp;Zero&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>catch</span><span style='
+    color:#D4D4D4'>&nbsp;(exception)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Something&nbsp;Wrong&nbsp;happened&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(exception);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>finally</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;We&nbsp;reach&nbsp;the&nbsp;finally&nbsp;block&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    
+<br>
+<div class="res">
+    0 <br>
+    3 <br>
+    0 <br>
+    2 <br>
+    0 <br>
+    Error: Out of range for list. <br>
+    We reach the finally block <br>
+
+</div>
+    </ol>
+
+</div>

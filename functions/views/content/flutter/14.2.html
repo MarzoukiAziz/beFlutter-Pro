@@ -1,0 +1,357 @@
+<div class="contenu">
+    <h1>
+        App8 : Movie Time - Learning New Widgets
+    </h1>
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">GridView</a></li>
+            <li><a href="#w2">Table</a></li>
+        </ol>
+    </div>
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">GridView</li>
+        <p>
+            A scrollable, 2D array of widgets. <br><br>
+            The main axis direction of a grid is the direction in which it scrolls (the scrollDirection). <br><br>
+
+            The most commonly used grid layouts are <span class="word">GridView.count</span>, which creates a layout
+            with a fixed number of tiles in the cross axis, and <span class="word">GridView.extent</span>, which creates
+            a layout with tiles that have a maximum cross-axis extent. <br><br>
+
+            To create a grid with a large (or infinite) number of children, use the <span
+                class="word">GridView.builder.</span> .
+
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/bLOtZDTm4H8" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>MainPage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>MainPage</span><span
+                    style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                    style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>colors</span><span
+                    style='color:#D4D4D4'>&nbsp;=&nbsp;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>red</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>pink</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>purple</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>deepPurple</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>indigo</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>blue</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>lightBlue</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>cyan</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>teal</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>green</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;];</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                    style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Scaffold</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'Flutter&nbsp;GridView'</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>GridView</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>count</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>crossAxisCount</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>childAspectRatio</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>generate</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>length</span><span style='color:#D4D4D4'>,&nbsp;(</span><span
+                    style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>colors</span><span style='color:#D4D4D4'>[</span><span
+                    style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>],</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>index</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>toString</span><span style='color:#D4D4D4'>())),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+        </div>
+
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c14l2p1.png?alt=media&token=8250f838-e7fb-4e43-8c8f-c84d60a79367"
+            alt=" GridView Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w2" class="step">Table </li>
+        <p>
+            A widget that uses the table layout algorithm for its children.
+        </p>
+
+        <h3 class="note">
+            Some properties of Table Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>border : </strong> TableBorder?
+            </li>
+            <p>
+                The style to use when painting the boundary and interior divisions of the table.
+            </p>
+            <li>
+                <strong>children : </strong> List&lt;TableRow&gt;
+            </li>
+            <p>
+                The rows of the table.
+            </p>
+            <li>
+                <strong>columnWidths : </strong> Map&lt;int, TableColumnWidth&gt;?
+            </li>
+            <p>
+                How the horizontal extents of the columns of this table should be determined.
+            </p>
+            <li>
+                <strong>defaultColumnWidth : </strong> TableColumnWidth
+            </li>
+            <p>
+                How to determine with widths of columns that don't have an explicit sizing algorithm.
+            </p>
+            <li>
+                <strong>defaultVerticalAlignment : </strong>TableCellVerticalAlignment
+            </li>
+            <p>
+                How cells that do not explicitly specify a vertical alignment are aligned vertically.
+            </p>
+
+        </ol>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_lbE0wsVZSw" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Table</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>border</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TableBorder</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>deepOrange</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>columnWidths</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>FractionColumnWidth</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>0.6</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>FractionColumnWidth</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>0.4</span><span style='color:#D4D4D4'>)</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>defaultVerticalAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TableCellVerticalAlignment</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>middle</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TableRow</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Netherlands&quot;</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Amsterdam&quot;</span><span style='color:#D4D4D4'>)]),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TableRow</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Greece&quot;</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Athens&quot;</span><span style='color:#D4D4D4'>)]),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TableRow</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Germany&quot;</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Berlin&quot;</span><span style='color:#D4D4D4'>)]),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TableRow</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Denmark&quot;</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Copenhagen&nbsp;&quot;</span><span style='color:#D4D4D4'>)]),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TableRow</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Norway&quot;</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Oslo&quot;</span><span style='color:#D4D4D4'>)]),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c14l2p2.png?alt=media&token=a09378a2-44f8-48ec-82f5-e98dcc39d9cb"
+            alt="Table Flutter" class="ss">
+        <br>
+        <br>
+    </ol>
+</div>

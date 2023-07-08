@@ -1,0 +1,160 @@
+<div class="contenu">
+    <h1>
+        Recursion 
+    </h1>
+    <ol>
+        <li class="step">
+            Definition:
+        </li>
+        <p>
+            Recursion is a process in which a function calls itself continuously. A function that calls itself is called recursive function. <br><br>
+            Recursion is not recommended to solve all types of problems. However, it is best for a few questions such as searching, sorting, Inorder/Preorder/Postorder, Tree Traversal, and DFS of Graph algorithms.
+        </p>
+        <li class="step">
+            Example 1:
+        </li>
+        <p>
+            For example, suppose we want to sum the integers from 0 to some value n:
+            
+        </p>
+        
+<div class=code>
+
+    <p><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>sum</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(n&nbsp;&gt;=&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>sum</span><span style='color:#D4D4D4'>(n&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>)&nbsp;+&nbsp;n;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;n;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>sum</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        15 <br>
+    </div>
+    <br>
+    <p>
+        There are two main requirements of a recursive function: <br>
+        <ul>
+            <li>
+                <p>
+					
+				<span class="word" style="color:purple;font-weight:700;">A Stop Condition</span> : the function returns a value when a certain condition is satisfied, without a further recursive call
+</p>
+            </li>
+            <li>
+                <p>
+					
+				<span class="word" style="color:purple;font-weight:700;">The Recursive Call</span> : the function calls itself with an input which is a step closer to the stop condition
+</p>
+            </li>
+        </ul>
+    </p>
+<p>
+
+</p>
+<li class="step">
+    Example 2:
+</li>
+<p>Watch the video to understand the Fibonacci Sequence</p>
+<div class=code>
+
+    <p><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>fib</span><span style='
+    color:#D4D4D4'>(n)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(n&nbsp;==&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>&nbsp;||&nbsp;n&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>fib</span><span style='color:#D4D4D4'>(n&nbsp;-&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>)&nbsp;+&nbsp;</span><span
+    style='color:#DCDCAA'>fib</span><span
+    style='color:#D4D4D4'>(n&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#DCDCAA'>fib</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+<div class="res">
+    5
+</div>
+<br>
+
+<iframe width="70%" height="400rem" src="https://www.youtube.com/embed/BNeOE1qMyRA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+	
+	
+	    <br>    <br>    <br>    <br>    <br>
+	
+	
+	</ol>
+</div>

@@ -1,0 +1,279 @@
+<div class="contenu">
+    <h1>
+        Switch
+    </h1>
+    <ol>
+        <li class="step">Switch Flow Control</li>
+        <p>
+            The switch statement allows us to replace several nested if-else constructs and thus improve the readability of our code.
+        </p>
+        <center>
+		<img style="height:500px;width:auto;" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/switch%20diagram.png?alt=media&token=b8b8a775-cf1d-4fa7-b842-b03e594e588b" alt="switch Control Flow Diagram"></center>
+        <li class=step>
+            Syntax : 
+        </li>
+        <br>
+        <div class="syn">
+            <p>
+                <span style="color: yellow;">switch</span>(variable_expression) {  <br>
+                    &nbsp;&nbsp;&nbsp;<span style="color: yellowgreen;">case</span> constant_expr1: {  <br>
+                    &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;// statements;  <br>
+                    &nbsp;&nbsp;&nbsp;}  <br>
+                    &nbsp;&nbsp;&nbsp;break;  <br>
+                    &nbsp;&nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&nbsp;<span style="color: yellowgreen;">case</span> constant_expr2: {  <br>
+                    &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;//statements;  <br>
+                    &nbsp;&nbsp;&nbsp;}  <br>
+                    &nbsp;&nbsp;&nbsp;break;  <br>
+                    &nbsp;&nbsp;&nbsp;    <br>
+                    &nbsp;&nbsp;&nbsp;<span style="color:#4EC9B0;">default</span>: {  <br>
+                    &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;//statements;   <br>
+                    &nbsp;&nbsp;&nbsp;} <br>
+                    &nbsp;&nbsp;&nbsp;break;  <br>
+                 }  <br>
+            </p>
+        </div>
+        <br>
+        <li class="step">
+            Example
+        </li>
+        <p>
+            Let's say, we have the following nested if-else statements:
+        </p>
+        <br>
+        
+<div class=code>
+
+    <p ><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;enter&nbsp;+,-,*,%&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;oper&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>15</span><span style='color:#D4D4D4'>,&nbsp;y&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>,&nbsp;result;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(oper&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;+&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;+&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(oper&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>&quot;-&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;-&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(oper&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>&quot;*&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;*&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(oper&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>&quot;%&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;%&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='color:#C586C0'>else</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Error&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;result&nbsp;=&nbsp;$</span><span style='color:#9CDCFE'>result</span><span style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    </div>
+    <br>
+    <div class="res">
+        enter +,-,*,% <br>
+        * <br>
+        result = 105 <br>
+    </div>
+    <br>
+    <div class="res">
+        enter +,-,*,% <br>
+        / <br>
+        Error <br>
+        result = null <br>
+    </div>
+    <br>
+    <p>
+        With switch case statement, the code become like that :
+    </p>
+    <br>
+    
+<div class=code>
+
+    <p ><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;enter&nbsp;+,-,*,%&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;oper&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>15</span><span style='color:#D4D4D4'>,&nbsp;y&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>,&nbsp;result;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>switch</span><span style='color:#D4D4D4'>&nbsp;(oper)&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#CE9178'>&quot;+&quot;</span><span style='color:#D4D4D4'>:</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;+&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#CE9178'>&quot;-&quot;</span><span style='color:#D4D4D4'>:</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;-&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#CE9178'>&quot;*&quot;</span><span style='color:#D4D4D4'>:</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;*&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#CE9178'>&quot;%&quot;</span><span style='color:#D4D4D4'>:</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;x&nbsp;%&nbsp;y;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>default</span><span style='color:#D4D4D4'>:</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Error&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;result&nbsp;=&nbsp;$</span><span style='color:#9CDCFE'>result</span><span style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        enter +,-,*,% <br>
+        % <br>
+        result = 1 <br>
+    </div>
+    <br>
+    <div class="res">
+        / <br>
+        Error <br>
+        result = null <br>
+    </div>
+    </ol>
+</div>

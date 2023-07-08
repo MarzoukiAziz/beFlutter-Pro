@@ -1,0 +1,371 @@
+<div class="contenu">
+    <h1>
+        While and do-while
+    </h1>
+    <ol>
+        <li class="step">
+            While
+        </li>
+        <br>
+        <p>
+            The while statement continually executes a block of statements while a particular condition is true.
+        </p>
+        <ol>
+           <li class="note">Syntax</li> 
+           <br>
+            <p class=syn>
+                <span style="color: yellow;">while</span> ( <span style="color: yellowgreen;">expression</span> ) { <br>
+                    &nbsp;&nbsp;&nbsp;statement(s)<br>
+               }<br>
+            </p>
+<br>
+           <p>
+            The while statement evaluates <span class="word">expression</span>, which must return a boolean value. If the expression evaluates to <span class="word">true</span>, the while statement executes the statement(s) in the while block. The while statement continues testing the expression and executing its block until the expression evaluates to <span class="word">false</span>. <br>
+           </p>
+           <br>
+           <li class="note">
+               Example
+           </li>
+           <br>
+           <div class=code>
+
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(count&nbsp;&lt;&nbsp;</span><span
+            style='color:#B5CEA8'>5</span><span
+            style='color:#D4D4D4'>)&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>'count&nbsp;=&nbsp;$</span><span
+            style='color:#9CDCFE'>count</span><span
+            style='color:#CE9178'>'</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count++;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+            
+            <br>
+            
+            </div>
+            <br>
+            <div class="res">
+                count = 0 <br>
+                count = 1 <br>
+                count = 2 <br>
+                count = 3 <br>
+                count = 4 <br>
+                 
+            </div>
+            <br>
+            <li class="note">
+                Infinite while loop
+            </li>
+			<br>
+            <div class=code>
+
+                <p ><span style='
+                color:#569CD6'>void</span><span style='
+                color:#D4D4D4'>&nbsp;</span><span style='
+                color:#DCDCAA'>main</span><span style='
+                color:#D4D4D4'>()&nbsp;{</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>;</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(count&nbsp;&gt;&nbsp;</span><span
+                style='color:#B5CEA8'>5</span><span
+                style='color:#D4D4D4'>)&nbsp;{</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;count&nbsp;=&nbsp;$</span><span
+                style='color:#9CDCFE'>count</span><span
+                style='color:#CE9178'>&quot;</span><span
+                style='color:#D4D4D4'>);</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count++;</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>}</span></p>
+                <br>
+                
+                </div>
+                <br>
+            <p>
+                This loop would never end, its an infinite while loop. This is because condition is count>5 which would always be true as we are incrementing the value of count inside while loop. <br>
+                Here is another example:
+            </p>
+            <br>
+            <div class=code>
+
+                <p ><span style='
+                color:#569CD6'>void</span><span style='
+                color:#D4D4D4'>&nbsp;</span><span style='
+                color:#DCDCAA'>main</span><span style='
+                color:#D4D4D4'>()&nbsp;{</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>while</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#569CD6'>true</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;hello&quot;</span><span
+                style='color:#D4D4D4'>);</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+                
+                <p ><span style='
+                color:#D4D4D4'>}</span></p>
+                
+                <br>
+                
+                </div>
+        </ol>
+		<br>
+		 <li class="step">
+            Do-While
+        </li>
+        <p>
+            The Dart programming language also provides a do-while statement.
+        </p>
+        <ol>
+            <li class="note">
+                Syntax:
+            </li>
+            <br>
+            <p class="syn">
+                <span style="color: yellow;">do</span> { <br>
+                &nbsp;&nbsp;&nbsp;statement(s) <br>
+               } <span style="color: yellow;">while</span> ( <span style="color: yellowgreen;">expression</span> ) ; <br> <br>
+            </p>
+            <br>
+            <p>
+                The difference between do-while and while is that do-while evaluates its expression at the <span class="word">bottom</span> of the loop instead of the top. Therefore, the statements within the do block are always executed <span class="word">at least once</span>. <br>
+            </p>
+            <br>
+            <li class="note">
+                Example:
+            </li>
+            <br>
+            <div class=code>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='font-size:
+10.5pt;color:#B5CEA8'>3</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>do</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;count&nbsp;=&nbsp;$</span><span
+style='color:#9CDCFE'>count</span><span
+style='color:#CE9178'>&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;(count&nbsp;&lt;&nbsp;</span><span
+style='color:#B5CEA8'>7</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+<br>
+<div class="res">
+    count = 3 <br>
+count = 4 <br>
+count = 5 <br>
+count = 6 <br>
+</div>
+<br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;count&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>do</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;count&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>count</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;count++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(count&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <div class="res">
+        count = 3 <br>
+    </div>
+    <br>
+			<p>
+				We can use it in user input control:
+			</p>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;input;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>&nbsp;isNumeric;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;number;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>do</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;a&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;20&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;isNumeric&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(input)&nbsp;!=&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(isNumeric&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;This&nbsp;is&nbsp;not&nbsp;a&nbsp;number&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(input);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(!(isNumeric&nbsp;&amp;&amp;&nbsp;number&nbsp;&lt;=&nbsp;</span><span
+    style='color:#B5CEA8'>20</span><span
+    style='color:#D4D4D4'>&nbsp;&amp;&amp;&nbsp;number&nbsp;&gt;=&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Good&nbsp;Job&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+ <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        enter a number between 1 and 20 <br>
+        xc <br>
+        This is not a number <br>
+        enter a number between 1 and 20 <br>
+        34 <br>
+        enter a number between 1 and 20 <br>
+        12 <br>
+        Good Job <br>
+    </div>
+        </ol>
+    </ol>
+</div>

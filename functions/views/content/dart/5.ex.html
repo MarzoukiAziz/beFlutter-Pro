@@ -1,0 +1,979 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="step">
+            Exercise 1:
+        </li>
+        <p>
+            Write a Dart function that checks whether a passed string is palindrome or not? <br>
+            A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., <span class="word">madam</span> or <span class="word">nursesrun</span>.
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#4EC9B0'>bool</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>palindrome</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;index&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>while</span><span style='
+color:#D4D4D4'>&nbsp;((index&nbsp;&lt;&nbsp;txt.length&nbsp;~/&nbsp;</span><span
+style='color:#B5CEA8'>2</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(txt[index]&nbsp;==&nbsp;txt[txt.length&nbsp;-&nbsp;index&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>]))&nbsp;index++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;index&nbsp;==&nbsp;txt.length&nbsp;~/&nbsp;</span><span
+style='color:#B5CEA8'>2</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+</div>
+<span style="font-weight: 900;"> OR</span>
+<div class="code">
+<p><span style='
+color:#4EC9B0'>bool</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>palindrome</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;index&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;index&nbsp;&lt;&nbsp;txt.length&nbsp;~/&nbsp;</span><span
+style='color:#B5CEA8'>2</span><span
+style='color:#D4D4D4'>;&nbsp;index++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt[index]&nbsp;!=&nbsp;txt[txt.length&nbsp;-&nbsp;index&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>])&nbsp;</span><span
+style='color:#C586C0'>return</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#569CD6'>false</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#569CD6'>true</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+		<br>
+        <li class="step">
+            Exercise 2:
+        </li>
+        <p>
+            Write a Dart function that accepts three integer n ,min (optional parameter and have a default value of 1) and max then return a list of n random numbers between min and max. <br>
+        </p>
+		   <h3 class="answer">
+            Solution:
+        </h3>
+<div class=code>
+
+<p><span style='
+color:#569CD6'>import</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#CE9178'>'dart:math'</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#4EC9B0'>List</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>randoms</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;max,&nbsp;{</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;min = 0})&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>List</span><span style='
+color:#D4D4D4'>&nbsp;list&nbsp;=&nbsp;[];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>Random</span><span
+style='color:#D4D4D4'>().</span><span
+style='color:#DCDCAA'>nextInt</span><span
+style='color:#D4D4D4'>(max&nbsp;-&nbsp;min&nbsp;+&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>)&nbsp;+&nbsp;min;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;list.</span><span style='
+color:#DCDCAA'>add</span><span style='
+color:#D4D4D4'>(x);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;list;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+		<br>
+		     
+        <li class="step">
+            Exercise 3: 
+        </li>
+        <p>
+            Write a Dart function that accepts a String as a parameter and delete all vowels from it (A, E, I, O, and U). <br>
+        </p>
+        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>deleteVowels</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;newTxt&nbsp;=&nbsp;</span><span style='
+color:#CE9178'>&quot;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(![</span><span style='
+color:#CE9178'>'A'</span><span style='
+color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>'E'</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>'I'</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>'O'</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#CE9178'>'U'</span><span
+style='color:#D4D4D4'>].</span><span
+style='color:#DCDCAA'>contains</span><span
+style='color:#D4D4D4'>(txt[i].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>()))&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newTxt&nbsp;+=&nbsp;txt[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;newTxt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+<br>
+        <li class="step">
+            Exercise 4:
+        </li>
+        <p>
+            Write a Dart function which will take an array of numbers stored and find the second lowest and second greatest numbers, respectively. <br>
+            Sample array : [7,2,10,41,35] <br>
+            Expected Output : 7,35 <br>
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>second</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>List</span><span style='
+color:#D4D4D4'>&nbsp;list)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//finding&nbsp;the&nbsp;max&nbsp;and&nbsp;the&nbsp;min</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;min&nbsp;=&nbsp;list[</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>];</span><span
+style='color:#6A9955'>//initialization&nbsp;of&nbsp;the&nbsp;min&nbsp;and&nbsp;the&nbsp;max&nbsp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;max&nbsp;=&nbsp;list[</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>];</span><span
+style='color:#6A9955'>//with&nbsp;the&nbsp;first&nbsp;value&nbsp;in&nbsp;the&nbsp;list</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;list.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(list[i]&nbsp;&gt;&nbsp;max)&nbsp;max&nbsp;=&nbsp;list[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(list[i]&nbsp;&lt;&nbsp;min)&nbsp;min&nbsp;=&nbsp;list[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//finding&nbsp;the&nbsp;second&nbsp;max&nbsp;and&nbsp;the&nbsp;second&nbsp;min</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+color:#4EC9B0'>int</span><span  style='
+color:#D4D4D4'>&nbsp;secondMin&nbsp;=&nbsp;max;</span></p>
+
+<p><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+color:#4EC9B0'>int</span><span  style='
+color:#D4D4D4'>&nbsp;secondMax&nbsp;=&nbsp;min;</span></p>
+
+<p><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;list.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((list[i]&nbsp;&gt;&nbsp;secondMax)&nbsp;&amp;&amp;&nbsp;(list[i]&nbsp;!=&nbsp;max))&nbsp;secondMax&nbsp;=&nbsp;list[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((list[i]&nbsp;&lt;&nbsp;secondMin)&nbsp;&amp;&amp;&nbsp;(list[i]&nbsp;!=&nbsp;min))&nbsp;secondMin&nbsp;=&nbsp;list[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//printing&nbsp;the&nbsp;result</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#CE9178'>&quot;Second&nbsp;Min&nbsp;=&nbsp;$</span><span
+style='color:#9CDCFE'>secondMin</span><span
+style='color:#CE9178'>&nbsp;and&nbsp;Second&nbsp;Max&nbsp;=&nbsp;$</span><span
+style='color:#9CDCFE'>secondMax</span><span
+style='color:#CE9178'>&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+		<br>
+        <li class="step">
+            Exercise 5:
+        </li>
+        <p>
+            Write a Dart function that accepts a string as a parameter and converts the first letter of each word of the string in upper case. <br>
+            Example string : 'the best day ever'
+            Expected Output : 'The Best Day Ever '
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		<div class=code>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>firstUpper</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;newTxt&nbsp;=&nbsp;</span><span style='
+color:#CE9178'>&quot;&nbsp;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt[</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)&nbsp;newTxt&nbsp;=&nbsp;txt[</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((txt[i&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>]&nbsp;==&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(txt[i]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>))&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newTxt&nbsp;+=&nbsp;txt[i].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span style='
+color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newTxt&nbsp;+=&nbsp;txt[i];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;newTxt;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+		<br>
+        <li class="step">
+            Exercise 6:
+        </li>
+        <p>
+            Write a Dart function that accepts a string as a parameter and find the longest word within the string. <br>
+            Example string : 'we are the new generation'<br>
+            Expected Output : 'generation'<br>
+			Assume one space between words in the passed string.<br>
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		<div class= code>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>longest</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;ch)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;chList&nbsp;=&nbsp;ch.</span><span
+style='color:#DCDCAA'>split</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;max&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;element&nbsp;</span><span style='
+color:#C586C0'>in</span><span style='
+color:#D4D4D4'>&nbsp;chList)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(element.length&nbsp;&gt;&nbsp;chList[max].length)&nbsp;max&nbsp;=&nbsp;chList.</span><span
+style='color:#DCDCAA'>indexOf</span><span
+style='color:#D4D4D4'>(element);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;chList[max];</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+		<br>
+        <li class="step">
+            Exercise 7:
+        </li>
+        <p>
+            Write a Dart function that returns a passed lowercase string with letters in alphabetical order. <br>
+            Example string : 'flutter' <br>
+            Expected Output : 'eflrttu' <br>
+            Assume punctuation and numbers symbols are not included in the passed string. <br>
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>order</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;ch)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;chList&nbsp;=&nbsp;ch.</span><span
+style='color:#DCDCAA'>split</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>''</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;result&nbsp;=&nbsp;</span><span style='
+color:#CE9178'>''</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//0&nbsp;&lt;=&nbsp;ASCII&nbsp;&lt;=&nbsp;128</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;chCodes&nbsp;=&nbsp;ch.codeUnits.</span><span
+style='color:#DCDCAA'>toList</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;chList.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;min&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;&nbsp;chList.length;&nbsp;j++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(chCodes[j]&nbsp;&lt;&nbsp;chCodes[min])&nbsp;min&nbsp;=&nbsp;j;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;chList[min];</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#6A9955'>//999&gt;128&nbsp;now&nbsp;this&nbsp;element&nbsp;can't&nbsp;be&nbsp;min&nbsp;again&nbsp;so&nbsp;we&nbsp;eliminate&nbsp;it</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;chCodes[min]&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>999</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;result;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+		<br>
+        <li class="step">
+            Exercise 8:
+        </li>
+        <p>
+            Write a Dart function that accepts a string and calculate the number of upper case letters, lower case letters,numbers and symbols(we don't take in count the space).
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>calculate</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;upper&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>,&nbsp;lower&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>,&nbsp;numbers&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>,&nbsp;symbols&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(txt[i]&nbsp;!=&nbsp;</span><span
+style='color:#CE9178'>'&nbsp;'</span><span
+style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;((txt.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+style='color:#CE9178'>'A'</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>))&nbsp;&amp;&amp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style='color:#D4D4D4'>(txt.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+ style='color:#CE9178'>'Z'</span><span
+ style='color:#D4D4D4'>.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(</span><span
+ style='color:#B5CEA8'>0</span><span
+ style='color:#D4D4D4'>)))</span></p>
+
+<p><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#D4D4D4'>upper++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;((txt.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+style='color:#CE9178'>'a'</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>))&nbsp;&amp;&amp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style='color:#D4D4D4'>(txt.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+ style='color:#CE9178'>'z'</span><span
+ style='color:#D4D4D4'>.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(</span><span
+ style='color:#B5CEA8'>0</span><span
+ style='color:#D4D4D4'>)))</span></p>
+
+<p><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#D4D4D4'>lower++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;((txt.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+style='color:#CE9178'>'0'</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>codeUnitAt</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>))&nbsp;&amp;&amp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style='color:#D4D4D4'>(txt.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+ style='color:#CE9178'>'9'</span><span
+ style='color:#D4D4D4'>.</span><span
+ style='color:#DCDCAA'>codeUnitAt</span><span
+ style='color:#D4D4D4'>(</span><span
+ style='color:#B5CEA8'>0</span><span
+ style='color:#D4D4D4'>)))</span></p>
+
+<p><span  style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#D4D4D4'>numbers++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;symbols++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#DCDCAA'>print</span><span style='
+color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#CE9178'>&quot;upper&nbsp;case&nbsp;letters:$</span><span
+style='color:#9CDCFE'>upper</span><span
+style='color:#CE9178'>,&nbsp;lower&nbsp;case&nbsp;letters:$</span><span
+style='color:#9CDCFE'>lower</span><span
+style='color:#CE9178'>,&nbsp;numbers:$</span><span
+style='color:#9CDCFE'>numbers</span><span
+style='color:#CE9178'>&nbsp;and&nbsp;symbols:$</span><span
+style='color:#9CDCFE'>symbols</span><span
+style='color:#CE9178'>&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+		<br>
+        <li class="step">
+            Exercise 9:
+        </li>
+        <p>
+            Write a Dart function that prints the characters that occurs two times in a given string. <br>
+            Example String : 'Firebase and Flutter' <br>
+            Expected Output : 'F R A T'
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>occursTwoTime</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>String</span><span style='
+color:#D4D4D4'>&nbsp;txt)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#569CD6'>var</span><span style='
+color:#D4D4D4'>&nbsp;result&nbsp;=&nbsp;</span><span style='
+color:#CE9178'>&quot;&quot;</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;occ;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+color:#B5CEA8'>0</span><span style='
+color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;txt.length;&nbsp;i++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;occ&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>for</span><span style='
+color:#D4D4D4'>&nbsp;(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;j&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;&nbsp;j&nbsp;&lt;&nbsp;txt.length;&nbsp;j++)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#C586C0'>if</span><span
+style='color:#D4D4D4'>&nbsp;(txt[j].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>()&nbsp;==&nbsp;txt[i].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>())&nbsp;occ++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;((occ&nbsp;==&nbsp;</span><span
+style='color:#B5CEA8'>2</span><span
+style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;(!result.</span><span
+style='color:#DCDCAA'>contains</span><span
+style='color:#D4D4D4'>(txt[i].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>())))</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;</span><span
+style='color:#CE9178'>&quot;&nbsp;&quot;</span><span
+style='color:#D4D4D4'>&nbsp;+&nbsp;txt[i].</span><span
+style='color:#DCDCAA'>toUpperCase</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;result;</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+		<br>
+        <li class="step">
+            Exercise 10:
+        </li>
+        <p>
+            Write a Dart recursive function to compute the factors of a positive integer.
+        </p>
+		        <h3 class="answer">
+            Solution:
+        </h3>
+		
+<div class=code>
+
+<p><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>fact</span><span style='
+color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>int</span><span style='
+color:#D4D4D4'>&nbsp;x)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>if</span><span style='
+color:#D4D4D4'>&nbsp;(x&nbsp;==&nbsp;</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#B5CEA8'>1</span><span style='
+color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+color:#C586C0'>else</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+color:#C586C0'>return</span><span style='
+color:#D4D4D4'>&nbsp;x&nbsp;*&nbsp;</span><span
+style='color:#DCDCAA'>fact</span><span
+style='color:#D4D4D4'>(x&nbsp;-&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<br>
+</div>
+    </ul>
+</div>

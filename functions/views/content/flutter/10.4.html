@@ -1,0 +1,698 @@
+<div class="contenu">
+        <h1>
+                showModalBottomSheet
+        </h1>
+        <p>
+                Shows a modal material design bottom sheet.
+                <br><br>
+                A modal bottom sheet is an alternative to a menu or a dialog and prevents the user from interacting with
+                the
+                rest of the app.
+                <br><br>
+                A closely related widget is a persistent bottom sheet, which shows information that supplements the
+                primary
+                content of the app without preventing the use from interacting with the app. Persistent bottom sheets
+                can be
+                created and displayed with the showBottomSheet function or the ScaffoldState.showBottomSheet method.
+        </p>
+        <h3 class="note">
+                Example :
+        </h3>
+        <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Test&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>arrow_upward</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>showModalBottomSheet</span><span style='color:#D4D4D4'>(</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                                style='color:#9CDCFE'>ctx</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>mainAxisAlignment</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#4FC1FF'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;This&nbsp;a&nbsp;bottom&nbsp;sheet&nbsp;!!&quot;</span><span
+                                style='color:#D4D4D4'>)),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>shutter_speed_outlined</span><span style='color:#D4D4D4'>)</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+                <br>
+        </div>
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l4p1.png?alt=media&token=bf487aac-5684-43e2-be2d-1240844109ea"
+                alt="showModalBottomSheet Flutter" class="ss">
+        <br><br>
+        <h3 class="note">
+                Note :
+        </h3>
+        <p>
+                The bottom sheet is a <span class="word">StateLessWidget</span> hence we can not call setState or change
+                state
+                inside that. <br><br> To fix this, we can wrap the Container inside the bottomModalSheet with a <span
+                        class="word">StateFullBuilder</span> then we
+                can call setState inside the bottomModelSheet.
+        </p>
+        <br><br><br>
+        <h2 class="step">
+                Exercise :
+        </h2>
+        <p style="color: darkgreen;">
+                Try to do this using <span class="word">FloatingActionButton</span>, <span
+                        class="word">StatefulBuilder</span>,
+                <span class="word">showModalBottomSheet</span>, <span class="word">TextField</span>, <span
+                        class="word">DropdownButton</span> and <span class="word">TextButton</span>.
+        </p>
+
+        <video src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c10l4v1%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=8c6d3e1b-c70f-436a-8390-310f662997cd"
+                autoplay muted loop class="ss"></video>
+
+        <br><br><br><br>
+        <h2 class="answer">
+                The Solution :
+        </h2>
+        <div class="code">
+
+                <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                style='color:#D4D4D4'>());</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#CE9178'>'Hi!'</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>debugShowCheckedModeBanner</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#569CD6'>false</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>theme</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>primarySwatch</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                                style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>blue</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'>&nbsp;{</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>_MyHomePageState</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>createState</span><span
+                                style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                                style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>();</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>_MyHomePageState</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                                style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>List</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                style='color:#D4D4D4'>&gt;&nbsp;</span><span style='color:#9CDCFE'>_colors</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>green</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>blue</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>orange</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>yellow</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>black</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;];</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>_name</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#CE9178'>&quot;My&nbsp;Name&quot;</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>late</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>TextEditingController</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#9CDCFE'>_nameController</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Color</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>_color</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>Colors</span><span
+                                style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>black</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>initState</span><span
+                                style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_nameController</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#4EC9B0'>TextEditingController</span><span style='color:#D4D4D4'>();</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>();</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>dispose</span><span
+                                style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_nameController</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Hi!&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>SizedBox</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>CircleAvatar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>backgroundColor</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>_color</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>radius</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>person</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_name</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>35</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>_color</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>floatingActionButton</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>FloatingActionButton</span><span style='color:#D4D4D4'>(</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>edit</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>showModalBottomSheet</span><span style='color:#D4D4D4'>(</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>StatefulBuilder</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                                style='color:#9CDCFE'>ctx</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                style='color:#9CDCFE'>setS</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Padding</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#B5CEA8'>15.0</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>TextField</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>controller</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>_nameController</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>decoration</span><span style='color:#D4D4D4'>:</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>InputDecoration</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>labelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#CE9178'>&quot;Name&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Color&nbsp;:&nbsp;&quot;</span><span
+                                style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>DropdownButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>_color</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>arrow_downward</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onChanged</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                                style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>?&nbsp;</span><span
+                                style='color:#9CDCFE'>c</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_color</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#9CDCFE'>c</span><span style='color:#D4D4D4'>!;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>setS</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_color</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#9CDCFE'>c</span><span style='color:#D4D4D4'>!;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>items</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>_colors</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+                                style='color:#DCDCAA'>map</span><span style='color:#D4D4D4'>&lt;</span><span
+                                style='color:#4EC9B0'>DropdownMenuItem</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                style='color:#D4D4D4'>&gt;&gt;((</span><span style='color:#4EC9B0'>Color</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>c</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>DropdownMenuItem</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Color</span><span
+                                style='color:#D4D4D4'>&gt;(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>c</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>c</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>60</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).</span><span
+                                style='color:#DCDCAA'>toList</span><span style='color:#D4D4D4'>(),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>_name</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#9CDCFE'>_nameController</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>text</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#DCDCAA'>pop</span><span style='color:#D4D4D4'>();</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Update&quot;</span><span style='color:#D4D4D4'>))</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <br>
+
+        </div>
+</div>

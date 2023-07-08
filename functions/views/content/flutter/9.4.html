@@ -1,0 +1,141 @@
+<div class="contenu">
+        <h1>
+                Const Widget
+        </h1>
+        <p>
+                There are several techniques one can use to minimize the impact of rebuilding a stateful widget such as
+                using
+                const widgets where possible. This helps Flutter to rebuild only widgets that should be updated.
+        </p>
+        <h3 class="note">
+                Example :
+        </h3>
+        <div class="code">
+
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>_MyHomePageState</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                                style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Test&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Text&nbsp;1&quot;</span><span
+                                style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Color</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>fromRGBO</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#B5CEA8'>210</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                style='color:#B5CEA8'>120</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                style='color:#B5CEA8'>80</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                                style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Text&nbsp;2&quot;</span><span
+                                style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Padding</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#B5CEA8'>40</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Text&nbsp;3&quot;</span><span
+                                style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>floatingActionButton</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>FloatingActionButton</span><span style='color:#D4D4D4'>(</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>add</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l4p1.png?alt=media&token=18d45ece-e675-468c-a6a9-8d2c79fda17e"
+                alt="flutter const widget" class="ss">
+</div>

@@ -1,0 +1,419 @@
+<div class="contenu">
+        <h1>Calculating the size dynamically</h1>
+        <p>
+                To calculate the height or the width of a widget dynamically instead of using fixed values, we need to
+                know
+                first how
+                much size is available.
+                <br><br>
+                This is where <span class="word">MediaQuery</span> comes into action, we can get information about the
+                current
+                device size, as well as
+                user preferences, and design your layout accordingly. MediaQuery provides a higher-level view of the
+                current
+                app’s screen size and can also give more detailed information about the device and its layout
+                preferences.
+                <br><br>
+                We have to connect it to our context ( the metadata object with some information about our widget and
+                its
+                position in the tree ).
+        </p>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/A3WrA4zAaPw" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <br>
+        <h3 class="note">Example :</h3>
+        <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>crossAxisAlignment</span><span
+                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>CrossAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#4FC1FF'>start</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#CE9178'>&quot;50%&nbsp;&lt;--&gt;&quot;</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#B5CEA8'>0.5</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>redAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#CE9178'>&quot;70%&nbsp;&lt;--&gt;&quot;</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#B5CEA8'>0.7</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>orangeAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>SizedBox</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#B5CEA8'>0.4</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#CE9178'>&quot;30%&nbsp;&#8593;&nbsp;90%&nbsp;&lt;--&gt;&quot;</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#B5CEA8'>0.3</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#B5CEA8'>0.9</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+                <br>
+        </div>
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l2p1.png?alt=media&token=0c609d0c-149a-48c1-a54d-b4e49eb36c57"
+                alt="MediaQuery Flutter" class="ss">
+        <br><br>
+        <h3 class="step">Exercise :</h3>
+        <p>
+                Try to do this using <span class="word">Image.network</span>, <span class="word">MediaQuery</span> and
+                <span class="word">IconButton</span>.
+        </p>
+
+        <video class="ss"
+                src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l2v1%20%E2%80%90%20Made%20with%20Clipchamp.mp4?alt=media&token=cf3a60ef-b4f4-4e31-a9bd-3ea2a15d8226"
+                autoplay muted loop></video>
+        <br>
+        <p>
+                <strong>Images : </strong><br>
+                <a target="_blank"
+                        href="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=5P-MAjr-">-
+                        dogs</a><br>
+                <a target="_blank"
+                        href="https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg">-
+                        cat</a>
+        </p>
+        <br><br><br>
+        <h3 class="answer">Solution :</h3>
+        <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>_MyHomePageState</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                                style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>var</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>size</span><span
+                                style='color:#D4D4D4'>,&nbsp;</span><span style='color:#9CDCFE'>height</span><span
+                                style='color:#D4D4D4'>,&nbsp;</span><span style='color:#9CDCFE'>width</span><span
+                                style='color:#D4D4D4'>,&nbsp;</span><span style='color:#9CDCFE'>dog</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0.5</span><span
+                                style='color:#D4D4D4'>,&nbsp;</span><span style='color:#9CDCFE'>cat</span><span
+                                style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0.5</span><span
+                                style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.height;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.width;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#CE9178'>&quot;Test&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>network</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#CE9178'>&quot;https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=5P-MAjr-&quot;</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#9CDCFE'>dog</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>dog</span><span style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+                                style='color:#B5CEA8'>1</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                                style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>dog</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#B5CEA8'>0.5</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>zoom_out</span><span style='color:#D4D4D4'>))</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                                style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>dog</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>zoom_in</span><span style='color:#D4D4D4'>)),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#DCDCAA'>network</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#CE9178'>&quot;https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg&quot;</span><span
+                                style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                                style='color:#9CDCFE'>cat</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>cat</span><span style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+                                style='color:#B5CEA8'>1</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span><span
+                                style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>cat</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#B5CEA8'>0.5</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>zoom_out</span><span style='color:#D4D4D4'>))</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span
+                                style='color:#4EC9B0'>IconButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>onPressed</span><span
+                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>cat</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                                style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                style='color:#9CDCFE'>zoom_in</span><span style='color:#D4D4D4'>)),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                <p><span style='color:#D4D4D4'>}</span></p>
+
+                <br>
+        </div>
+</div>

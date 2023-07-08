@@ -1,0 +1,1059 @@
+<div class="contenu">
+    <h1>
+        Date Picker
+    </h1>
+    <ol>
+
+        <li class="step">
+            The showDatePicker function
+        </li>
+        <p>
+            Shows a dialog containing a Material Design date picker.
+        </p>
+        <h3 class="note">
+            Basic Code :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>now</span><span style='color:#D4D4D4'>(),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+            <br>
+        </div>
+        <br>
+        <br>
+        <img class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p1.png?alt=media&token=7b53f621-6dea-488f-a7e6-149af23ddbf8"
+            alt="The showDatePicker function">
+        <br>
+        <br>
+        <li class="step">
+            Example :
+        </li>
+        <br>
+        <ol>
+            <li class="note">
+                Prepare a variable :
+            </li>
+            <div class="code">
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                        style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>now</span><span style='color:#D4D4D4'>();</span></p>
+                <br>
+            </div>
+            <br>
+            <li class="note">
+                Setup UI
+            </li>
+            <div class="code">
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>mainAxisSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>MainAxisSize</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#4FC1FF'>min</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;&lt;</span><span
+                        style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>${</span><span
+                        style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>toLocal</span><span style='color:#D4D4D4'>()}</span><span
+                        style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#DCDCAA'>split</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#CE9178'>'&nbsp;'</span><span style='color:#D4D4D4'>)[</span><span
+                        style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>],</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#B5CEA8'>55</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                        style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>SizedBox</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#B5CEA8'>20.0</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>RaisedButton</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>onPressed</span><span
+                        style='color:#D4D4D4'>:&nbsp;()&nbsp;=&gt;&nbsp;</span><span
+                        style='color:#DCDCAA'>_selectDate</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                        style='color:#6A9955'>//&nbsp;Refer&nbsp;step&nbsp;3</span>
+                </p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#CE9178'>'Select&nbsp;date'</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>black</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                        style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                        style='color:#9CDCFE'>greenAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                </p>
+
+                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                </p>
+                <br>
+            </div>
+            <br>
+            <p>
+                A minimal UI consists of Text to show date and RaisedButton to open DatePicker dialog.
+            </p>
+            <li class="note">
+                Write a Method to call showDatePicker function
+            </li>
+            <div class="code">
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#DCDCAA'>_selectDate</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;</span><span
+                        style='color:#C586C0'>async</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#569CD6'>final</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>?&nbsp;</span><span
+                        style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                        style='color:#C586C0'>await</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                        style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                        style='color:#6A9955'>//&nbsp;Refer&nbsp;step&nbsp;1</span>
+                </p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                        style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                        style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+                </p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                        style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;!=&nbsp;</span><span
+                        style='color:#569CD6'>null</span><span style='color:#D4D4D4'>&nbsp;&amp;&amp;&nbsp;</span><span
+                        style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;!=&nbsp;</span><span
+                        style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>)</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span
+                        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                        style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>;</span></p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+                </p>
+
+                <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+                #1E1E1E'><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+                <br>
+            </div>
+            <p>
+                This method actually calls showDatePicker function and waits for the date selected by the user. If a
+                user does not select anything then the date return will be null otherwise the selected date.
+
+            </p>
+            <h3>
+                Note :
+            </h3>
+            <p>
+                The <strong>initialDate</strong> property is used to display a default date when DatePicker dialog is
+                opened. <br><br>
+                <strong>SetState</strong> will be called to update the selected date in UI and you are done.
+            </p>
+            <br>
+            <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p2.gif?alt=media&token=c5c975f9-3727-46ce-b587-a45ae935a2ce"
+                alt="" class="ss">
+            <br>
+
+
+        </ol>
+        <br>
+        <li class="step">
+            Display only a specific date range
+        </li>
+        <p>
+            We need to set the <strong>firstDate</strong> and the <strong>lastDate</strong> properties :
+
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#6A9955'>//&nbsp;Required</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#6A9955'>//&nbsp;Required</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p><br>
+        </div>
+        <br>
+        <li class="step">
+            Show the Text input box instead of the calendar
+        </li>
+        <p>
+            Sometimes it becomes difficult for old age people to interact with the calendar for changing the dates
+            especially when they use it for the first time. <br><br>
+            In such a situation it is better to just provide an input box to enter the date, and this can be done very
+            easily just by setting <strong>initialEntryMode</strong> property.
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialEntryMode</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DatePickerEntryMode</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>input</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p3.gif?alt=media&token=617f1510-7b16-4ff3-a687-69e14f927606"
+            alt="" class="ss">
+        <br>
+        <li class="step">
+            Show the year’s list first
+        </li>
+        <p>
+            Sometimes you are very sure that the user will enter the date from the past years like date of birth, In
+            such a case you can directly show the year’s list instead of showing a list of days then making users open
+            the year list. <br><br>
+            Setting <strong>initialDatePickerMode</strong> to <strong>DatePickerMode.year</strong> will do the work.
+            This will save one-click for users,
+            which is good.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDatePickerMode</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DatePickerMode</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>year</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p4.gif?alt=media&token=1c6a2f6c-d14f-4a13-b388-5789b4d21a5b"
+            alt="" class="ss">
+        <br>
+        <br>
+        <li class="step">
+            Change the Text and the error messages.
+        </li>
+        <p>
+            These highlighted texts can be changed very easily by setting below properties.
+
+        </p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p5.png?alt=media&token=aa1767a3-f101-4612-b0bc-97333bb49f10"
+            alt="" class="ss">
+        <p>
+            When the user tries to enter the date via text input box, there is a high chance of making a mistake like
+            giving an invalid date. <br><br>
+            By default, this widget provides some predefined error text but you can always change it if you want in a
+            case like assisting users what to do next instead of just showing the message.
+        </p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p6.gif?alt=media&token=bc00e56f-69ea-4892-9e63-683e8e9beff5"
+            alt="" class="ss">
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>helpText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Select&nbsp;booking&nbsp;date'</span><span
+                    style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#6A9955'>//&nbsp;Can&nbsp;be&nbsp;used&nbsp;as&nbsp;title</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>cancelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Not&nbsp;now'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>confirmText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Book'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>errorFormatText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Enter&nbsp;valid&nbsp;date'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>errorInvalidText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Enter&nbsp;date&nbsp;in&nbsp;valid&nbsp;range'</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p> <br>
+        </div>
+        <br>
+        <br>
+        <li class="step">
+            Change the label and hint text
+        </li> <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fieldLabelText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Booking&nbsp;date'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fieldHintText</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'Month/Date/Year'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+            <br>
+
+        </div>
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p7.png?alt=media&token=03d246fe-40cf-4090-819d-0d6769a48d39"
+            alt="" class="ss">
+        <br><br>
+        <li class="step">
+            Open native-like DatePicker in the Target platform
+        </li>
+        <p>
+            If you have noticed carefully that we have kept on opening Material design date picker in the iOS device! so
+            how do we go for Cupertino Datepicker in iOS? <br><br>
+            We just need to check which target platform it is and show the respective DatePicker and yes Flutter has
+            also covered the CupertinoDatePicker.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#CE9178'>'package:flutter/cupertino.dart'</span><span style='color:#D4D4D4'>;</span>
+            </p>
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#CE9178'>'package:flutter/material.dart'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#CE9178'>'package:flutter/foundation.dart'</span><span style='color:#D4D4D4'>;</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                    style='color:#D4D4D4'>());</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                    style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                    style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                    style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MaterialApp</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>'DatePicker'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>theme</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>primarySwatch</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>blue</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                    style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                    style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                    style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                    style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span
+                    style='color:#D4D4D4'>&gt;&nbsp;</span><span style='color:#DCDCAA'>createState</span><span
+                    style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                    style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>DateTime</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>selectedDate</span><span
+                    style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>DateTime</span><span
+                    style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>now</span><span
+                    style='color:#D4D4D4'>();</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                    style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>buildMaterialDatePicker</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;</span><span
+                    style='color:#C586C0'>async</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#569CD6'>final</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>?&nbsp;</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#C586C0'>await</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#DCDCAA'>showDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>firstDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>lastDate</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>DateTime</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>data</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>light</span><span style='color:#D4D4D4'>(),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>!,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;!=&nbsp;</span><span
+                    style='color:#569CD6'>null</span><span style='color:#D4D4D4'>&nbsp;&amp;&amp;&nbsp;</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;!=&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>buildCupertinoDatePicker</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>showModalBottomSheet</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>MediaQuery</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                    style='color:#DCDCAA'>copyWith</span><span style='color:#D4D4D4'>().</span><span
+                    style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>&nbsp;/&nbsp;</span><span
+                    style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoDatePicker</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>mode</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>CupertinoDatePickerMode</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>date</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onDateTimeChanged</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>&nbsp;!=&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>picked</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>initialDateTime</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>minimumYear</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>2000</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>maximumYear</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>2025</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>_selectDate</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;</span><span
+                    style='color:#C586C0'>async</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>switch</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                    style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                    style='color:#9CDCFE'>platform</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>android</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>fuchsia</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>linux</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>windows</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#DCDCAA'>buildMaterialDatePicker</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>iOS</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>case</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TargetPlatform</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>macOS</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#DCDCAA'>buildCupertinoDatePicker</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Scaffold</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>backgroundColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>teal</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>mainAxisSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>MainAxisSize</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>min</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;&lt;</span><span
+                    style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>${</span><span
+                    style='color:#9CDCFE'>selectedDate</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>toLocal</span><span style='color:#D4D4D4'>()}</span><span
+                    style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>split</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'&nbsp;'</span><span style='color:#D4D4D4'>)[</span><span
+                    style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>],</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>55</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>SizedBox</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>20.0</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onPressed</span><span
+                    style='color:#D4D4D4'>:&nbsp;()&nbsp;=&gt;&nbsp;</span><span
+                    style='color:#DCDCAA'>_selectDate</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>),&nbsp;</span><span
+                    style='color:#6A9955'>//&nbsp;Refer&nbsp;step&nbsp;3</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>'Select&nbsp;date'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>black</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c13l3p8.gif?alt=media&token=57150ea7-791b-444c-ad66-8e8bf0bedc0c"
+            alt="" class="ss">
+    </ol>
+    <br><br><br><br><br>
+    <h5>
+        Sources :
+    </h5>
+    <p>
+        <a href="https://medium.com/flutter-community/a-deep-dive-into-datepicker-in-flutter-37e84f7d8d6c">A Deep Dive
+            Into DatePicker In Flutter</a> <br>
+        <a href="https://api.flutter.dev/flutter/material/showDatePicker.html">showDatePicker function</a>
+    </p>
+</div>

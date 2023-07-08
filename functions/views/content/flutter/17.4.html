@@ -1,0 +1,241 @@
+<div class="contenu">
+    <h1>
+        JSON
+    </h1>
+    <ol>
+        <li class="step">
+            What is JSON?
+        </li>
+        <p>
+            JSON, which stands for JavaScript Object Notation, is an open-standard format
+            used on the web and in mobile clients. It’s the most widely used format for
+            Representational State Transfer (REST)-based APIs that servers provide. If you talk to a server that
+            has a REST API, it will most likely return data in a JSON format. An example of a
+            JSON response looks something like this:
+        </p>
+        <div class="res">
+            { <br><br>
+            &nbsp;&nbsp;&nbsp;"title": "The Shawshank Redemption", <br><br>
+            &nbsp;&nbsp;&nbsp;"rank": "1", <br><br>
+            &nbsp;&nbsp;&nbsp;"id": "tt0111161" <br><br>
+            }
+        </div>
+        <p>
+            That is an example movie response that contains three fields.
+        </p>
+        <p>
+            While it’s possible to treat the JSON as just a long string and try to parse out the
+            data, it’s much easier to use a package that already knows how to do that. Flutter has
+            a built-in package for decoding JSON, but in this chapter, you’ll use the
+            <span class="word">json_serializable</span> and <span class="word">json_annotation</span> packages to help
+            make the process
+            easier.
+        </p>
+        <p>
+            Flutter’s built-in <span class="word">dart:convert</span> package contains methods like json.decode and
+            json.encode, which converts a JSON string to a Map&lt;String, dynamic&gt; and back.
+            While this is a step ahead of manually parsing JSON, you’d still have to write extra
+            code that takes that map and puts the values into a new class.
+        </p>
+        <p>
+            The json_serializable package comes in handy because it can generate model classes
+            for you according to the annotations you provide via json_annotation. Before taking a
+            look at automated serialization, you’ll see in the next section what manual
+            serialization entails.
+        </p>
+        <br>
+        <li class="step">
+            Serializing JSON inside model classes
+
+        </li>
+        <p>
+            To convert the JSON above to a model class, you’d first create a Movie model class:
+        </p>
+        <div class="code">
+
+            <p span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>rank</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>rank</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <p>
+            Then you’d add toJson() and fromJson() factory methods:
+
+        </p>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>rank</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>rank</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>factory</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>fromJson</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                    style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Movie</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>json</span><span
+                    style='color:#D4D4D4'>[</span><span style='color:#CE9178'>'title'</span><span
+                    style='color:#D4D4D4'>] </span><span style='color:#569CD6'>as</span><span style='color:#D4D4D4'>
+                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                    style='color:#CE9178'>'rank'</span><span style='color:#D4D4D4'>] </span><span
+                    style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#9CDCFE'>json</span><span style='color:#D4D4D4'>[</span><span
+                    style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>] </span><span
+                    style='color:#569CD6'>as</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                    style='color:#DCDCAA'>toJson</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> &lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt;{</span><span
+                    style='color:#CE9178'>'title'</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#CE9178'>'rank'</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>rank</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#CE9178'>'id'</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>id</span><span style='color:#D4D4D4'>};</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <p>
+            In fromJson(), you grab data from the JSON map variable named json and convert
+            it to arguments you pass to the Movie constructor. In toJson(), you construct a
+            map using the JSON field names. <br><br>
+        </p>
+        <li class="step">
+            Serializing JSON inline
+        </li>
+        <p>
+            By looking at the, <span class="word"> dart:convert</span> documentation, you’ll see that you can decode the
+            JSON by calling the
+            <span class="word">jsonDecode() </span>function, with the JSON string as the method argument.
+        </p>
+        <div class="code">
+
+
+            <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#CE9178'>'dart:convert'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>() {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>rawJson</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#CE9178'>'{&quot;name&quot;:&quot;Mary&quot;,&quot;age&quot;:30}'</span><span
+                    style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Map</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#4EC9B0'>dynamic</span><span style='color:#D4D4D4'>&gt; </span><span
+                    style='color:#9CDCFE'>map</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#DCDCAA'>jsonDecode</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>rawJson</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>map</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+            <br>
+        </div>
+        <br>
+        <div class="res">
+            {name: Mary, age: 30} <br>
+        </div>
+        <p>
+            Unfortunately, <span class="word">jsonDecode()</span> returns a <span class="word">Map&lt;String,
+                dynamic&gt;</span>, meaning that you do not know the types of the
+            values until runtime. With this approach, you lose most of the statically typed language features: type
+            safety, autocompletion and most importantly, compile-time exceptions. Your code will become instantly
+            more error-prone.
+
+            For example, whenever you access the <span class="word">name</span> or <span class="word">email</span>
+            fields, you could quickly introduce a typo. A typo
+            that the compiler doesn’t know about since the JSON lives in a map structure.
+        </p>
+    </ol>
+</div>

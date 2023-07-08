@@ -1,0 +1,686 @@
+<div class="contenu">
+        <h1>
+                Themes
+        </h1>
+        <p>
+                To share colors and font styles throughout an app, use themes. You can either define app-wide themes, or
+                use
+                <span class="word">Theme</span> widgets that define the colors and font styles for a particular part of
+                the
+                application. In fact, app-wide
+                themes are just <span class="word">Theme</span> widgets created at the root of an app by the <span
+                        class="word">MaterialApp</span>.
+
+                After defining a Theme, use it within your own widgets. Flutter’s Material widgets also use your Theme
+                to set
+                the background colors and font styles for AppBars, Buttons, Checkboxes, and more.
+        </p>
+        <ol>
+                <li class="step">
+                        Creating an app theme
+                </li>
+                <p>
+                        To share a Theme across an entire app, provide a <span class="word">ThemeData</span> to the
+                        MaterialApp
+                        constructor.
+                        If no <span class="word">theme</span> is provided, Flutter creates a default theme for you.
+                </p>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;Flutter&nbsp;App&quot;</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>theme</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#6A9955'>//&nbsp;Define&nbsp;the&nbsp;default&nbsp;brightness&nbsp;and&nbsp;colors.</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>brightness</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Brightness</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#4FC1FF'>dark</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>primaryColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>lightGreenAccent</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#6A9955'>//&nbsp;Define&nbsp;the&nbsp;default&nbsp;font&nbsp;family.</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontFamily</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>'Ariel'</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#6A9955'>//&nbsp;Define&nbsp;the&nbsp;default&nbsp;`TextTheme`.&nbsp;Use&nbsp;this&nbsp;to&nbsp;specify&nbsp;the&nbsp;default</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#6A9955'>//&nbsp;text&nbsp;styling&nbsp;for&nbsp;headlines,&nbsp;titles,&nbsp;bodies&nbsp;of&nbsp;text,&nbsp;and&nbsp;more.</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>textTheme</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextTheme</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>headline1</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>64.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontWeight</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>headline6</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>32.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontStyle</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>FontStyle</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#4FC1FF'>italic</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>bodyText2</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>12.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontFamily</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>'Audiowide'</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <br>
+                </div>
+                <br>
+                <p>
+                        See the <a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a>
+                        documentation
+                        to see all of the colors and fonts you can define.
+                </p>
+                <br><br>
+                <li class="step">
+                        Themes for part of an application
+                </li>
+                <p>
+                        To override the app-wide theme in part of an application, wrap a section of the app in a Theme
+                        widget.
+                        <br><br>
+                        There are two ways to approach this: creating a unique ThemeData, or extending the parent theme.
+                </p>
+                <ul>
+                        <li class="note">
+                                Creating unique ThemeData
+                        </li>
+                        <p>
+                                If you don’t want to inherit any application colors or font styles, create a <span
+                                        class="word">ThemeData()</span> instance and
+                                pass that to the <span class="word">Theme</span> widget.
+                        </p>
+                        <br>
+                        <div class="code">
+
+                                <p><span style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#6A9955'>//&nbsp;Create&nbsp;a&nbsp;unique&nbsp;theme&nbsp;with&nbsp;`ThemeData`</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>data</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>ThemeData</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>splashColor</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>yellow</span><span style='color:#D4D4D4'>,</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;),</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>FloatingActionButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>Icon</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>Icons</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>add</span><span style='color:#D4D4D4'>),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;),</span></p>
+
+                                <p><span style='color:#D4D4D4'>);</span></p>
+                                <br>
+                        </div>
+                        <br>
+                        <li class="note">
+                                Extending the parent theme
+                        </li>
+                        <p>
+                                Rather than overriding everything, it often makes sense to extend the parent theme. You
+                                can handle this
+                                by using the <span class="word"> copyWith()</span> method.
+                        </p>
+                        <br>
+                        <div class="code">
+
+                                <p><span style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#6A9955'>//&nbsp;Find&nbsp;and&nbsp;extend&nbsp;the&nbsp;parent&nbsp;theme&nbsp;using&nbsp;`copyWith`.&nbsp;See&nbsp;the&nbsp;next</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#6A9955'>//&nbsp;section&nbsp;for&nbsp;more&nbsp;info&nbsp;on&nbsp;`Theme.of`.</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>data</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Theme</span><span
+                                                style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>of</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>context</span><span
+                                                style='color:#D4D4D4'>).</span><span
+                                                style='color:#DCDCAA'>copyWith</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#9CDCFE'>splashColor</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Colors</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>yellow</span><span style='color:#D4D4D4'>),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>const</span><span
+                                                style='color:#D4D4D4'>&nbsp;</span><span
+                                                style='color:#4EC9B0'>FloatingActionButton</span><span
+                                                style='color:#D4D4D4'>(</span></p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>onPressed</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#569CD6'>null</span><span style='color:#D4D4D4'>,</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                                style='color:#9CDCFE'>child</span><span
+                                                style='color:#D4D4D4'>:&nbsp;</span><span
+                                                style='color:#4EC9B0'>Icon</span><span
+                                                style='color:#D4D4D4'>(</span><span
+                                                style='color:#4EC9B0'>Icons</span><span
+                                                style='color:#D4D4D4'>.</span><span
+                                                style='color:#9CDCFE'>add</span><span style='color:#D4D4D4'>),</span>
+                                </p>
+
+                                <p><span style='color:#D4D4D4'>&nbsp;&nbsp;),</span></p>
+
+                                <p><span style='color:#D4D4D4'>);</span></p>
+                                <br>
+                        </div>
+                </ul>
+                <br>
+                <li class="step">
+                        Using a Theme
+                </li>
+                <p>
+                        Now that you’ve defined a theme, use it within the widgets’ <span class="word">build()</span>
+                        methods by
+                        using the
+                        <span class="word">Theme.of(context)</span> method.
+                        <br><br>
+                        The <span class="word">Theme.of(context)</span> method looks up the widget tree and returns the
+                        nearest
+                        <span class="word">Theme</span> in the tree. If you
+                        have a standalone Theme defined above your widget, that’s returned. If not, the app’s theme is
+                        returned.
+                        <br><br>
+                        In fact, the <span class="word">FloatingActionButton</span> uses this technique to find the
+                        accentColor.
+                </p>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                        style='color:#9CDCFE'>colorScheme</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>secondary</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>'Text&nbsp;with&nbsp;a&nbsp;background&nbsp;color'</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>style</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                        style='color:#9CDCFE'>textTheme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>headline6</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+                        <br>
+                </div>
+                <br>
+                <li class="step">
+                        Example :
+                </li>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#CE9178'>'package:flutter/foundation.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>main</span><span style='color:#D4D4D4'>()&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>runApp</span><span
+                                        style='color:#D4D4D4'>(</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyApp</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;Flutter&nbsp;App&quot;</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>theme</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>brightness</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Brightness</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#4FC1FF'>dark</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>primaryColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>lightGreenAccent</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontFamily</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>'Georgia'</span><span style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>textTheme</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextTheme</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>headline1</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>64.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontWeight</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>headline6</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>32.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontStyle</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>FontStyle</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#4FC1FF'>italic</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>bodyText2</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>fontSize</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#B5CEA8'>12.0</span><span
+                                        style='color:#D4D4D4'>,&nbsp;</span><span
+                                        style='color:#9CDCFE'>fontFamily</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#CE9178'>'Hind'</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>home</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span style='color:#D4D4D4'>(),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                                        style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;</span><span
+                                        style='color:#DCDCAA'>createState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyHomePage</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyHomePageState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>appBar</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>title</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Flutter&nbsp;App&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>color</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                        style='color:#9CDCFE'>colorScheme</span><span
+                                        style='color:#D4D4D4'>.</span><span style='color:#9CDCFE'>primary</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span style='color:#4EC9B0'>Text</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet,&nbsp;consectetur&nbsp;adipiscing&nbsp;elit,&nbsp;sed&nbsp;do&nbsp;eiusmod&nbsp;tempor&nbsp;incididunt&nbsp;ut&nbsp;labore&nbsp;et&nbsp;dolore&nbsp;magna&nbsp;aliqua.&nbsp;&quot;</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>style</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                        style='color:#9CDCFE'>textTheme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>bodyText2</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>floatingActionButton</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>data</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Theme</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>).</span><span
+                                        style='color:#DCDCAA'>copyWith</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#9CDCFE'>splashColor</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>yellowAccent</span><span style='color:#D4D4D4'>),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#4EC9B0'>FloatingActionButton</span><span
+                                        style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>onPressed</span><span
+                                        style='color:#D4D4D4'>:&nbsp;()&nbsp;{},</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#9CDCFE'>child</span><span
+                                        style='color:#D4D4D4'>:&nbsp;</span><span
+                                        style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#9CDCFE'>favorite</span><span style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <br>
+                </div>
+                <br><br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c14l3p1.png?alt=media&token=4165e700-9614-4ea1-aeb2-49920a9846d1"
+                        alt="Flutter theme" class="ss">
+
+        </ol>
+        <br><br><br><br><br>
+
+        <h3>
+                Sources :
+        </h3>
+        <a href="https://flutter.dev/docs/cookbook/design/themes">Use themes to share colors and font styles </a>
+</div>

@@ -1,0 +1,865 @@
+<div class="contenu">
+    <h1>
+        Lexical Scope
+    </h1>
+    <ol>
+        <p>
+            It is common in programming languages such as Dart, to describe a condition where the scope of the variable is not present when the control is out of the block of code where the scope was present. <br>
+       <br>     Dart is a lexically scoped language, which means that the scope of variables is determined statically, simply by the layout of the code. You can “follow the curly braces outwards” to see if a variable is in scope.
+        </p>
+        <br>
+        <li class="step">
+            Global Variable:
+        </li>
+        <p>
+            Global variables are defined outside the function and used to access from anywhere. <br>
+
+The scope of global variable is limited from the start of the program to the end of the program.
+        </p>
+
+        <h3 class="note">Example:</h3>
+<div class=code>
+
+    <p><span style='
+    color:#6A9955'>//Global&nbsp;Variables</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span style='
+    color:#CE9178'>&quot;Joe&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>23421</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>printName</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(name);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>printId</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(id);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>printName</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>printId</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;id&nbsp;=&nbsp;$</span><span style='
+    color:#9CDCFE'>id</span><span style='
+    color:#CE9178'>&nbsp;and&nbsp;name&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>name</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    </div>
+    <br>
+    <div class="res">
+        Joe <br>
+        23421 <br>
+        id = 23421 and name = Joe <br>
+    </div>
+    <br>
+<li class="step">
+    Local Variable:
+</li>
+<br>
+<p>
+    A local variable is a type of variable declared inside programming blocks(i.e., for loop, if else, switch and many more) or functions. <br>
+
+It can only be used inside that particular code of block or function in which it is declared or defined. <br>
+
+Once that particular code of block or functions is executed, the scope of a variable is finished or we say that the local variable is destroyed. <br>
+</p>
+<h3 class="note">Example 1:</h3>
+<p>
+    Let's define a nested function "inner()" inside main() and declare three varriables (name,id,age) inside it. <br>
+    These variables are only available inside inner() (the wrapping scope). <br>
+</p>
+<br>
+
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>inner</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#6A9955'>//local&nbsp;variables&nbsp;only&nbsp;visible&nbsp;in&nbsp;inner()</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;john&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;age&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>23</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7654567</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;name:$</span><span style='font-size:
+    10.5pt;color:#9CDCFE'>name</span><span style='font-size:
+    10.5pt;color:#CE9178'>&nbsp;age:$</span><span
+    style='color:#9CDCFE'>age</span><span
+    style='color:#CE9178'>&nbsp;id:$</span><span
+    style='color:#9CDCFE'>id</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>inner</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <p>
+        If we try to access to a local variable of inner() from main() (outside).<br>
+      </p> 
+    <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>inner</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#6A9955'>//local&nbsp;variables&nbsp;only&nbsp;visible&nbsp;in&nbsp;inner()</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;john&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;age&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>23</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7654567</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;name:$</span><span style='font-size:
+    10.5pt;color:#9CDCFE'>name</span><span style='font-size:
+    10.5pt;color:#CE9178'>&nbsp;age:$</span><span
+    style='color:#9CDCFE'>age</span><span
+    style='color:#CE9178'>&nbsp;id:$</span><span
+    style='color:#9CDCFE'>id</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>inner</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;id:$</span><span style='
+    color:#9CDCFE; text-decoration-line: underline;
+  text-decoration-style: wavy;text-decoration-color:red;'>id  </span><span style='
+    color:#CE9178'>&quot;</span><span style='
+    color:#D4D4D4'>);&nbsp;</span><span style='
+    color:#6A9955'>//error</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    </div>
+    <br>
+    <p>The Dart Analyser will throw this error:
+    </p>
+    <div class="res" style="color: rgb(255 94 0);">
+        Undefined name 'id'. <br>
+        Try correcting the name to one that is defined, or defining the name. <br>
+    </div>
+
+<h3 class="note">Example 2:</h3>
+<p>
+Now, inner() inherits scope from outer(), which inherits scope from main(). This gives inner() access to the outermost scope where the variable language is accessible. Conversely, main() has no idea of the existence of function inner().
+</p>
+<br>
+<div class=code>
+
+    <p><span  style='color:#569CD6'>void</span><span  style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>main</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#4EC9B0'>int</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>&nbsp;code&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>23</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#569CD6'>void</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>outer</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+    10.5pt;color:#4EC9B0'>String</span><span style='font-size:
+    10.5pt;color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;john&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>32432</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;age&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>23</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;$</span><span style='
+    color:#9CDCFE'>name</span><span style='
+    color:#CE9178'>&nbsp;$</span><span style='
+    color:#9CDCFE'>age</span><span style='
+    color:#CE9178'>&nbsp;$</span><span style='
+    color:#9CDCFE'>id</span><span style='
+    color:#CE9178'>&quot;</span><span style='
+    color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span  style='font-size:
+    10.5pt;color:#DCDCAA'>print</span><span 
+    style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;$</span><span
+     style='color:#9CDCFE'>code</span><span
+     style='color:#CE9178'>&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>inner</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;phone&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>7430462026</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;skype&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;john34&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>phone</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>skype</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>name</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>age</span><span
+    style='color:#CE9178'>&nbsp;$</span><span
+    style='color:#9CDCFE'>id</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>code</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>inner</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#DCDCAA'>outer</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+ <br>
+    
+    </div>
+    <p>
+
+    To further illustrate lexical scope, let’s take a look at the hashcode property of each variable from within its respective scope. <br>
+A hashcode is a value generated by converting each property of an object to a numeric value and then joining those values together to create a single numeric representation of the entire object.   <br><br>
+ Hashcodes are not guaranteed to be the same between runs or on different machines.   <br>
+  Objects of differing values or differing types cannot share the same hashcode.    <br>
+  Hashcodes give us a uniform approach to compare variables, as shown in the next example :   <br>
+            <a href="https://api.dart.dev/stable/2.10.3/dart-core/Object/hashCode.html">More About HashCode</a>
+</p>
+
+<h3 class="note">Example 3:</h3>
+
+<div class=code>
+
+    <p><span  style='color:#569CD6'>void</span><span  style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>main</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#DCDCAA'>print</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;Hashcodes&nbsp;:&nbsp;&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#4EC9B0'>int</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>&nbsp;code&nbsp;=&nbsp;</span><span
+     style='color:#B5CEA8'>26</span><span
+     style='color:#D4D4D4'>;</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>outer</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;john&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>123456</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>inner</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;phone&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>7430462026</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//Decalaring&nbsp;a&nbsp;new&nbsp;variable&nbsp;named&nbsp;id&nbsp;inside&nbsp;'inner'&nbsp;Scope</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#6A9955'>//We&nbsp;already&nbsp;use&nbsp;the&nbsp;same&nbsp;name&nbsp;for&nbsp;another&nbsp;variable&nbsp;in&nbsp;outer()</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;id&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;12345678&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;-------inner-------&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;outer&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>outer.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;inner&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>inner.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;phone&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>phone.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;name&nbsp;&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>name.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;code&nbsp;&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>code.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;id&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>id.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;-------outer-------&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;outer&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>outer.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:
+    10.5pt;color:#DCDCAA'>print</span><span style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;inner&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>inner.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;name&nbsp;&nbsp;:&nbsp;${</span><span
+    style='color:#9CDCFE'>name.hashCode</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span  style='font-size:
+    10.5pt;color:#DCDCAA'>print</span><span 
+    style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;code&nbsp;&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>code.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;id&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>id.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+<br>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#DCDCAA'>inner</span><span
+     style='color:#D4D4D4'>();</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+<br>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#DCDCAA'>print</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;-------main-------&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#DCDCAA'>print</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;code&nbsp;&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>code.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#DCDCAA'>print</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;outer&nbsp;:&nbsp;${</span><span
+     style='color:#9CDCFE'>outer.hashCode</span><span
+     style='color:#CE9178'>}&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span  style='
+    color:#DCDCAA'>print</span><span  style='font-size:
+    10.5pt;color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;inner&nbsp;:&nbsp;N/A&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span  style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>outer</span><span style='
+    color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Hashcodes :  <br>
+        -------main------- <br>
+        code  : 26 <br>
+        outer : 20082966 <br>
+        inner : N/A <br>
+        -------outer------- <br>
+        outer : 20082966 <br>
+        inner : 709628236 <br>
+        name  : 397289680 <br>
+        code  : 26 <br>
+        id    : 123456 <br>
+        -------inner------- <br>
+        outer : 20082966 <br>
+        inner : 709628236 <br>
+        phone : 7430462026 <br>
+        name  : 397289680 <br>
+        code  : 26 <br>
+        id    : 989061321 <br>
+
+    </div>
+    <br>
+    <p>
+        This is a matrix of hashcodes for each object from within its respective scopes.  <br><br>    </p>
+       
+<div class=WordSection1>
+
+<table class=MsoTable15Grid5DarkAccent5 border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:22.65pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-right:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>Object/Scope</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:solid white 1.0pt;border-left:
+  none;border-bottom:solid white 1.0pt;border-right:none;background:#5B9BD5;
+  padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>Main()</span></b></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:solid white 1.0pt;border-left:
+  none;border-bottom:solid white 1.0pt;border-right:none;background:#5B9BD5;
+  padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>Outer()</span></b></p>
+  </td>
+  <td width=116 style='width:86.95pt;border:solid white 1.0pt;border-left:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>Inner()</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:23.75pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>code</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>26</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>26</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>26</span></p>
+  </td>
+ </tr>
+ <tr style='height:22.65pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>outer</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>20082966</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>20082966</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>20082966</span></p>
+  </td>
+ </tr>
+ <tr style='height:22.65pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>name</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #A6A6A6;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%'>&nbsp;</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>397289680</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>397289680</span></p>
+  </td>
+ </tr>
+ <tr style='height:22.65pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>inner</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #A6A6A6;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%'>&nbsp;</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>709628236</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:22.65pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>709628236</span></p>
+  </td>
+ </tr>
+ <tr style='height:23.75pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>id</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #A6A6A6;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%'>&nbsp;</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  red;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>123456</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  red;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>989061321</span></p>
+  </td>
+ </tr>
+ <tr style='height:23.75pt'>
+  <td width=127 style='width:95.3pt;border:solid white 1.0pt;border-top:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><b><span
+  style='font-size:14.0pt;line-height:105%;color:white'>phone</span></b></p>
+  </td>
+  <td width=96 style='width:72.25pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #A6A6A6;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%'>&nbsp;</span></p>
+  </td>
+  <td width=106 style='width:79.4pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #A6A6A6;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%'>&nbsp;</span></p>
+  </td>
+  <td width=116 style='width:86.95pt;border-top:none;border-left:none;
+  border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;background:
+  #70AD47;padding:0in 5.4pt 0in 5.4pt;height:23.75pt'>
+  <p  align=center style='text-align:center'><span
+  style='font-size:14.0pt;line-height:105%;color:black'>7430462026</span></p>
+  </td>
+ </tr>
+</table>
+
+
+
+</div>
+		<p>
+			 The gray cells illustrate that objects that are declared only inside a child scope, such as inner(), are not accessible from parent scopes, such as outer().<br><br>
+        As you can see , inner() inherits scope from outer() but also declares its own named identifier of the variable id. <br>
+        The second declaration of id as a String does not modify the variable in scope outer(), but instead creates a new variable with its own object reference that’s only accessible within the scope for inner(). <br>
+        After the new id variable is initialized within scope inner(), the hashcode for the variable id inside the scope of inner() reports as 989061321 instead of 123456. <br>
+
+		</p>
+    </ol>
+</div>

@@ -1,0 +1,123 @@
+<div class="contenu">
+    <h1>
+        App2 : 5K Quotes - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">FloatingActionButton</a></li>
+            <li><a href="#w2">Image(Asset)</a></li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">FloatingActionButton</li>
+        <p>A floating action button is a circular icon button that hovers over content to promote a primary action in
+            the application. Floating action buttons are most commonly used in the Scaffold.floatingActionButton field.
+
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2uaoEDOgk_I" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Some properties of FloatingActionButton Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>backgroundColor : </strong> Color
+            </li>
+            <p>The button's background color.</p>
+
+            <li>
+                <strong>foregroundColor : </strong>Color
+            </li>
+            <p>
+                The default foreground color for icons and text within the button.
+            </p>
+            <li>
+                <strong>onPressed : </strong> VoidCallback (that have no arguments and return no data )
+            </li>
+            <p>
+                The callback that is called when the button is tapped or otherwise activated.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+
+        <div class="code">
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;floatingActionButton:&nbsp;</span><span
+                    style='color:#4EC9B0'>FloatingActionButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.update),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed:&nbsp;()&nbsp;{</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;updated&quot;</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.redAccent,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foregroundColor:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.yellow,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p><br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c4l2p1.png?alt=media&token=559b66c5-eee3-4eff-ba4c-63bd5b95f2f4"
+            alt="FloatingActionButton example" class="ss">
+        <br>
+        <li id="w2" class="step">Image</li>
+        <p>
+            A widget that displays an image.
+        </p>
+        <h3 style="color: rgb(66, 38, 168);">Second Method : Image.asset( path )
+        </h3>
+        <p>
+            In the next lesson, you will learn how to include images in your app before using them.
+        </p>
+
+        <br>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>asset</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;assets/images/heart.jpg&quot;</span><span
+                    style='color:#D4D4D4'>),</span></p> <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c4l2p2.png?alt=media&token=bfc3a829-ef8b-4b73-ab27-4eea88bc4bfb"
+            alt="Image asset Flutter Example" class="ss">
+
+
+    </ol>
+</div>

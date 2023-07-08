@@ -1,0 +1,599 @@
+<div class="contenu">
+    <h1>
+        Using the LayoutBuilder class
+    </h1>
+
+    <p>
+        Builds a widget tree that can depend on the parent widget's size.
+    </p>
+    <p>
+        From its <span class="word">builder</span> property, you get a <span class="word">BoxConstraints</span> object.
+        Examine the constraint’s properties to decide what
+        to display. For example, if your <span class="word">maxWidth</span> is greater than your width breakpoint,
+        return a spanword
+        Scaffold object with a
+        row that has a list on the left. If it’s narrower, return a <span class="word">Scaffold</span> object with a
+        drawer containing that list.
+        You can also adjust your display based on the device’s height, the aspect ratio, or some other property. When
+        the constraints change (for example, the user rotates the phone, or puts your app into a tile UI in Nougat), the
+        build function runs.
+    </p>
+    <p>
+        The builder function is called in the following situations:
+    </p>
+    <ul>
+        <li>
+            <p>
+                The first time the widget is laid out.
+            </p>
+        </li>
+        <li>
+            <p>
+                When the parent widget passes different layout constraints.
+
+            </p>
+        </li>
+        <li>
+            <p>
+                When the parent widget updates this widget.
+
+            </p>
+        </li>
+        <li>
+            <p>
+                When the dependencies that the builder function subscribes to change.
+
+            </p>
+        </li>
+    </ul>
+    <br>
+    <p>
+        The builder function is not called during layout if the parent passes the same constraints repeatedly.
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IYDVcriKjsw" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <br><br>
+    <br><br>
+    <h3 class="note">
+        Example :
+    </h3>
+    <div class="code">
+
+        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>MyStatelessWidget</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>MyStatelessWidget</span><span
+                style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                style='color:#D4D4D4'>?&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>})&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>:&nbsp;</span><span style='color:#9CDCFE'>key</span><span
+                style='color:#D4D4D4'>);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#9CDCFE'>@override</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#9CDCFE'>context</span><span
+                style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Scaffold</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#CE9178'>'LayoutBuilder&nbsp;Example'</span><span style='color:#D4D4D4'>)),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>LayoutBuilder</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#4EC9B0'>BoxConstraints</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxWidth</span><span style='color:#D4D4D4'>&nbsp;&gt;&nbsp;</span><span
+                style='color:#B5CEA8'>600</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#DCDCAA'>_buildWideContainers</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+                style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#DCDCAA'>_buildNormalContainer</span><span style='color:#D4D4D4'>();</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>_buildNormalContainer</span><span style='font-size:
+        10.5pt;font-family:Consolas;color:#D4D4D4'>()&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Center</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>_buildWideContainers</span><span
+                style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Center</span><span
+                style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>spaceEvenly</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;&lt;</span><span
+                style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>100.0</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>yellow</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+        <p><span style='color:#D4D4D4'>}</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    </div>
+    <br><br>
+    <p>
+        On Portrait Mode : width = 400 &lt; 600
+    </p>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l3p1.png?alt=media&token=3821f751-c1ff-43c7-bbda-7e5bc6337ca0"
+        alt="LayoutBuilder  flutter " class="ss">
+    <br><br>
+    <p>
+        On Landscape Mode : width = 683 &gt; 600
+    </p>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l3p2.png?alt=media&token=53a1ce41-c15c-4663-b267-616324305f49"
+        alt="LayoutBuilder  flutter" class="ss">
+    <br><br>
+    <h3 class="step">Exercise :</h3>
+    <p>
+        Try to do this using <span class="word">LayoutBuilder</span>.
+    </p>
+    <div style="display: table;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l3p3.png?alt=media&token=d183ceaf-7b1f-413d-bee8-8da0156ed942"
+            alt="LayoutBuilder  flutter " class="ss">
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l3p4.png?alt=media&token=60a8a511-6419-4410-9bd8-05511130dd5b"
+            alt="LayoutBuilder  flutter " style="width: 40%;">
+    </div>
+
+    <br><br>
+    <br>
+    <h3 class="answer">Solution :</h3>
+    <div class="code">
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>LayoutBuilder</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>builder</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#9CDCFE'>ctx</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                style='color:#4EC9B0'>BoxConstraints</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#6A9955'>//&nbsp;if&nbsp;the&nbsp;screen&nbsp;width&nbsp;&gt;=&nbsp;450</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxWidth</span><span style='color:#D4D4D4'>&nbsp;&gt;=&nbsp;</span><span
+                style='color:#B5CEA8'>450</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>mainAxisAlignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>MainAxisAlignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#4FC1FF'>spaceAround</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;&lt;</span><span
+                style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>alignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxHeight</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.35</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxWidth</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.25</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>deepOrange</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#CE9178'>'Left&nbsp;Screen'</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>16</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>padding</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>alignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxHeight</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.35</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxWidth</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.25</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>8</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#CE9178'>'Right&nbsp;Screen'</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>16</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#6A9955'>//&nbsp;If&nbsp;screen&nbsp;size&nbsp;is&nbsp;&lt;&nbsp;450</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+                style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>alignment</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>center</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>margin</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#9CDCFE'>constraints</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>maxHeight</span><span style='color:#D4D4D4'>&nbsp;*&nbsp;</span><span
+                style='color:#B5CEA8'>0.25</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>blueAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#569CD6'>const</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#CE9178'>'Normal&nbsp;Screen'</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+        </p>
+
+        <p><span
+                style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+        </p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+        <br>
+    </div>
+</div>

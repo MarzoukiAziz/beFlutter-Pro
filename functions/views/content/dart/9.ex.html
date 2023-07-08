@@ -1,0 +1,1552 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="step">Exercise 1 :</li>
+        <p>
+            Create a class called Point allowing to manipulate a point of a plane (x,y). You will provide:</p>
+            <ul>
+                <li>
+                    <p>
+                        A constructor receiving as arguments the coordinates (double) of a point.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A member function "move" performing a translation defined by its two arguments (double).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        a member function "display" simply displaying the coordinates of the point.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                The coordinates of the point will be private data members. <br>
+                We will write separately:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        A source file constituting the declaration of the class.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A small test program (main) declaring a point, displaying it, moving it around and showing it again.
+                    </p>
+                </li>
+            </ul>
+            <br>
+            <br>
+            <h3 class="answer">
+                Solution:
+            </h3>
+            <p><span class="word">point.dart</span></p>
+            
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_x,&nbsp;_y;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._y);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>move</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;mx,&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;my)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;+=&nbsp;mx;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;+=&nbsp;my;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;x&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>_x</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;y&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>_y</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <p><span class="word">main.dart</span></p>
+    <div class=code>
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'point.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;pt&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>6.5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt.</span><span
+    style='color:#DCDCAA'>move</span><span
+    style='color:#D4D4D4'>(-</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3.25</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        x : 2.0  y : 6.5 <br>
+        x : 0.0  y : 9.75 <br>
+    </div>
+<br>
+<br>
+        <li class="step">Exercise 2 :</li>
+            <p>
+                Adapt the class from the previous exercise, so that the member function "display" provides, in addition to the point coordinates, the number of objects of type Point.
+            </p>
+            <br>
+            <br>
+            <h3 class="answer">
+                Solution:
+            </h3>
+            <p><span class="word">point.dart</span></p>
+            
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_x,&nbsp;_y;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;nbOfObjets&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._y)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;nbOfObjets++;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>move</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;mx,&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;my)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;+=&nbsp;mx;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;+=&nbsp;my;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;x&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>_x</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;y&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>_y</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;---We&nbsp;have&nbsp;$</span><span
+    style='color:#9CDCFE'>nbOfObjets</span><span
+    style='color:#CE9178'>&nbsp;point(s)&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <p><span class="word">main.dart</span></p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'point.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;pt1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>6.5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt1.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;pt2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>5.35</span><span
+    style='color:#D4D4D4'>,&nbsp;-</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt2.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;pt3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt3.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;pt4&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>19</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>11</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;pt4.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        x : 2.0  y : 6.5 <br>
+        ---We have 1 point(s) <br>
+        x : 5.35  y : -5.0 <br>
+        ---We have 2 point(s) <br>
+        x : 0.0  y : 1.0 <br>
+        ---We have 3 point(s) <br>
+        x : 19.0  y : 11.0 <br>
+        ---We have 4 point(s) <br>
+    </div>
+    <br>
+        <li class="step">Exercise 3 :</li>
+        <p>
+            The class "vector3D" is defined as follows:
+        </p>
+        
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_x,&nbsp;_y,&nbsp;_z;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._y,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+    <br>
+    <p>
+        1) Add new named constructor "same" that have only one argument and initialize the three variables with it. <br><br>
+        2) Add a member function "coincide" that check if two vectors have the same components. <br><br>
+        3) A small test program (main) 
+    </p>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <p><span class="word">vector3D.dart</span></p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_x,&nbsp;_y,&nbsp;_z;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._y,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._z);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>same</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;w)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;=&nbsp;w;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>_y&nbsp;=&nbsp;w;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_z&nbsp;=&nbsp;w;</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>bool</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>coincide</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>Vector3D</span><span
+     style='color:#D4D4D4'>&nbsp;v)&nbsp;{</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#C586C0'>if</span><span
+     style='color:#D4D4D4'>&nbsp;(v._x&nbsp;==&nbsp;_x&nbsp;&amp;&amp;&nbsp;v._y&nbsp;==&nbsp;_y&nbsp;&amp;&amp;&nbsp;v._z&nbsp;==&nbsp;_z)</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+    
+
+    <br>
+    <p><span class="word">main.dart</span></p>
+    
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'vector3D.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;v1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;v2&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>same</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;v3&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Vector3D</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(v2.</span><span
+    style='color:#DCDCAA'>coincide</span><span
+    style='color:#D4D4D4'>(v1));</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(v2.</span><span
+    style='color:#DCDCAA'>coincide</span><span
+    style='color:#D4D4D4'>(v3));</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        false <br>
+        true <br>
+    </div>
+    <br>
+        <li class="step">Exercise 4 :</li>
+        <p>1) Create a class called BankClient that have 3 private attributes : </p>
+<p>&nbsp;&nbsp;&nbsp;a) <span class="word">Id</span> which is generated automatically and represents the order of the client in the bank Data Base (starting from 1 and can't be changed).</p> 
+<p>&nbsp;&nbsp;&nbsp;b) <span class="word">Name</span> (can't be changed).</p> 
+<p>&nbsp;&nbsp;&nbsp;c) <span class="word">Balance</span>  have 3 methods (get, add, subtractIfPossible).</p> 
+<p>2)Create a constructor that use "Initializer list" to initialize the name. </p>
+<p>3)Create a static method that print the number of clients and the bank balance.</p>
+<p>4)Create a small test program (main)  . </p>
+        <p>
+            <span class=note>Note : </span>
+            The balance is initialized at 0 and can't be negative.
+        </p>
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <p><span class="word">bankClient.dart</span></p>
+        
+    <div class=code>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_id;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_balance&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;_name;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;numberOfClients&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;bankBalance&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;n)&nbsp;:&nbsp;_name&nbsp;=&nbsp;n&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;numberOfClients++;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_id&nbsp;=&nbsp;numberOfClients;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_name;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getBalance</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_balance;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>addToBalance</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;amount)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_balance&nbsp;+=&nbsp;amount;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;bankBalance&nbsp;+=&nbsp;amount;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>subtractIfPossible</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;amount)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(amount&nbsp;&gt;&nbsp;_balance)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Operation&nbsp;failed&nbsp;!</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>The&nbsp;amount&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;balance.&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_balance&nbsp;-=&nbsp;amount;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bankBalance&nbsp;-=&nbsp;amount;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>static</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printBankData</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#CE9178'>&quot;The&nbsp;number&nbsp;of&nbsp;Clients&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>numberOfClients</span><span
+    style='color:#D7BA7D'>\n</span><span
+    style='color:#CE9178'>The&nbsp;bank&nbsp;balance&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>bankBalance</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    
+    <br>
+    <p><span class="word">main.dart</span></p>
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'bankClient.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Mauro&nbsp;Winchenbach&quot;</span><span
+    style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>c2&nbsp;=&nbsp;</span><span
+     style='color:#4EC9B0'>BankClient</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;Janetta&nbsp;Sullens&quot;</span><span
+     style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c3&nbsp;=&nbsp;</span><span
+     style='color:#4EC9B0'>BankClient</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;Karma&nbsp;Harari&quot;</span><span
+     style='color:#D4D4D4'>),</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>c4&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Alfonzo&nbsp;Cashin&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c1.</span><span
+    style='color:#DCDCAA'>getName</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c1.</span><span
+    style='color:#DCDCAA'>addToBalance</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>341.5</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c2.</span><span
+    style='color:#DCDCAA'>addToBalance</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>500</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c3.</span><span
+    style='color:#DCDCAA'>addToBalance</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>233</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c3.</span><span
+    style='color:#DCDCAA'>getBalance</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c4.</span><span
+    style='color:#DCDCAA'>getBalance</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>printBankData</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c2.</span><span
+    style='color:#DCDCAA'>subtractIfPossible</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>100</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c2.</span><span
+    style='color:#DCDCAA'>getBalance</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c3.</span><span
+    style='color:#DCDCAA'>subtractIfPossible</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>300</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c3.</span><span
+    style='color:#DCDCAA'>getBalance</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>BankClient</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>printBankData</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    </div>
+    <br>
+    <div class="res">
+        Mauro Winchenbach <br>
+        233.0 <br>
+        0.0 <br>
+        The number of Clients is 4 <br>
+        The bank balance is 1074.5 <br>
+        400.0 <br>
+        Operation failed ! <br>
+        The amount is greater than the balance. <br>
+        233.0 <br>
+        The number of Clients is 4 <br>
+        The bank balance is 974.5 <br>
+    </div>
+    <br>
+
+        <li class="step">Exercise 5 :</li>
+        <p>The class "Point" is defined as follows:</p>
+
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_x,&nbsp;_y;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._x,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>._y);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>move</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;mx,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;my)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;+=&nbsp;mx;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;+=&nbsp;my;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;x&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>_x</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>_y</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+        <p>1) Define a new class "PointCol" to manipulate colored points. This class is a derived from Point </p>
+        <p>2) Its constructor initializes the color of the object with a given integer (the color reference).</p>
+        <p>3) Add a method "printColor" that print the color. </p>
+        <p>4) Create a small test program (main).</p>
+    <br>
+    <br>
+    <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <p><span class="word">pointCol.dart</span></p>
+       
+<div class=code>
+
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>PointCol</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;_color;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>PointCol</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;c)&nbsp;:&nbsp;</span><span
+     style='color:#569CD6'>super</span><span
+     style='color:#D4D4D4'>(x,&nbsp;y)&nbsp;{</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>_color&nbsp;=&nbsp;c;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printColor</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;The&nbsp;Color&nbsp;Reference&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>_color</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+<br>
+<p><span class="word">main.dart</span></p>
+
+
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'pointCol.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>PointCol</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>123</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>move</span><span
+    style='color:#D4D4D4'>(-</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;p1.</span><span
+    style='color:#DCDCAA'>printColor</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        x = 5   y = 0 <br>
+        x = 4   y = 1 <br>
+        The Color Reference is 123 <br>
+    </div>
+    <br>
+    <li class="step">Exercise 6 :</li>
+    <p>1) Create a class "Client" that have 2 private attributes : </p>
+<p>&nbsp;&nbsp;&nbsp;a) <span class="word">Name</span> (can't be changed).</p> 
+<p>&nbsp;&nbsp;&nbsp;b) <span class="word">PurchasesAmount</span> (double) have 2 methods (get, add).</p> 
+<p>2)Create a constructor that initialize the name. </p>
+    <p>3) Create a class "LoyalClient" that have 1 private attribute :</p> 
+    <p>&nbsp;&nbsp;&nbsp;a) <span class="word">PurchasesAmount</span> (double) have 1 methods (get).</p> 
+    <p>4) Create a method "discount" that assign to PurchasesAmount (subclass) the value of PurchasesAmount (superclass) after reduction of 10%.</p>
+<p>5)Create a small test program (main)  . </p>
+<p>
+    <span class="note">
+        Note :
+    </span>
+    Use different names for the get methods.
+</p>
+<br>
+<br>
+<br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <p><span class="word">client.dart</span></p>
+   <br>
+
+   <div class=code>
+   
+   <p ><span
+   style='color:#569CD6'>class</span><span
+   style='color:#D4D4D4'>&nbsp;</span><span
+   style='color:#4EC9B0'>Client</span><span
+   style='color:#D4D4D4'>&nbsp;{</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#4EC9B0'>String</span><span
+   style='color:#D4D4D4'>&nbsp;_name;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#4EC9B0'>double</span><span
+   style='color:#D4D4D4'>&nbsp;_purchasesAmount&nbsp;=&nbsp;</span><span
+   style='color:#B5CEA8'>0</span><span
+   style='color:#D4D4D4'>;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#4EC9B0'>Client</span><span
+   style='color:#D4D4D4'>(</span><span
+   style='color:#569CD6'>this</span><span
+   style='color:#D4D4D4'>._name);</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#4EC9B0'>String</span><span
+   style='color:#D4D4D4'>&nbsp;</span><span
+   style='color:#DCDCAA'>getName</span><span
+   style='color:#D4D4D4'>()&nbsp;{</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+   style='color:#C586C0'>return</span><span
+   style='color:#D4D4D4'>&nbsp;_name;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#4EC9B0'>double</span><span
+   style='color:#D4D4D4'>&nbsp;</span><span
+   style='color:#DCDCAA'>getPurchasesAmount</span><span
+   style='color:#D4D4D4'>()&nbsp;{</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+   style='color:#C586C0'>return</span><span
+   style='color:#D4D4D4'>&nbsp;_purchasesAmount;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+   style='color:#569CD6'>void</span><span
+   style='color:#D4D4D4'>&nbsp;</span><span
+   style='color:#DCDCAA'>addToPurchasesAmount</span><span
+   style='color:#D4D4D4'>(</span><span
+   style='color:#4EC9B0'>double</span><span
+   style='color:#D4D4D4'>&nbsp;amount)&nbsp;{</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_purchasesAmount&nbsp;+=&nbsp;amount;</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+   
+   <p ><span
+   style='color:#D4D4D4'>}</span></p>
+   <br>
+   
+   </div>
+
+
+   <p><span class="word">LoyalClient.dart</span></p>
+   <br>
+
+
+   <div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'client.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>LoyalClient</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Client</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;_purchasesAmount&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>LoyalClient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&nbsp;name)&nbsp;:&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>(name);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>getPurchasesAmountOfLoyalClient</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;_purchasesAmount;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>discount</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_purchasesAmount&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>getPurchasesAmount</span><span
+    style='color:#D4D4D4'>()&nbsp;*&nbsp;</span><span
+    style='color:#B5CEA8'>0.9</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+
+   <p><span class="word">main.dart</span></p>
+   <br>
+   
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'client.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'loyalClient.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Client</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Daron&nbsp;Petsche&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c.</span><span
+    style='color:#DCDCAA'>getName</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>15</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>50</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>7</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(c.</span><span
+    style='color:#DCDCAA'>getPurchasesAmount</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;lc&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>LoyalClient</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Lucie&nbsp;Orloff&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(lc.</span><span
+    style='color:#DCDCAA'>getName</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;lc.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>43</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;lc.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>32</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;lc.</span><span
+    style='color:#DCDCAA'>addToPurchasesAmount</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>70</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(lc.</span><span
+    style='color:#DCDCAA'>getPurchasesAmount</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;lc.</span><span
+    style='color:#DCDCAA'>discount</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(lc.</span><span
+    style='color:#DCDCAA'>getPurchasesAmountOfLoyalClient</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <br>
+    <div class="res">
+        Daron Petsche <br>
+        72.0 <br>
+        Lucie Orloff <br>
+        145.0 <br>
+        130.5 <br>
+    </div>
+
+
+
+
+    </ul>
+
+
+
+</div>

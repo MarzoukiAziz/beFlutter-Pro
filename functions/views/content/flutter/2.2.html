@@ -1,0 +1,583 @@
+<div class="contenu">
+        <h1>
+                Stateless vs Stateful Widget
+        </h1>
+
+        <h3 class="note">
+                State :
+        </h3>
+        <p>
+                Before knowing the difference between the stateless and stateful widget we should take a look at the
+                definition of State of a widget.
+        </p>
+        <p>
+                <i style="color: gray;">
+                        The State is information that can read synchronously when the widget is build and might change
+                        during the lifetime of the widget.
+                </i>
+        </p>
+        <p>
+                In simpler words, the state of the widget is the information of the objects that its properties
+                (parameters) are holding at the time of its creation (when the widget is painted on the screen). The
+                state can also change when it is used for example the color of RaisedButton widget might change when
+                pressed.
+        </p>
+        <br>
+        <p>
+                We have two main types of widgets : <strong>StatelessWidget</strong> (used when the state do not change)
+                and
+                <strong>StatefulWidget</strong> (used when the state do not change). <br> <br>
+                Both of them have a <strong>build</strong> method and <strong>BuildContext</strong> to handle their
+                location in
+                the widget tree.
+        </p>
+        <br>
+        <ol>
+                <li class="step">
+                        The StatelessWidget
+                </li>
+                <p>
+                        A stateless widget can only be drawn once when the Widget is loaded/built. So it cannot be
+                        redrawn based on
+                        any events or user actions. To create a Stateless widget we need to extend from StatelessWidget
+                        for our
+                        classes.
+                </p>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <div class="code">
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>class</span><span
+                                        style='color:#4EC9B0'>MyStatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span
+                                        style='color:#D4D4D4'>(child:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;This&nbsp;is&nbsp;a&nbsp;StatelessWidget!&quot;</span><span
+                                        style='color:#D4D4D4'>));</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+
+                </div>
+                <br>
+                <img class="ss"
+                        src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c2l2p1.png?alt=media&token=e21d0a6d-c2f2-4a82-a3d5-87917d01bdcb"
+                        alt="StatelessWidget Example">
+                <br>
+                <p>
+                        MyStatelessWidget is a Stateless widget and it has overridden <strong>Widget build(BuildContet
+                                context)
+                        </strong> which retern <strong>Center(child: Text("This is a StatelessWidget!"))</strong>. <br>
+                        <br>
+                        So, when MyStatelessWidget is instantiated, it call the <strong>build</strong> function to draw
+                        the widgets
+                        returned.
+                </p>
+                <li class="step">
+                        The StatefulWidget
+                </li>
+                <p>
+                        The state of Stateful widget is mutable that's why it can be drawn multiple times within its
+                        lifetime. It is
+                        useful
+                        when we dynamically update screen of app on user actions. The build method of state can be
+                        called multiple
+                        times during its lifetime and every build may return new or different widgets based on various
+                        parameters.
+                        <br><br>
+                        The stateful widget is declared with two classes, the <strong>StatefulWidget</strong> class and
+                        the
+                        <strong>State</strong> class.
+                </p>
+                <h3 class="note">
+                        Example :
+                </h3>
+                <div class="code">
+
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>&nbsp;key})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span
+                                        style='color:#D4D4D4'>(key:&nbsp;key);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>createState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;This&nbsp;is&nbsp;a&nbsp;StatefulWidget&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                </div>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/C2L2P2.png?alt=media&token=5a5d2e5c-6709-437d-bfe3-5981ac31f9c0"
+                        alt="StatefulWidget example" class="ss">
+                <br>
+                <p>
+                        When the statefulWidget is builded, flutter creates an object State which contains all the
+                        mutable state
+                        of this widget.
+                </p>
+                <br>
+                <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c2l2p3.png?alt=media&token=e0cd5ad4-ba20-47a8-b806-a52331718196"
+                        alt="statefulWidget Lifecycle">
+                <br>
+                <p>
+                        You can override different portions of the StatefulWidget to customize and manipulate data at
+                        different
+                        points of the widget lifecycle shown below :
+                </p>
+                <br>
+                <table class="tableau">
+                        <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                        Method
+                                </th>
+                                <th>
+                                        Description
+                                </th>
+                        </tr>
+                        <tr>
+                                <td>1</td>
+                                <td>createState()</td>
+                                <td>Creates the mutable state for this widget at a given location in the tree. </td>
+                        </tr>
+                        <tr>
+                                <td>2</td>
+                                <td>initState()</td>
+                                <td>Called when this object is inserted into the tree. </td>
+                        </tr>
+                        <tr>
+                                <td>3</td>
+                                <td>didChangeDependencies()</td>
+                                <td>Called when a dependency of this element changes. </td>
+                        </tr>
+                        <tr>
+                                <td>4</td>
+                                <td>build(BuildContext context)</td>
+                                <td>Draw the part of the user interface represented by the widget.</td>
+                        </tr>
+                        <tr>
+                                <td>4</td>
+                                <td>setState()</td>
+                                <td>Notifies the framework that the state of this object has changed to schedule calling
+                                        the build for this State object.</td>
+                        </tr>
+                        <tr>
+                                <td>5</td>
+                                <td>didUpdateWidget(Contacts oldWidget)</td>
+                                <td>Called when the widget configuration changes.</td>
+                        </tr>
+                        <tr>
+                                <td>6</td>
+                                <td>deactivate()</td>
+                                <td>Called when this object is removed from the tree.</td>
+                        </tr>
+                        <tr>
+                                <td>7</td>
+                                <td>dispose()</td>
+                                <td>Called when this object is removed from the tree permanently.</td>
+                        </tr>
+                </table>
+                <br>
+                <h3 class="note">
+                        Example
+                </h3>
+                <br>
+                <div class="code">
+
+                        <p><span style='color:#569CD6'>import</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#CE9178'>'package:flutter/material.dart'</span><span
+                                        style='color:#D4D4D4'>;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>main</span><span
+                                        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+                                        style='color:#DCDCAA'>runApp</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyApp</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatelessWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+                                        style='color:#CE9178'>'Flutter&nbsp;StatfulWidget&nbsp;Lifecycle&nbsp;Demo'</span><span
+                                        style='color:#D4D4D4'>,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme:&nbsp;</span><span
+                                        style='color:#4EC9B0'>ThemeData</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;primarySwatch:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.blue,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualDensity:&nbsp;</span><span
+                                        style='color:#4EC9B0'>VisualDensity</span><span
+                                        style='color:#D4D4D4'>.adaptivePlatformDensity,</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home:&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>());</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>StatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>const</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>({</span><span style='color:#4EC9B0'>Key</span><span
+                                        style='color:#D4D4D4'>&nbsp;key})&nbsp;:&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span
+                                        style='color:#D4D4D4'>(key:&nbsp;key);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>createState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#CE9178'>&quot;Creating&nbsp;the&nbsp;mutable&nbsp;state&nbsp;for&nbsp;this&nbsp;widget&nbsp;at&nbsp;a&nbsp;given&nbsp;location&nbsp;in&nbsp;the&nbsp;tree.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>_MyStatefulWidgetState</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#569CD6'>extends</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                                        style='color:#D4D4D4'>&lt;</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>initState</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>initState</span><span style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;object&nbsp;is&nbsp;inserted&nbsp;into&nbsp;the&nbsp;tree&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>didChangeDependencies</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>didChangeDependencies</span><span
+                                        style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;a&nbsp;dependency&nbsp;of&nbsp;this&nbsp;element&nbsp;changes.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>BuildContext</span><span
+                                        style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Drawing&nbsp;UI&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#C586C0'>return</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                                        style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;This&nbsp;is&nbsp;a&nbsp;StatefulWidget.&quot;</span><span
+                                        style='color:#D4D4D4'>),</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>setState</span><span
+                                        style='color:#D4D4D4'>(fn)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;State&nbsp;is&nbsp;changed.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(fn);</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>didUpdateWidget</span><span
+                                        style='color:#D4D4D4'>(</span><span
+                                        style='color:#4EC9B0'>MyStatefulWidget</span><span
+                                        style='color:#D4D4D4'>&nbsp;oldWidget)&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Widget&nbsp;configuration&nbsp;changes.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>didUpdateWidget</span><span
+                                        style='color:#D4D4D4'>(oldWidget);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>deactivate</span><span
+                                        style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;Object&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;tree.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>deactivate</span><span style='color:#D4D4D4'>();</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                                        style='color:#D4D4D4'>&nbsp;</span><span
+                                        style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>()&nbsp;{</span>
+                        </p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span
+                                        style='color:#CE9178'>&quot;object&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;tree&nbsp;permanently.&quot;</span><span
+                                        style='color:#D4D4D4'>);</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                        style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span
+                                        style='color:#DCDCAA'>dispose</span><span style='color:#D4D4D4'>();</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+                        <p><span style='color:#D4D4D4'>}</span></p>
+
+                        <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+                </div>
+                <br>
+                <h3 class="note">
+                        Debug Console After Running :
+                </h3>
+                <div class="res">
+                        I/flutter (12848): Creating the mutable state for this widget at a given location in the tree.
+                        <br>
+                        I/flutter (12848): object is inserted into the tree <br>
+                        I/flutter (12848): a dependency of this element changes. <br>
+                        I/flutter (12848): Drawing UI <br>
+                        I/flutter (12848): Widget configuration changes. <br>
+                        I/flutter (12848): Drawing UI <br>
+                        I/flutter (12848): Widget configuration changes. <br>
+                        I/flutter (12848): Drawing UI <br>
+                </div>
+                <br>
+                <li class="step">
+                        Differences Between Stateless and Stateful Widget:
+                </li>
+                <h4>
+                        Stateless Widget:
+                </h4>
+                <ul>
+                        <li>Stateless Widgets are static widgets. </li>
+                        <li>They do not depend on any data change or any behavior change. </li>
+                        <li>Stateless Widgets do not have a state, they will be rendered once and will not update
+                                themselves, but will only be updated when external data changes. </li>
+                </ul>
+                <br>
+                <h4>
+                        Stateful Widget:
+                </h4>
+                <ul>
+                        <li>Stateful Widgets are dynamic widgets. </li>
+                        <li>They can be updated during runtime based on user action or data change. </li>
+                        <li>Stateful Widgets have an internal state and can re-render if the input data changes or if
+                                Widget’s state changes. </li>
+                </ul>
+        </ol>
+</div>

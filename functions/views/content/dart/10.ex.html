@@ -1,0 +1,1340 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="step">
+            Exercise 1:
+        </li>
+        <p>The class "Point" is be defined as follows:</p>
+
+        <div class=code>
+
+            <p ><span
+            style='color:#569CD6'>class</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;x,&nbsp;y;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#569CD6'>this</span><span
+            style='color:#D4D4D4'>.x,&nbsp;</span><span
+            style='color:#569CD6'>this</span><span
+            style='color:#D4D4D4'>.y);</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>moveForward</span><span
+            style='color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;x++;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;y++;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>goHome</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;mx,&nbsp;</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&nbsp;my)&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;mx;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;my;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>display</span><span
+            style='color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#DCDCAA'>print</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#CE9178'>&quot;x&nbsp;=&nbsp;$</span><span
+            style='color:#9CDCFE'>x</span><span
+            style='color:#CE9178'>&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;$</span><span
+            style='color:#9CDCFE'>y</span><span
+            style='color:#CE9178'>&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p ><span
+            style='color:#D4D4D4'>}</span></p>
+            
+            <br>
+            
+            </div>
+    <br>
+        <p>1) Define a new class "PointCol" to manipulate colored points. This class is a derived from Point </p>
+        <p>2) Its constructor initializes the color of the object with a given integer (the color reference).</p>
+        <p>3) Override the display method to print also the color. </p>
+        <p>4) Override the goForward method so that it adds 2 for x and y.</p>
+        <p>5) Override the goHome method so that it assigns 0 to the color.</p>
+        <p>6) Create a small test program (main).</p>
+    <br>
+    <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <p><span class="word">pointCol.dart</span></p>
+       
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>import</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#CE9178'>'point.dart'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>PointCol</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Point</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;color;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#4EC9B0'>PointCol</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;c)&nbsp;:&nbsp;</span><span
+     style='color:#569CD6'>super</span><span
+     style='color:#D4D4D4'>(x,&nbsp;y)&nbsp;{</span></p>
+    
+    <p ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>color&nbsp;=&nbsp;c;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;x&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;&nbsp;y&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>y</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;:&nbsp;$</span><span
+    style='color:#9CDCFE'>color</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>moveForward</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;+=&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;+=&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>goHome</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;mx,&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;my)&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>super</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>goHome</span><span
+    style='color:#D4D4D4'>(mx,&nbsp;my);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+
+    <br>
+    <br>
+    <p><span class="word">main.dart</span></p>
+
+<div class=code>
+
+<p ><span
+style='color:#569CD6'>import</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#CE9178'>'pointCol.dart'</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p ><span
+style='color:#569CD6'>import</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#CE9178'>'point.dart'</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;</span></p>
+
+<p ><span
+style='color:#569CD6'>void</span><span
+style='color:#D4D4D4'>&nbsp;</span><span
+style='color:#DCDCAA'>main</span><span
+style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#569CD6'>var</span><span
+style='color:#D4D4D4'>&nbsp;p&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>Point</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>5</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>6</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;p.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;p.</span><span
+style='color:#DCDCAA'>moveForward</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;p.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;p.</span><span
+style='color:#DCDCAA'>goHome</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>1</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;p.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#DCDCAA'>print</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#CE9178'>&quot;----------------&quot;</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+style='color:#569CD6'>var</span><span
+style='color:#D4D4D4'>&nbsp;pc&nbsp;=&nbsp;</span><span
+style='color:#4EC9B0'>PointCol</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>2</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>3</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>250</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;pc.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;pc.</span><span
+style='color:#DCDCAA'>moveForward</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;pc.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;pc.</span><span
+style='color:#DCDCAA'>goHome</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>,&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>);</span></p>
+
+<p ><span
+style='color:#D4D4D4'>&nbsp;&nbsp;pc.</span><span
+style='color:#DCDCAA'>display</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p ><span
+style='color:#D4D4D4'>}</span></p>
+
+<br>
+
+</div>
+<br>
+<div class="res">
+        x = 5   y = 6 <br>
+        x = 6   y = 7 <br>
+        x = 1   y = 1 <br>
+        ---------------- <br>
+        x : 2   y : 3    color : 250 <br>
+        x : 4   y : 5    color : 250 <br>
+        x : 0   y : 0    color : 0 <br>
+
+</div>
+<br>
+<br>
+<li class="step">
+    Exercise 2:
+    
+</li>
+<p>
+    Define a class for adding, subtracting -, multiplying, dividing and giving the opposite (-) of fractions (numerator and denominator) using the overload of these operators. Create a program to test this class.
+
+</p>
+<br>
+<h3 class="note">
+    Note:
+</h3>
+<p>
+    We're going to overload the operator (-) twice, once as a subtraction and another time as the opposite.
+</p>
+<br>
+<br>
+<br>
+<h3 class="answer">
+    Solution:
+</h3>
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;n,&nbsp;d;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.n,&nbsp;</span><span
+    style='color:#569CD6'>this</span><span
+    style='color:#D4D4D4'>.d);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;+(</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(n&nbsp;*&nbsp;v.d&nbsp;+&nbsp;d&nbsp;*&nbsp;v.n,&nbsp;d&nbsp;*&nbsp;v.d);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;-(</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(n&nbsp;*&nbsp;v.d&nbsp;-&nbsp;d&nbsp;*&nbsp;v.n,&nbsp;d&nbsp;*&nbsp;v.d);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;*(</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(n&nbsp;*&nbsp;v.n,&nbsp;d&nbsp;*&nbsp;v.d);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;/(</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;v)&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(n&nbsp;*&nbsp;v.d,&nbsp;d&nbsp;*&nbsp;v.n);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>operator</span><span
+    style='color:#D4D4D4'>&nbsp;-()&nbsp;=&gt;&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(-n,&nbsp;-d);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(d&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Error&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;$</span><span
+    style='color:#9CDCFE'>n</span><span
+    style='color:#CE9178'>&nbsp;/&nbsp;$</span><span
+    style='color:#9CDCFE'>d</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>3</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>6</span><span
+    style='color:#D4D4D4'>),&nbsp;b&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Fraction</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(a&nbsp;+&nbsp;b).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(a&nbsp;-&nbsp;b).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(a&nbsp;*&nbsp;b).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(a&nbsp;/&nbsp;b).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(-a).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;(-b).</span><span
+    style='color:#DCDCAA'>display</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        30 / 12 <br>
+        -18 / 12 <br>
+        12 / 12 <br>
+        6 / 24 <br>
+        -3 / -6 <br>
+        -4 / -2 <br>
+    </div>
+    <br>
+    <br>
+    <li class="step">
+        Exercise 3:
+    </li>
+    <p>
+        1) Create an abstract class called "Animal" that has 2 abstract methods : <br>
+        &nbsp;&nbsp;&nbsp;a) printName() <br>
+        &nbsp;&nbsp;&nbsp;b) printSound()
+    </p>
+    <p>
+        2) Create 3 classes "Dog", "Cat" and "Cow" that extends the Animal Class. <br>
+        3) Create a small test program (main).
+    </p>
+
+
+    <br>
+    <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+
+
+    
+<div class=code>
+
+    <p ><span
+    style='color:#569CD6'>abstract</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Dog</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Dog&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Woof&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Cat</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Cat&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Meaw&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Cow</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>extends</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Animal</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Cow&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Moo&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p ><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Cat</span><span
+    style='color:#D4D4D4'>(),&nbsp;d&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Dog</span><span
+    style='color:#D4D4D4'>(),&nbsp;w&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>Cow</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;c.</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;d.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;d.</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;w.</span><span
+    style='color:#DCDCAA'>printName</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;w.</span><span
+    style='color:#DCDCAA'>printSound</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Cat <br>
+        Meaw <br>
+        Dog <br>
+        Woof <br>
+        Cow <br>
+        Moo <br>
+    </div>
+    <br>
+    <br>
+    <li class="step">
+        Exercise 4:
+    </li>
+    <p>
+        Find out the error in the following code :
+    </p>
+
+    <br>
+<div class=code>
+
+    <p 
+    ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Work</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printProblem</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;printing&nbsp;Problem&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printSolution</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Printing&nbsp;Solution&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p 
+    ><span
+    style='color:#569CD6'>class</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Algorithm</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#569CD6'>implements</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>Work</span><span
+    style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printProblem</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;printing&nbsp;Algorithm&nbsp;Problem&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>printHint</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Printing&nbsp;Hint&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>}</span></p>
+    
+    <p 
+    ><span
+     style='color:#D4D4D4'>}</span></p>
+    
+    <p 
+    ><span
+     style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p 
+    ><span
+     style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>main</span><span
+     style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p 
+    ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#569CD6'>var</span><span
+     style='color:#D4D4D4'>&nbsp;q1&nbsp;=&nbsp;</span><span
+     style='color:#4EC9B0'>Algorithm</span><span
+     style='color:#D4D4D4'>();</span></p>
+    
+    <p 
+    ><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>q1.</span><span
+    style='color:#DCDCAA'>printProblem</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;q1.</span><span
+    style='color:#DCDCAA'>printHint</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p 
+    ><span
+    style='color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <p>
+        The class "Algorithm" that implements "Work" must implement all the methods of that interface. <br>
+        "printSolution" method is not implemented in "Algorithm", so the compiler show an error.
+    </p>
+<br>
+<br>
+<br>
+    <li class="step">
+        Exercise 5:
+    </li>
+    <p>
+        What is the output of the following code:
+    </p>
+    <br>
+    
+
+    <div class=code>
+
+        <p ><span
+        style='color:#569CD6'>mixin</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Swim</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>swim</span><span
+        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Swimming'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>mixin</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Bite</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>bite</span><span
+        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Chomp'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>mixin</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Crawl</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>crawl</span><span
+        style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Crawling'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>abstract</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Reptile</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>with</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Swim</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#4EC9B0'>Crawl</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#4EC9B0'>Bite</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>hunt</span><span
+        style='color:#D4D4D4'>(food)&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'${</span><span
+        style='color:#9CDCFE'>this.runtimeType</span><span
+        style='color:#CE9178'>}&nbsp;-------'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>swim</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>crawl</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>bite</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Eat&nbsp;$</span><span
+        style='color:#9CDCFE'>food</span><span
+        style='color:#CE9178'>'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Alligator</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>extends</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Reptile</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//&nbsp;Alligator&nbsp;Specific&nbsp;stuff...</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Crocodile</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>extends</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Reptile</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#6A9955'>//&nbsp;Crocodile&nbsp;Specific&nbsp;stuff...</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#569CD6'>class</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Fish</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#569CD6'>with</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#4EC9B0'>Swim</span><span
+        style='color:#D4D4D4'>,&nbsp;</span><span
+        style='color:#4EC9B0'>Bite</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#569CD6'>void</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>feed</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>print</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Fish&nbsp;--------'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>swim</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#DCDCAA'>bite</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span
+        style='color:#DCDCAA'>main</span><span
+        style='color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#4EC9B0'>Crocodile</span><span
+        style='color:#D4D4D4'>().</span><span
+        style='color:#DCDCAA'>hunt</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Zebra'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#4EC9B0'>Alligator</span><span
+        style='color:#D4D4D4'>().</span><span
+        style='color:#DCDCAA'>hunt</span><span
+        style='color:#D4D4D4'>(</span><span
+        style='color:#CE9178'>'Fish'</span><span
+        style='color:#D4D4D4'>);</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+        style='color:#4EC9B0'>Fish</span><span
+        style='color:#D4D4D4'>().</span><span
+        style='color:#DCDCAA'>feed</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span
+        style='color:#D4D4D4'>}</span></p>
+        
+        <br>
+        
+        </div>
+        
+    <br>
+    <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <div class="res">
+            Crocodile ------- <br>
+            Swimming <br>
+            Crawling <br>
+            Chomp <br>
+            Eat Zebra <br>
+            Alligator ------- <br>
+            Swimming <br>
+            Crawling <br>
+            Chomp <br>
+            Eat Fish <br>
+            Fish -------- <br>
+            Swimming <br>
+            Chomp <br>
+        </div>
+
+    
+
+    
+    </ul>
+</div>

@@ -1,0 +1,586 @@
+<div class="contenu">
+    <h1>
+        Level 2 : Project 10
+    </h1>
+    <br>
+    <p>
+        The Robot class models the state and behavior of virtual robots. Each robot corresponds to an object which is an instance of this class.
+    </p>
+    <p>
+        Each robot:
+    </p>
+    <ul>
+        <li><p>has a <span class="word">name</span> (string)</p></li>
+        <li><p>has a position: given by the integer attributes <span class="word">x</span> and <span class="word">y</span>, knowing that x increases going east and y increases going north.</p></li>
+        <li><p>has a direction: given by the <span class="word">direction</span> attribute which takes one of the values ​​"North", "East", "South" or "West".</p></li>
+        <li><p>can go forward one step: with the method without parameter <span class="word">advance()</span>.</p></li>
+        <li><p>can turn right by 90 ° to change direction (if its direction was "North" it becomes "East", if it was "East" it becomes "South", etc.): with the method without parameter <span class="word">right()</span>. Robots cannot turn left.</p></li>
+        <li><p>can <span class="word">display</span> its state in detail (using print)</p></li>
+    </ul>
+    <br>
+    <p>
+        The name, position and direction of a robot are given to it when it is created. The name is required but you can omit the position and direction, which are set to <span class="word">(0,0)</span> and <span class="word">East</span> by default.
+    </p>
+    <p>
+        1)  Propose object code to represent the Robot class, while respecting <span class="word">the principle of data encapsulation</span>.
+    </p>
+    <p>
+        2) We want to improve these robots by creating a New Generation, the <span class="word">RobotNG     </span> which do not replace the old robots but can coexist with them.
+    </p>
+    <p>
+        The <span class="word">RobotNG</span> can do the same thing but also:
+    </p>
+    <ul>
+        <li><p>advance several steps at once using the <span class="word">advanceFast()</span> method which takes the number of steps as a parameter.</p></li>
+        <li><p>turn left 90 ° using the <span class="word">left()</span> method.</p></li>
+        <li><p>make a half turn using <thespan class="word"> halfTurn()</thespan> method</p></li>
+    </ul>
+    <br>
+    <p>
+        Write this new child class where:
+    </p>
+    <ul>
+        <li><p>a) advanceFast() = n * advance() <br>&nbsp;&nbsp;&nbsp;&nbsp;left() = 3 * right() <br>&nbsp;&nbsp;&nbsp;&nbsp;halfTurn() = 2 * right()</p></li>
+        <li><p>b) give a second more efficient solution that directly changes the state of the object without using the old methods</p></li>
+    </ul>
+    <br>
+    <p>
+        3) We want to put together <span class="word">Robot</span> and <span class="word">RobotNG</span> objects in a list.
+    </p>
+    <p>
+        a) how to declare the list?
+    </p>
+    <p>
+        b) how to display the status of all the robots contained in the list?
+    </p>
+    <br>
+    <p>
+        4) Modify the <span class="word">RobotNG</span> class to be able to activate a "Turbo" mode and deactivate it. In this mode, each step is multiplied by 3. The call to the <span class="word">display()</span> method should indicate at the end whether the robot is in Turbo mode or not.
+    </p>
+    <br>
+    <br>
+    <br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+    <br>
+    <p style="font-weight: 900;color: rgb(255, 0, 149);">1)</p>
+    <br>
+    
+<div class=code>
+
+    <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;_name;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;_x;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;_y;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;_direction;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_name&nbsp;=&nbsp;n;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>_name&nbsp;=&nbsp;n;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;=&nbsp;y;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;d;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advance</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_y++;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_x++;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_y--;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>)&nbsp;_x--;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>)&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Name&nbsp;:&nbsp;$</span><span style='color:#9CDCFE'>_name</span><span style='color:#CE9178'>&nbsp;</span><span style='color:#D7BA7D'>\n</span><span style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;Position&nbsp;:&nbsp;(&nbsp;$</span><span
+     style='color:#9CDCFE'>_x</span><span
+     style='color:#CE9178'>&nbsp;,&nbsp;$</span><span
+     style='color:#9CDCFE'>_y</span><span
+     style='color:#CE9178'>&nbsp;)&nbsp;&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#DCDCAA'>print</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#CE9178'>&quot;Direction&nbsp;:&nbsp;$</span><span
+     style='color:#9CDCFE'>_direction</span><span
+     style='color:#CE9178'>&quot;</span><span
+     style='color:#D4D4D4'>);</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>}</span></p>
+    
+    <p><span style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p style="font-weight: 900;color: rgb(255, 0, 149);">2) a)</p>
+    <br>
+<div class=code>
+
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n)&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(n)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;direction)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(n,&nbsp;x,&nbsp;y,&nbsp;direction)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advanceFast</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;steps)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;steps;&nbsp;i++)&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>advance</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>left</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>halfTurn</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>}</span></p>
+    
+    <br>
+    
+    </div>
+    <br>
+    <p style="font-weight: 900;color: rgb(255, 0, 149);">2) b)</p>
+    <br>
+    
+<div class=code>
+
+    <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;_name;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;_x;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;_y;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;_direction;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_name&nbsp;=&nbsp;n;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;d)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+     style='color:#D4D4D4'>_name&nbsp;=&nbsp;n;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_x&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_y&nbsp;=&nbsp;y;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;d;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#D4D4D4'>}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#6A9955'>//getters&nbsp;and&nbsp;setters</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>getX</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;_x;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>getY</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;_y;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;_direction;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>setX</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;x)&nbsp;=&gt;&nbsp;_x&nbsp;=&nbsp;x;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+     style='color:#569CD6'>void</span><span
+     style='color:#D4D4D4'>&nbsp;</span><span
+     style='color:#DCDCAA'>setY</span><span
+     style='color:#D4D4D4'>(</span><span
+     style='color:#4EC9B0'>int</span><span
+     style='color:#D4D4D4'>&nbsp;y)&nbsp;=&gt;&nbsp;_y&nbsp;=&nbsp;y;</span></p>
+    
+    <p><span
+     style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;d)&nbsp;=&gt;&nbsp;_direction&nbsp;=&nbsp;d;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advance</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_y++;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_x++;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_y--;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>)&nbsp;_x--;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>right</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_direction&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>)&nbsp;_direction&nbsp;=&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Name&nbsp;:&nbsp;$</span><span style='color:#9CDCFE'>_name</span><span style='color:#CE9178'>&nbsp;</span><span style='color:#D7BA7D'>\n</span><span style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Position&nbsp;:&nbsp;(&nbsp;$</span><span style='color:#9CDCFE'>_x</span><span style='color:#CE9178'>&nbsp;,&nbsp;$</span><span style='color:#9CDCFE'>_y</span><span style='color:#CE9178'>&nbsp;)&nbsp;&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;Direction&nbsp;:&nbsp;$</span><span style='color:#9CDCFE'>_direction</span><span style='color:#CE9178'>&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n)&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(n)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;direction)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(n,&nbsp;x,&nbsp;y,&nbsp;direction)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advanceFast</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;steps)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setY</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getY</span><span style='color:#D4D4D4'>()&nbsp;+&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setX</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getX</span><span style='color:#D4D4D4'>()&nbsp;+&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setY</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getY</span><span style='color:#D4D4D4'>()&nbsp;-&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setX</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getX</span><span style='color:#D4D4D4'>()&nbsp;-&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>left</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>halfTurn</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>}</span></p>
+    
+    </div>
+    <br>
+    <p style="font-weight: 900;color: rgb(255, 0, 149);">3)a)</p>
+    <br>
+    
+<div class=code>
+
+    <p><span style='color:#4EC9B0'>List</span><span style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&gt;&nbsp;tab;</span></p>
+</div>
+<br>
+<p style="font-weight: 900;color: rgb(255, 0, 149);">3)b)</p>
+<br>
+<div class=code>
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>for</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;r&nbsp;</span><span style='color:#C586C0'>in</span><span style='color:#D4D4D4'>&nbsp;tab)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(r&nbsp;!=&nbsp;</span><span style='color:#569CD6'>null</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r.</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+    
+    </div>
+
+    <br>
+    <p style="font-weight: 900;color: rgb(255, 0, 149);">4)</p>
+    <br>
+    
+<div class=code>
+
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Robot</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>&nbsp;_turbo&nbsp;=&nbsp;</span><span style='color:#569CD6'>false</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n)&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(n)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>RobotNG</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;n,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;x,&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;y,&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;direction)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>exactly</span><span style='color:#D4D4D4'>(n,&nbsp;x,&nbsp;y,&nbsp;direction)&nbsp;{}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>setTurbo</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>&nbsp;activate)&nbsp;=&gt;&nbsp;_turbo&nbsp;=&nbsp;activate;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>bool</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>isTurboActivated</span><span style='color:#D4D4D4'>()&nbsp;=&gt;&nbsp;_turbo;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>display</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(_turbo&nbsp;?&nbsp;</span><span style='color:#CE9178'>&quot;Turbo&nbsp;:&nbsp;ON&quot;</span><span style='color:#D4D4D4'>&nbsp;:&nbsp;</span><span style='color:#CE9178'>&quot;Turbo&nbsp;:&nbsp;OFF&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advance</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_turbo)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>advanceFast</span><span style='color:#D4D4D4'>(</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#569CD6'>super</span><span style='color:#D4D4D4'>.</span><span style='color:#DCDCAA'>advance</span><span style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>advanceFast</span><span style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;steps)&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(_turbo)&nbsp;steps&nbsp;*=&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setY</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getY</span><span style='color:#D4D4D4'>()&nbsp;+&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setX</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getX</span><span style='color:#D4D4D4'>()&nbsp;+&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setY</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getY</span><span style='color:#D4D4D4'>()&nbsp;-&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setX</span><span style='color:#D4D4D4'>(</span><span style='color:#DCDCAA'>getX</span><span style='color:#D4D4D4'>()&nbsp;-&nbsp;steps);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>left</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>halfTurn</span><span style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;West&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#C586C0'>if</span><span style='color:#D4D4D4'>&nbsp;(</span><span style='color:#DCDCAA'>getDirection</span><span style='color:#D4D4D4'>()&nbsp;==&nbsp;</span><span style='color:#CE9178'>&quot;South&quot;</span><span style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;North&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>else</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#6A9955'>//West</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#DCDCAA'>setDirection</span><span style='color:#D4D4D4'>(</span><span style='color:#CE9178'>&quot;East&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='color:#D4D4D4'>}</span></p>
+  <br>
+    
+    </div>
+    
+</div>

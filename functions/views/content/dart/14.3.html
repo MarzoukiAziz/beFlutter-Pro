@@ -1,0 +1,26 @@
+<div class="contenu">
+    <h1>
+        Isolates
+    </h1>
+    <P>
+        Most computers, even on mobile platforms, have multi-core CPUs. To take advantage of all those cores, developers traditionally use shared-memory threads running concurrently. However, shared-state concurrency is error prone and can lead to complicated code.
+    </P>
+    <br>
+    <p>
+        Instead of threads, all Dart code runs inside of isolates. Each isolate has its own memory heap, ensuring that no isolate’s state is accessible from any other isolate.
+    </p>
+    <br>
+    <p>
+        For more information, see the following:
+    </p>
+    <ol>
+        <li>
+            <p>
+                <a href="https://medium.com/dartlang/dart-asynchronous-programming-isolates-and-event-loops-bffc3e296a6a">Dart asynchronous programming: Isolates and event loops</a>
+            </p>
+        </li>
+        <li><p><a href="https://api.dart.dev/stable/dart-isolate">dart:isolate API reference</a>, including <a href="https://api.dart.dev/stable/dart-isolate/Isolate/spawn.html">Isolate.spawn()</a> and <a href="https://api.dart.dev/stable/dart-isolate/TransferableTypedData-class.html">TransferableTypedData</a></p></li>
+        <li><p><a href="https://flutter.dev/docs/cookbook/networking/background-parsing">Background parsing</a> cookbook on the Flutter site</p></li>
+        <li><p><a href="https://github.com/flutter/samples/tree/master/isolate_example">Isolate sample app</a></p></li>
+    </ol>
+</div>

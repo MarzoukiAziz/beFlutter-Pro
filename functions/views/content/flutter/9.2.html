@@ -1,0 +1,733 @@
+<div class="contenu">
+    <h1>
+        App5 : Yacht Charter - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">Stack</a></li>
+            <li><a href="#w2">DropdownButton</a></li>
+            <li><a href="#w3">Slider</a></li>
+            <li><a href="#w4">CheckBox</a></li>
+            <li><a href="#w5">Positioned</a></li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">Stack</li>
+        <p>
+            A widget that positions its children relative to the edges of its box. <br>
+            This class is useful if you want to overlap several children in a simple way, for example having some text
+            and an image, overlaid with a gradient and a button attached to the bottom.
+
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/liEGSeD3Zt8" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Some properties of Stack Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>children : </strong> List&lt;Widget&gt;
+            </li>
+            <p>
+                The widgets below this widget in the tree.
+            </p>
+            <li>
+                <strong>alignment : </strong> AlignmentGeometry
+            </li>
+            <p>
+                How to align the non-positioned and partially-positioned children in the stack.
+            </p>
+            <li>
+                <strong>fit : </strong> StackFit
+            </li>
+            <p>
+                How to size the non-positioned children in the stack.
+            </p>
+
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Stack</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fit</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>StackFit</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>expand</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Image</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>network</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;https://www.ideasdonuts.com/wp-content/uploads/2021/06/Cute-and-Pleasing-HD-Phone-Background-18.jpg&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fit</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>BoxFit</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#4FC1FF'>cover</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#CE9178'>&quot;Color&nbsp;The&nbsp;World!&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>cyanAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>35</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>fontWeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>FontWeight</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>bold</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p1.png?alt=media&token=a60dcf10-1eaf-4fbb-87f2-1e4a6aa9f6fa"
+            alt="Stack example" class="ss">
+        <br>
+        <br>
+        <li id="w2" class="step">DropdownButton</li>
+        <p>
+            A material design button for selecting from a list of items. <br>
+
+            A dropdown button lets the user select from a number of items. The button shows the currently selected item
+            as well as an arrow that opens a menu for selecting another item.
+        </p>
+
+        <h3 class="note">
+            Some properties of DropdownButton Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>disabledHint : </strong> Widget
+            </li>
+            <p>
+                A preferred placeholder widget that is displayed when the dropdown is disabled.
+            </p>
+            <li>
+                <strong>dropdownColor : </strong> Color
+            </li>
+            <p>
+                The background color of the dropdown.
+            </p>
+            <li>
+                <strong>hint : </strong> Widget
+            </li>
+            <p>
+                A placeholder widget that is displayed by the dropdown button.
+            </p>
+            <li>
+                <strong>icon : </strong> Widget
+            </li>
+            <p>
+                The widget to use for the drop-down button's icon.
+            </p>
+            <li>
+                <strong>items : </strong> List&lt;DropdownMenuItem&lt;T&gt;&gt;
+            </li>
+            <p>
+                The list of items the user can select.
+            </p>
+            <li>
+                <strong>itemHeight : </strong> Double
+            </li>
+            <p>
+                If null, then the menu item heights will vary according to each menu item's intrinsic height.
+            </p>
+            <li>
+                <strong>onChanged : </strong>
+            </li>
+            <p>
+                Called when the user selects an item.
+            </p>
+            <li>
+                <strong>style : </strong> TextStyle
+            </li>
+            <p>
+                The text style to use for text in the dropdown button and the dropdown menu that appears when you tap
+                the button.
+            </p>
+            <li>
+                <strong>underline : </strong> Widget
+            </li>
+            <p>
+                The widget to use for drawing the drop-down button's underline.
+            </p>
+            <li>
+                <strong>value : </strong>
+            </li>
+            <p>
+                The value of the currently selected DropdownMenuItem.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#4EC9B0'>DropdownButton</span><span style='color:#D4D4D4'>&lt;</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&gt;(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>_choice</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>underline</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>2</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>grey</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onChanged</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>?&nbsp;</span><span
+                    style='color:#9CDCFE'>newValue</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>_choice</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>newValue</span><span style='color:#D4D4D4'>!;</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>style</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>TextStyle</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>blueGrey</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#9CDCFE'>fontSize</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>icon</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>arrow_back</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>dropdownColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>yellowAccent</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>itemHeight</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>75</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>items</span><span style='color:#D4D4D4'>:&nbsp;[</span><span
+                    style='color:#CE9178'>'Choice&nbsp;1'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#CE9178'>'Choice&nbsp;2'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#CE9178'>'Choice&nbsp;3'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#CE9178'>'Choice&nbsp;4'</span><span style='color:#D4D4D4'>,&nbsp;</span><span
+                    style='color:#CE9178'>'Choice&nbsp;5'</span><span style='color:#D4D4D4'>]</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span
+                    style='color:#DCDCAA'>map</span><span style='color:#D4D4D4'>((</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#C586C0'>return</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>DropdownMenuItem</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).</span><span
+                    style='color:#DCDCAA'>toList</span><span style='color:#D4D4D4'>(),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p2.png?alt=media&token=ffc10b73-e910-4026-95c5-15b5625808b6"
+            alt="DropdownButton flutter" class="ss">
+        <br> <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p3.png?alt=media&token=44c43b8d-1b1e-48ea-9559-865e705198a5"
+            alt="DropdownButton flutter" class="ss">
+        <br>
+        <br>
+        <li id="w3" class="step">Slider</li>
+        <p>
+            Used to select from a range of values.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/liEGSeD3Zt8" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Some properties of Slider Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>activeColor : </strong> Color
+            </li>
+            <p>
+                The color to use for the portion of the slider track that is active.
+            </p>
+            <li>
+                <strong>divisions : </strong> int
+            </li>
+            <p>
+                The number of discrete divisions.
+            </p>
+            <li>
+                <strong>inactiveColor : </strong> Color
+            </li>
+            <p>
+                The color for the inactive portion of the slider track.
+            </p>
+            <li>
+                <strong>label : </strong> String
+            </li>
+            <p>
+                A label to show above the slider when the slider is active.
+            </p>
+            <li>
+                <strong>max : </strong> double
+            </li>
+            <p>
+                The maximum value the user can select.
+            </p>
+            <li>
+                <strong>min : </strong> double
+            </li>
+            <p>
+                The minimum value the user can select.
+            </p>
+            <li>
+                <strong>onChanged : </strong>
+            </li>
+            <p>
+                Called during a drag when the user is selecting a new value for the slider by dragging.
+            </p>
+            <li>
+                <strong>value : </strong> double
+            </li>
+            <p>
+                The currently selected value for this slider.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+
+        <div class="code">
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#4EC9B0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slider</span><span style='
+    color:#D4D4D4'>(</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>_value</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>min</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>1</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>max</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>5</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>divisions</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>4</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>label</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#CE9178'>&quot;value&nbsp;:&nbsp;</span><span style='color:#D4D4D4'>$</span><span
+                    style='color:#9CDCFE'>_value</span><span style='color:#CE9178'>&quot;</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onChanged</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>_value</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>activeColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>red</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>inactiveColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>green</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+    9.75pt;background:#1E1E1E'><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p4.png?alt=media&token=a2d31990-db20-4b3b-a69e-a3f91742e6f0"
+            alt="Slider Flutter" class="ss">
+        <br>
+        <br>
+        <li id="w4" class="step">CheckBox</li>
+        <p>
+            A checkbox is a type of input component which holds the Boolean value. It is a GUI element that allows the
+            user to choose multiple options from several selections.
+        </p>
+
+        <h3 class="note">
+            Some properties of CheckBox Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>activeColor : </strong> Color
+            </li>
+            <p>
+                The color to use when this checkbox is checked.
+            </p>
+            <li>
+                <strong>checkColor : </strong> Color
+            </li>
+            <p>
+                The color to use for the check icon when this checkbox is checked.
+            </p>
+            <li>
+                <strong>onChanged : </strong>
+            </li>
+            <p>
+                Called when the value of the checkbox should change.
+            </p>
+            <li>
+                <strong>value : </strong> bool
+            </li>
+            <p>
+                The currently selected value for this slider.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Checkbox</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>value</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#9CDCFE'>_value</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>onChanged</span><span style='color:#D4D4D4'>:&nbsp;(</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>)&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(()&nbsp;{</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>_value</span><span style='color:#D4D4D4'>&nbsp;=&nbsp;</span><span
+                    style='color:#9CDCFE'>val</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>activeColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>checkColor</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p5.png?alt=media&token=8c0d6237-8c9a-4323-a116-8ad5ac1b09db"
+            alt="checkbox flutter" class="ss">
+        <br>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p6.png?alt=media&token=29ee309b-10f5-4985-84fe-7a11cbe1ebf8"
+            alt="checkbox flutter" class="ss">
+        <br><br>
+        <li id="w5" class="step">Positioned</li>
+        <p>
+            A widget that controls where a child of a Stack is positioned. <br>
+            A Positioned widget must be a descendant of a Stack, and the path from the Positioned widget to its
+            enclosing Stack must contain only StatelessWidgets or StatefulWidgets.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EgtPleVwxBQ" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <h3 class="note">
+            Some properties of Positioned Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>child : </strong> Widget
+            </li>
+            <p>
+                The widget below this widget in the tree.
+            </p>
+            <li>
+                <strong>width : </strong> double
+            </li>
+            <p>
+                The child's width.
+            </p>
+            <li>
+                <strong>height : </strong> double
+            </li>
+            <p>
+                The child's height.
+            </p>
+            <li>
+                <strong>bottom : </strong>double
+            </li>
+            <p>
+                The distance that the child's bottom edge is inset from the bottom of the stack.
+            </p>
+            <li>
+                <strong>left : </strong> double
+            </li>
+            <p>
+                The distance that the child's left edge is inset from the left of the stack.
+            </p>
+            <li>
+                <strong>right : </strong> double
+            </li>
+            <p>
+                The distance that the child's right edge is inset from the right of the stack.
+            </p>
+            <li>
+                <strong>top : </strong> double
+            </li>
+            <p>
+                The distance that the child's top edge is inset from the top of the stack.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Stack</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>children</span><span style='color:#D4D4D4'>:&nbsp;[</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Positioned</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>width</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>height</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>100</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>top</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>140</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>left</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>60</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>pink</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>bluetooth</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>color</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>white</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#9CDCFE'>size</span><span style='color:#D4D4D4'>:&nbsp;</span><span
+                    style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;))</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c9l2p7.png?alt=media&token=7502aa86-ec61-4b36-a9b4-fc9bbb6ade36"
+            alt="flutter positioned" class="ss">
+    </ol>
+</div>

@@ -1,0 +1,109 @@
+<div class="contenu">
+    <h1>
+        The difference between an adaptive and a responsive app
+    </h1>
+    <p>
+        One of Flutter’s primary goals is to create a framework that allows you to develop apps from a single codebase
+        that look and feel great on any platform.
+        <br><br>
+        This means that your app may appear on screens of many different sizes, from a watch, to a foldable phone with
+        two screens, to a high def monitor.
+        <br><br>
+        Two terms that describe concepts for this scenario are adaptive and responsive. Ideally, you’d want your app to
+        be both but what, exactly, does this mean? These terms are similar, but they are not the same.
+        <br>
+        <br>
+        Adaptive and responsive can be viewed as separate dimensions of an app: you can have an adaptive app that is not
+        responsive, or vice versa. And, of course, an app can be both, or neither.
+    </p>
+    <h2 class="step">
+        Responsive :
+    </h2>
+
+    <p>
+        Typically, a responsive app has had its layout tuned for the available screen size. Often this means (for
+        example), re-laying out the UI if the user resizes the window, or changes the device’s orientation. This is
+        especially necessary when the same app can run on a variety of devices, from a watch, phone, tablet, to a laptop
+        or desktop computer.
+
+    </p>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c11l1p1.png?alt=media&token=c3bdc138-e600-478f-bb6e-b66be31c65f1"
+        alt="responsive flutter app">
+    <h2 class="step">
+        Adaptive
+    </h2>
+    <p>
+        Adapting an app to run on different device types, such as mobile and desktop, requires dealing with mouse and
+        keyboard input, as well as touch input. It also means there are different expectations about the app’s visual
+        density, how component selection works (cascading menus vs bottom sheets, for example), using platform-specific
+        features (such as top-level windows), and more.
+    </p>
+    <h3 class="note">
+        Example :
+    </h3>
+    <table class="tableau" style="width: 50%;">
+        <tr>
+            <th>Android</th>
+            <th>iOS</th>
+        </tr>
+        <tr>
+            <td>
+                Material-Design Look
+            </td>
+            <td>
+                Cupertino Look
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Android Animations
+            </td>
+            <td>
+                iOS Animations
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Android Fonts
+            </td>
+            <td>
+                iOS Fonts
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <table class="tableau">
+        <tr>
+            <th>
+                Material-Design Slider
+            </th>
+            <th>
+                CupertinoSlider
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <img style="width: 250px;"
+                    src="https://flutter.dev/assets/images/docs/widget-catalog/material-slider.png"
+                    alt="slider flutter">
+            </td>
+            <td>
+                <img style="width: 250px;"
+                    src="https://flutter.dev/assets/images/docs/widget-catalog/cupertino-slider.png"
+                    alt="CupertinoSlider">
+            </td>
+        </tr>
+        <tr>
+            <th>AppBar</th>
+            <th>CupertinoNavigationBar</th>
+        </tr>
+        <tr>
+            <td><img style="width: 250px;"
+                    src="https://flutter.dev/assets/images/docs/widget-catalog/material-app-bar.png"
+                    alt="appbar flutter"></td>
+            <td><img style="width: 250px;"
+                    src="https://flutter.dev/assets/images/docs/widget-catalog/cupertino-nav-bar.png"
+                    alt="CupertinoNavigationBar"></td>
+        </tr>
+    </table>
+</div>

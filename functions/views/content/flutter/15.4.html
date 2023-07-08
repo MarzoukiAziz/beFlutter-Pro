@@ -1,0 +1,291 @@
+<div class="contenu">
+    <h1>
+        Pass arguments to a named route
+    </h1>
+    <p>
+        The Navigator provides the ability to navigate to a named route from any part of an app using a common
+        identifier. In some cases, you might also need to pass arguments to a named route. For example, you might wish
+        to navigate to the /user route and pass information about the user to that route. <br><br>
+
+        You can accomplish this task using the arguments parameter of the Navigator.pushNamed() method. Extract the
+        arguments using the ModalRoute.of() method or inside an onGenerateRoute() function provided to the MaterialApp
+        or CupertinoApp constructor.<br><br>
+
+        Follow thesse steps to pass arguments to a named route and read the arguments using ModalRoute.of() and
+        onGenerateRoute().
+    </p>
+    <ol>
+        <li class="step">
+            Define the arguments you need to pass
+        </li>
+        <p>
+            First, define the arguments you need to pass to the new route. In this example, pass two pieces of data: The
+            title of the screen and a message. <br><br>
+
+            To pass both pieces of data, create a class that stores this information.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#6A9955'>//
+                    You can pass any object to the arguments parameter.</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    In this example, create a class that contains both</span></p>
+
+            <p><span style='color:#6A9955'>// a
+                    customizable title and message.</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>ScreenArguments</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>message</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>ScreenArguments</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>, </span><span
+                    style='color:#569CD6'>this</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>message</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Create a widget that extracts the arguments
+        </li>
+        <p>
+            Next, create a widget that extracts and displays the title and message from the ScreenArguments. To access
+            the ScreenArguments, use the <span class="word">ModalRoute.of()</span> method. This method returns the
+            current route with the
+            arguments.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#6A9955'>// A
+                    Widget that extracts the necessary arguments from</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    the ModalRoute.</span></p>
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>ExtractArgumentsScreen</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'> {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>ExtractArgumentsScreen</span><span style='color:#D4D4D4'>({</span><span
+                    style='color:#4EC9B0'>Key</span><span style='color:#D4D4D4'>? </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>}) : </span><span
+                    style='color:#569CD6'>super</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#9CDCFE'>key</span><span style='color:#D4D4D4'>);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#569CD6'>static</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>routeName</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#CE9178'>'/extractArguments'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>) {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    Extract the arguments from the current ModalRoute</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    settings and cast them as ScreenArguments.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#9CDCFE'>args</span><span style='color:#D4D4D4'> = </span><span
+                    style='color:#4EC9B0'>ModalRoute</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>of</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>context</span><span style='color:#D4D4D4'>)!.</span><span
+                    style='color:#9CDCFE'>settings</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#9CDCFE'>arguments</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#569CD6'>as</span><span style='color:#D4D4D4'> ScreenArguments;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#C586C0'>return</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>appBar</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>title</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>args</span><span style='color:#D4D4D4'>.title),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>body</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>:
+                </span><span style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#9CDCFE'>args</span><span style='color:#D4D4D4'>.message),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    }</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Register the widget in the routes table
+        </li>
+        <p>
+            Next, add an entry to the routes provided to the MaterialApp widget. The routes define which widget should
+            be created based on the name of the route.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#4EC9B0'>MaterialApp</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>routes</span><span style='color:#D4D4D4'>: {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; ExtractArgumentsScreen.routeName: (</span><span style='color:#9CDCFE'>context</span><span
+                    style='color:#D4D4D4'>) =&gt;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#569CD6'>const</span><span style='color:#D4D4D4'>
+                    ExtractArgumentsScreen(),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    },</span></p>
+
+            <p><span style='color:#D4D4D4'>);</span></p>
+            <br>
+        </div>
+        <br><br>
+        <li class="step">
+            Navigate to the widget
+        </li>
+        <p>
+            Finally, navigate to the ExtractArgumentsScreen when a user taps a button using Navigator.pushNamed().
+            Provide the arguments to the route via the arguments property. The ExtractArgumentsScreen extracts the title
+            and message from these arguments.
+        </p>
+        <div class="code">
+
+            <p><span style='color:#6A9955'>// A
+                    button that navigates to a named route.</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    The named route extracts the arguments</span></p>
+
+            <p><span style='color:#6A9955'>//
+                    by itself.</span></p>
+
+            <p><span style='color:#4EC9B0'>ElevatedButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>onPressed</span><span style='color:#D4D4D4'>: () {</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    When the user taps the button,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    navigate to a named route and</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    provide the arguments as an optional</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#6A9955'>//
+                    parameter.</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; </span><span style='color:#4EC9B0'>Navigator</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>pushNamed</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; context,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ExtractArgumentsScreen.routeName,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; </span><span style='color:#9CDCFE'>arguments</span><span style='color:#D4D4D4'>:
+                    ScreenArguments(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'Extract Arguments Screen'</span><span
+                    style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; &nbsp; </span><span style='color:#CE9178'>'This message is extracted in the build
+                    method.'</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; &nbsp; ),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    &nbsp; );</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                    },</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;
+                </span><span style='color:#9CDCFE'>child</span><span style='color:#D4D4D4'>: </span><span
+                    style='color:#569CD6'>const</span><span style='color:#D4D4D4'> </span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'Navigate to screen
+                    that extracts arguments'</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>),</span></p>
+            <br>
+        </div>
+        <br><br><br><br><br><br><br>
+        <h4 class="note">
+            Source :
+        </h4>
+        <a href="https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments">Pass arguments to a named route
+        </a>
+    </ol>
+</div>

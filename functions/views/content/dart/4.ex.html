@@ -1,0 +1,2238 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+	<p>
+		<span class=note> Note:
+	</span> we don't interest in controlling user input.
+	</p>
+    <ul>
+        <li class="step">
+            Exercise 1:  (if..else)
+        </li>
+        <p>
+            Write a program to get a number from the user and print whether it is positive or negative.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <br>
+        
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;a&nbsp;number&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(input&nbsp;==&nbsp;</span><span
+    style='color:#569CD6'>null</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Invalid&nbsp;Input&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(input&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Positive&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(input&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Negative&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;You&nbsp;entred&nbsp;0&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+	    </div>
+		<br>
+<div class="res">
+    Enter a number <br>
+    -3 <br>
+    Negative <br>
+</div>
+<br>
+<div class="res">
+     Enter a number <br>
+     s <br>
+     Invalid Input <br>
+</div>
+<br>
+<div class="res">
+    Enter a number <br>
+    23 <br>
+    Positive <br>
+</div>
+<br>
+
+
+    <br>
+
+        <li class="step">
+            Exercise 2:  (if..else)
+        </li>
+        <p>
+            Write a program to solve quadratic equations. <br>
+
+            <p class="note" style="color: darkmagenta;">
+                Example:
+            </p> 
+            &nbsp; &nbsp; &nbsp;<span class="note">Input :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;a=2 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;b=5 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;c=3 <br>
+            &nbsp; &nbsp; &nbsp;<span class="note">Expected Output :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;x1 = -1.5 and x2 = -1.0 <br><br>
+            &nbsp; &nbsp; &nbsp;<span class="note">Input :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;a=1 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;b=2 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;c=1 <br>
+            &nbsp; &nbsp; &nbsp;<span class="note">Expected Output :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;x = -1.0 <br><br>
+            &nbsp; &nbsp; &nbsp;<span class="note">Input :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;a=1 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;b=9 <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;c=30 <br>
+            &nbsp; &nbsp; &nbsp;<span class="note">Expected Output :</span> <br>
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Roots are complex 
+        </p>
+        <br>
+        <div class="indice">
+			
+		
+            <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+            To get the positive square root of the value: <br>
+
+                    1- Write <span class=word> import 'dart:math' ; </span>  before void main(). <br>
+
+                    2- Use <span class=word> sqrt(<span style="color: #569CD6;">num</span> x)</span> . 
+			<br>
+			<br>
+			<a target="_blank"  href="https://www.calculatorsoup.com/calculators/algebra/quadratic-formula-calculator.php">Quadratic Equation solving rules</a>
+
+    </p>
+    </div>
+                <br>
+                <br>
+                <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+        <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;enter&nbsp;a&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='color:#D4D4D4'>(</span><span 
+    style='color:#CE9178'>&quot;enter&nbsp;b&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;c&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;d&nbsp;=&nbsp;b&nbsp;*&nbsp;b&nbsp;-&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;a&nbsp;*&nbsp;c;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(d&nbsp;&gt;&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;x1&nbsp;=&nbsp;(-b&nbsp;-&nbsp;(</span><span
+    style='color:#DCDCAA'>sqrt</span><span
+    style='color:#D4D4D4'>(d)))&nbsp;/&nbsp;(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;a);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;x2&nbsp;=&nbsp;(-b&nbsp;+&nbsp;(</span><span
+    style='color:#DCDCAA'>sqrt</span><span
+    style='color:#D4D4D4'>(d)))&nbsp;/&nbsp;(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;a);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;x1&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>x1</span><span
+    style='color:#CE9178'>&nbsp;&nbsp;and&nbsp;x2&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>x2</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>else</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(d&nbsp;==&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;-b&nbsp;/&nbsp;(</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>&nbsp;*&nbsp;a);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;x&nbsp;=&nbsp;$</span><span
+    style='color:#9CDCFE'>x</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>else</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Roots&nbsp;are&nbsp;complex&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+<br>
+	    </div>
+		<br>
+<div class="res">
+enter a <br>
+1 <br>
+enter c <br>
+2 <br>
+x1 = -3.414213562373095  and x2 = -0.5857864376269049      <br>
+</div>
+<br>
+<div class="res">
+    enter a <br>
+    1 <br>
+    enter b <br>
+    2 <br>
+    enter c <br>
+    9 <br>
+    Roots are complex   <br>
+</div>
+<br>
+<div class="res">
+    enter a <br>
+    1 <br>
+    enter b <br>
+    2 <br>
+    enter c <br>
+    1 <br>
+    x = -1.0 <br>
+</div>
+    <br>
+
+        <br>
+        <li class="step">
+            Exercise 3:  (if..else)
+        </li>
+        <p>
+            Write a program that accepts three numbers from the user and prints "increasing" if the numbers are in increasing order, "decreasing" if the numbers are in decreasing order, and "Neither increasing or decreasing order" otherwise.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+       
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;a&nbsp;:&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;a&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;b&nbsp;:&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;b&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;c&nbsp;:&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;c&nbsp;=&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(a&nbsp;&gt;&nbsp;b&nbsp;&amp;&amp;&nbsp;b&nbsp;&gt;&nbsp;c)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;decreasing&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(c&nbsp;&gt;&nbsp;b&nbsp;&amp;&amp;&nbsp;b&nbsp;&gt;&nbsp;a)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;increasing&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Neither&nbsp;increasing&nbsp;or&nbsp;decreasing&nbsp;order&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+            
+            </div>
+            <br>
+            <div class="res">
+                Enter a : <br>
+                2 <br>
+                Enter b : <br>
+                5 <br>
+                Enter c : <br>
+                9 <br>
+                increasing <br>
+            </div>
+
+        <br>
+        <div class="res">
+            Enter a : <br>
+            8 <br>
+            Enter b : <br>
+            7 <br>
+            Enter c : <br>
+            4 <br>
+            decreasing <br>
+        </div>
+
+    <br>
+    <div class="res">
+        Enter a : <br>
+        4 <br>
+        Enter b : <br>
+        7 <br>
+        Enter c : <br>
+        2 <br>
+        Neither increasing or decreasing order <br>
+    </div>
+
+<br>
+        <li class="step">
+            Exercise 4:  (for)
+        </li>
+        <p>
+            Write a program to calculate the sum of first 10 natural number.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;sum&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>;&nbsp;i++)&nbsp;sum&nbsp;+=&nbsp;i;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;sum&nbsp;of&nbsp;first&nbsp;10&nbsp;natural&nbsp;number&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>sum</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    </div>
+    <br>
+    <div class="res">
+        the sum of first 10 natural number is 45 <br>
+    </div>
+    
+        <br>
+        <li class="step">
+            Exercise 5:  (for)
+        </li>
+        <p>
+            Write a program that prompts the user to input an integer and then outputs the number with the digits reversed. For example, if the input is 12345, the output should be 54321.
+        </p>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+       <br>
+       <br>
+        <div class=code>
+
+            <p><span style='
+            color:#569CD6'>import</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#CE9178'>'dart:io'</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#CE9178'>&quot;enter&nbsp;a&nbsp;number&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#569CD6'>var</span><span style='
+            color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;stdin.</span><span
+            style='color:#DCDCAA'>readLineSync</span><span
+            style='color:#D4D4D4'>();</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;number&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>.</span><span style='
+            color:#DCDCAA'>tryParse</span><span style='
+            color:#D4D4D4'>(input);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;reversed&nbsp;=&nbsp;</span><span
+            style='color:#B5CEA8'>0</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>for</span><span style='
+            color:#D4D4D4'>&nbsp;(</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+            color:#B5CEA8'>1</span><span style='
+            color:#D4D4D4'>;&nbsp;i&nbsp;&lt;=&nbsp;input.length;&nbsp;i++)&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;reversed&nbsp;=&nbsp;reversed&nbsp;*&nbsp;</span><span
+            style='color:#B5CEA8'>10</span><span
+            style='color:#D4D4D4'>&nbsp;+&nbsp;number&nbsp;%&nbsp;</span><span
+            style='color:#B5CEA8'>10</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;~/=&nbsp;</span><span
+            style='color:#B5CEA8'>10</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(reversed);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+            
+<br>
+            
+            </div>
+            <br>
+            <div class="res">
+                enter a number <br>
+                21983154 <br>
+                45138912 <br>
+            </div>
+		<br>
+        <li class="step">
+            Exercise 6:  (for)
+        </li>
+        <p>
+            Write a program that prompts the user to input a positive integer. It should then output a message indicating whether the number is a prime number. 
+        </p>
+        <br>
+        <div class="indice">
+			
+		
+            <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+                A prime number is a number which is divisible by only two numbers: 1 and itself. <br>
+                So, if any number is divisible by any other number, it is not a prime number. <br>
+                Note that you can loop until number/2. It is because a number is not divisible by more than its half. <br>            
+    </p>
+    </div>
+<br>
+<br>
+<br>
+<h3 class="answer">
+    Solution:
+</h3>
+<br>
+        <div class=code>
+
+            <p><span style='
+            color:#569CD6'>import</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#CE9178'>'dart:io'</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#4EC9B0'>bool</span><span style='
+            color:#D4D4D4'>&nbsp;prime&nbsp;=&nbsp;</span><span style='color:#569CD6'>true</span><span style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#CE9178'>&quot;enter&nbsp;a&nbsp;number&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#569CD6'>var</span><span style='
+            color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>.</span><span style='
+            color:#DCDCAA'>tryParse</span><span style='
+            color:#D4D4D4'>(stdin.</span><span style='
+            color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>for</span><span style='
+            color:#D4D4D4'>&nbsp;(</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+            color:#B5CEA8'>2</span><span style='
+            color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;input&nbsp;~/&nbsp;</span><span
+            style='color:#B5CEA8'>2</span><span
+            style='color:#D4D4D4'>;&nbsp;i++)&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>if</span><span style='
+            color:#D4D4D4'>&nbsp;(input&nbsp;%&nbsp;i&nbsp;==&nbsp;</span><span
+            style='color:#B5CEA8'>0</span><span
+            style='color:#D4D4D4'>)&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#DCDCAA'>print</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#CE9178'>&quot;Not&nbsp;Prime&nbsp;Number&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prime&nbsp;=&nbsp;</span><span
+            style='color:#569CD6'>false</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            style='color:#C586C0'>break</span><span
+            style='color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>if</span><span style='
+            color:#D4D4D4'>&nbsp;(prime)&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#CE9178'>&quot;Prime&nbsp;Number&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+            
+            <br>
+            
+            </div>
+            <br>
+            <div class="res">
+                enter a number <br>
+                24 <br>
+                Not Prime Number <br>
+            </div>
+            <br>
+            <div class="res">
+                enter a number <br>
+                19 <br>
+                Prime Number <br>
+            </div>
+            <br>
+        <li class="step">
+            Exercise 7:  (for)
+        </li>
+        <p>
+            Write a program that determine and print the number of times the character ‘a’ appears in the input entered by the user.
+        </p>
+        <br>
+        <br> <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;write&nbsp;something&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;apps&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;input.length;&nbsp;i++)&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(input[i]&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>'a'</span><span
+    style='color:#D4D4D4'>)&nbsp;apps++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;'a'&nbsp;appears&nbsp;$</span><span style='
+    color:#9CDCFE'>apps</span><span style='
+    color:#CE9178'>&nbsp;times&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+		<br>
+<div class="res">
+    write something <br>
+    i am learning dart today <br>
+    'a' appears 4 times <br>
+</div>
+
+        <br>
+
+        <li class="step">
+            Exercise 8:  (for)
+        </li>
+        <p>
+            Write a program to calculate the factorial value of given number. <br>
+            Factorial x = x * x-1 * x-2 * … *1 <br><br>
+            <span class="note">Example:</span> factorial 4 = 4 * 3 * 2 * 1 = 24 <br>
+        </p>
+        <br>
+        <br>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+        <div class=code>
+
+            <p><span style='
+            color:#569CD6'>import</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#CE9178'>'dart:io'</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#CE9178'>&quot;enter&nbsp;a&nbsp;number&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#569CD6'>var</span><span style='
+            color:#D4D4D4'>&nbsp;input&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>.</span><span style='
+            color:#DCDCAA'>tryParse</span><span style='
+            color:#D4D4D4'>(stdin.</span><span style='
+            color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#569CD6'>var</span><span style='
+            color:#D4D4D4'>&nbsp;fac&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>1</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>for</span><span style='
+            color:#D4D4D4'>&nbsp;(</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;input;&nbsp;i&nbsp;&gt;&nbsp;</span><span
+            style='color:#B5CEA8'>1</span><span
+            style='color:#D4D4D4'>;&nbsp;i--)&nbsp;fac&nbsp;*=&nbsp;i;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(</span><span style='
+            color:#CE9178'>&quot;the&nbsp;factorial&nbsp;of&nbsp;$</span><span
+            style='color:#9CDCFE'>input</span><span
+            style='color:#CE9178'>&nbsp;is&nbsp;$</span><span
+            style='color:#9CDCFE'>fac</span><span
+            style='color:#CE9178'>&quot;</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+            
+<br>
+            </div>
+            <br>
+            <div class="res">
+                enter a number <br>
+                7                          <br>
+                the factorial of 7 is 5040 <br>
+            </div>
+            <br>
+
+        <li class="step">
+            Exercise 9:  (for)
+        </li>
+        <p>
+            Write a program that onvert a name into initials. You can assume the program takes in two words with one space in between them. The output should be two capital letters with a dot separating them. <br>
+            <span class="note" style="color: darkmagenta;">Example:</span> <br>
+            &nbsp; &nbsp; &nbsp;<span class=note>Program Starts:</span>   <br>
+            &nbsp; &nbsp; &nbsp;Please enter name: <br>
+            &nbsp; &nbsp; &nbsp;Sam Smith <br>
+            &nbsp; &nbsp; &nbsp;         <br>
+            &nbsp; &nbsp; &nbsp;<span class=note>Output:</span>   <br>
+            &nbsp; &nbsp; &nbsp;S.S <br>
+        </p>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;a&nbsp;name&quot;</span><span style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;name&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;initals&nbsp;=&nbsp;name[</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>].</span><span
+    style='color:#DCDCAA'>toUpperCase</span><span
+    style='color:#D4D4D4'>()&nbsp;+&nbsp;</span><span
+    style='color:#CE9178'>'.'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>for</span><span style='
+    color:#D4D4D4'>&nbsp;(</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+    color:#B5CEA8'>0</span><span style='
+    color:#D4D4D4'>;&nbsp;i&nbsp;&lt;&nbsp;name.length;&nbsp;i++)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(name[i]&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>'&nbsp;'</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initals&nbsp;+=&nbsp;name[i&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>].</span><span
+    style='color:#DCDCAA'>toUpperCase</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(initals);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        enter a name <br>
+        Cristiano Ronaldo <br>
+        C.R <br>
+    </div>
+    <br>
+        <li class="step">
+            Exercise 10:  (while)
+        </li>
+        <p>
+            Write a program to find the first 80 numbers starting from 100 where each digit of a number is an even number(ex: 242). The numbers obtained should be printed in a list.
+        </p>
+        <br>        <br>
+        <br>
+
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+        <div class=code>
+
+            <p><span style='
+            color:#569CD6'>void</span><span style='
+            color:#D4D4D4'>&nbsp;</span><span style='
+            color:#DCDCAA'>main</span><span style='
+            color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#569CD6'>var</span><span style='
+            color:#D4D4D4'>&nbsp;list&nbsp;=&nbsp;[];</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#4EC9B0'>int</span><span style='
+            color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span style='
+            color:#B5CEA8'>100</span><span style='
+            color:#D4D4D4'>;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>while</span><span style='
+            color:#D4D4D4'>&nbsp;(list.length&nbsp;&lt;&nbsp;</span><span
+            style='color:#B5CEA8'>80</span><span
+            style='color:#D4D4D4'>)&nbsp;{</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+            color:#C586C0'>if</span><span style='
+            color:#D4D4D4'>&nbsp;((i&nbsp;%&nbsp;</span><span
+            style='color:#B5CEA8'>2</span><span
+            style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+            style='color:#B5CEA8'>0</span><span
+            style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;((i&nbsp;~/&nbsp;</span><span
+            style='color:#B5CEA8'>10</span><span
+            style='color:#D4D4D4'>)&nbsp;%&nbsp;</span><span
+            style='color:#B5CEA8'>2</span><span
+            style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+            style='color:#B5CEA8'>0</span><span
+            style='color:#D4D4D4'>)&nbsp;&amp;&amp;&nbsp;((i&nbsp;~/&nbsp;</span><span
+            style='color:#B5CEA8'>100</span><span
+            style='color:#D4D4D4'>)&nbsp;%&nbsp;</span><span
+            style='color:#B5CEA8'>2</span><span
+            style='color:#D4D4D4'>&nbsp;==&nbsp;</span><span
+            style='color:#B5CEA8'>0</span><span
+            style='color:#D4D4D4'>))</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list.</span><span
+            style='color:#DCDCAA'>add</span><span
+            style='color:#D4D4D4'>(i);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;i++;</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+            color:#DCDCAA'>print</span><span style='
+            color:#D4D4D4'>(list);</span></p>
+            
+            <p><span style='
+            color:#D4D4D4'>}</span></p>
+            
+<br>
+            
+            </div>
+            <br>
+            <div class="res">
+                [200, 202, 204, 206, 208, 220, 222, 224, 226, 228, 240, 242, 244, 246, 248, 260, 262, 264, 266, 268, 280, 282, 284, 286, 288, 400, 402, 404, 406, 408, 420, 422, 424, 426, 428, 440, 442, 444, 446, 448, 460, 462, 464, 466, 468, 480, 482, 484, 486, 488, 600, 602, 604, 606, 608, 620, 622, 624, 626, 628, 640, 642, 644, 646, 648, 660, 662, 664, 666, 668, 680, 682, 684, 686, 688, 800, 802, 804, 806, 808]
+            </div>
+            <br>
+        <li class="step">
+            Exercise 11:  (while)
+        </li>
+        <p>
+            Write a program to check the validity of password input by users. <br><br>
+            <span class="note">
+                Validation :
+            </span>
+            <ul>
+                <li>
+                    <p>At least 1 letter between [a-z] and 1 letter between [A-Z].</p>
+                </li>
+                <li>
+                    <p>At least 1 number between [0-9].</p>
+                </li>
+                <li>
+                    <p>Minimum length 6 characters.</p>
+                </li>
+                <li>
+                    <p>Maximum length 16 characters.</p>
+                </li>
+            </ul>
+        </p>
+        <br>
+        <div class="indice">
+			
+		
+            <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+                <span class="word">ASCII</span> is a code that uses numbers to represent characters.  <br>
+                Each letter is assigned a number between 0 and 127.   <br>
+                A upper and lower case character are assigned different numbers.  <br>
+                For example the character A is assigned the decimal number 65, while a is assigned decimal 97.  <br>
+                <a target="_blank" href="https://www.ascii-code.com/">ASCII Full Table</a>  <br>
+                In Dart, you can use <span class="word">codeUnitAt(index)</span>to get the ascii code of character.  <br>
+    </p>
+    </div>
+       <br><br><br>
+       <h3 class="answer">
+        Solution:
+    </h3>
+   <br>
+       
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>bool</span><span style='
+    color:#D4D4D4'>&nbsp;upperLetter&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>bool</span><span style='
+    color:#D4D4D4'>&nbsp;lowerLetter&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>bool</span><span style='
+    color:#D4D4D4'>&nbsp;number&nbsp;=&nbsp;</span><span style='color:#569CD6'>false</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;a&nbsp;password&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;psw&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(psw.length&nbsp;&gt;=&nbsp;</span><span
+    style='color:#B5CEA8'>6</span><span
+    style='color:#D4D4D4'>&nbsp;&amp;&amp;&nbsp;psw.length&nbsp;&lt;&nbsp;</span><span
+    style='color:#B5CEA8'>16</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;i&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(i&nbsp;&lt;&nbsp;psw.length&nbsp;&amp;&amp;&nbsp;!(number&nbsp;&amp;&amp;&nbsp;upperLetter&nbsp;&amp;&amp;&nbsp;lowerLetter))&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span 
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+    style='color:#CE9178'>'A'</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;Z&quot;</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>))</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>upperLetter&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+    style='color:#CE9178'>'a'</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;z&quot;</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>))</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>lowerLetter&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>else</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&gt;=&nbsp;</span><span
+    style='color:#CE9178'>'0'</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>)&nbsp;&amp;&amp;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;psw.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(i)&nbsp;&lt;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;9&quot;</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>codeUnitAt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>))&nbsp;number&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(number&nbsp;&amp;&amp;&nbsp;upperLetter&nbsp;&amp;&amp;&nbsp;lowerLetter)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Valid&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;not&nbsp;Valid&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;not&nbsp;Valid&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        enter a password <br>
+        testABD123 <br>
+        Valid <br>
+    </div>
+    <br>
+    <div class="res">
+        enter a password <br>
+        test123 <br>
+        not Valid <br>
+    </div>
+    <br>
+        <li class="step">
+            Exercise 12:   (do..while)
+        </li>
+        <p>
+            Write a program that calculate the average of given numbers from user and ask the user every time for more numbers. <br>
+            If user say "yes" ask him for another number and if "No" give the average.
+        </p>
+        <br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;average&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;numbers&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>bool</span><span style='
+    color:#D4D4D4'>&nbsp;again;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>do</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;again&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>false</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;a&nbsp;number&nbsp;:&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;x&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;average&nbsp;+=&nbsp;x;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;numbers++;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;say&nbsp;Yes&nbsp;to&nbsp;add&nbsp;more&nbsp;and&nbsp;No&nbsp;to&nbsp;print&nbsp;the&nbsp;average&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;answer&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>().</span><span
+    style='color:#DCDCAA'>toUpperCase</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(answer&nbsp;==&nbsp;</span><span
+    style='color:#CE9178'>&quot;YES&quot;</span><span
+    style='color:#D4D4D4'>)&nbsp;again&nbsp;=&nbsp;</span><span
+    style='color:#569CD6'>true</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(again);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;the&nbsp;average&nbsp;is&nbsp;${</span><span
+    style='color:#9CDCFE'>average&nbsp;/&nbsp;numbers</span><span
+    style='color:#CE9178'>}&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>    
+    </div>
+    <br>
+    <div class="res">
+        Enter a number : <br>
+        14 <br>
+        say Yes to add more and No to print the average <br>
+        YES <br>
+        Enter a number : <br>
+        13 <br>
+        say Yes to add more and No to print the average <br>
+        YES <br>
+        Enter a number : <br>
+        20 <br>
+        say Yes to add more and No to print the average <br>
+        YES <br>
+        Enter a number : <br>
+        8 <br>
+        say Yes to add more and No to print the average <br>
+        NO <br>
+        the average is 13.75 <br>
+    </div>
+    <br>
+        <li class="step">
+            Exercise 13:   (do..while)
+        </li>
+        <br>
+        <p>
+            Generate a random number between 1 and 10. 
+            The user have 3 tries to guess the number. <br>
+            Print "Hard Luck  ---- the number is ..." if he lose and "Good Job" if he win. <br>
+        </p>
+        <br>
+        <div class="indice">
+            <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+               To generate a random number in dart: <br>
+            - Write <span class="word"> import 'dart:math'; </span> before void main(). <br>
+            - Use <span class="word">Random().nextInt(x)</span> <br>
+            For Example : Random().nextInt(5) may give 0 or 1 or 2 or 3 or 4 <br>
+            
+            </p>
+    </div>
+    <br><br><br>
+    <h3 class="answer">
+        Solution:
+    </h3>
+   <br>
+    
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:io'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span 
+    style='color:#CE9178'>'dart:math'</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;rand&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>Random</span><span style='color:#D4D4D4'>().</span><span style='color:#DCDCAA'>nextInt</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#B5CEA8'>10</span><span
+    style='color:#D4D4D4'>)&nbsp;+&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>bool</span><span style='
+    color:#D4D4D4'>&nbsp;answer&nbsp;=&nbsp;</span><span style='color:#569CD6'>false</span><span style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>int</span><span style='
+    color:#D4D4D4'>&nbsp;tries&nbsp;=&nbsp;</span><span style='color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>do</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Guess&nbsp;a&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;10&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;guess&nbsp;=&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>.</span><span
+    style='color:#DCDCAA'>tryParse</span><span
+    style='color:#D4D4D4'>(stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;=&nbsp;guess&nbsp;==&nbsp;rand;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;tries--;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>while</span><span style='
+    color:#D4D4D4'>&nbsp;(!answer&nbsp;&amp;&amp;&nbsp;tries&nbsp;&gt;&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(answer)</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Good&nbsp;Job&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>else</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Hard&nbsp;Luck&nbsp;&nbsp;---&nbsp;the&nbsp;number&nbsp;is&nbsp;$</span><span
+    style='color:#9CDCFE'>rand</span><span
+    style='color:#CE9178'>&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+   <br>
+    
+    </div>
+<br>   
+<div class="res">
+Guess a number between 1 and 10 <br>
+4 <br>
+Guess a number between 1 and 10 <br>
+7 <br>
+Guess a number between 1 and 10 <br>
+3 <br>
+Hard Luck  --- the number is 10 <br>
+</div> 
+<br>
+<div class="res">
+    Guess a number between 1 and 10 <br>
+    1 <br>
+    Guess a number between 1 and 10 <br>
+    2 <br>
+    Good Job <br>
+</div>
+<br>
+        <li class="step">
+            Exercise 14:   (switch)
+        </li>
+        <p>
+            Write a program to accept a grade and display the equivalent description: <br>
+            <table class="tableau">
+                <tr>
+                    <th>
+                        Grade
+                    </th>
+                    <th>
+                        description
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        E
+                    </td>
+                    <td>
+                        Excellent
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        V
+                    </td>
+                    <td>
+                        Very Good
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        G
+                    </td>
+                    <td>
+                        Good
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        A
+                    </td>
+                    <td>
+                        Average
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        F
+                    </td>
+                    <td>
+                        Fail
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <br><br><br>
+        <h3 class="answer">
+            Solution:
+        </h3>
+       <br>
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;Enter&nbsp;a&nbsp;grade&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;grade&nbsp;=&nbsp;stdin.</span><span
+    style='color:#DCDCAA'>readLineSync</span><span
+    style='color:#D4D4D4'>().</span><span
+    style='color:#DCDCAA'>toUpperCase</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>switch</span><span style='
+    color:#D4D4D4'>&nbsp;(grade)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'E'</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>'Excellent'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'V'</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>'Very&nbsp;Good'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'G'</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>'Good'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'A'</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Average&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'F'</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Fail&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>default</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Grade&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        Enter a grade <br>
+        A <br>
+        Average <br>
+    </div>
+    <br>
+    <div class="res">
+        Enter a grade <br>
+        C <br>
+        Invalid Grade <br>
+    </div>
+    <br>
+        <li class="step">
+            Exercise 15:  (switch)
+        </li>
+        <p>
+            Write a program that print the number of days in month (input : 1..12). <br>
+            Note: Here we are not checking leap year, so we fixed 28 days for February. <br>
+        </p>
+        <br>
+        <div class="indice">
+            <img class="icon" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/idea%20(1).png?alt=media&token=646a5f66-5a58-4bbb-8329-ef5daae835e0"><p>
+            To set a multiple case statement in a switch / case dart, you can list cases one after the other to get the following code execute on either one of those cases. <br>
+            <br>
+            </p>
+    </div>
+<br>
+<h2 class=note>
+	Example :
+</h2>
+<div class=res>
+				
+			
+                <span style="color: yellow;">switch</span> (mark) { <br>
+                &nbsp;&nbsp;&nbsp;    case 0 : <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print( "mark is 0") ; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    break; <br>
+                &nbsp;&nbsp;&nbsp;    case 1: <br>
+                &nbsp;&nbsp;&nbsp;    case 2: <br>
+                &nbsp;&nbsp;&nbsp;    case 3:  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      print("mark is either 1, 2 or 3") ; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      break; <br>
+                        
+                        &nbsp;&nbsp;&nbsp;    default : <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print( "mark is not 0, 1, 2 or 3" ); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    break; <br>
+                } <br>
+            </div>
+<br>
+<h3 class="answer">
+    Solution:
+</h3>
+<br>
+
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>import</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#CE9178'>'dart:io'</span><span style='
+    color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>&quot;enter&nbsp;a&nbsp;mounth&nbsp;number&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#569CD6'>var</span><span style='
+    color:#D4D4D4'>&nbsp;month&nbsp;=&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>.</span><span style='
+    color:#DCDCAA'>tryParse</span><span style='
+    color:#D4D4D4'>(stdin.</span><span style='
+    color:#DCDCAA'>readLineSync</span><span style='color:#D4D4D4'>());</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>switch</span><span style='
+    color:#D4D4D4'>&nbsp;(month)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>1</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>3</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>5</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>7</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>8</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>10</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>12</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;31&nbsp;days&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>4</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>6</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>9</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>11</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;30&nbsp;days&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>case</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#B5CEA8'>2</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;28&nbsp;days&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>default</span><span style='
+    color:#D4D4D4'>:</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#CE9178'>&quot;Invalid&nbsp;Month&quot;</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>break</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+
+<br>
+<div class="res">
+    enter a mounth number <br>
+    4 <br>
+    30 days <br>
+</div>
+<br>
+<div class="res">
+    enter a mounth number <br>
+    2 <br>
+    28 days <br>
+</div>
+
+
+
+
+    </ul>
+</div>

@@ -1,0 +1,246 @@
+<div class="contenu">
+    <h1>
+        Exercises
+    </h1>
+    <ul>
+        <li class="step">
+            Exercise 1:
+        </li>
+        <p>
+            Define a generic class <span class="word">Point </span> so that it is applicable whatever the type of its coordinates (int or double).
+        </p>
+
+        <br>
+        <br>
+        <br>
+        <h2 class="answer">
+            Solution : 
+        </h2>
+        <br>
+        <div class=code>
+
+            <p><span
+            style='color:#569CD6'>class</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>&lt;</span><span
+            style='color:#4EC9B0'>T</span><span
+            style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>T</span><span
+            style='color:#D4D4D4'>&nbsp;x,&nbsp;y;</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>(</span><span
+            style='color:#569CD6'>this</span><span
+            style='color:#D4D4D4'>.x,&nbsp;</span><span
+            style='color:#569CD6'>this</span><span
+            style='color:#D4D4D4'>.y);</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>}</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>&nbsp;</span></p>
+            
+            <p><span
+            style='color:#569CD6'>void</span><span
+            style='color:#D4D4D4'>&nbsp;</span><span
+            style='color:#DCDCAA'>main</span><span
+            style='color:#D4D4D4'>()&nbsp;{</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>var</span><span
+            style='color:#D4D4D4'>&nbsp;p1&nbsp;=&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>&lt;</span><span
+            style='color:#4EC9B0'>int</span><span
+            style='color:#D4D4D4'>&gt;(</span><span
+            style='color:#B5CEA8'>1</span><span
+            style='color:#D4D4D4'>,&nbsp;</span><span
+            style='color:#B5CEA8'>4</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+            style='color:#569CD6'>var</span><span
+            style='color:#D4D4D4'>&nbsp;p2&nbsp;=&nbsp;</span><span
+            style='color:#4EC9B0'>Point</span><span
+            style='color:#D4D4D4'>&lt;</span><span
+            style='color:#4EC9B0'>double</span><span
+            style='color:#D4D4D4'>&gt;(</span><span
+            style='color:#B5CEA8'>1.2</span><span
+            style='color:#D4D4D4'>,&nbsp;</span><span
+            style='color:#B5CEA8'>4.5</span><span
+            style='color:#D4D4D4'>);</span></p>
+            
+            <p><span
+            style='color:#D4D4D4'>}</span></p>
+            <br>
+            </div>
+    <br>
+        <li class="step">
+            Exercise 2: 
+        </li>
+        <p>
+            Use a generic method that return the number of  occurence of an element in a given list. Test it with 3 lists of type int , double and string.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h2 class="answer">
+            Solution : 
+        </h2>
+        <br>
+        
+<div class=code>
+
+    <p><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>occurence</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&gt;(</span><span
+    style='color:#4EC9B0'>List</span><span
+    style='color:#D4D4D4'>&lt;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&gt;&nbsp;list,&nbsp;</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;element)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&nbsp;res&nbsp;=&nbsp;</span><span
+    style='color:#B5CEA8'>0</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>for</span><span
+    style='color:#D4D4D4'>&nbsp;(</span><span
+    style='color:#4EC9B0'>T</span><span
+    style='color:#D4D4D4'>&nbsp;e&nbsp;</span><span
+    style='color:#C586C0'>in</span><span
+    style='color:#D4D4D4'>&nbsp;list)&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>if</span><span
+    style='color:#D4D4D4'>&nbsp;(e&nbsp;==&nbsp;element)&nbsp;res++;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>return</span><span
+    style='color:#D4D4D4'>&nbsp;res;</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;</span></p>
+    
+    <p><span
+    style='color:#569CD6'>void</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#DCDCAA'>main</span><span
+    style='color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#569CD6'>var</span><span
+    style='color:#D4D4D4'>&nbsp;li&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>int</span><span
+    style='color:#D4D4D4'>&gt;[</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>1</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>2</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>5</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>],</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#D4D4D4'>ld&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>double</span><span
+    style='color:#D4D4D4'>&gt;[</span><span
+    style='color:#B5CEA8'>1.4</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3.14</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3.14</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>3.6</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#B5CEA8'>6.1</span><span
+    style='color:#D4D4D4'>],</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls&nbsp;=&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>String</span><span
+    style='color:#D4D4D4'>&gt;[</span><span
+    style='color:#CE9178'>&quot;flutter&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;dart&quot;</span><span
+    style='color:#D4D4D4'>,&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>];</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#DCDCAA'>occurence</span><span
+    style='color:#D4D4D4'>(li,&nbsp;</span><span
+    style='color:#B5CEA8'>4</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#DCDCAA'>occurence</span><span
+    style='color:#D4D4D4'>(ld,&nbsp;</span><span
+    style='color:#B5CEA8'>3.14</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>&nbsp;&nbsp;</span><span
+    style='color:#DCDCAA'>print</span><span
+    style='color:#D4D4D4'>(</span><span
+    style='color:#DCDCAA'>occurence</span><span
+    style='color:#D4D4D4'>(ls,&nbsp;</span><span
+    style='color:#CE9178'>&quot;apps&quot;</span><span
+    style='color:#D4D4D4'>));</span></p>
+    
+    <p><span
+    style='color:#D4D4D4'>}</span></p>
+    <br>
+    </div>
+    <br>
+    <div class="res">
+        3 <br>
+        2 <br>
+        1         <br>
+    </div>    
+    </ul>
+</div>

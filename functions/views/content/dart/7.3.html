@@ -1,0 +1,182 @@
+<div class="contenu">
+    <h1>
+        Throwing Error
+    </h1>
+    <ol>
+        <li class="step">
+            Throwing an Exception
+        </li>
+    <p>
+        To explicitly raise an exception, we can use the <span class="word"> throw</span> keyword. A raised exception should be handled to prevent the program from exiting abruptly. <br>
+    </p>
+    <br>
+
+
+<div class=code>
+
+    <p><span style='
+    color:#569CD6'>void</span><span style='
+    color:#D4D4D4'>&nbsp;</span><span style='
+    color:#DCDCAA'>main</span><span style='
+    color:#D4D4D4'>()&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#4EC9B0'>String</span><span style='
+    color:#D4D4D4'>&nbsp;ticketNumber&nbsp;=&nbsp;</span><span
+    style='color:#CE9178'>&quot;34253423&quot;</span><span
+    style='color:#D4D4D4'>;</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>try</span><span style='
+    color:#D4D4D4'>&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#C586C0'>if</span><span style='
+    color:#D4D4D4'>&nbsp;(ticketNumber.length&nbsp;!=&nbsp;</span><span
+    style='color:#B5CEA8'>12</span><span
+    style='color:#D4D4D4'>)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#C586C0'>throw</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#C586C0'>new</span><span
+    style='color:#D4D4D4'>&nbsp;</span><span
+    style='color:#4EC9B0'>FormatException</span><span
+    style='color:#D4D4D4'>();</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+    color:#C586C0'>catch</span><span style='
+    color:#D4D4D4'>&nbsp;(e)&nbsp;{</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+    color:#DCDCAA'>print</span><span style='
+    color:#D4D4D4'>(</span><span style='
+    color:#CE9178'>'the&nbsp;ticket&nbsp;number&nbsp;is&nbsp;composed&nbsp;of&nbsp;12&nbsp;digits'</span><span
+    style='color:#D4D4D4'>);</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>}</span></p>
+    
+<br>
+    
+    </div>
+    <br>
+    <div class="res">
+        the ticket number is composed of 12 digits <br>
+    </div>
+    <br>
+    <li class="step">
+        Custom Exceptions
+
+    </li>
+    <p>
+        You often can achieve that by using standard exceptions with good messages. The Dart Exception class describes the kind of event, and the message provides detailed information about it. You can take this concept one step further by using a custom exception. <br> <br>
+
+Custom exceptions provide you the flexibility to add attributes and methods that are not part of a standard Java exception. These can store additional information, like an application-specific error code, or provide utility methods that can be used to handle or present the exception to a user. <br>
+    </p>
+    <br>
+
+    <div class=code>
+
+        <p ><span style='
+        color:#569CD6'>class</span><span style='
+        color:#D4D4D4'>&nbsp;startWith1&nbsp;</span><span style='
+        color:#569CD6'>implements</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#4EC9B0'>Exception</span><span
+        style='color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#4EC9B0'>String</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>erroMessage</span><span style='
+        color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+        style='color:#CE9178'>&quot;The&nbsp;ticket&nbsp;number&nbsp;must&nbsp;start&nbsp;with&nbsp;1.&quot;</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;</span></p>
+        
+        <p ><span style='
+        color:#569CD6'>void</span><span style='
+        color:#D4D4D4'>&nbsp;</span><span style='
+        color:#DCDCAA'>main</span><span style='
+        color:#D4D4D4'>()&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#4EC9B0'>String</span><span style='
+        color:#D4D4D4'>&nbsp;ticketNumber&nbsp;=&nbsp;</span><span
+        style='color:#CE9178'>&quot;342531231234&quot;</span><span
+        style='color:#D4D4D4'>;</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;</span><span style='
+        color:#C586C0'>try</span><span style='
+        color:#D4D4D4'>&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#C586C0'>if</span><span style='
+        color:#D4D4D4'>&nbsp;(ticketNumber[</span><span
+        style='color:#B5CEA8'>0</span><span
+        style='color:#D4D4D4'>]&nbsp;!=&nbsp;</span><span
+        style='color:#B5CEA8'>1</span><span
+        style='color:#D4D4D4'>)&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        style='color:#C586C0'>throw</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#C586C0'>new</span><span
+        style='color:#D4D4D4'>&nbsp;</span><span
+        style='color:#DCDCAA'>startWith1</span><span
+        style='color:#D4D4D4'>();</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}&nbsp;</span><span style='
+        color:#C586C0'>catch</span><span style='
+        color:#D4D4D4'>&nbsp;(e)&nbsp;{</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='
+        color:#DCDCAA'>print</span><span style='
+        color:#D4D4D4'>(e.</span><span style='
+        color:#DCDCAA'>erroMessage</span><span style='
+        color:#D4D4D4'>());</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+        
+        <p ><span style='
+        color:#D4D4D4'>}</span></p>
+        
+<br>
+        
+        </div>
+        <br>
+        <div class="res">
+            The ticket number must start with 1.
+            <br>
+        </div>
+</ol>
+</div>

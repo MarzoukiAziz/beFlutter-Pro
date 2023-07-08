@@ -1,0 +1,73 @@
+<div class="contenu">
+    <h1>
+        First application
+    </h1>
+    <p>
+        Now, we will create our first flutter app and test everything.
+    </p>
+    <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mmtuEKcvY3g" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe> <br>
+
+    <ol>
+        <li>
+            <p>Run <strong>flutter doctor</strong> to check again that all dependencies are completed.</p>
+        </li>
+        <li>
+            <p>Invoke View > Command Palette. (Ctrl + Shift + P) </p>
+        </li>
+        <li>
+            <p>Type “flutter”, and select the Flutter: New Application Project.</p>
+        </li>
+        <li>
+            <p>Create or select the parent directory for the new project folder.</p>
+        </li>
+        <li>
+            <p>Enter a project name, such as <strong>first_app</strong>, and press Enter.</p>
+        </li>
+        <li>
+            <p>Wait for project creation to complete and the main.dart file to appear.</p>
+        </li>
+        <li>
+            <p>Run <strong>flutter emulators</strong> to check the available emulators</p>
+        </li>
+        <li>
+            <p>Invoke <strong>Run > Run Without Debugging</strong>(Ctrl + F5).</p>
+        </li>
+        <li>
+            <p>Wait for the app to launch</p>
+        </li>
+        <li>
+            <p>Change the <strong>primarySwatch</strong> from <strong>Colors.blue</strong> to
+                <strong>Colors.green</strong>
+            </p>
+        </li>
+        <li>
+            <p>
+                Save your changes: invoke Save All (Ctrl + S), or click Hot Reload to see the updated color in the
+                running app almost immediately.
+            </p>
+        </li>
+    </ol>
+    <br><br>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c1l5p1.png?alt=media&token=136ef0f0-2445-4dac-9be8-5871abe8bc9e"
+        alt="Hot Reload & Hot Restart in Flutter">
+    <p>
+        <span class="step"> What is the difference between hot reload, hot restart, and full restart?</span><br><br>
+        <strong>Hot reload</strong> loads code changes into the VM and re-builds the widget tree, preserving the app
+        state; it doesn’t rerun main() or initState(). (F5 in VSCode) <br><br>
+        <strong>Hot restart</strong> loads code changes into the VM, and restarts the Flutter app, losing the app state.
+        (⇧ F5 in VSCode)<br><br>
+        <strong>Full restart</strong> restarts the iOS, Android, or web app. This takes longer because it also
+        recompiles the Java / Kotlin / ObjC / Swift code. On the web, it also restarts the Dart Development Compiler.
+        There is no specific keyboard shortcut for this; you need to stop and start the run configuration. <br><br>
+        Flutter web currently supports hot restart but not hot reload.
+    </p>
+
+    <a class="githubLink" href="https://github.com/moazmar/App0--The-Default-App---FlutterCourse" target="_blank">
+        <img class="github"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/f3mn2sw6is59zrxhzj51.jpg?alt=media&token=9dc18b84-5c6c-47a4-a553-fdc879d50b9f"
+            alt="github">
+    </a>
+</div>

@@ -1,0 +1,1131 @@
+<div class="contenu">
+    <h1>
+        Using Google Maps
+    </h1>
+    <p>
+        If you want to conveniently convey details of places, directions and routes to the end-user, Google Maps is an
+        essential part of your app. Luckily, there is an official <a
+            href="https://pub.dev/packages/google_maps_flutter">google_maps_flutter</a> available for Flutter.
+    </p>
+    <ol>
+        <li class="step">
+            Creating a GCP project
+        </li>
+        <p>
+            You will need a GCP project to get access to the Google Maps API and generate an API key.
+        </p>
+        <p>
+            To create a new GCP project, follow the steps below:
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Go to the <a href="console.cloud.google.com">GCP console</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Go to the Project Selection dialog box and click New Project.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_1.png" alt="">
+            <li>
+                <p>
+                    Enter a name for your project and click Create.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_2.png" alt="">
+            <p>
+                This will create a new GCP Project.
+
+            </p>
+        </ol>
+        <li class="step">
+            Enabling APIs
+
+        </li>
+        <p>
+            In order to use Google Maps in your app, you will need to enable Maps SDK for both platforms.
+        </p>
+        <ol>
+            <li>
+                <p>Go to APIs & Services from the left menu and select Library. </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_3.png" alt="">
+            <li>
+                <p>
+                    Now, search for Maps and enable Maps SDK for both platforms.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_4.png" alt="">
+            <li>
+                <p>
+                    You will also need the Directions API while drawing the routes. So enable that as well.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_5.png" alt="">
+        </ol>
+        <br><br>
+        <li class="step">
+            Generating an API key
+        </li>
+        <p>
+            You will need an API key for integrating Google Maps with your app.
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Go to APIs & Services from the left menu and select Credentials.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_6.png" alt="">
+            <li>
+                <p>
+                    Click CREATE CREDENTIALS and select API key.
+                </p>
+            </li>
+            <img src="https://blog.codemagic.io/uploads/2020/05/gcp_7.png" alt="">
+            <p>
+                This will generate an API key that you will need in the next step.
+
+
+            </p>
+        </ol>
+        <li class="step">
+            Set up the Flutter project
+        </li>
+        <ul>
+            <li>
+                <p>
+                    Create a new Flutter project.
+                </p>
+            </li>
+            <div class="syn">
+                flutter create flutter_maps
+
+            </div>
+            <li>
+                <p>
+                    Open the project using your favorite IDE. For opening with VS Code:
+                </p>
+            </li>
+            <div class="syn">
+                code flutter_maps
+
+            </div>
+            <li>
+                <p>
+                    Add the google_maps_flutter plugin to the pubspec.yaml file:
+                </p>
+            </li>
+            <div class="syn">
+                google_maps_flutter: ^2.0.6
+            </div>
+        </ul>
+        <h2 class="note">
+            Android setup
+        </h2>
+        <p>
+            Go to android/app/build.gradle and set the minSdkVersion to 20:
+        </p>
+        <div class="code">
+
+            <p><span style='color:white;'>android </span><span style='color:#F92672;'>{</span></p>
+
+            <p><span style='color:white;'> defaultConfig </span><span style='color:#F92672;'>{</span></p>
+
+            <p><span style='color:white;'> minSdkVersion </span><span style='color:#AE81FF;'>20</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#F92672;'>}</span></p>
+
+            <p><span style='color:#F92672;'>}</span></p>
+            <br>
+        </div>
+        <br>
+        <p>
+            Navigate to the file android/app/src/main/AndroidManifest.xml and add the following code snippet inside the
+            application tag:
+        </p>
+        <div class="code">
+            <pre><code><span style='color:#75715E;
+    '>&lt;!-- Add your Google Maps API Key here --&gt;</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:#F92672;border:none windowtext 1.0pt;padding:
+    0in'>&lt;meta-data</span></code><code><span style='color:white;
+    '> </span></code><code><span
+    style='color:#A6E22E;border:none windowtext 1.0pt;padding:
+    0in'>android:name=</span></code><code><span style='color:#E6DB74;
+    '>&quot;com.google.android.geo.API_KEY&quot;</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>               </span></code><code><span
+    style='color:#A6E22E;border:none windowtext 1.0pt;padding:
+    0in'>android:value=</span></code><code><span style='
+    color:#E6DB74;'>&quot;YOUR KEY HERE&quot;</span></code><code><span
+    style='color:#F92672;border:none windowtext 1.0pt;padding:
+    0in'>/&gt;</span></code></pre>
+
+            <br>
+        </div>
+        <br>
+        <p>
+            You will also need the location access in the app. Add the following permission in the same file inside
+            the manifest tag:
+        </p>
+        <br>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in;line-height:21.0pt;
+vertical-align:baseline'><span style='font-size:10.0pt;font-family:Wingdings;
+color:white;'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+                    </span></span><span dir=LTR></span><span style='font-family:
+"Courier New";color:#F92672;'>&lt;uses-permission</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>android:name=</span><span
+                    style='color:#E6DB74;'>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span><span
+                    style='color:#F92672;'>/&gt;</span></p>
+            <br>
+        </div>
+        <br>
+        <h2 class="note">
+            iOS setup
+        </h2>
+        <p>
+            Navigate to the file ios/Runner/AppDelegate.swift and replace the whole code with the following:
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#66D9EF;'>import</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>UIKit</span></p>
+
+            <p><span style='color:#66D9EF;'>import</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>Flutter</span></p>
+
+            <p><span style='color:#66D9EF;'>import</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>GoogleMaps</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#66D9EF;'>@UIApplicationMain</span></p>
+
+            <p><span style='color:#66D9EF;'>@objc</span><span style='color:white;'> </span><span
+                    style='color:#66D9EF;'>class</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>AppDelegate</span><span style='color:white;'>: FlutterAppDelegate {</span>
+            </p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>override</span><span
+                    style='color:white;'> </span><span style='color:#66D9EF;'>func</span><span style='color:white;'>
+                </span><span style='color:#A6E22E;'>application</span><span style='color:white;'>(</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>_</span><span style='color:white;'>
+                    application:
+                    UIApplication,</span></p>
+
+            <p><span style='color:white;'> didFinishLaunchingWithOptions
+                    launchOptions: [UIApplication.LaunchOptionsKey: Any]?</span></p>
+
+            <p><span style='color:white;'> ) -&gt; Bool {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#75715E;'>//Add your Google Maps API Key
+                    here</span></p>
+
+            <p><span style='color:white;'>
+                    GMSServices.provideAPIKey(</span><span style='font-family:
+"Courier New";color:#E6DB74;'>&quot;YOUR
+                    KEY HERE&quot;</span><span style='color:white;'>)</span></p>
+
+            <p><span style='color:white;'>
+                    GeneratedPluginRegistrant.register(with: </span><span style='
+color:#66D9EF;'>self</span><span style='color:white;'>)</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>return</span><span style='color:white;'>
+                </span><span style='color:#66D9EF;'>super</span><span style='color:white;'>.application(application,
+                    didFinishLaunchingWithOptions: launchOptions)</span></p>
+
+            <p><span style='color:white;'> }</span></p>
+
+            <p><span style='color:white;'>}</span></p>
+        </div>
+        <br>
+        <p>
+            To get the location permission, add the following to the same file:
+        </p>
+        <div class="code">
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:21.0pt;
+vertical-align:baseline'><span style='color:white;'>&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;</span>
+            </p>
+
+            <p class=MsoNormal style='margin-bottom:0in;line-height:21.0pt;
+vertical-align:baseline'><span style='color:white;'>&lt;string&gt;This app
+                    needs access to location when open.&lt;/string&gt;</span></p>
+        </div>
+        <br>
+        <p>
+            This completes the setup for both platforms in Flutter.
+        </p>
+        <br><br>
+        <li class="step">
+            Integrating the Google Maps Widget
+        </li>
+        <p>
+            Now you are ready to add the Google Maps widget to your Flutter app. <br><br>
+
+            You can start with the following code:
+        </p>
+        <div class="code">
+
+            <p><span style='color:#66D9EF;'>import</span><span style='color:white;'> </span><span
+                    style='color:#E6DB74;'>'package:flutter/material.dart'</span><span style='color:white;'>;</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#66D9EF;'>void</span><span style='color:white;'> main() {</span></p>
+
+            <p><span style='color:white;'> runApp(MyApp());</span></p>
+
+            <p><span style='color:white;'>}</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#66D9EF;'>class</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>MyApp</span><span style='color:white;'> </span><span
+                    style='color:#66D9EF;'>extends</span><span style='color:white;'> StatelessWidget {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#960050;;background:#1E0010'>@</span><span style='
+color:white;border:none windowtext 1.0pt;padding:
+0in'>override</span></p>
+
+            <p><span style='color:white;'> Widget
+                    build(BuildContext context) {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>return</span><span style='color:white;'>
+                    MaterialApp(</span></p>
+
+            <p><span style='color:white;'> title: </span><span style='color:#E6DB74;'>'Flutter Maps'</span><span style='font-family:
+"Courier New";color:white;'>,</span></p>
+
+            <p><span style='color:white;'> theme: ThemeData(</span></p>
+
+            <p><span style='color:white;'> primarySwatch:
+                    Colors.blue,</span></p>
+
+            <p><span style='color:white;'> ),</span></p>
+
+            <p><span style='color:white;'> home: MapView(),</span></p>
+
+            <p><span style='color:white;'> );</span></p>
+
+            <p><span style='color:white;'> }</span></p>
+
+            <p><span style='color:white;'>}</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#66D9EF;'>class</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>MapView</span><span style='color:white;'> </span><span
+                    style='color:#66D9EF;'>extends</span><span style='color:white;'> StatefulWidget {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#960050;;background:#1E0010'>@</span><span style='
+color:white;border:none windowtext 1.0pt;padding:
+0in'>override</span></p>
+
+            <p><span style='color:white;'> _MapViewState
+                    createState() </span><span style='color:#F92672;'>=&gt;</span><span style='color:white;'>
+                    _MapViewState();</span></p>
+
+            <p><span style='color:white;'>}</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#66D9EF;'>class</span><span style='color:white;'> </span><span
+                    style='color:#A6E22E;'>_MapViewState</span><span style='color:white;'> </span><span
+                    style='color:#66D9EF;'>extends</span><span style='color:white;'> State</span><span
+                    style='color:#F92672;'>&lt;</span><span style='color:white;'>MapView</span><span
+                    style='color:#F92672;'>&gt;</span><span style='color:white;'> {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#960050;;background:#1E0010'>@</span><span style='
+color:white;border:none windowtext 1.0pt;padding:
+0in'>override</span></p>
+
+            <p><span style='color:white;'> Widget
+                    build(BuildContext context) {</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#75715E;'>// Determining the screen width &amp;
+                    height</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>var</span><span style='color:white;'>
+                    height </span><span style='color:#F92672;'>=</span><span style='color:white;'>
+                    MediaQuery.of(context).size.height;</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>var</span><span style='color:white;'>
+                    width </span><span style='color:#F92672;'>=</span><span style='color:white;'>
+                    MediaQuery.of(context).size.width;</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#66D9EF;'>return</span><span style='color:white;'>
+                    Container(</span></p>
+
+            <p><span style='color:white;'> height: height,</span></p>
+
+            <p><span style='color:white;'> width: width,</span></p>
+
+            <p><span style='color:white;'> child: Scaffold(</span></p>
+
+            <p><span style='color:white;'> body: Stack(</span></p>
+
+            <p><span style='color:white;'> children: </span><span style='color:#F92672;'>&lt;</span><span
+                    style='color:white;'>Widget</span><span style='color:#F92672;'>&gt;</span><span
+                    style='color:white;'>[</span></p>
+
+            <p><span style='color:white;'> </span><span style='color:#75715E;'>// TODO: Add Map View</span></p>
+
+            <p><span style='color:white;'> ],</span></p>
+
+            <p><span style='color:white;'> ),</span></p>
+
+            <p><span style='color:white;'> ),</span></p>
+
+            <p><span style='color:white;'> );</span></p>
+
+            <p><span style='color:white;'> }</span></p>
+
+            <p><span style='color:white;'>}</span></p>
+            <br>
+
+        </div>
+        <br>
+        <p>
+            I have defined the <strong>Container</strong> height and width to be the size of the screen so that the
+            Google Maps widget
+            takes up the entire screen. <br><br>
+
+            I am also using a <strong>Stack</strong> to keep Google Maps widget in the background and add other
+            necessary widgets on top
+            of it. <br><br>
+
+            Now replace the <strong>TODO</strong> in the above code snippet with the Google Maps widget.
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#75715E'>// Import the Google Maps package</span></p>
+
+            <p><span style='color:#66D9EF'>import</span><span style='color:white'> </span><span
+                    style='color:#E6DB74'>'package:google_maps_flutter/google_maps_flutter.dart'</span><span
+                    style='color:white'>;</span></p>
+
+            <p><span style='color:white'>&nbsp;</span></p>
+
+            <p><span style='color:#75715E'>// Initial location of the Map view</span></p>
+
+            <p><span style='color:white'>CameraPosition _initialLocation </span><span style='font-size:
+12.0pt;color:#F92672'>=</span><span style='font-size:
+12.0pt;color:white'> CameraPosition(target: LatLng(</span><span style='color:#AE81FF'>0.0</span><span
+                    style='color:white'>, </span><span style='color:#AE81FF'>0.0</span><span
+                    style='color:white'>));</span></p>
+
+            <p><span style='color:white'>&nbsp;</span></p>
+
+            <p><span style='color:#75715E'>// For controlling the view of the Map</span></p>
+
+            <p><span style='color:white'>late GoogleMapController mapController;</span></p>
+
+            <p><span style='color:white'>&nbsp;</span></p>
+
+            <p><span style='color:#75715E'>// Replace the &quot;TODO&quot; with this widget</span></p>
+
+            <p><span style='color:white'>GoogleMap(</span></p>
+
+            <p><span style='color:white'> initialCameraPosition: _initialLocation,</span></p>
+
+            <p><span style='color:white'> myLocationEnabled: </span><span style='
+color:#66D9EF'>true</span><span style='font-size:
+12.0pt;color:white'>,</span></p>
+
+            <p><span style='color:white'> myLocationButtonEnabled: </span><span style='
+color:#66D9EF'>false</span><span style='font-size:
+12.0pt;color:white'>,</span></p>
+
+            <p><span style='color:white'> mapType: MapType.normal,</span></p>
+
+            <p><span style='color:white'> zoomGesturesEnabled: </span><span style='
+color:#66D9EF'>true</span><span style='font-size:
+12.0pt;color:white'>,</span></p>
+
+            <p><span style='color:white'> zoomControlsEnabled: </span><span style='
+color:#66D9EF'>false</span><span style='font-size:
+12.0pt;color:white'>,</span></p>
+
+            <p><span style='color:white'> onMapCreated: (GoogleMapController controller) {</span></p>
+
+            <p><span style='color:white'> mapController </span><span style='font-family:
+"Courier New";color:#F92672'>=</span><span style='font-family:
+"Courier New";color:white'> controller;</span></p>
+
+            <p><span style='color:white'> },</span></p>
+
+            <p><span style='color:white'>),</span></p>
+        </div>
+        <br>
+        <p>
+            Let’s take a look at the parameters defined in the Google Maps widget:
+        </p>
+        <ul>
+            <li>
+                <p><strong>initialCameraPosition : </strong> This is a required parameter that is used for loading the
+                    map view on initial start-up.</p>
+            </li>
+            <li>
+                <p><strong>myLocationEnabled</strong>: For showing your current location on the map with a blue dot.</p>
+            </li>
+            <li>
+                <p><strong>myLocationButtonEnabled</strong>: This button is used to bring the user location to the
+                    center of the camera view.</p>
+            </li>
+            <li>
+                <p><strong>mapType</strong>: For specifying the displayed map type (normal, satellite, hybrid or
+                    terrain).
+                </p>
+            </li>
+            <li>
+                <p><strong>zoomGesturesEnabled</strong>: Whether the map view should respond to zoom gestures.
+                </p>
+            </li>
+            <li>
+                <p><strong>zoomControlsEnabled</strong>: Whether to show zoom controls (only applicable for Android).
+                </p>
+            </li>
+            <li>
+                <p><strong>onMapCreated</strong>: Callback for when the map is ready to use.
+                </p>
+            </li>
+        </ul>
+        <br>
+        <p>
+            I have set the <strong>myLocationButtonEnabled</strong> and <strong>zoomControlsEnabled</strong> parameters
+            as false because I am going to show you how to define a custom button with the same functionality but with
+            better control. <br><br>
+            <strong>mapController</strong> would be used to control the camera position of the map view. <br><br>
+            By now, the app looks like this:
+        </p>
+        <img src="https://blog.codemagic.io/uploads/2020/05/map_1.png" alt="">
+        <br>
+        <p>
+            To display the zoom buttons and the current location button you can add them as children to the
+            <strong>Stack</strong> widget
+            and position them accordingly.
+            <br><br>
+            The code for designing a button is given below:
+        </p>
+        <br>
+        <div class="code">
+            <pre><code><span style='color:#75715E;
+    '>// Design for current location button</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>&nbsp;</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>ClipOval(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>  child: Material(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>    color: Colors.orange.shade100, </span></code><code><span
+    style='color:#75715E;border:none windowtext 1.0pt;padding:
+    0in'>// button color</span></code></pre>
+            <pre style='line-height:21.0pt;
+    vertical-align:baseline'><code><span style='
+    color:white;'>    child: InkWell(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      splashColor: Colors.orange, </span></code><code><span
+    style='color:#75715E;border:none windowtext 1.0pt;padding:
+    0in'>// inkwell color</span></code></pre>
+            <pre style='line-height:21.0pt;
+    vertical-align:baseline'><code><span style='
+    color:white;'>      child: SizedBox(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        width: </span></code><code><span
+    style='color:#AE81FF;border:none windowtext 1.0pt;padding:
+    0in'>56</span></code><code><span style='color:white;
+    '>,</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        height: </span></code><code><span
+    style='color:#AE81FF;border:none windowtext 1.0pt;padding:
+    0in'>56</span></code><code><span style='color:white;
+    '>,</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        child: Icon(Icons.my_location),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      onTap: () {</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        </span></code><code><span
+    style='color:#75715E;border:none windowtext 1.0pt;padding:
+    0in'>// TODO: Add the operation to be performed</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        </span></code><code><span
+    style='color:#75715E;border:none windowtext 1.0pt;padding:
+    0in'>// on button tap</span></code></pre>
+            <pre style='line-height:21.0pt;
+    vertical-align:baseline'><code><span style='
+    color:white;'>      },</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>    ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>  ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>),</span></code></pre>
+            <br>
+        </div>
+        <br>
+        <br>
+        <h2 class="note">
+            Using zoom in the map view
+
+        </h2>
+        <p>
+            You can use the <strong>mapController</strong> to zoom in and out on a map.
+
+
+        </p>
+        <br>
+        <div class="code">
+
+            <p><span style='color:#75715E;'>// Zoom In action</span></p>
+
+            <p><span style='color:white;'>mapController.animateCamera(</span></p>
+
+            <p><span style='color:white;'> CameraUpdate.zoomIn(),</span></p>
+
+            <p><span style='color:white;'>);</span></p>
+
+            <p><span style='color:white;'>&nbsp;</span></p>
+
+            <p><span style='color:#75715E;'>// Zoom Out action</span></p>
+
+            <p><span style='color:white;'>mapController.animateCamera(</span></p>
+
+            <p><span style='color:white;'> CameraUpdate.zoomOut(),</span></p>
+
+            <p><span style='color:white;'>);</span></p>
+            <br>
+        </div>
+        <br>
+        <h2 class="note">
+            Move to a new position
+        </h2>
+        <p>
+            You can use the following code snippet to move to a new position:
+        </p>
+        <div class="code">
+            <pre><code><span style='color:#75715E;
+    '>// Move camera to the specified latitude &amp; longitude</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>mapController.animateCamera(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>  CameraUpdate.newCameraPosition(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>    CameraPosition(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      target: LatLng(</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        </span></code><code><span
+    style='color:#75715E;border:none windowtext 1.0pt;padding:
+    0in'>// Will be fetching in the next step</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        _currentPosition.latitude,</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>        _currentPosition.longitude,</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>      zoom: </span></code><code><span
+    style='color:#AE81FF;border:none windowtext 1.0pt;padding:
+    0in'>18.0</span></code><code><span style='color:white;
+    '>,</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>    ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>  ),</span></code></pre>
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>);</span></code></pre>
+            <br>
+        </div>
+        <br>
+        <p>
+            Here, I have only specified the target and zoom properties of the CameraPosition widget. There are
+            two more properties, bearing and tilt that you can use in a similar manner. <br><br>
+
+            In the target property, you have to pass the latitude and longitude of the position you want to
+            move. <br><br>
+
+            Here, we need the Current Location button to move the camera view to the user’s present location.
+            Let’s see how to achieve that. <br><br>
+
+            After adding the buttons, the app will look like this:
+        </p>
+        <img src="https://blog.codemagic.io/uploads/2020/05/map_2.png" alt="">
+        <br>
+        <br>
+        <li class="step">
+            Fetching current location
+        </li>
+        <p>
+            There is a nice plugin for Flutter called <a href="https://pub.dev/packages/geolocator">Geolocator</a>
+            that can help you fetch the user’s
+            current location. <br><br>
+            Add it to your pubspec.yaml file:
+
+
+        </p>
+        <div class="code">
+            <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                style='color:white;'>geolocator: ^7.0.3</span></code></pre>
+            <br>
+        </div>
+        <p>
+            Now let’s get started and go through it step-by-step.
+        </p>
+        <ol>
+            <li>
+                <p>Define a variable to store the retrieved current location:</p>
+            </li>
+            <div class="code">
+                <pre><code><span style='color:#75715E;
+    '>// For storing the current position</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+    style='color:white;'>Position _currentPosition;</span></code></pre>
+                <br>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Get the current location of the user:
+                </p>
+            </li>
+            <br>
+            <div class="code">
+                <pre style='line-height:21.0pt;
+                                vertical-align:baseline'><code><span style='color:#75715E;
+                                '>// Method for retrieving the current location</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>   </span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>_getCurrentLocation() </span></code><code><span
+                                style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+                                0in'>async</span></code><code><span style='color:white;
+                                '> {</span></code></pre>
+                <pre
+                    style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>  </span></code><code><span
+                                style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+                                0in'>await</span></code><code><span style='color:white;
+                                '> Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      .then((Position position) </span></code><code><span
+                                style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+                                0in'>async</span></code><code><span style='color:white;
+                                '> {</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>    setState(() {</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      </span></code><code><span
+                                style='color:#75715E;border:none windowtext 1.0pt;padding:
+                                0in'>// Store the position in the variable</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      _currentPosition </span></code><code><span
+                                style='color:#F92672;border:none windowtext 1.0pt;padding:
+                                0in'>=</span></code><code><span style='color:white;border:
+                                none windowtext 1.0pt;padding:0in'> position;</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>&nbsp;</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      print(</span></code><code><span
+                                style='color:#E6DB74;border:none windowtext 1.0pt;padding:
+                                0in'>'CURRENT POS: $</span></code><code><span style='
+                                color:white;'>_currentPosition</span></code><code><span
+                                style='color:#E6DB74;border:none windowtext 1.0pt;padding:
+                                0in'>'</span></code><code><span style='color:white;border:
+                                none windowtext 1.0pt;padding:0in'>);</span></code></pre>
+                <pre style='line-height:
+                                21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>&nbsp;</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      </span></code><code><span
+                                style='color:#75715E;border:none windowtext 1.0pt;padding:
+                                0in'>// For moving the camera to current location</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      mapController.animateCamera(</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>        CameraUpdate.newCameraPosition(</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>          CameraPosition(</span></code></pre>
+                <pre
+                    style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>            target: LatLng(position.latitude, position.longitude),</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>            zoom: </span></code><code><span
+                                style='color:#AE81FF;border:none windowtext 1.0pt;padding:
+                                0in'>18.0</span></code><code><span style='color:white;
+                                '>,</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>          ),</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>        ),</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>      );</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>    });</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>    </span></code><code><span
+                                style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+                                0in'>await</span></code><code><span style='color:white;
+                                '> _getAddress();</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>  }).catchError((e) {</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>    print(e);</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>  });</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+                                style='color:white;'>}</span></code></pre>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Add this method to the <strong>initState</strong> to fetch the user’s current location
+                    as soon as the app
+                    launches, and to move the camera to the detected location
+                </p>
+            </li>
+            <div class="code">
+                <pre style='line-height:21.0pt;
+vertical-align:baseline'><code><span style='color:#960050;
+;background:#1E0010'>@</span></code><code><span
+style='color:white;'>override</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+0in'>void</span></code><code><span style='color:white;
+'> initState() {</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+style='color:white;'>  </span></code><code><span
+style='color:#66D9EF;border:none windowtext 1.0pt;padding:
+0in'>super</span></code><code><span style='color:white;
+'>.initState();</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+style='color:white;'>  _getCurrentLocation();</span></code></pre>
+                <pre style='line-height:21.0pt;vertical-align:baseline'><code><span
+style='color:white;'>}</span></code></pre>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Also pass the latitude and longitude to the onTap method of the custom button for
+                    fetching the current location.
+                </p>
+            </li>
+
+
+        </ol>
+        <p>
+            After completing these, the camera will automatically move to the detected location as the app
+            launches.
+        </p>
+        <img src="https://blog.codemagic.io/uploads/2020/05/map_3.gif" alt="">
+        <br>
+        <li class="step">
+            Placing Markers
+        </li>
+        <p>
+            You can use the coordinates retrieved in the previous step to place markers on the map.
+        </p>
+        <ul>
+            <li>
+                <p>First of all, define a variable for storing the markers:</p>
+            </li>
+            <div class="code">
+                <p><span style='font-size:10.0pt;font-family:Wingdings;
+color:white;'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
+                        </span></span><span dir=LTR></span><span style='font-family:
+"Courier New";color:white;'>Set</span><span style='color:#F92672;'>&lt;</span><span
+                        style='color:white;'>Marker</span><span style='color:#F92672;'>&gt;</span><span
+                        style='color:white;'> markers </span><span style='color:#F92672;'>=</span><span
+                        style='color:white;'> {};</span></p>
+                <br>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Create the markers:
+                </p>
+            </li>
+            <div class="code">
+
+                <p><span style='color:#66D9EF;'>String</span><span style='color:white;'> startCoordinatesString
+                    </span><span style='
+color:#F92672;'>=</span><span style='color:white;'> </span><span style='color:#E6DB74;'>'($</span><span
+                        style='color:white;'>startLatitude</span><span style='color:#E6DB74;'>, $</span><span
+                        style='color:white;'>startLongitude</span><span style='color:#E6DB74;'>)'</span><span
+                        style='color:white;'>;</span></p>
+
+                <p><span style='color:#66D9EF;'>String</span><span style='color:white;'> destinationCoordinatesString
+                    </span><span style='
+color:#F92672;'>=</span><span style='color:white;'> </span><span style='color:#E6DB74;'>'($</span><span
+                        style='color:white;'>destinationLatitude</span><span style='color:#E6DB74;'>, $</span><span
+                        style='color:white;'>destinationLongitude</span><span style='color:#E6DB74;'>)'</span><span
+                        style='color:white;'>;</span></p>
+
+                <p><span style='color:white;'>&nbsp;</span></p>
+
+                <p><span style='color:#75715E;'>// Start Location
+                        Marker</span></p>
+
+                <p><span style='color:white;'>Marker startMarker </span><span style='color:#F92672;'>=</span><span
+                        style='color:white;'> Marker(</span></p>
+
+                <p><span style='color:white;'> markerId:
+                        MarkerId(startCoordinatesString),</span></p>
+
+                <p><span style='color:white;'> position:
+                        LatLng(startLatitude, startLongitude),</span></p>
+
+                <p><span style='color:white;'> infoWindow: InfoWindow(</span></p>
+
+                <p><span style='color:white;'> title: </span><span style='color:#E6DB74;'>'Start $</span><span
+                        style='color:white;'>startCoordinatesString</span><span style='color:#E6DB74;'>'</span><span
+                        style='color:white;'>,</span></p>
+
+                <p><span style='color:white;'> snippet:
+                        _startAddress,</span></p>
+
+                <p><span style='color:white;'> ),</span></p>
+
+                <p><span style='color:white;'> icon:
+                        BitmapDescriptor.defaultMarker,</span></p>
+
+                <p><span style='color:white;'>);</span></p>
+
+                <p><span style='color:white;'>&nbsp;</span></p>
+
+                <p><span style='color:#75715E;'>// Destination Location
+                        Marker</span></p>
+
+                <p><span style='color:white;'>Marker destinationMarker </span><span style='color:#F92672;'>=</span><span
+                        style='color:white;'> Marker(</span></p>
+
+                <p><span style='color:white;'> markerId:
+                        MarkerId(destinationCoordinatesString),</span></p>
+
+                <p><span style='color:white;'> position:
+                        LatLng(destinationLatitude, destinationLongitude),</span></p>
+
+                <p><span style='color:white;'> infoWindow: InfoWindow(</span></p>
+
+                <p><span style='color:white;'> title: </span><span style='color:#E6DB74;'>'Destination $</span><span
+                        style='font-family:
+"Courier New";color:white;'>destinationCoordinatesString</span><span style='color:#E6DB74;'>'</span><span
+                        style='color:white;'>,</span></p>
+
+                <p><span style='color:white;'> snippet:
+                        _destinationAddress,</span></p>
+
+                <p><span style='color:white;'> ),</span></p>
+
+                <p><span style='color:white;'> icon:
+                        BitmapDescriptor.defaultMarker,</span></p>
+
+                <p><span style='color:white;'>);</span></p>
+                <br>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Add the markers:
+                </p>
+            </li>
+            <div class="code">
+                <p><span style='color:#75715E;'>// Add the markers to
+                        the list</span></p>
+
+                <p><span style='color:white;'>markers.add(startMarker);</span></p>
+
+                <p><span style='color:white;'>markers.add(destinationMarker);</span></p>
+                <br>
+            </div>
+            <br>
+            <li>
+                <p>
+                    Display the markers on the map:
+                </p>
+            </li>
+            <div class="code">
+
+                <p><span style='color:#75715E;'>// Add the markers
+                        property to the widget</span></p>
+
+                <p><span style='color:white;'>GoogleMap(</span></p>
+
+                <p><span style='color:white;'> markers: Set</span><span style='color:#F92672;'>&lt;</span><span
+                        style='color:white;'>Marker</span><span style='color:#F92672;'>&gt;</span><span
+                        style='color:white;'>.from(markers),</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#75715E;'>// ...</span></p>
+
+                <p><span style='color:white;'>),</span></p>
+                <br>
+            </div>
+            <br>
+            <p>
+                If you run the app now, it will look like this:
+            </p>
+            <img src="https://blog.codemagic.io/uploads/2020/05/map_4.png" alt="">
+            <p>
+                You will notice that only one of the markers is visible, although you placed two of them, one at the
+                starting point and the other at the destination. <br><br>
+
+                So what’s happening here? <br><br>
+
+                Actually, both markers are added to the map, but only one of them is visible because the other one is
+                out of the view. If you zoom out a bit, you will notice the other one too. <br><br>
+
+                You can use the following code snippet to reorient the map view to accommodate both markers.
+            </p>
+            <br>
+            <div class="code">
+
+
+                <p><span style='color:#75715E;'>// Calculating to check
+                        that the position relative</span></p>
+
+                <p><span style='color:#75715E;'>// to the frame, and
+                        pan &amp; zoom the camera accordingly.</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> miny </span><span
+                        style='color:#F92672;'>=</span><span style='color:white;'> (startLatitude </span><span style='font-family:
+"Courier New";color:#F92672;'>&lt;=</span><span style='color:white;'> destinationLatitude)</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>?</span><span style='color:white;'>
+                        startLatitude</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>:</span><span style='color:white;'>
+                        destinationLatitude;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> minx </span><span
+                        style='color:#F92672;'>=</span><span style='color:white;'> (startLongitude </span><span style='font-family:
+"Courier New";color:#F92672;'>&lt;=</span><span style='color:white;'> destinationLongitude)</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>?</span><span style='color:white;'>
+                        startLongitude</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>:</span><span style='color:white;'>
+                        destinationLongitude;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> maxy </span><span
+                        style='color:#F92672;'>=</span><span style='color:white;'> (startLatitude </span><span style='font-family:
+"Courier New";color:#F92672;'>&lt;=</span><span style='color:white;'> destinationLatitude)</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>?</span><span style='color:white;'>
+                        destinationLatitude</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>:</span><span style='color:white;'>
+                        startLatitude;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> maxx </span><span
+                        style='color:#F92672;'>=</span><span style='color:white;'> (startLongitude </span><span style='font-family:
+"Courier New";color:#F92672;'>&lt;=</span><span style='color:white;'> destinationLongitude)</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>?</span><span style='color:white;'>
+                        destinationLongitude</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#F92672;'>:</span><span style='color:white;'>
+                        startLongitude;</span></p>
+
+                <p><span style='color:white;'>&nbsp;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> southWestLatitude </span><span
+                        style='
+color:#F92672;'>=</span><span style='color:white;'> miny;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> southWestLongitude </span><span
+                        style='
+color:#F92672;'>=</span><span style='color:white;'> minx;</span></p>
+
+                <p><span style='color:white;'>&nbsp;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> northEastLatitude </span><span
+                        style='
+color:#F92672;'>=</span><span style='color:white;'> maxy;</span></p>
+
+                <p><span style='color:#66D9EF;'>double</span><span style='color:white;'> northEastLongitude </span><span
+                        style='
+color:#F92672;'>=</span><span style='color:white;'> maxx;</span></p>
+
+                <p><span style='color:white;'>&nbsp;</span></p>
+
+                <p><span style='color:#75715E;'>// Accommodate the two
+                        locations within the</span></p>
+
+                <p><span style='color:#75715E;'>// camera view of the
+                        map</span></p>
+
+                <p><span style='color:white;'>mapController.animateCamera(</span></p>
+
+                <p><span style='color:white;'>
+                        CameraUpdate.newLatLngBounds(</span></p>
+
+                <p><span style='color:white;'> LatLngBounds(</span></p>
+
+                <p><span style='color:white;'> northeast:
+                        LatLng(northEastLatitude, northEastLongitude),</span></p>
+
+                <p><span style='color:white;'> southwest:
+                        LatLng(southWestLatitude, southWestLongitude),</span></p>
+
+                <p><span style='color:white;'> ),</span></p>
+
+                <p><span style='color:white;'> </span><span style='color:#AE81FF;'>100.0</span><span
+                        style='color:white;'>,</span></p>
+
+                <p><span style='color:white;'> ),</span></p>
+
+                <p><span style='color:white;'>);</span></p>
+                <br>
+            </div>
+            <br>
+            <img src="https://blog.codemagic.io/uploads/2020/05/map_5.png" alt="">
+        </ul>
+    </ol>
+    <br>
+    <p>
+        For More :
+    </p>
+    <ul>
+        <li>
+            <p>
+                Use Geocoding to translate coordinates into a place address and vice versa
+
+            </p>
+        </li>
+        <li>
+            <p>
+                Draw a route
+            </p>
+        </li>
+        <li>
+            <p>
+                Use Polylines for drawing route between two places
+
+            </p>
+        </li>
+        <li>
+            <p>
+                Calculate distance of that route
+            </p>
+        </li>
+    </ul>
+    <p>
+        <strong>Source :</strong>
+        <a href="https://blog.codemagic.io/creating-a-route-calculator-using-google-maps/">Medium</a>
+    </p>
+</div>

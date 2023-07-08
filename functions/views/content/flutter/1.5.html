@@ -1,0 +1,481 @@
+<div class="contenu">
+    <h1>
+        Analyzing First App
+    </h1>
+
+    <ul>
+        <li><p>The <strong>lib</strong> folder is where we will write the application code. <br></p></li>
+        <li><p>The default app have only <strong>main.dart</strong> file in the lib folder. <br></p></li>
+        <li><p>It contains 63 lines after deleting the comments (green lines starting with the double slashes) and able to render this application onto the screen. <br>   </p></li>
+        <li><p>For the moment, we will not understand all the code but as we mentioned in the introduction that Flutter uses widgets to build the UI, so we will try to identify some widgets. <br></p></li>
+    </ul>
+    <br>
+    <br>
+    <img class="ss" src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c1l5p2.png?alt=media&token=03f66019-1d27-41e7-9544-14a909e9475d" alt="screenshoot of the default flutter app">
+    <br> <br>
+    <div class="code">
+        
+<p><span style='
+color:#569CD6'>import</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#CE9178'>'package:flutter/material.dart'</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>void</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#DCDCAA'>main</span><span style='
+color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>runApp</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>MyApp</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>());</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>class</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#4EC9B0'>MyApp</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#569CD6'>extends</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#C586C0'>return</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>MaterialApp</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+style='color:#CE9178'>'Flutter&nbsp;Demo'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme:&nbsp;</span><span
+style='color:#4EC9B0'>ThemeData</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;primarySwatch:&nbsp;</span><span
+style='color:#4EC9B0'>Colors</span><span
+style='color:#D4D4D4'>.blue,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualDensity:&nbsp;</span><span
+style='color:#4EC9B0'>VisualDensity</span><span
+style='color:#D4D4D4'>.adaptivePlatformDensity,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home:&nbsp;</span><span
+style='color:#4EC9B0'>MyHomePage</span><span
+style='color:#D4D4D4'>(title:&nbsp;</span><span
+style='color:#CE9178'>'Flutter&nbsp;Demo&nbsp;Home&nbsp;Page'</span><span
+style='color:#D4D4D4'>),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>class</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#4EC9B0'>MyHomePage</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#569CD6'>extends</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#4EC9B0'>StatefulWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>MyHomePage</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>({</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Key</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>&nbsp;key,&nbsp;</span><span
+style='color:#569CD6'>this</span><span
+style='color:#D4D4D4'>.title})&nbsp;:&nbsp;</span><span
+style='color:#569CD6'>super</span><span
+style='color:#D4D4D4'>(key:&nbsp;key);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>final</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>String</span><span style='color:#D4D4D4'>&nbsp;title;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>_MyHomePageState</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>createState</span><span style='font-size:
+10.5pt;font-family:Consolas;color:#D4D4D4'>()&nbsp;=&gt;&nbsp;</span><span
+style='color:#4EC9B0'>_MyHomePageState</span><span
+style='color:#D4D4D4'>();</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#569CD6'>class</span><span style='
+color:#D4D4D4'>&nbsp;</span><span style='
+color:#4EC9B0'>_MyHomePageState</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>State</span><span style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>MyHomePage</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>int</span><span style='color:#D4D4D4'>&nbsp;_counter&nbsp;=&nbsp;</span><span
+style='color:#B5CEA8'>0</span><span
+style='color:#D4D4D4'>;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>_incrementCounter</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#DCDCAA'>setState</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(()&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_counter++;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;});</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span style='color:#D4D4D4'>(</span><span style='
+color:#4EC9B0'>BuildContext</span><span style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#C586C0'>return</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>&nbsp;</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Scaffold</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appBar:&nbsp;</span><span
+style='color:#4EC9B0'>AppBar</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+style='color:#4EC9B0'>Text</span><span
+style='color:#D4D4D4'>(widget.title),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;</span><span
+style='color:#4EC9B0'>Center</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+style='color:#4EC9B0'>Column</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainAxisAlignment:&nbsp;</span><span
+style='color:#4EC9B0'>MainAxisAlignment</span><span
+style='color:#D4D4D4'>.center,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;&lt;</span><span
+style='color:#4EC9B0'>Widget</span><span
+style='color:#D4D4D4'>&gt;[</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Text</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#CE9178'>'You&nbsp;have&nbsp;pushed&nbsp;the&nbsp;button&nbsp;this&nbsp;many&nbsp;times:'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Text</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#CE9178'>'$</span><span
+style='color:#9CDCFE'>_counter</span><span
+style='color:#CE9178'>'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+style='color:#4EC9B0'>Theme</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>of</span><span
+style='color:#D4D4D4'>(context).textTheme.headline4,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;floatingActionButton:&nbsp;</span><span
+style='color:#4EC9B0'>FloatingActionButton</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed:&nbsp;_incrementCounter,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip:&nbsp;</span><span
+style='color:#CE9178'>'Increment'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+style='color:#4EC9B0'>Icon</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#4EC9B0'>Icons</span><span
+style='color:#D4D4D4'>.add),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+<p><span style='
+color:#D4D4D4'>}</span></p>
+    </div>
+    <br>
+    <br>
+    <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c1l5p3.png?alt=media&token=9a8c30d6-8bc8-491c-832e-703161043596" alt="Flutter Default App widgets " >
+    <br>
+    <br>
+    <h5 class="step">1- Scaffold :</h5>
+    <p>
+        Implements the basic material design visual layout structure.
+    </p>
+    <div class="code">
+        <span style='font-size:10.5pt;
+font-family:Consolas;color:#4EC9B0'>Scaffold</span><span style='font-size:10.5pt;
+font-family:Consolas;color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......&nbsp;</span>
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+    </div>
+    <br>
+    <h5 class="step">2- AppBar : </h5>
+    <p>
+        App bars are typically used in the Scaffold.appBar property, which places the app bar as a fixed-height widget at the top of the screen. It displays the toolbar widgets, leading, title, and actions, above the bottom (if any). 
+    </p>
+    <div class="code">
+        <span
+style='color:#4EC9B0'>AppBar</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+style='color:#4EC9B0'>Text</span><span
+style='color:#D4D4D4'>(widget.title),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+    </div>
+    <br>
+    <h5 class="step">
+        3,6,7- Text : 
+    </h5>
+    <p>
+        The Text widget displays a string of text with single style. 
+    </p>
+    <div class="code">
+        <span
+style='color:#4EC9B0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</span><span
+style='color:#D4D4D4'>(widget.title)</span></p>
+
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;........&nbsp;</span><br><br>
+<span
+style='color:#4EC9B0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#CE9178'>'You&nbsp;have&nbsp;pushed&nbsp;the&nbsp;button&nbsp;this&nbsp;many&nbsp;times:'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#4EC9B0'>Text</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+style='color:#CE9178'>'$</span><span
+style='color:#9CDCFE'>_counter</span><span
+style='color:#CE9178'>'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;</span><span
+style='color:#4EC9B0'>Theme</span><span
+style='color:#D4D4D4'>.</span><span
+style='color:#DCDCAA'>of</span><span
+style='color:#D4D4D4'>(context).textTheme.headline4,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+    </div>
+    <br>
+    <h5 class="step">4- Center</h5>
+    <p>
+        A widget that centers its child within itself.
+    </p>
+    <div class="code">
+        
+<p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Center</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.......&nbsp;</span>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+    </div>
+    <h5 class="step">5- Column</h5>
+    <p>
+        A widget that displays its children in a vertical array.
+    </p>
+    <div class="code">
+        
+<p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+    style='color:#4EC9B0'>Column</span><span
+    style='color:#D4D4D4'>(</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainAxisAlignment:&nbsp;</span><span
+    style='color:#4EC9B0'>MainAxisAlignment</span><span
+    style='color:#D4D4D4'>.center,</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;&lt;</span><span
+    style='color:#4EC9B0'>Widget</span><span
+    style='color:#D4D4D4'>&gt;[</span></p>
+    
+  <span
+    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..............</span></p>
+    
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+    
+    <p><span style='
+    color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+    
+    </div>
+    <h5 class="step">8- FloatingActionButton</h5>
+    <p>
+        A floating action button is a circular icon button that hovers over content to promote a primary action in the application. Floating action buttons are most commonly used in the Scaffold.floatingActionButton field.
+    </p>
+    <div class="code">
+        <span
+style='color:#4EC9B0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FloatingActionButton</span><span
+style='color:#D4D4D4'>(</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed:&nbsp;_incrementCounter,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip:&nbsp;</span><span
+style='color:#CE9178'>'Increment'</span><span
+style='color:#D4D4D4'>,</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+style='color:#4EC9B0'>Icon</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#4EC9B0'>Icons</span><span
+style='color:#D4D4D4'>.add)</span></p>
+
+<p><span style='
+color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+    </div>
+    <h5 class="step">9- Icon</h5>
+    <p>
+        A graphical icon widget drawn with a glyph from a font described in an IconData such as material's predefined IconDatas in Icons.
+
+
+    </p>
+    <div class="code">
+        <span
+style='color:#4EC9B0'>Icon</span><span
+style='color:#D4D4D4'>(</span><span
+style='color:#4EC9B0'>Icons</span><span
+style='color:#D4D4D4'>.add)</span></p>
+    </div>
+</div>

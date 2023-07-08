@@ -1,0 +1,108 @@
+<div class="contenu">
+    <h1>
+        Sound null safety
+    </h1>
+    <p>
+        The Dart language now supports sound null safety! <br><br>
+
+        When you opt into null safety, types in your code are non-nullable by default, meaning that variables can’t
+        contain null unless you say they can. With null safety, your runtime null-dereference errors turn into edit-time
+        analysis errors. <br><br>
+
+        With null safety, all of the variables in the following code are non-nullable: <br>
+    </p>
+    <div style="background-color: #ffe2f4;width: 60%;">
+
+        <p><span style='font-size:10.0pt;font-family:Consolas;
+color:#6E6E70'>// In null-safe Dart, none of these can ever be null.</span></p>
+
+        <p><span style='font-size:10.0pt;font-family:Consolas;
+color:#BC0056'>var</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#660066'>i</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#222222'>=</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> 42</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#222222'>;</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#6E6E70'>// Inferred to be an int.</span></p>
+
+        <p><span style='font-size:10.0pt;font-family:Consolas;
+color:#BC0056'>String</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#660066'>name</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#222222'>=</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#660066'>getFileName</span><span style='font-size:10.0pt;font-family:
+Consolas;color:#222222'>();</span></p>
+
+        <p><span style='font-size:10.0pt;font-family:Consolas;
+color:#BC0056'>final</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#660066'>b</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#222222'>=</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#212529'> </span><span style='font-size:10.0pt;font-family:Consolas;
+color:#660066'>Foo</span><span style='font-size:10.0pt;font-family:Consolas;
+color:#222222'>();</span></p>
+        <br>
+    </div>
+
+    <br>
+    <p>
+        To indicate that a variable might have the value null, just add ? to its type declaration:
+    </p>
+
+    <div style="background-color: #ffe2f4;width: 60%;"><span class=kt><span
+                style='font-family:Consolas;color:#BC0056'>int</span></span></span><span class=o><span
+                style='font-family:Consolas;color:#222222'><span
+                    style='box-sizing: border-box'>?</span></span></span><code><span
+            style='font-family:Consolas;color:#212529'> </span><span style='box-sizing: border-box'></code><span
+            class=n><span style='font-family:Consolas;color:#660066'>aNullableInt</span></span></span><code><span
+            style='font-family:Consolas;color:#212529'> </span><span style='box-sizing: border-box'></code><span
+            class=o><span style='font-family:Consolas;color:#222222'>=</span></span></span><code><span
+            style='font-family:Consolas;color:#212529'> </span><span style='box-sizing: border-box'></code><span
+            class=kc><span style='font-family:Consolas;color:#BC0056'>null</span></span></span><span class=o><span
+                style='font-family:Consolas;color:#222222'><span style='box-sizing: border-box'>;</span></span></span>
+        </pre>
+        <br>
+    </div>
+    <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iYhOU9AuaFs" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <br>
+    <h2>
+        Null safety principles
+    </h2>
+    <p>
+        Dart null safety support is based on the following three core design principles:
+    </p>
+    <ol>
+        <li class="step">
+            Non-nullable by default.
+        </li>
+        <p>
+            Unless you explicitly tell Dart that a variable can be null, it’s considered non-nullable. This default was
+            chosen after research found that non-null was by far the most common choice in APIs.
+        </p>
+        <li class="step">
+            Incrementally adoptable.
+        </li>
+        <p>
+            You choose what to migrate to null safety, and when. You can migrate incrementally, mixing null-safe and
+            non-null-safe code in the same project. We provide tools to help you with the migration.
+        </p>
+        <li class="step">
+            Fully sound.
+        </li>
+        <p>
+            Dart’s null safety is sound, which enables compiler optimizations. If the type system determines that
+            something isn’t null, then that thing can never be null. Once you migrate your whole project and its
+            dependencies to null safety, you reap the full benefits of soundness — not only fewer bugs, but smaller
+            binaries and faster execution.
+
+        </p>
+    </ol>
+</div>

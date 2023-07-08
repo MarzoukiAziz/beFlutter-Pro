@@ -1,0 +1,167 @@
+<div class="contenu">
+    <h1>
+        Widget Tree and Element Tree
+    </h1>
+    <p>
+        Now, as the user interface contains several widgets, those several widgets are combined to form a widget tree.
+        Now, to each widget that the user creates, an element is created simultaneously by the flutter framework, so now
+        these elements when combined will be called an element tree. <br><br>
+
+        So that means that the widget tree has all the widget configuration and the element tree has all rendered
+        widgets on the screen. There is one more tree named render tree, but the user doesn’t have to interact with it.
+        Render tree is basically a low-level layout, painting system that inherits from the render objects. You won’t
+        need to inherit directly to the render tree, and you will be interacting with the widgets.
+    </p>
+    <ol>
+        <li class="step">
+            STATELESS WIDGET AND ELEMENT TREE:
+        </li>
+        <p>
+            Stateless widget is the widget that is used by the user to create a non-dynamic application. A stateless
+            widget is formed by a combination of several small widgets. Each widget that is created here will have a
+            corresponding stateless element. So several widgets combined under stateless widgets will be called
+            stateless widget trees and the corresponding elements will make an element tree. Flutter uses the
+            createElement method to create the elements. Each element created will have a unique id assigned by the
+            flutter back-end.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>TextList</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#569CD6'>extends</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>StatelessWidget</span><span style='color:#D4D4D4'>&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>@override</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>Widget</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>build</span><span
+                    style='color:#D4D4D4'>(</span><span style='color:#4EC9B0'>BuildContext</span><span
+                    style='color:#D4D4D4'>&nbsp;context)&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Row</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;&lt;</span><span
+                    style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(...),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(...),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;}</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+        </div>
+        <br>
+        <p>
+            Here in this code, we have created a simple class called TextList which extends the stateless widget, which
+            contains several other widgets like row, icon, and text. For each widget in this widget tree, a stateless
+            element is created and the combination of these elements makes it an element tree.
+
+        </p>
+        <br>
+        <li class="step">
+            STATEFUL WIDGET AND ELEMENT TREE:
+        </li>
+        <p>
+            A stateful widget is a widget that is used by the user to create a dynamic application. The stateful widget
+            also works similar to the stateless widget, but here when the framework calls the createElement method, a
+            state object is created. The reason behind creating the state object is that as this has to be a dynamic
+            application the states would change while keeping the previous state unharmed and enhancing the performance.
+            <br><br>
+
+            We make use of the setState method to set the new data values or to update the state objects.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#569CD6'>class</span><span style='color:#D4D4D4'>&nbsp;</span><span
+                    style='color:#4EC9B0'>_TextListState</span><span
+                    style='color:#D4D4D4'>&nbsp;extend&nbsp;</span><span style='color:#4EC9B0'>State</span><span
+                    style='color:#D4D4D4'>&lt;</span><span style='color:#4EC9B0'>TextList</span><span
+                    style='color:#D4D4D4'>&gt;&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#4EC9B0'>String</span><span
+                    style='color:#D4D4D4'>&nbsp;note&nbsp;=&nbsp;</span><span style='font-size:
+10.5pt;color:#CE9178'>'Trip&nbsp;A'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#569CD6'>void</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#DCDCAA'>_onPressed</span><span
+                    style='color:#D4D4D4'>()&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#DCDCAA'>setState</span><span style='color:#D4D4D4'>(&nbsp;()&nbsp;{</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;note&nbsp;=&nbsp;</span><span
+                    style='color:#CE9178'>'Trip&nbsp;B'</span><span style='color:#D4D4D4'>;</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;});</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span></p>
+
+            <p><span style='color:#569CD6'>@override</span></p>
+
+            <p><span style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&nbsp;build&nbsp;(</span><span
+                    style='color:#4EC9B0'>BuildContext</span><span style='font-size:
+10.5pt;color:#D4D4D4'>&nbsp;xontext){</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;</span><span style='color:#C586C0'>return</span><span
+                    style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Column</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;children&nbsp;:&nbsp;&lt;</span><span
+                    style='color:#4EC9B0'>Widget</span><span style='color:#D4D4D4'>&gt;&nbsp;[</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(....);</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'$</span><span style='color:#9CDCFE'>note</span><span
+                    style='color:#CE9178'>'</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>FlatButton</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onPressed&nbsp;:&nbsp;_onPressed,</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;);</span></p>
+
+            <p><span style='color:#D4D4D4'>}</span></p>
+
+        </div>
+        <br>
+        <p>
+            Here in this code, we have created _TextListState class that extends the state TextList. We have used the
+            setState method because we have to keep the initial state in the element tree even after changing the state.
+        </p>
+        <br>
+        <br><br>
+        <p>
+            source : <a href="https://www.geeksforgeeks.org/flutter-widget-tree-and-element-tree/">geeksforgeeks</a>
+        </p>
+    </ol>
+</div>

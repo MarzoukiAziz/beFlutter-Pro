@@ -1,0 +1,978 @@
+<div class="contenu">
+    <h1>
+        App1 : Elon Musk’s Resume - Learning New Widgets
+    </h1>
+
+    <div class="Toc">
+        <h3>
+            Table Of Content :
+        </h3>
+        <ol>
+            <li><a href="#w1">Scaffold</a></li>
+            <li><a href="#w2">AppBar</a></li>
+            <li><a href="#w3">Container</a></li>
+            <li><a href="#w4">Text</a></li>
+            <li><a href="#w5">Image</a></li>
+            <li><a href="#w6">Icon</a></li>
+            <li><a href="#w7">Column</a></li>
+            <li><a href="#w8">Row</a></li>
+            <li><a href="#w9">SizedBox</a></li>
+            <li><a href="#w10">SingleChildScrollView</a></li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <ol>
+        <li id="w1" class="step">Scaffold</li>
+        <p>Scaffold is a class in flutter which provides many widgets or we can say APIs like Drawer,
+            FloatingActionButton, AppBar etc. Scaffold will expand or occupy the whole device
+            screen. It will occupy the available space. Scaffold will provide a framework to implement the basic
+            material design layout of the application.</p>
+        <h3 class="note">
+            Some properties of Scaffold Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    appBar :
+                </strong>
+                PreferredSizeWidget (AppBar)
+            </li>
+            <p>
+                It displays a horizontal bar which mainly placed at the top of the Scaffold. appBar uses the widget
+                AppBar which has its own properties like elevation, title, brightness, etc.
+            </p>
+            <li>
+                <strong>
+                    body :
+                </strong>
+                Widget
+            </li>
+            <p>
+                It will display the main or primary content in the Scaffold. It is below the appBar and under the
+                floatingActionButton. The widgets inside the body are at the left-corner by default.
+            </p>
+            <li>
+                <strong>
+                    backgroundColor :
+                </strong>
+                Color
+            </li>
+            <p>
+                Used to set the color of the whole Scaffold widget.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#4EC9B0'>Scaffold</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appBar:&nbsp;</span><span
+                    style='color:#4EC9B0'>AppBar</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;AppBar&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;</span><span
+                    style='color:#4EC9B0'>Center</span><span style='color:#D4D4D4'>(child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>'Content'</span><span style='color:#D4D4D4'>),),</span></p>
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;);</span></p>
+            <br>
+        </div>
+        <br>
+        <img class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p1.png?alt=media&token=7fbc6802-478e-40f3-8bcb-d9eccb4ce27f"
+            alt="Scaffold Example">
+        <br>
+        <h3 class="note">Without Scaffold :</h3>
+        <img class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p2.png?alt=media&token=01e01dc6-f75b-4eed-b7d7-595eb7101d1c"
+            alt="Without Scaffold Image">
+        <br>
+        <li id="w2" class="step">AppBar</li>
+        <p>
+            AppBar is usually the topmost component of the app (or sometimes the bottom-most), it contains the toolbar
+            and some other common action buttons. As all the components in a flutter application is a widget or a
+            combination of widgets. So AppBar is also a built-in class or widget in flutter which gives the
+            functionality of the AppBar out of the box.
+        </p>
+        <h3 class="note">
+            Some properties of AppBar Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    title :
+                </strong>
+                Widget
+            </li>
+            <p>
+                This property usually takes in the main widget as a parameter to be displayed in the AppBar.
+            </p>
+            <li>
+                <strong>
+                    backgroundColor :
+                </strong>
+                Color
+            </li>
+            <p>
+                This property is used to add colors to the background of the Appbar.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p><br>
+        <li id="w3" class="step">Container</li>
+        <p>
+            A convenience widget that combines common painting, positioning, and sizing widgets.
+            A Container class can be used to store one or more widgets and position it on the screen according to our
+            convenience. Basically a container is like a box to store contents.
+        </p>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/c1xLMaTUWCY" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <br>
+        <h3 class="note">
+            Some properties of Container Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    child :
+                </strong>
+                Widget
+            </li>
+            <p>
+                The child Widget contained by the container.
+            </p>
+            <li>
+                <strong>
+                    height / width / margin / padding :
+                </strong>
+            </li>
+            <p>
+                Check <a href="https://flutter-pro.com/Flutter/2/4">Box Model </a>.
+            </p>
+            <li>
+                <strong>
+                    alignment :
+                </strong>
+                Alignment
+            </li>
+            <p>
+                Align the child within the container. We can align in different ways: bottom, bottom center, left,
+                right, etc.
+            </p>
+            <li>
+                <strong>
+                    decoration :
+                </strong>
+                Decoration (BoxDecoration)
+            </li>
+            <p>
+                The decoration property is used to decorate the box(e.g. give a border). This paints behind the child.
+                Whereas foregroundDecoration paints in front of a child. Let us give a border to the container. But,
+                both color and border color cannot be given.
+            </p>
+            <li>
+                <strong>
+                    color :
+                </strong>
+                Color
+            </li>
+            <p>
+                The color to paint behind the child.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p><br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;</span><span style='color:#4EC9B0'>Container</span><span
+                    style='color:#D4D4D4'>(</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style='color:#4EC9B0'>Text</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#CE9178'>&quot;Content&quot;</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style='color:#B5CEA8'>250</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>150</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>25</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>only</span><span style='color:#D4D4D4'>(top:&nbsp;</span><span
+                    style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alignment:&nbsp;</span><span
+                    style='color:#4EC9B0'>Alignment</span><span style='color:#D4D4D4'>.center,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoration:&nbsp;</span><span
+                    style='color:#4EC9B0'>BoxDecoration</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;</span><span
+                    style='color:#4EC9B0'>Border</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span
+                    style='color:#D4D4D4'>.blueAccent,&nbsp;width:&nbsp;</span><span style='color:#B5CEA8'>3</span><span
+                    style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.yellow,</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+        </div>
+        <br>
+        <img class="ss"
+            src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p3.png?alt=media&token=00fdd693-09bf-4790-88e8-45a8d87a1172"
+            alt="Flutter Container Example">
+        <br>
+        <li id="w4" class="step">Text</li>
+        <p>
+            The Text widget displays a string of text with single style. The string might break across multiple lines or
+            might all be displayed on the same line depending on the layout constraints.
+        </p>
+        <h3 class="note">
+            Some properties of Text Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    data :
+                </strong>
+                String
+            </li>
+            <p>
+                The text to display.
+            </p>
+            <li>
+                <strong>
+                    textAlign :
+                </strong>
+                TextAlign
+            </li>
+            <p>
+                How the text should be aligned horizontally.
+            </p>
+            <li>
+                <strong>
+                    style :
+                </strong>
+                TextStyle
+            </li>
+            <p>
+                The style to use for this text.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span lang=FR
+                    style=' color:#4EC9B0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</span><span
+                    lang=FR style=' color:#D4D4D4'>(</span></p>
+
+            <p><span lang=FR
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    lang=FR style=' color:#CE9178'>&quot;Text&nbsp;Content&quot;</span><span lang=FR
+                    style=' color:#D4D4D4'>,</span></p>
+
+            <p><span lang=FR
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textAlign:&nbsp;</span><span
+                    lang=FR style=' color:#4EC9B0'>TextAlign</span><span lang=FR style=' color:#D4D4D4'>.center,</span>
+            </p>
+
+            <p><span lang=FR
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#D4D4D4'>style:&nbsp;</span><span style=' color:#4EC9B0'>TextStyle</span><span
+                    style=' color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style=' color:#4EC9B0'>Color</span><span style=' color:#D4D4D4'>.</span><span
+                    style=' color:#DCDCAA'>fromRGBO</span><span style=' color:#D4D4D4'>(</span><span
+                    style=' color:#B5CEA8'>100</span><span style=' color:#D4D4D4'>,&nbsp;</span><span
+                    style=' color:#B5CEA8'>100</span><span style=' color:#D4D4D4'>,&nbsp;</span><span
+                    style=' color:#B5CEA8'>215</span><span style=' color:#D4D4D4'>,&nbsp;</span><span
+                    style=' color:#B5CEA8'>0.9</span><span style=' color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontSize:&nbsp;</span><span
+                    style=' color:#B5CEA8'>25</span><span style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontStyle:&nbsp;</span><span
+                    style=' color:#4EC9B0'>FontStyle</span><span style=' color:#D4D4D4'>.italic,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fontWeight:&nbsp;</span><span
+                    style=' color:#4EC9B0'>FontWeight</span><span style=' color:#D4D4D4'>.bold,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;letterSpacing:&nbsp;</span><span
+                    style=' color:#B5CEA8'>10</span><span style=' color:#D4D4D4'>),</span></p>
+
+            <p><span style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span></p>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p4.jpg?alt=media&token=86603b73-ef1f-4d2e-bc09-587deece9271"
+            alt="Flutter Text Example" class="ss">
+
+        <br>
+        <li id="w5" class="step">Image</li>
+        <p>
+            A widget that displays an image.
+        </p>
+        <h3 style="color: rgb(66, 38, 168);">First Method : Image.network( address )
+        </h3>
+        <p>
+            With the image address, the image can be added to the code.
+        </p>
+        <h3 class="note">
+            Some properties of Image Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    alignment :
+                </strong>
+                Alignment
+            </li>
+            <p>
+                How to align the image within its bounds. </p>
+            <li>
+                <strong>
+                    height / width
+                </strong>
+            </li>
+            <br>
+            <li>
+                <strong>
+                    fit :
+                </strong>
+                BoxFit
+            </li>
+            <p>
+                How to inscribe the image into the space allocated during layout. (contain / cover / fill ... check <a
+                    href="https://www.flutter-pro.com">BoxFit</a>)
+            </p>
+        </ol>
+
+        <p style="color: green;font-weight: bold;">
+            We will see more methods and properties in the next apps.
+        </p>
+
+        <br>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Image</span><span style=' color:#D4D4D4'>.</span><span
+                    style=' color:#DCDCAA'>network</span><span style=' color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#CE9178'>&quot;https://downloadwap.com/thumbs2/wallpapers/p2/2019/fcelebs/48/34caf5ef13647831.jpg&quot;</span><span
+                    style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style=' color:#B5CEA8'>300</span><span style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style=' color:#B5CEA8'>200</span><span style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;</span><span
+                    style=' color:#4EC9B0'>BoxFit</span><span style=' color:#D4D4D4'>.contain,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p5.jpg?alt=media&token=cdb8793f-112f-48d8-ac49-c52126a5f3e2"
+            alt="Flutter Network Image Example" class="ss">
+
+
+
+        <li id="w6" class="step">Icon</li>
+        <p>
+            Icon class in Flutter is used to show specific icons in our app. Instead of creating an image for our icon,
+            we can simply use the Icon class for inserting an icon in our app.
+        </p>
+        <h3 class="note">
+            Some properties of Icon Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    icon :
+                </strong>
+                IconData (Icons)
+            </li>
+            <p>
+                The icon to display. </p>
+            <li>
+                <strong>
+                    color :
+                </strong>
+                Color
+            </li>
+            <p>
+                The color to use when drawing the icon. </p>
+
+            <li>
+                <strong>
+                    size :
+                </strong>
+                Double
+            </li>
+            <p>
+                The size of the icon in logical pixels.
+            </p>
+        </ol>
+        <h3 class="note">
+            Example
+        </h3>
+        <div class="code">
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icon</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Icons</span><span style='color:#D4D4D4'>.email,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.red,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;</span><span
+                    style='color:#B5CEA8'>250</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p6.jpg?alt=media&token=457298a1-5407-4310-b666-6c444dbd1dd3"
+            alt="Flutter Icon Example" class="ss">
+        <br>
+
+
+
+        <li id="w7" class="step">Column</li>
+        <p>
+            A widget that displays its children in a vertical array. <br>
+            The Column widget does not scroll (and in general it is considered an error to have more children in a
+            Column than will fit in the available room).
+        </p>
+        <br>
+        <h3 class="note">
+            Some Properties of Column Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    children :
+                </strong>
+                List&lt;Widget&gt;
+            </li>
+            <p>
+                The list of widgets to display inside the the Column widget.
+            </p>
+            <li>
+                <strong>
+                    crossAxisAlignment
+                </strong>
+                CrossAxisAlignment
+            </li>
+            <p>
+                How the children should be placed along the cross axis.
+            </p>
+            <li>
+                <strong>
+                    mainAxisAlignment
+                </strong>
+                MainAxisAlignment
+            </li>
+            <p>
+                How the children should be placed along the main axis.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Column</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;[</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style='color:#B5CEA8'>200</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.red,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style='color:#B5CEA8'>100</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.orange,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style='color:#B5CEA8'>50</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.blue,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style='color:#B5CEA8'>200</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.pink,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p7.png?alt=media&token=438aac49-0345-4bd0-a678-3da05d034071"
+            alt="Fluttter Column Example" class="ss">
+
+
+
+
+
+
+
+
+        <li id="w8" class="step">Row</li>
+        <p>
+            A widget that displays its children in a horizontal array. <br>
+            The Row widget does not scroll (and in general it is considered an error to have more children in a Row than
+            will fit in the available room).
+        </p>
+        <br>
+        <h3 class="note">
+            Some Properties of Column Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    children :
+                </strong>
+                List&lt;Widget&gt;
+            </li>
+            <p>
+                The list of widgets to display inside the the row widget.
+            </p>
+            <li>
+                <strong>
+                    crossAxisAlignment
+                </strong>
+                CrossAxisAlignment
+            </li>
+            <p>
+                How the children should be placed along the cross axis.
+            </p>
+            <li>
+                <strong>
+                    mainAxisAlignment
+                </strong>
+                MainAxisAlignment
+            </li>
+            <p>
+                How the children should be placed along the main axis.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Row</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;[</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>80</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.red,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>40</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.orange,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>20</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.blue,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style='color:#4EC9B0'>Container</span><span style='color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style='color:#B5CEA8'>60</span><span style='color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;</span><span
+                    style='color:#4EC9B0'>Colors</span><span style='color:#D4D4D4'>.pink,</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;</span><span
+                    style='color:#4EC9B0'>EdgeInsets</span><span style='color:#D4D4D4'>.</span><span
+                    style='color:#DCDCAA'>all</span><span style='color:#D4D4D4'>(</span><span
+                    style='color:#B5CEA8'>10</span><span style='color:#D4D4D4'>),</span></p>
+
+            <p><span
+                    style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</span>
+            </p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+            <p><span style='color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+        <br>
+        <img src="https://firebasestorage.googleapis.com/v0/b/flutter-pro-51469.appspot.com/o/c3l2p8.png?alt=media&token=062d14e0-7f4e-442f-a63b-98c6816e55ff"
+            alt="Fluttter Row Example" class="ss">
+
+
+
+        <li id="w9" class="step">SizedBox</li>
+        <p>
+            A box with a specified size.
+            If not given a child, SizedBox will try to size itself as close to the specified height and width as
+            possible given the parent's constraints. If height or width is null or unspecified, it will be treated as
+            zero.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EHPu_DzRfqA" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <br>
+        <h3 class="note">
+            Properties of SizedBox Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    child :
+                </strong>
+                Widget
+            </li>
+            <p>
+                The child Widget contained by the SizedBox.
+            </p>
+            <li>
+                <strong>
+                    height / width
+                </strong>
+            </li>
+        </ol>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>SizedBox</span><span style=' color:#D4D4D4'>(</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;</span><span
+                    style=' color:#B5CEA8'>200.0</span><span style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;</span><span
+                    style=' color:#B5CEA8'>300.0</span><span style=' color:#D4D4D4'>,</span></p>
+
+            <p><span
+                    style=' color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span>
+            </p>
+
+            <br>
+        </div>
+        <br>
+
+
+
+
+
+
+
+
+
+        <li id="w10" class="step">SingleChildScrollView</li>
+        <p>
+            A box in which a single widget can be scrolled. <br>
+
+            This widget is useful when you have a single box that will normally be entirely visible, for example a clock
+            face in a time picker, but you need to make sure it can be scrolled if the container gets too small in one
+            axis (the scroll direction).
+        </p>
+        <h3 class="note">
+            Some Properties of SingleChildScrollView Class:
+        </h3>
+        <ol>
+            <li>
+                <strong>
+                    child :
+                </strong>
+                Widget
+            </li>
+            <p>
+                The child Widget contained by the SingleChildScrollView.
+            </p>
+        </ol>
+        <p style="color: green;font-weight: bold;">
+            We will see more properties in the next apps.
+        </p>
+        <br>
+        <h3 class="note">
+            Example :
+        </h3>
+        <div class="code">
+
+            <p style=' background:#1E1E1E'><span style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>SingleChildScrollView</span><span style=' color:#D4D4D4'>(</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;</span><span
+                    style=' color:#4EC9B0'>Column</span><span style=' color:#D4D4D4'>(children:&nbsp;[</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Icon</span><span style=' color:#D4D4D4'>(...)</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Text</span><span style=' color:#D4D4D4'>(....),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Image</span><span style=' color:#D4D4D4'>(...),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Icon</span><span style=' color:#D4D4D4'>(...),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Text</span><span style=' color:#D4D4D4'>(....),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Image</span><span style=' color:#D4D4D4'>(...),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Icon</span><span style=' color:#D4D4D4'>(...),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Text</span><span style=' color:#D4D4D4'>(....),</span></p>
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                    style=' color:#4EC9B0'>Image</span><span style=' color:#D4D4D4'>(...),</span></p>
+
+
+
+            <p style=' background:#1E1E1E'><span
+                    style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],),</span></p>
+
+            <p style=' background:#1E1E1E'><span style=' 
+            color:#D4D4D4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></p>
+            <br>
+        </div>
+    </ol>
+</div>
